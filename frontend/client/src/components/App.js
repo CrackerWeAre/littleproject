@@ -9,19 +9,17 @@ import AirView from './air/AirView';
 function App() {
   return (
     <div className="ui container">
-            
-            <Router history={history} >
-                <div>
-                <Header></Header>
-                <Switch>
-                    <Route path="/" exact component = {Homepage}></Route>
-                    <Route path="/air" exact component={AirList}></Route>
-                    <Route path="/air/show/:id" exact component={AirView}></Route>
-                </Switch>
-                </div>
-            </Router>
-
-        </div>
+      <Router history={history} >
+          <div>
+          <Header></Header>
+            <Switch>
+                <Route path="/" exact component = {Homepage}></Route>
+                <Route path="/air" exact component={AirList}></Route>
+                <Route path="/air/show/:id" exact component={AirView}></Route>
+            </Switch>
+          </div>
+      </Router>
+    </div>
   );
 }
 

@@ -47,7 +47,7 @@ export const write = async ctx => {
 };
 
 export const list = async ctx => {
-
+    console.log(ctx.request)
     const page = parseInt(ctx.query.page || '1', 10);
 
     if (page < 1) {

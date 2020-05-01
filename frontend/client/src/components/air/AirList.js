@@ -1,21 +1,46 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 import {Link} from 'react-router-dom'
 import { fetchAirs } from '../../actions'
-import '../../css/main.css'
 
-function AirList() {
-    return (
-        <div>
+
+class AirList extends React.Component{
+
+
+    componentDidMount(){
+        this.props.fetchAirs();
+        
+    }
+
+    AirList() {
+        return this.props.airs[0].map(data => {
+            console.log(this.props)
+            return (
+                <div>
+                    {data.channelId}
+                </div>
+            )
+        })
+        
+    }
+
+    render(){
+        return (
+            <div>
             
-        </div>
-    )
+            {this.AirList()}
+            </div>
+        )
+        
+    }
 }
+
 
 const mapStateToProps = state =>{
     return {
         airs: Object.values(state.airs), 
     }
 }
+
 export default connect(mapStateToProps, { fetchAirs })(AirList);

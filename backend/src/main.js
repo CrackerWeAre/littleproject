@@ -5,7 +5,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
-
+import cors from '@koa/cors';
 import api from './api';
 
 const { PORT, MONGO_URI } = process.env
@@ -25,7 +25,7 @@ const router = new Router();
 router.use('/api', api.routes());
 
 app.use(bodyParser());
-
+app.use(cors());
 app.use(router.routes()).use(router.allowedMethods());
 
 
