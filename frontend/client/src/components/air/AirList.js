@@ -3,22 +3,21 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import {Link} from 'react-router-dom'
 import { fetchAirs } from '../../actions'
-
-
+import AirView from './AirView'
+import '../../style/AirList.css'
 class AirList extends React.Component{
 
 
     componentDidMount(){
         this.props.fetchAirs();
-        
     }
 
     AirList() {
         return this.props.airs[0].map(data => {
-            console.log(this.props)
+
             return (
-                <div>
-                    {data.channelId}
+                <div className='item' key={data._id}>
+                    <AirView props={data}></AirView>
                 </div>
             )
         })
@@ -27,9 +26,8 @@ class AirList extends React.Component{
 
     render(){
         return (
-            <div>
-            
-            {this.AirList()}
+            <div className="airlist_container">
+                {this.AirList()}
             </div>
         )
         

@@ -1,5 +1,6 @@
 import airs from '../apis/airs'
 import history from '../history'
+import axios from 'axios'
 
 import {        
     FETCH_AIRS,
@@ -9,7 +10,8 @@ import {
 
 
 export const fetchAirs = () => async dispatch => {
-    const response = await airs.get('/api/posts')
+    const response = await airs.get(`/getList`)
+    console.log(response)
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 

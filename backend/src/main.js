@@ -12,7 +12,7 @@ const { PORT, MONGO_URI } = process.env
 
 
 mongoose.connect(
-    MONGO_URI, {useNewUrlParser: true, useFindAndModify: false}).then(() =>{
+    'mongodb://admin:pwdtlchd50wh@49.247.134.77:27017/meerkatonair?authSource=admin&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false', {useNewUrlParser: true, useFindAndModify: false}).then(() =>{
         console.log('Connected to MongoDB');
         }).catch(e =>{
             console.log(e)

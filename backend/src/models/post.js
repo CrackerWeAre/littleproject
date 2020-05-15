@@ -21,5 +21,5 @@ const PostSchema = new Schema({
 });
 
 
-const Post = mongoose.model('Post', PostSchema);
+const Post = mongoose.model('live_list', PostSchema);
 export default Post;
