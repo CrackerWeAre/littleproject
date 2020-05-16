@@ -10,7 +10,6 @@ const AirView = ({props}) => {
 
     return (
         <div className="card">
-            
             <a href={liveDataHref}>
                 <div><img src={imgDataSrc} alt="LiveImg"></img></div>
             </a>

@@ -8,18 +8,21 @@ const Header = () => {
     return (
         <Fragment>
             <header>
-            <img className="logo" src={Logo} alt="logo"></img>
+                <Link to=".">
+                    <img className="logo" src={Logo} alt="logo"></img>
+                </Link>
                 <nav>
                     <ul className="nav__links">
                         <li>
-                            <Link to="/air" >Meerkat On Air</Link>
+                            <Link to="." >Meerkat On Air</Link>
                         </li>
                         <li>
                             <Link to="/admin">Admin</Link>
                         </li>
                     </ul>
+                
+                <a className="cta" href="/login"><button>Login</button></a>
                 </nav>
-                <a className="cta" href="#"><button>Login</button></a>
             </header>
         </Fragment>
     )
