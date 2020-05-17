@@ -3,13 +3,14 @@
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     width: 100%;
-    max-height: 200px;
+    height: 250px;
 }
   
   /* Add rounded corners to the top left and the top right corner of the image */
 img {
     border-radius: 5px 5px 0 0;
-    width: 100%;
+    width : 100%;
+    max-height : 140px;
 }
 
 .card:hover {
@@ -24,3 +25,18 @@ img {
     overflow: hidden;
 }
 
+h4 {
+  display:-webkit-box;
+  height: 30px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 2;
+}
+
+p {
+  display:-webkit-box;
+  height: 20px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 1;
+}
