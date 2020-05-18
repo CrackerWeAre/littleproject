@@ -3,3 +3,7 @@
     min-height : 800px;
     margin: auto;
 }
+
+body {
+    height: auto;
+}

@@ -27,11 +27,13 @@ img {
 
 h4 {
   display:-webkit-box;
-  height: 30px;
+  height: 40px;
   overflow:hidden;
   text-overflow:ellipsis;
   -webkit-line-clamp: 2;
+  
 }
+
 
 p {
   display:-webkit-box;
@@ -40,3 +42,4 @@ p {
   text-overflow:ellipsis;
   -webkit-line-clamp: 1;
 }
+
