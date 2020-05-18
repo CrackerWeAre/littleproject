@@ -6,7 +6,7 @@ import AdminForm from './AdminForm'
 class AdminCreate extends React.Component{
 
     onSubmit = (formValues) => {
-        this.props.createStream(formValues)
+        this.props.createStream(formValues, this.props.token)
     }
 
     render(){
@@ -19,5 +19,11 @@ class AdminCreate extends React.Component{
     }
 }
 
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        token: state.token
+    }
+}
 
-export default connect(null, {createStream})(AdminCreate)
+export default connect(mapStateToProps, {createStream})(AdminCreate)

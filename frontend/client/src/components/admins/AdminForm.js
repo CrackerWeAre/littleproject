@@ -43,12 +43,14 @@ class StreamForm extends React.Component{
             
         )
     }
-
-    onSubmit = (formValues) => {
+    
+    onSubmit = (formValues, token) => {
         this.props.onSubmit(formValues)
     }
 
     render(){
+        console.log()
+        const token = "1"
         return (
             <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             

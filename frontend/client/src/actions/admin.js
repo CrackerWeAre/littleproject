@@ -40,12 +40,20 @@ export const deleteStreamer = (_id) => async dispatch => {
     history.push('/admin')
 }
 
-export const createStream = (formValues) => async (dispatch) => {
+export const createStream = (formValues, token) => async (dispatch) => {
     const params = new URLSearchParams();
     params.append('platform',formValues.platform);
     params.append('channel',formValues.channel);
     params.append('channelID',formValues.channelID);
-    const response = await airs.post('/createStreamer', params)
+
+    const defaultOptions = {
+        headers: {
+            Authorization: token ? `bearer ${token}` : '',
+        },
+    };
+    
+    const response = await airs.post('/createStreamer', params, { ...defaultOptions })
+    
     dispatch({ type: CREATE_STREAMER, payload: response.data})
     history.push('/admin')
 }

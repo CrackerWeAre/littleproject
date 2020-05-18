@@ -8,6 +8,7 @@ export default (state = {}, action) => {
         case FETCH_STREAMER :
             return {...state, ..._.mapKeys(action.payload, '_id')};
         case CREATE_STREAMER : 
+            console.log(action.payload)
             return {...state, [action.payload.id]:action.payload }; 
         case EDIT_STREAMER : 
             return {...state, [action.payload.id]:action.payload }; 
