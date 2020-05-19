@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import { createStream } from '../../actions/admin'
 import AdminForm from './AdminForm'
 
 class AdminCreate extends React.Component{
 
+
+    
     onSubmit = (formValues) => {
         this.props.createStream(formValues, this.props.token)
     }
@@ -20,9 +22,8 @@ class AdminCreate extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
-        token: state.token
+        token: state.users.token
     }
 }
 

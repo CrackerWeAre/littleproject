@@ -24,18 +24,28 @@ export const fetchStreamer = (_id) => async dispatch => {
 }
 
 
-export const editStreamer = (_id, formValues) => async dispatch => {
+export const editStreamer = (_id, formValues, token) => async dispatch => {
     const params = new URLSearchParams();
     params.append('platform',formValues.platform);
     params.append('channel',formValues.channel);
     params.append('channelID',formValues.channelID);
-    const response = await airs.post(`/updateStreamer/${_id}`, params)
+    const defaultOptions = {
+        headers: {
+            Authorization: token ? `Bearer ${token}` : '',
+        },
+    };
+    const response = await airs.post(`/updateStreamer/${_id}`, params, {...defaultOptions})
     dispatch({ type: EDIT_STREAMER, payload: response.data})
     history.push('/admin')
 }
 
-export const deleteStreamer = (_id) => async dispatch => {
-    await airs.get(`/deleteStreamer/${_id}`)
+export const deleteStreamer = (_id, token) => async dispatch => {
+    const defaultOptions = {
+        headers: {
+            Authorization: token ? `Bearer ${token}` : '',
+        },
+    };
+    await airs.get(`/deleteStreamer/${_id}`, {...defaultOptions})
     dispatch({ type: DELETE_STREAMER, payload: _id})
     history.push('/admin')
 }
@@ -48,7 +58,7 @@ export const createStream = (formValues, token) => async (dispatch) => {
 
     const defaultOptions = {
         headers: {
-            Authorization: token ? `bearer ${token}` : '',
+            Authorization: token ? `Bearer ${token}` : '',
         },
     };
     

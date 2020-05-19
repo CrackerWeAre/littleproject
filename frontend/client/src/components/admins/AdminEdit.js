@@ -18,7 +18,7 @@ class StreamEdit extends React.Component{
 
     onSubmit = (formValues) => {
         console.log(this.props.match.params._id)
-        this.props.editStreamer(this.props.match.params._id, formValues)
+        this.props.editStreamer(this.props.match.params._id, formValues, this.props.token)
     }
     render(){
         if (!this.props.streamer){
@@ -40,7 +40,8 @@ class StreamEdit extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        streamer: state.streamers[ownProps.match.params._id]
+        streamer: state.streamers[ownProps.match.params._id],
+        token: state.users.token
     }
 }
 

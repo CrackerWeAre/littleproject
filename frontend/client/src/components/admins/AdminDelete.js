@@ -18,7 +18,7 @@ class StreamDelete extends React.Component {
         const { _id } = this.props.match.params
         return (
             <Fragment>
-                <button onClick={() => this.props.deleteStreamer(_id)} className="ui button negative">Delete</button>
+                <button onClick={() => this.props.deleteStreamer(_id,  this.props.token)} className="ui button negative">Delete</button>
                 <Link to = "/admin" className="ui button">Cancel</Link>
             </Fragment>
         )
@@ -50,7 +50,8 @@ class StreamDelete extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
 
-    return { streamer : state.streamers[ownProps.match.params._id]}
+    return { streamer : state.streamers[ownProps.match.params._id],
+            token: state.users.token}
 }
 
 export default connect(mapStateToProps,{fetchStreamer, deleteStreamer})(StreamDelete);

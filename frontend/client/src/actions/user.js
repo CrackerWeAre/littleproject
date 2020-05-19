@@ -16,6 +16,6 @@ export const fetchUser = (response) => async dispatch => {
 
             
     const newResponse = await axios.post("http://49.247.134.77:1323/userInfo", params)
-    console.log(newResponse)
     dispatch({ type: USERS, payload: newResponse.data})
+    history.push('/')
 }
