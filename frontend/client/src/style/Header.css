@@ -71,7 +71,7 @@ nav {
 button {
     margin-left:auto;
     padding: 9px 25px!important;
-    background-color: rgba(0,136,169,1);
+    background-color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -79,20 +79,43 @@ button {
 }
 
 button:hover {
-    background-color: rgba(0,136,169,0);
+    background-color: rgba(24,24,24,1);
 }
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #24252A;
+    background-color: rgba(24,24,24,1);
 }
 
-li, a, button {
+a {
     font-family: "Montserrat", sans-serif!important;
     font-weight: 500;
-    font-size: 16px;
-    color: cadetblue;
+    font-size: 14px;
+    color: white;
+    text-decoration: none 
+}
+
+b a {
+    font-family: "Montserrat", sans-serif!important;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
     text-decoration: none
 }
 
+p a {
+    font-family: "Montserrat", sans-serif!important;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(151,149,156,1);
+    text-decoration: none
+}
+
+button {
+    font-family: "Montserrat", sans-serif!important;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    text-decoration: none
+}

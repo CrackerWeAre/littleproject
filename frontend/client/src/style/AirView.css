@@ -34,12 +34,12 @@ h4 {
   
 }
 
-
 p {
   display:-webkit-box;
   height: 20px;
   overflow:hidden;
   text-overflow:ellipsis;
+  color : rgba(151,149,156,1);
   -webkit-line-clamp: 1;
 }
 
