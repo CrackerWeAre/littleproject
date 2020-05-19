@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
-import { fetchUser } from '../../actions/user';
+import { signIn } from '../../actions/user';
 import { connect } from 'react-redux'
 import axios from 'axios'
 import '../../style/Login.css'
-
 
 class Login extends Component {
     
     render() {
         
         const responseGoogle = (response) => {
-            this.props.fetchUser(response)
+            this.props.signIn(response)
         }
 
         return (
@@ -31,8 +30,10 @@ class Login extends Component {
 }
 
 const mapStateToProps = state =>{
+    console.log(state)
     return {
-        user: state.user
+        user: state.auth
     }
 }
-export default connect(mapStateToProps, { fetchUser })(Login);
+
+export default connect(mapStateToProps, { signIn })(Login);

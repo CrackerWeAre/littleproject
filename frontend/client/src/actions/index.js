@@ -9,6 +9,8 @@ import {
 
 
 
+
+
 export const fetchAirs = () => async dispatch => {
     const response = await airs.get(`/getList`)
     console.log(response)

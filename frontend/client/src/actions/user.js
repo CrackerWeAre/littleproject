@@ -2,12 +2,13 @@ import axios from 'axios'
 import history from '../history'
 
 import {        
-    USERS, 
+    SIGN_IN, 
+    SIGN_OUT
 } from './types'
 
 
 
-export const fetchUser = (response) => async dispatch => {
+export const signIn = (response) => async dispatch => {
     const params = new URLSearchParams();
     params.append('googleId',response.profileObj.googleId);
     params.append('imageUrl',response.profileObj.imageUrl);
@@ -16,6 +17,12 @@ export const fetchUser = (response) => async dispatch => {
 
             
     const newResponse = await axios.post("http://49.247.134.77:1323/userInfo", params)
-    dispatch({ type: USERS, payload: newResponse.data})
+    dispatch({ type: SIGN_IN, payload: newResponse.data.token})
     history.push('/')
 }
+
+export const signOut = () => {
+    return {
+        type: SIGN_OUT
+    };
+};
