@@ -1,6 +1,4 @@
 import airs from '../apis/airs'
-import history from '../history'
-import axios from 'axios'
 
 import {        
     FETCH_AIRS,

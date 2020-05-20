@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { white } from 'color-name';
+
 
 class StreamForm extends React.Component{
 

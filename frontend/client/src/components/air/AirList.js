@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
-import {Link} from 'react-router-dom'
 import { fetchAirs } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'

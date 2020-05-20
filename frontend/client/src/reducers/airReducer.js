@@ -1,4 +1,4 @@
-import _ from 'lodash'
+
 import { FETCH_AIR, FETCH_AIRS} from '../actions/types'
 
 export default (state = { data : []}, action) => {
