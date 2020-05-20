@@ -18,9 +18,8 @@ function App() {
   return (
     <Fragment>
         <Router history={history} >
-          <div>
           <Header></Header>
-            <div className="body">
+            <div className="mainBody">
               <Switch>
                   <Route path="/" exact component = {AirList}></Route>
                   <Route path="/air" exact component={AirList}></Route>
@@ -32,7 +31,6 @@ function App() {
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
               </Switch>
             </div>
-          </div>
       </Router>
       <GlobalStyles></GlobalStyles>
     </Fragment>

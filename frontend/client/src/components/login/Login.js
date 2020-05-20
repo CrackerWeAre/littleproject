@@ -13,6 +13,10 @@ class Login extends Component {
             this.props.signIn(response)
         }
 
+        const failure = (response) => {
+            alert(response)
+        }
+
         return (
             <div className="login">
                 
@@ -23,7 +27,7 @@ class Login extends Component {
                       )}
                     buttonText="구글아이디로 로그인 하기"
                     onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
+                    onFailure={failure}
                     cookiePolicy={'single_host_origin'}
                 >
                 </GoogleLogin>

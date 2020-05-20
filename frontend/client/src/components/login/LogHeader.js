@@ -17,7 +17,7 @@ class LogHeader extends Component {
     renderAuthButton(){
         if (!this.props.isSignedIn){
             return (
-                <button className="cta" href="/login">Login</button>
+                <a className="cta" href="/login"><button>Login</button></a>
             )
         } else {
             return (
