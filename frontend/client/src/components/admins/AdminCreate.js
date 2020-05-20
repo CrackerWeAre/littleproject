@@ -23,7 +23,7 @@ class AdminCreate extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        token: state.users.token
+        token: state.auth.token
     }
 }
 

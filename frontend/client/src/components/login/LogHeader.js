@@ -17,7 +17,7 @@ class LogHeader extends Component {
     renderAuthButton(){
         if (!this.props.isSignedIn){
             return (
-                <a className="cta" href="/login">Login</a>
+                <button className="cta" href="/login">Login</button>
             )
         } else {
             return (
@@ -30,8 +30,7 @@ class LogHeader extends Component {
                             <Link to="/admin">Admin</Link>
                         </li>
                         <li>
-                        <button onClick = {this.onSignOutClick} className="ui red google button">
-                            <i className="google icon"/>
+                        <button onClick = {this.onSignOutClick} className="cta">
                                 Sign out
                         </button>
                         </li>

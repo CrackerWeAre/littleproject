@@ -41,7 +41,7 @@ class StreamEdit extends React.Component{
 const mapStateToProps = (state, ownProps) => {
     return {
         streamer: state.streamers[ownProps.match.params._id],
-        token: state.users.token
+        token: state.auth.token
     }
 }
 

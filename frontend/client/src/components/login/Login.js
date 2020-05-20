@@ -15,10 +15,13 @@ class Login extends Component {
 
         return (
             <div className="login">
-                로그인
+                
                 <GoogleLogin 
                     clientId="845969621905-p9iupf8qgkmucm6d4978cls28lk6b84n.apps.googleusercontent.com"
-                    buttonText="Login"
+                    render={renderProps => (
+                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}>구글로 로그인하기</button>
+                      )}
+                    buttonText="구글아이디로 로그인 하기"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
