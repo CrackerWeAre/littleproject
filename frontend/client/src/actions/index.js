@@ -11,7 +11,6 @@ import {
 
 export const fetchAirs = () => async dispatch => {
     const response = await airs.get(`/getList`)
-    console.log(response)
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 

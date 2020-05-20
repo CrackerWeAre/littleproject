@@ -52,7 +52,6 @@ class LogHeader extends Component {
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state)
     return {
         isSignedIn: state.auth.isSignedIn,
         user: state.user

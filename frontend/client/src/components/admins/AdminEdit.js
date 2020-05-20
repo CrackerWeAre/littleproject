@@ -10,14 +10,8 @@ class StreamEdit extends React.Component{
         this.props.fetchStreamer(this.props.match.params._id);
     }
     
-    componentDidUpdate(prevProps){
-        if(this.props !== prevProps){
-            console.log(this.props)
-        }
-    }
 
     onSubmit = (formValues) => {
-        console.log(this.props.match.params._id)
         this.props.editStreamer(this.props.match.params._id, formValues, this.props.token)
     }
     render(){
