@@ -15,7 +15,7 @@ class AirList extends React.Component{
 
             return (
                 <div className='item' key={data._id}>
-                    <AirView props={data}></AirView>
+                    <AirView data={data}></AirView>
                 </div>
             )
         })

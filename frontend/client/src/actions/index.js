@@ -10,7 +10,7 @@ import {
 
 
 export const fetchAirs = () => async dispatch => {
-    const response = await airs.get(`/getList`)
+    const response = await airs.get(`/getStreamers`)
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 
