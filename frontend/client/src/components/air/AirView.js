@@ -23,14 +23,14 @@ class AirView extends Component {
             <div className="card">
                 <div className="container">
                     {this.showFavorite()}
-                    <a href={this.props.data.liveDataHref}>
+                    <a href={this.props.data.liveDataHref} target='_blank'>
                         <img src={this.props.data.imgDataSrc} alt="LiveImg"></img>
                     </a>
                 </div>
                 <div className="container">
                     <h4><b><a href={this.props.data.liveDataHref}>{this.props.data.liveDataTitle}</a></b></h4> 
                     <p>{this.props.data.plaform}</p>
-                    <p><a href={this.props.data.creatorDataHref}>{this.props.data.creatorDataName}</a></p> 
+                    <p><a href={this.props.data.creatorDataHref} target='_blank'>{this.props.data.creatorDataName}</a></p> 
                     <p>{this.props.data.liveAttdc}명 시청중</p>
                 </div>
             </div>
