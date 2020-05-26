@@ -10,7 +10,7 @@ import AdminEdit from './admins/AdminEdit';
 import AdminCreate from './admins/AdminCreate';
 import AdminDelete from './admins/AdminDelete';
 import Login from './login/Login'
-
+import Navigation from './navigation/Navigation'
 import GlobalStyles from "./GlobalStyles";
 import '../style/Body.css'
 
@@ -31,6 +31,7 @@ function App() {
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
               </Switch>
             </div>
+          <Navigation></Navigation>
       </Router>
       <GlobalStyles></GlobalStyles>
     </Fragment>

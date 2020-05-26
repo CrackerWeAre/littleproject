@@ -10,7 +10,7 @@ const Header = () => {
         <Fragment>
             <header>
                 <Link to=".">
-                    <img className="logo" src={Logo} alt="logo"></img>
+                    <img className="logo1" src={Logo} alt="logo"></img>
                 </Link>
                 <nav>
                 <LogHeader></LogHeader>
