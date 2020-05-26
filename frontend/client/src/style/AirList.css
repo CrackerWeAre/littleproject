@@ -1,10 +1,12 @@
 .airlist_container {
     width: 100%;
     display: grid;
-    margin-top: 40px;
+    padding: 40px;
     grid-template-rows: 307px;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px 62px;
+    border-left: solid 2px rgba(0,0,0,50%);
+    
 }
 
 .item {
