@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import '../../style/AirView.css'
 import { connect } from 'react-redux'
 import { signOut } from '../../actions/user'
+import { updateFollower } from '../../actions/index'
+
 import afreecatv from "../../style/afreeca.png"
 import twitch from "../../style/twitch.png"
 import youtube from "../../style/youtube.png"
@@ -14,7 +16,7 @@ class AirView extends Component {
 
     showAlert = (e) => {
         e.preventDefault();
-        console.log(this.props.data.platform)
+        this.props.updateFollower(this.props)
     }
 
     showFavorite = () => {
@@ -39,7 +41,6 @@ class AirView extends Component {
         
     }
     render(){
-        console.log()
         return (
             <div className="card">
                 <div className="container">
@@ -69,8 +70,8 @@ class AirView extends Component {
 const mapStateToProps = (state) =>{
     return {
         isSignedIn: state.auth.isSignedIn,
-        user: state.user
+        userEmail: state.auth.userEmail
         };
 }
 
-export default connect(mapStateToProps, { signOut })(AirView);
+export default connect(mapStateToProps, { signOut, updateFollower })(AirView);

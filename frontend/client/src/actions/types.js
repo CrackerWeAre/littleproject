@@ -1,6 +1,7 @@
 
 export const FETCH_AIRS = 'FETCH_AIRS'
 export const FETCH_AIR = 'FETCH_AIR'
+export const UPDATE_FOL = 'UPDATE_FOL'
 
 export const FETCH_STREAMERS = 'FETCH_STREAMERS'
 export const FETCH_STREAMER = 'FETCH_STREAMER'

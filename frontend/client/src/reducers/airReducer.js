@@ -1,12 +1,12 @@
 
-import { FETCH_AIR, FETCH_AIRS} from '../actions/types'
+import { FETCH_AIRS, UPDATE_FOL} from '../actions/types'
 
-export default (state = { data : []}, action) => {
+export default (state = {}, action) => {
     switch(action.type) {
         case FETCH_AIRS :
-            return {...state, data:action.payload}
-        case FETCH_AIR :
-            return {...state, [action.payload.id]:action.payload };
+            return {...state, ...action.payload}
+        case UPDATE_FOL :
+            return {...state};
         default :
             return state;
     }
