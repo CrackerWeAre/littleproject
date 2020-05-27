@@ -4,6 +4,7 @@
     border-radius: 5px; /* 5px rounded corners */
     width: 356px;
     height: 307px;
+    background: #F5F5F5;
 }
   
   /* Add rounded corners to the top left and the top right corner of the image */
@@ -40,6 +41,7 @@ img {
   text-align: center;
   margin: auto;
   padding: 1px;
+  color: white;
   background: rgba(80,80,80,20)
 }
 
@@ -64,6 +66,10 @@ img {
   height: 50px;
   font-size: 18px;
   align-items: center;
+  
+}
+
+.title .text {
   overflow: hidden;
   text-overflow:ellipsis;
   -webkit-line-clamp: 2;

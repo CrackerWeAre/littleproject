@@ -12,8 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px 10px 10px!important;
-    border-bottom: solid 2px!important;
-    border-bottom-color:  rgba(0,0,0,50%)!important;
+    
 }
 
 
@@ -62,7 +61,6 @@ button:hover {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color:white;
 }
 
 a {

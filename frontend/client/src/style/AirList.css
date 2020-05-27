@@ -1,11 +1,16 @@
+.container_title {
+    padding: 40px 40px 0px 40px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
 .airlist_container {
     width: 100%;
     display: grid;
     padding: 40px;
     grid-template-rows: 307px;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px 62px;
-    border-left: solid 2px rgba(0,0,0,50%);
+    gap: 30px 7.5px;
     
 }
 
@@ -13,5 +18,5 @@
     display: flex;
     width: 356px;
     height: 307px;
-    color : white;
+    
 }

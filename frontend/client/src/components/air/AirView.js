@@ -50,7 +50,7 @@ class AirView extends Component {
                         <img src={this.props.data.imgDataSrc} alt="LiveImg"></img>
                     </a>
                 </div>
-                <div className="title"><a href={this.props.data.liveDataHref}>{this.props.data.liveDataTitle}</a></div>
+                <div className="title"><a href={this.props.data.liveDataHref}><div className="text">{this.props.data.liveDataTitle}</div></a></div>
                 <div className="contents">
                     <div className="creatorlogo">
                         <a href={this.props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
