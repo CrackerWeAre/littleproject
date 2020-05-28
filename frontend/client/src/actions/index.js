@@ -2,8 +2,9 @@ import airs from '../apis/airs'
 
 import {        
     FETCH_AIRS,
-    FETCH_AIR, 
-    UPDATE_FOL
+    UPDATE_FOL,
+    DELETE_FOL,
+    GET_FOL
 } from './types'
 
 
@@ -11,19 +12,29 @@ import {
 
 
 export const fetchAirs = () => async dispatch => {
-    const response = await airs.get(`/getList`)
+    const response = await airs.get(`/getList/live`)
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 
-export const fetchAir = (email) => async dispatch => {
-    const response = await airs.get(`/getList/${email}`)
-    dispatch({ type: FETCH_AIR, payload: response.data})
-}
 
 
 export const updateFollower = (data) => async dispatch => {
+    console.log(data)
     const params = new URLSearchParams();
-    params.append('follower',data.data.channel);
-    const response = await airs.post(`/updateFollower/${data.userEmail}`, params)
+    params.append('following',data.data._uniq);
+    const response = await airs.post(`/following/updateUserInfo/${data.userEmail}`, params)
     dispatch({ type: UPDATE_FOL, payload: response.data})
+}
+
+export const deleteFollower = (data) => async dispatch => {
+    console.log(data)
+    const params = new URLSearchParams();
+    params.append('following',data.data._uniq);
+    const response = await airs.post(`/following/deleteUserInfo/${data.userEmail}`, params)
+    dispatch({ type: DELETE_FOL, payload: response.data})
+}
+
+export const getFollower = (email) => async dispatch => {
+    const response = await airs.get(`/getList/following/${email}`)
+    dispatch({ type: GET_FOL, payload: response.data})
 }

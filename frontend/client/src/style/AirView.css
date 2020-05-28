@@ -79,7 +79,7 @@ img {
 
 .contents .creatorlogo {
   width: 40px;
-  height: 40px;
+  height: 40px!important;
   margin-left: 5px;
   margin-right: 5px;
 }

@@ -12,13 +12,13 @@ import {
 
 
 export const fetchStreamers = () => async dispatch => {
-    const response = await airs.get(`/getStreamers`)
+    const response = await airs.get(`/admin/getStreamers`)
     
     dispatch({ type: FETCH_STREAMERS, payload: response.data})
 }
 
 export const fetchStreamer = (_id) => async dispatch => {
-    const response = await airs.get(`/getStreamer/${_id}`)
+    const response = await airs.get(`/admin/getStreamer/${_id}`)
     dispatch({ type: FETCH_STREAMER, payload: response.data})
 }
 
@@ -33,7 +33,7 @@ export const editStreamer = (_id, formValues, token) => async dispatch => {
             Authorization: token ? `Bearer ${token}` : '',
         },
     };
-    const response = await airs.post(`/updateStreamer/${_id}`, params, {...defaultOptions})
+    const response = await airs.post(`/admin/updateStreamer/${_id}`, params, {...defaultOptions})
     dispatch({ type: EDIT_STREAMER, payload: response.data})
     history.push('/admin')
 }
@@ -44,7 +44,7 @@ export const deleteStreamer = (_id, token) => async dispatch => {
             Authorization: token ? `Bearer ${token}` : '',
         },
     };
-    await airs.get(`/deleteStreamer/${_id}`, {...defaultOptions})
+    await airs.get(`/admin/deleteStreamer/${_id}`, {...defaultOptions})
     dispatch({ type: DELETE_STREAMER, payload: _id})
     history.push('/admin')
 }
@@ -61,7 +61,7 @@ export const createStream = (formValues, token) => async (dispatch) => {
         },
     };
     
-    const response = await airs.post('/createStreamer', params, { ...defaultOptions })
+    const response = await airs.post('/admin/createStreamer', params, { ...defaultOptions })
     
     dispatch({ type: CREATE_STREAMER, payload: response.data})
     history.push('/admin')

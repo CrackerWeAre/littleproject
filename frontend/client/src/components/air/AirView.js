@@ -1,8 +1,7 @@
-import React, {Component} from 'react'
+import React, { useState} from 'react'
 import '../../style/AirView.css'
 import { connect } from 'react-redux'
-import { signOut } from '../../actions/user'
-import { updateFollower } from '../../actions/index'
+import { updateFollower, deleteFollower } from '../../actions/index'
 
 import afreecatv from "../../style/afreeca.png"
 import twitch from "../../style/twitch.png"
@@ -11,22 +10,32 @@ import vlive from "../../style/vlive.png"
 import setting from "../../style/setting.png"
 import heartoff from "../../style/Simple Heart-1.png"
 
-class AirView extends Component {
+const AirView = (props) => {
 
-
-    showAlert = (e) => {
+    const [following, setfollowing] = useState(null);
+    const showAlert = (e) => {
         e.preventDefault();
-        this.props.updateFollower(this.props)
+        if(props.auth.userInfo.following.indexOf(props.data._uniq)>=0){
+            console.log(props.auth.userInfo.following.indexOf(props.data._uniq))
+            props.deletePostFollower(props)
+            console.log("delete")
+        } else {
+            console.log(props.auth.userInfo.following.indexOf(props.data._uniq))
+            props.updatePostFollower(props)
+            console.log("create")
+        }
     }
 
-    showFavorite = () => {
-        if(this.props.isSignedIn){
-            return <div className="top-right" onClick={this.showAlert}><img src={heartoff} alt="heartoff"></img></div>
+
+    const showFavorite = () => {
+        
+        if(props.isSignedIn){
+            return <div className="top-right" onClick={showAlert}><img src={heartoff} alt="heartoff"></img></div>
         }
         
     }
 
-    showPlatform = (platform) => {
+    const showPlatform = (platform) => {
         if(platform==="twitch"){
             return <div className="platform"><img src={twitch} alt="twitch"></img></div>
         }else if(platform==="youtube"){
@@ -40,38 +49,44 @@ class AirView extends Component {
         }
         
     }
-    render(){
-        return (
-            <div className="card">
-                <div className="container">
-                    {this.showFavorite()}
-                    <div className="top-left">{this.props.data.liveAttdc}명 시청중</div>
-                    <a href={this.props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-                        <img src={this.props.data.imgDataSrc} alt="LiveImg"></img>
+    
+    return (
+        <div className="card">
+            <div className="container">
+                {showFavorite()}
+                <div className="top-left">{props.data.liveAttdc}명 시청중</div>
+                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
+                    <img src={props.data.imgDataSrc} alt="LiveImg"></img>
+                </a>
+            </div>
+            <div className="title"><a href={props.data.liveDataHref}><div className="text">{props.data.liveDataTitle}</div></a></div>
+            <div className="contents">
+                <div className="creatorlogo">
+                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
+                        <img src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
-                <div className="title"><a href={this.props.data.liveDataHref}><div className="text">{this.props.data.liveDataTitle}</div></a></div>
-                <div className="contents">
-                    <div className="creatorlogo">
-                        <a href={this.props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
-                            <img src={this.props.data.creatorDataLogo} alt="CreatorImg"></img>
-                        </a>
-                    </div>
-                    <div><a href={this.props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{this.props.data.creatorDataName}</a></div>
-                    {this.showPlatform(this.props.data.platform)}
-                    <div className="setting"><img src={setting} alt="setting"></img></div>
-                </div>
-
+                <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
+                {showPlatform(props.data.platform)}
+                <div className="setting"><img src={setting} alt="setting"></img></div>
             </div>
-        )
-    }
+
+        </div>
+    )
+    
 }
 
 const mapStateToProps = (state) =>{
     return {
         isSignedIn: state.auth.isSignedIn,
-        userEmail: state.auth.userEmail
+        userEmail: state.auth.userEmail,
+        auth: state.auth
         };
 }
 
-export default connect(mapStateToProps, { signOut, updateFollower })(AirView);
+const mapDispatchToProps = {
+    updatePostFollower: updateFollower,
+    deletePostFollower: deleteFollower
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AirView);

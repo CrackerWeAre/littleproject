@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { fetchAirs, fetchAir } from '../../actions'
+import { fetchAirs, getFollower } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'
 class AirList extends React.Component{
@@ -10,8 +10,9 @@ class AirList extends React.Component{
         
         this.props.fetchAirs();
         if(this.props.user.userEmail!==null){
-            this.props.fetchAir(this.props.user.userEmail);
+            this.props.getFollower(this.props.user.userEmail);
         }
+        
         
     }
 
@@ -91,4 +92,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchAir })(AirList);
+export default connect(mapStateToProps, { fetchAirs, getFollower })(AirList);
