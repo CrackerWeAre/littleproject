@@ -4,7 +4,8 @@ import {
     FETCH_AIRS,
     UPDATE_FOL,
     DELETE_FOL,
-    GET_FOL
+    GET_FOL,
+    FETCH_FOL_AIRS,
 } from './types'
 
 
@@ -16,6 +17,13 @@ export const fetchAirs = () => async dispatch => {
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 
+ 
+
+export const fetchFollowingAirs = (email) => async dispatch => {
+
+    const response = await airs.get(`/getList/following/${email}`)
+    dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
+}
 
 
 export const updateFollower = (data) => async dispatch => {
@@ -35,6 +43,9 @@ export const deleteFollower = (data) => async dispatch => {
 }
 
 export const getFollower = (email) => async dispatch => {
-    const response = await airs.get(`/getList/following/${email}`)
+    const response = await airs.get(`/following/getUserInfo/${email}`)
     dispatch({ type: GET_FOL, payload: response.data})
 }
+
+
+

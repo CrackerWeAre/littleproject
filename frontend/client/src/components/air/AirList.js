@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { fetchAirs, getFollower } from '../../actions'
+import { fetchAirs, getFollower, fetchFollowingAirs } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'
+
 class AirList extends React.Component{
 
     componentDidMount(){
@@ -10,7 +11,8 @@ class AirList extends React.Component{
         
         this.props.fetchAirs();
         if(this.props.user.userEmail!==null){
-            this.props.getFollower(this.props.user.userEmail);
+            this.props.fetchFollowingAirs(this.props.user.userEmail);
+            
         }
         
         
@@ -57,14 +59,19 @@ class AirList extends React.Component{
     }
 
     AirList() {
-        
+        console.log(this.props)
          if(this.props.airs){
             return this.props.airs.map(data => {
-                return (
-                    <div className='item' key={data._id}>
-                        <AirView data={data}></AirView>
-                    </div>
-                )
+                if(this.props.followings.includes(data._uniq)){
+                    
+                } else {
+                    return (
+                        <div className='item' key={data._id}>
+                            <AirView data={data}></AirView>
+                        </div>
+                    )
+                }
+                
             })
         }
         
@@ -84,12 +91,12 @@ class AirList extends React.Component{
 
 
 const mapStateToProps = state =>{
-    console.log(state)
     return {
         airs: Object.values(state.airs), 
         myairs: Object.values(state.myairs),
+        followings: state.followings,
         user: state.auth
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, getFollower })(AirList);
+export default connect(mapStateToProps, { fetchAirs, getFollower, fetchFollowingAirs })(AirList);

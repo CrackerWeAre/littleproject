@@ -1,7 +1,7 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/AirView.css'
 import { connect } from 'react-redux'
-import { updateFollower, deleteFollower } from '../../actions/index'
+import { updateFollower, deleteFollower, getFollower } from '../../actions/index'
 
 import afreecatv from "../../style/afreeca.png"
 import twitch from "../../style/twitch.png"
@@ -9,30 +9,55 @@ import youtube from "../../style/youtube.png"
 import vlive from "../../style/vlive.png"
 import setting from "../../style/setting.png"
 import heartoff from "../../style/Simple Heart-1.png"
+import hearton from "../../style/Simple Heart.png"
 
 const AirView = (props) => {
 
-    const [following, setfollowing] = useState(null);
+    const [fol_btn, setfol_btn] = useState(false);
+    
     const showAlert = (e) => {
         e.preventDefault();
-        if(props.auth.userInfo.following.indexOf(props.data._uniq)>=0){
-            console.log(props.auth.userInfo.following.indexOf(props.data._uniq))
-            props.deletePostFollower(props)
-            console.log("delete")
+        if(props.followings.indexOf(props.data._uniq)>=0){
+            if(props.isSignedIn){
+                setfol_btn(!fol_btn)
+                props.deletePostFollower(props)
+            }else{
+                alert("로그인후 사용해주세요.");
+            }
+            
         } else {
-            console.log(props.auth.userInfo.following.indexOf(props.data._uniq))
-            props.updatePostFollower(props)
-            console.log("create")
+            if(props.isSignedIn){
+                setfol_btn(!fol_btn)
+                props.updatePostFollower(props)
+            }else{
+                alert("로그인후 사용해주세요.");
+            }
+            
         }
+        
     }
 
 
-    const showFavorite = () => {
-        
-        if(props.isSignedIn){
-            return <div className="top-right" onClick={showAlert}><img src={heartoff} alt="heartoff"></img></div>
+    const butfuncfalse = (fol_btn) => {
+        if(fol_btn){
+            return hearton
+        }else{
+            return heartoff
         }
-        
+    }
+    const butfunctrue = (fol_btn) => {
+        if(!fol_btn){
+            return hearton
+        }else{
+            return heartoff
+        }
+    }
+    const showFavorite = () => {
+        if(props.followings.indexOf(props.data._uniq)>=0){
+            return <div className="top-right" onClick={showAlert}><img src={butfunctrue(fol_btn)} alt="hearton"></img></div>
+        } else {
+            return <div className="top-right" onClick={showAlert}><img src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
+        }
     }
 
     const showPlatform = (platform) => {
@@ -80,13 +105,15 @@ const mapStateToProps = (state) =>{
     return {
         isSignedIn: state.auth.isSignedIn,
         userEmail: state.auth.userEmail,
-        auth: state.auth
+        auth: state.auth,
+        followings: state.followings
         };
 }
 
 const mapDispatchToProps = {
     updatePostFollower: updateFollower,
-    deletePostFollower: deleteFollower
+    deletePostFollower: deleteFollower,
+    getPostFollower: getFollower
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AirView);

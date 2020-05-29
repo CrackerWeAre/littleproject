@@ -1,12 +1,12 @@
 
 export const FETCH_AIRS = 'FETCH_AIRS'
 export const FETCH_AIR = 'FETCH_AIR'
-
+export const MAKE_FOL_LIST = 'MAKE_FOL_LIST'
 
 export const UPDATE_FOL = 'UPDATE_FOL'
 export const DELETE_FOL = 'DELETE_FOL'
 export const GET_FOL = 'GET_FOL'
-
+export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
 
 export const FETCH_STREAMERS = 'FETCH_STREAMERS'
 export const FETCH_STREAMER = 'FETCH_STREAMER'
