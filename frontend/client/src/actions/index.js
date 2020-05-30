@@ -6,6 +6,8 @@ import {
     DELETE_FOL,
     GET_FOL,
     FETCH_FOL_AIRS,
+    UPDATE_BLO,
+    DELETE_BLO
 } from './types'
 
 
@@ -47,5 +49,20 @@ export const getFollower = (email) => async dispatch => {
     dispatch({ type: GET_FOL, payload: response.data})
 }
 
+export const updateBlock = (data) => async dispatch => {
+    console.log(data)
+    const params = new URLSearchParams();
+    params.append('block',data.data._uniq);
+    const response = await airs.post(`/block/updateUserInfo/${data.userEmail}`, params)
+    dispatch({ type: UPDATE_BLO, payload: response.data})
+}
+
+export const deleteBlock = (data) => async dispatch => {
+    console.log(data)
+    const params = new URLSearchParams();
+    params.append('block',data.data._uniq);
+    const response = await airs.post(`/block/deleteUserInfo/${data.userEmail}`, params)
+    dispatch({ type: DELETE_BLO, payload: response.data})
+}
 
 

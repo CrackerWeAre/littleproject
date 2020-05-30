@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../../style/AirView.css'
 import { connect } from 'react-redux'
-import { updateFollower, deleteFollower, getFollower } from '../../actions/index'
+import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
 
 import afreecatv from "../../style/afreeca.png"
 import twitch from "../../style/twitch.png"
@@ -14,7 +14,7 @@ import hearton from "../../style/Simple Heart.png"
 const AirView = (props) => {
 
     const [fol_btn, setfol_btn] = useState(false);
-    
+    const [blo_btn, setblo_btn] = useState(false)
     const showAlert = (e) => {
         e.preventDefault();
         if(props.followings.indexOf(props.data._uniq)>=0){
@@ -34,7 +34,27 @@ const AirView = (props) => {
             }
             
         }
-        
+    }
+
+    const sendBlock = (e) => {
+        e.preventDefault();
+        if(blo_btn){
+            if(props.isSignedIn){
+                setblo_btn(!blo_btn)
+                props.deletePostBlock(props)
+            }else{
+                alert("로그인후 사용해주세요.");
+            }
+            
+        } else {
+            if(props.isSignedIn){
+                setblo_btn(!blo_btn)
+                props.updatePostBlock(props)
+            }else{
+                alert("로그인후 사용해주세요.");
+            }
+            
+        }
     }
 
 
@@ -52,6 +72,7 @@ const AirView = (props) => {
             return heartoff
         }
     }
+
     const showFavorite = () => {
         if(props.followings.indexOf(props.data._uniq)>=0){
             return <div className="top-right" onClick={showAlert}><img src={butfunctrue(fol_btn)} alt="hearton"></img></div>
@@ -93,7 +114,7 @@ const AirView = (props) => {
                 </div>
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
-                <div className="setting"><img src={setting} alt="setting"></img></div>
+                <div className="setting" onClick={sendBlock}><img src={setting} alt="setting"></img></div>
             </div>
 
         </div>
@@ -113,7 +134,9 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = {
     updatePostFollower: updateFollower,
     deletePostFollower: deleteFollower,
-    getPostFollower: getFollower
+    getPostFollower: getFollower,
+    deletePostBlock: deleteBlock,
+    updatePostBlock: updateBlock
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AirView);

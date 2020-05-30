@@ -3,8 +3,11 @@ export const FETCH_AIRS = 'FETCH_AIRS'
 export const FETCH_AIR = 'FETCH_AIR'
 export const MAKE_FOL_LIST = 'MAKE_FOL_LIST'
 
+
 export const UPDATE_FOL = 'UPDATE_FOL'
 export const DELETE_FOL = 'DELETE_FOL'
+export const UPDATE_BLO  = 'UPDATE_BLO'
+export const DELETE_BLO = 'DELETE_BLO'
 export const GET_FOL = 'GET_FOL'
 export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
 
