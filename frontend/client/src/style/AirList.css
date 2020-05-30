@@ -6,13 +6,17 @@
 
 .airlist_container {
     width: 100%;
-    display: grid;
+    display: inline-grid;
     padding: 40px;
-    grid-template-rows: 307px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px 7.5px;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, 356px);
+    gap: 30px 20px;
+    
+    justify-content: space-evenly;
     
 }
+
+
 
 .item {
     display: flex;

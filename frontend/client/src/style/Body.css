@@ -1,5 +1,5 @@
 .mainBody {
-    width: 1660px;
+    width: calc(100% - 240px);
     margin-left: auto;
     background: #F5F5F5;
 }

@@ -38,24 +38,21 @@ const AirView = (props) => {
 
     const sendBlock = (e) => {
         e.preventDefault();
-        if(blo_btn){
-            if(props.isSignedIn){
-                setblo_btn(!blo_btn)
-                props.deletePostBlock(props)
-            }else{
-                alert("로그인후 사용해주세요.");
-            }
-            
-        } else {
-            if(props.isSignedIn){
-                setblo_btn(!blo_btn)
-                props.updatePostBlock(props)
-            }else{
-                alert("로그인후 사용해주세요.");
-            }
-            
+        if(props.isSignedIn){
+            setblo_btn(!blo_btn)
+            props.updatePostBlock(props)
+        }else{
+            alert("로그인후 사용해주세요.");
         }
+
     }
+
+    const openSettingPopup = (e) => {
+        e.preventDefault();
+        setblo_btn(!blo_btn)
+    }
+
+
 
 
     const butfuncfalse = (fol_btn) => {
@@ -114,7 +111,12 @@ const AirView = (props) => {
                 </div>
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
-                <div className="setting" onClick={sendBlock}><img src={setting} alt="setting"></img></div>
+                <div className="setting"  onClick={openSettingPopup}>
+                    <img src={setting} alt="setting"></img>
+                </div>
+                {blo_btn && <div className="popup_inner" >
+                        <div className="popup_inner_item" onClick={sendBlock}>차단하기</div>
+                    </div>}
             </div>
 
         </div>
