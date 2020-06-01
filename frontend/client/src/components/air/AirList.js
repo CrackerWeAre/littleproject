@@ -52,7 +52,6 @@ class AirList extends React.Component{
     }
 
     AirList() {
-        console.log(this.props)
          if(this.props.airs){
             return this.props.airs.map(data => {
                 if(this.props.followings.includes(data._uniq)){

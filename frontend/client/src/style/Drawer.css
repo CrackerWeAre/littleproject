@@ -4,8 +4,15 @@
     overflow-y: auto;
     top: 50px;
     bottom: 0px;
+    padding: 10px;
 }
 
+.drawer_followerlist {
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400px;
+}
 ::-webkit-scrollbar {
     width: 0px;
   }

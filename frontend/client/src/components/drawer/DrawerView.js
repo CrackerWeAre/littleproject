@@ -1,12 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function DrawerView(data) {
-
+const DrawerView = (props) => {
+    console.log(props)
     return (
         <div>
-            {data}
+            {props.data.channel}
         </div>
     )
 }
 
-export default DrawerView
+
+export default connect(null)(DrawerView);
+
