@@ -1,5 +1,11 @@
-.mainBody {
-    width: calc(100% - 240px);
+.mainBody_drawer_on {
+    width: calc(100% - 250px);
+    margin-left: auto;
+    background: #F5F5F5;
+}
+
+.mainBody_drawer_off {
+    width: calc(100% - 250px);
     margin-left: auto;
     background: #F5F5F5;
 }

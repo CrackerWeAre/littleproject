@@ -13,16 +13,16 @@ import Login from './login/Login'
 import Navigation from './navigation/Navigation'
 import GlobalStyles from "./GlobalStyles";
 import '../style/Body.css'
+import Drawer from './drawer/Drawer';
+import Main from './main/Main';
 
 function App() {
   return (
     <Fragment>
         <Router history={history} >
           <Header></Header>
-            <div className="mainBody">
               <Switch>
-                  <Route path="/" exact component = {AirList}></Route>
-                  <Route path="/air" exact component={AirList}></Route>
+                  <Route path="/" exact component = {Main}></Route>
                   <Route path="/login" exact component={Login}></Route>
                   <Route path="/air/show/:_id" exact component={AirView}></Route>
                   <Route path="/admin" exact component={Admin}></Route>
@@ -30,7 +30,6 @@ function App() {
                   <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
               </Switch>
-            </div>
           <Navigation></Navigation>
       </Router>
       <GlobalStyles></GlobalStyles>

@@ -1,0 +1,11 @@
+.drawer {
+    position: fixed;
+    width: 250px;
+    overflow-y: auto;
+    top: 50px;
+    bottom: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }

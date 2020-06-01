@@ -9,13 +9,6 @@ class AirList extends React.Component{
     componentDidMount(){
         
         
-        this.props.fetchAirs();
-        if(this.props.user.userEmail!==null){
-            this.props.fetchFollowingAirs(this.props.user.userEmail);
-            
-        }
-        
-        
     }
 
     myAirShow() {
@@ -81,6 +74,7 @@ class AirList extends React.Component{
     render(){
         return (
             <Fragment>
+               
                 {this.myAirShow()}
                 {this.AirShow()}
             </Fragment>
