@@ -4,15 +4,57 @@
     overflow-y: auto;
     top: 50px;
     bottom: 0px;
-    padding: 10px;
+    margin: 10px;
 }
 
 .drawer_followerlist {
     padding-bottom: 5px;
-    text-align: center;
+    
     font-size: 20px;
     font-weight: 400px;
 }
 ::-webkit-scrollbar {
     width: 0px;
   }
+
+.category_list {
+    padding: 10px;
+}
+
+.drawer_view {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.drawer_view:hover {
+    background: #F5F5F5;
+}
+
+.drawer_view .title {
+    width: 190px;
+    
+    padding: 8px 0 0 0;
+  }
+
+.drawer_view .title a{
+    font-size: 20px;
+    padding: 8px 0 0 0;
+}
+
+.drawer_view .title a .text {
+    
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    -webkit-line-clamp: 1;
+}
+  
+.drawer_view .contents .creatorlogo {
+    width: 30px;
+    height: 30px!important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+  

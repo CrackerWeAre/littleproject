@@ -4,6 +4,7 @@ import '../../style/Body.css'
 import Drawer from '../drawer/Drawer';
 import {connect} from 'react-redux'
 import { fetchFollowingAirs , fetchAirs} from '../../actions'
+import {isMobile} from 'react-device-detect';
 
 
 class Main extends Component {
@@ -23,37 +24,35 @@ class Main extends Component {
         
     }
 
-    check(){
-        if(true){
-
-        }
-    }
-    onPhone() {
-
-    }
-
     onWeb() {
-
-        return(
-            <Fragment>
-                <Drawer></Drawer>
-                <div className="mainBody_drawer_on">
-                    <AirList></AirList>
-                </div>
-            </Fragment>
-        )
+        if(isMobile){
+            return (
+                <Fragment>
+                    <div className="mainBody_drawer_off">
+                        <AirList></AirList>
+                    </div>
+                    
+                </Fragment>
+            )
+        } else {
+            return (
+                <Fragment>
+                    <Drawer></Drawer>
+                    <div className="mainBody_drawer_on">
+                        <AirList></AirList>
+                    </div>
+                </Fragment>
+            )
+        }
+        
     }
 
     render() {
     
-        return (
-            <Fragment>
-                <Drawer></Drawer>
-                <div className="mainBody_drawer_on">
-                    <AirList></AirList>
-                </div>
-            </Fragment>
-        );
+        return <Fragment>
+            {this.onWeb()}
+        </Fragment>
+    
     }
 
 

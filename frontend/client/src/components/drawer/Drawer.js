@@ -3,6 +3,8 @@ import '../../style/Drawer.css'
 import { connect } from 'react-redux'
 import Footer from '../navigation/Footer';
 import DrawerView from './DrawerView'
+import {isMobile} from 'react-device-detect';
+
 const Drawer = (props) => {
 
     const followingList = () => {
@@ -16,27 +18,36 @@ const Drawer = (props) => {
         })
     }
     
+    const test = () => {
+        if(isMobile){
+            return <div>phone에서 실행중</div>
+        }else{
+            return <div>web에서 실행중</div>
+        }
+        
+    }
+    
     const categories = () => {
         return (
-            <div>
+            <div className="category_list">
                 카테고리
-                <li>
-                    <ul>
+                <ul>
+                    <li>
                         영화
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                         게임
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                         음악
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                         라디오
-                    </ul>
-                    <ul>
+                    </li>
+                    <li>
                         방송
-                    </ul>
-                </li>
+                    </li>
+                </ul>
             </div>
         )
     }
@@ -49,6 +60,7 @@ const Drawer = (props) => {
                 <div>{followingList()}</div>
                 <div>{categories()}</div>
                 <Footer></Footer>
+                <div>{test()}</div>
             </div>
  
     )

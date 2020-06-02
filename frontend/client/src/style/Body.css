@@ -8,8 +8,8 @@
 }
 
 .mainBody_drawer_off {
-    top: 50px;
-    width: calc(100% - 250px);
-    margin-left: auto;
+    top: 50px!important;
+    padding-top: 50px;
     background: #F5F5F5;
+    z-index: -1;
 }

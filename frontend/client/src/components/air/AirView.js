@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../../style/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'

@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
 import { Router, Route, Switch } from "react-router-dom";
-
-import AirList from "./air/AirList"
 import Header from "./Header"
 import history from "../history"
 import AirView from './air/AirView';
@@ -13,7 +11,6 @@ import Login from './login/Login'
 import Navigation from './navigation/Navigation'
 import GlobalStyles from "./GlobalStyles";
 import '../style/Body.css'
-import Drawer from './drawer/Drawer';
 import Main from './main/Main';
 
 function App() {

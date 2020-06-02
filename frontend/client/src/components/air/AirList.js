@@ -55,7 +55,7 @@ class AirList extends React.Component{
          if(this.props.airs){
             return this.props.airs.map(data => {
                 if(this.props.followings.includes(data._uniq)){
-                    
+                    return null;
                 } else {
                     return (
                         <div className='item' key={data._id}>
