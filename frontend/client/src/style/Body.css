@@ -3,7 +3,7 @@
     width: calc(100% - 250px);
     margin-left: auto;
     background: #F5F5F5;
-    position: relative;
+
     z-index: -1;
 }
 

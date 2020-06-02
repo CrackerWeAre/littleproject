@@ -12,15 +12,12 @@ const DrawerView = (props) => {
                         <img src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
-
-                <div>
-                    <div className="title">
-                        <a href={props.data.liveDataHref}>
-                            <div className="text">{props.data.liveDataTitle}</div>
-                        </a>
-                        <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a>
-                    </div>  
-                </div>
+                <div className="title">
+                    <a href={props.data.liveDataHref}>
+                        <div className="text">{props.data.liveDataTitle}</div>
+                    </a>
+                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a>
+                </div>  
             </div>
         </div>
     )

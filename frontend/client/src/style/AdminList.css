@@ -1,6 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
+.adminList {
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
+
 .table {
     font-family: "Montserrat", sans-serif!important;
     font-weight: 400;

@@ -4,12 +4,12 @@
     overflow-y: auto;
     top: 50px;
     bottom: 0px;
-    margin: 10px;
+
 }
 
 .drawer_followerlist {
     padding-bottom: 5px;
-    
+    padding-left: 5px;
     font-size: 20px;
     font-weight: 400px;
 }
@@ -18,12 +18,17 @@
   }
 
 .category_list {
-    padding: 10px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 400px;
 }
 
 .drawer_view {
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 45px;
 }
 
 .drawer_view:hover {
@@ -32,18 +37,23 @@
 
 .drawer_view .title {
     width: 190px;
-    
-    padding: 8px 0 0 0;
+    height: 40px;
+    padding-top: 0px;
   }
 
 .drawer_view .title a{
-    font-size: 20px;
-    padding: 8px 0 0 0;
+    height: 17px;
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    -webkit-line-clamp: 1;
 }
 
 .drawer_view .title a .text {
     
-    font-size: 15px;
+    font-size: 10px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -51,10 +61,21 @@
     -webkit-line-clamp: 1;
 }
   
+.drawer_view .contents {
+    height: 40px!important;
+}
+  
+
 .drawer_view .contents .creatorlogo {
     width: 30px;
     height: 30px!important;
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
   
+.category_item {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}

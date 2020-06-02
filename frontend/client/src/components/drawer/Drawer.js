@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../../style/Drawer.css'
 import { connect } from 'react-redux'
 import Footer from '../navigation/Footer';
@@ -26,29 +26,36 @@ const Drawer = (props) => {
         }
         
     }
-    
+
     const categories = () => {
         return (
-            <div className="category_list">
-                카테고리
-                <ul>
-                    <li>
-                        영화
-                    </li>
-                    <li>
+                <Fragment>
+                    <div className="category_item">
                         게임
-                    </li>
-                    <li>
+                    </div>
+                    <div className="category_item">
                         음악
-                    </li>
-                    <li>
-                        라디오
-                    </li>
-                    <li>
-                        방송
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                    <div className="category_item">
+                        소통
+                    </div>
+                    <div className="category_item">
+                        쇼핑
+                    </div>
+                    <div className="category_item">
+                        뉴스/정보
+                    </div>
+                    <div className="category_item">
+                        공중파
+                    </div>
+                    <div className="category_item">
+                        스포츠/운동
+                    </div>
+                    <div className="category_item">
+                        요리
+                    </div>
+                    
+                </Fragment>
         )
     }
     return (
@@ -57,8 +64,11 @@ const Drawer = (props) => {
                 <div className="drawer_followerlist">
                     팔로잉
                 </div>
-                <div>{followingList()}</div>
-                <div>{categories()}</div>
+                {followingList()}
+                <div className="category_list">
+                    카테고리
+                </div>
+                {categories()}
                 <Footer></Footer>
                 <div>{test()}</div>
             </div>

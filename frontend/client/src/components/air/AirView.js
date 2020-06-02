@@ -12,10 +12,11 @@ import heartoff from "../../style/Simple Heart-1.png"
 import hearton from "../../style/Simple Heart.png"
 
 const AirView = (props) => {
-
     const [fol_btn, setfol_btn] = useState(false);
-    const [blo_btn, setblo_btn] = useState(false)
+    const [blo_btn, setblo_btn] = useState(false);
+    console.log(props)
     const showAlert = (e) => {
+
         e.preventDefault();
         if(props.followings.indexOf(props.data._uniq)>=0){
             if(props.isSignedIn){
@@ -41,6 +42,7 @@ const AirView = (props) => {
         if(props.isSignedIn){
             setblo_btn(!blo_btn)
             props.updatePostBlock(props)
+            alert("차단하였습니다.")
         }else{
             alert("로그인후 사용해주세요.");
         }
@@ -62,6 +64,7 @@ const AirView = (props) => {
             return heartoff
         }
     }
+
     const butfunctrue = (fol_btn) => {
         if(!fol_btn){
             return hearton
