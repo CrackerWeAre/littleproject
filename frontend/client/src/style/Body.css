@@ -1,9 +1,8 @@
 .mainBody_drawer_on {
-    top: 50px!important;
     width: calc(100% - 250px);
     margin-left: auto;
     background: #F5F5F5;
-
+    padding-top:50px;
     z-index: -1;
 }
 
