@@ -97,6 +97,13 @@ img {
   margin-right: 5px;
 }
 
+.contents .platform a img{
+  width: 40px;
+  height: 40px;
+
+}
+
+
 .contents .setting {
   
   margin-left: 5px;
