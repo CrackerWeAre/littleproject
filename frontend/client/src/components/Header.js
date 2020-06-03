@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <Fragment>
             <header>
-                <Link to=".">
+                <Link to="/">
                     <img className="logo1" src={Logo} alt="logo"></img>
                 </Link>
                 <nav>

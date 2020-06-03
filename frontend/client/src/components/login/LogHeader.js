@@ -24,7 +24,7 @@ class LogHeader extends Component {
                 <div>
                     <ul className="nav__links">
                         <li>
-                            <Link to="." >Meerkat On Air</Link>
+                            <Link to="/" >Meerkat On Air</Link>
                         </li>
                         <li>
                             <Link to="/admin">Admin</Link>

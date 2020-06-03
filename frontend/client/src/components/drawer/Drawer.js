@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import {Link} from 'react-router-dom'
 import '../../style/Drawer.css'
 import { connect } from 'react-redux'
 import Footer from '../navigation/Footer';
@@ -30,29 +31,29 @@ const Drawer = (props) => {
     const categories = () => {
         return (
                 <Fragment>
-                    <div className="category_item">
-                        게임
+                    <div className="category_item" >
+                        <Link to={'/directory/game'} >게임</Link>
                     </div>
                     <div className="category_item">
-                        음악
+                        <Link to={'/directory/music'} >음악</Link>
                     </div>
                     <div className="category_item">
-                        소통
+                        <Link to={'/directory/chatting'}>소통</Link>
                     </div>
                     <div className="category_item">
-                        쇼핑
+                        <Link to={'/directory/shopping'} >쇼핑</Link>
                     </div>
                     <div className="category_item">
-                        뉴스/정보
+                        <Link to={'/directory/news'}>뉴스/정보</Link>
                     </div>
                     <div className="category_item">
-                        공중파
+                        <Link to={'/directory/air'} >공중파</Link>
                     </div>
                     <div className="category_item">
-                        스포츠/운동
+                        <Link to={'/directory/sport'} >스포츠/운동</Link>
                     </div>
                     <div className="category_item">
-                        요리
+                    <   Link to={'/directory/cooking'} >요리</Link>
                     </div>
                     
                 </Fragment>

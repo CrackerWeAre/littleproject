@@ -8,7 +8,7 @@ class AirList extends React.Component{
 
     componentDidMount(){
         
-        
+    
     }
 
     myAirShow() {
@@ -73,7 +73,6 @@ class AirList extends React.Component{
     render(){
         return (
             <Fragment>
-               
                 {this.myAirShow()}
                 {this.AirShow()}
             </Fragment>

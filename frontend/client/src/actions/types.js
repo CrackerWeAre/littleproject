@@ -2,7 +2,7 @@
 export const FETCH_AIRS = 'FETCH_AIRS'
 export const FETCH_AIR = 'FETCH_AIR'
 export const MAKE_FOL_LIST = 'MAKE_FOL_LIST'
-
+export const FETCH_CATE_AIRS = 'FETCH_CATE_AIRS'
 
 export const UPDATE_FOL = 'UPDATE_FOL'
 export const DELETE_FOL = 'DELETE_FOL'

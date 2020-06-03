@@ -5,6 +5,7 @@ import myAirReducer from './myAirReducer'
 import streamerReducer from './streamerReducers'
 import authReducer from './authReducer';
 import follwingReducer from './follwingReducer'
+import cateReducer from './cateReducer'
 
 export default combineReducers ({
     auth: authReducer,
@@ -12,5 +13,6 @@ export default combineReducers ({
     airs: airReducer,
     myairs: myAirReducer,
     streamers: streamerReducer,
-    followings: follwingReducer
+    followings: follwingReducer,
+    cateairs: cateReducer
 });

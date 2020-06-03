@@ -20,6 +20,7 @@ function App() {
           <Header></Header>
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
+                  <Route path="/directory/:_id" component = {Main}></Route>
                   <Route path="/login" exact component={Login}></Route>
                   <Route path="/air/show/:_id" exact component={AirView}></Route>
                   <Route path="/admin" exact component={Admin}></Route>

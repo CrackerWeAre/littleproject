@@ -14,7 +14,6 @@ import hearton from "../../style/Simple Heart.png"
 const AirView = (props) => {
     const [fol_btn, setfol_btn] = useState(false);
     const [blo_btn, setblo_btn] = useState(false);
-    console.log(props)
     const showAlert = (e) => {
 
         e.preventDefault();

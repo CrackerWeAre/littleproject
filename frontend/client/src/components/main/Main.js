@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import AirList from "../air/AirList"
+import AirCateList from "../air/AirCateList"
 import '../../style/Body.css'
 import Drawer from '../drawer/Drawer';
 import {connect} from 'react-redux'
@@ -7,29 +8,42 @@ import { fetchFollowingAirs , fetchAirs} from '../../actions'
 import {isMobile} from 'react-device-detect';
 
 
-class Main extends Component {
+const Main = (props) => {
 
+    const [cateOn, setcateOn] = useState(false)
+    const paramdata = props.match.params._id
+
+    useEffect(() => {
+        onMain()
+    }, [])
     
-    componentDidMount(){
-        
-        
-        this.props.fetchAirs();
-        if(this.props.user.userEmail!==null){
-            this.props.fetchFollowingAirs(this.props.user.userEmail);
+    
+
+    useEffect(() => {
+
+        if(props.match.params._id===undefined){
+            return setcateOn(false)
+        } else {
+            return setcateOn(true)
+        }
+     
+    }, [paramdata])
+    
+    const onMain = () => {
+        props.fetchAirs();
+        if(props.user.userEmail!==null){
+            props.fetchFollowingAirs(props.user.userEmail);
             
         }
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
-        console.log(isTablet)
-        
     }
 
-    onWeb() {
+    const onWeb = () => {
         if(isMobile){
             return (
                 <Fragment>
                     <div className="mainBody_drawer_off">
-                        <AirList></AirList>
+                        {!cateOn&&<AirList></AirList>}
+                        {cateOn&&<AirCateList data={props.match.params._id}></AirCateList>}
                     </div>
                     
                 </Fragment>
@@ -39,7 +53,8 @@ class Main extends Component {
                 <Fragment>
                     <Drawer></Drawer>
                     <div className="mainBody_drawer_on">
-                        <AirList></AirList>
+                        {!cateOn&&<AirList></AirList>}
+                        {cateOn&&<AirCateList data={props.match.params._id} ></AirCateList>}
                     </div>
                 </Fragment>
             )
@@ -47,16 +62,14 @@ class Main extends Component {
         
     }
 
-    render() {
-    
-        return <Fragment>
-            {this.onWeb()}
+    return(
+        
+        <Fragment>  
+            {onWeb()}
         </Fragment>
-    
-    }
-
-
+    )
 }
+
 
 
 const mapStateToProps = state =>{

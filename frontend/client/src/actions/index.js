@@ -7,7 +7,8 @@ import {
     GET_FOL,
     FETCH_FOL_AIRS,
     UPDATE_BLO,
-    DELETE_BLO
+    DELETE_BLO,
+    FETCH_CATE_AIRS
 } from './types'
 
 
@@ -19,6 +20,11 @@ export const fetchAirs = () => async dispatch => {
     dispatch({ type: FETCH_AIRS, payload: response.data})
 }
 
+export const fetchCateAirs = (_id) => async dispatch => {
+    const response = await airs.get(`/getList/live/${_id}`)
+    console.log(response)
+    dispatch({ type: FETCH_CATE_AIRS, payload: response.data})
+}
  
 
 export const fetchFollowingAirs = (email) => async dispatch => {
