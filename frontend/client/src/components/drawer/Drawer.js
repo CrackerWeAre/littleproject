@@ -8,15 +8,28 @@ import {isMobile} from 'react-device-detect';
 
 const Drawer = (props) => {
 
+    const following = () => {
+        
+        if(props.myairs.length!==0){
+            return (<div className="drawer_followerlist">
+                    팔로잉
+                </div>)
+        }
+        return
+    }
+
     const followingList = () => {
         
-        return props.myairs.map(data => {
+        return (
+            props.myairs.map(data => {
             return (
+
 
                 <DrawerView data={data} key={data._id}></DrawerView>
 
             ) 
         })
+        )
     }
     
     const test = () => {
@@ -31,6 +44,7 @@ const Drawer = (props) => {
     const categories = () => {
         return (
                 <Fragment>
+                    
                     <div className="category_item" >
                         <Link to={'/directory/game'} >게임</Link>
                     </div>
@@ -62,16 +76,14 @@ const Drawer = (props) => {
     return (
        
             <div className="drawer">
-                <div className="drawer_followerlist">
-                    팔로잉
-                </div>
+                {following()}
                 {followingList()}
                 <div className="category_list">
                     카테고리
                 </div>
                 {categories()}
                 <Footer></Footer>
-                <div>{test()}</div>
+            
             </div>
  
     )

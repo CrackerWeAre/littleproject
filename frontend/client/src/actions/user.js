@@ -16,7 +16,7 @@ export const signIn = (response) => async dispatch => {
     params.append('name',response.profileObj.name);
 
             
-    const newResponse = await axios.post("http://49.247.134.77:1323/login", params)
+    const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login", params)
     dispatch({ type: SIGN_IN, payload: newResponse.data, userEmail: response.profileObj.email})
     console.log(newResponse)
     history.push('/')

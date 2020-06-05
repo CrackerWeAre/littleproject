@@ -69,9 +69,10 @@
 .drawer_view .contents .creatorlogo {
     width: 30px;
     height: 30px!important;
+    margin-top: 2.5px;
     margin-left: 5px;
     margin-right: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 2.5px;
 }
   
 .category_item {
@@ -79,3 +80,10 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+
+.drawer_view .contents .creatorlogo a img{
+    width: 30px;
+    height: 30px;
+  
+  }
