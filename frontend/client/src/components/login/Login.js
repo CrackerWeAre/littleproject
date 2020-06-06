@@ -14,6 +14,7 @@ class Login extends Component {
 
         const failure = (response) => {
             alert(response)
+            console.log(response)
         }
 
         return (
