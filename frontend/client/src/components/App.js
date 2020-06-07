@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Router, Route, Switch } from "react-router-dom";
+import ReactGA from 'react-ga';
 import Header from "./Header"
 import history from "../history"
 import AirView from './air/AirView';
@@ -13,10 +14,19 @@ import GlobalStyles from "./GlobalStyles";
 import '../style/Body.css'
 import Main from './main/Main';
 
+const trackingId = "G-W0RTPL737Z"
+ReactGA.initialize(trackingId, { debug: true });
+
+const onUpdate = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
+
+
 function App() {
   return (
     <Fragment>
-        <Router history={history} >
+        <Router onUpdate={onUpdate} history={history} >
           <Header></Header>
               <Switch>
                   <Route path="/" exact component = {Main}></Route>

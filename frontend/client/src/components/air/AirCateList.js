@@ -12,7 +12,7 @@ const AirCateList = (props) => {
             const data = props.data
             props.fetchCateAirs(data.toUpperCase() )
         }
-        
+        console.log(props)
         
     }, [props.data])
     
@@ -30,7 +30,8 @@ const AirCateList = (props) => {
     }
 
     const AirList = () => {
-         if(props.cateairs){
+        console.log(props.cateairs.length)
+         if(props.cateairs.length!==0){
             return props.cateairs.map(data => {
                 if(props.followings.includes(data._uniq)){
                     return null;
@@ -43,7 +44,7 @@ const AirCateList = (props) => {
                 }
                 
             })
-        }
+        } else return <div>현재 방송중인 채널이 없습니다.</div>
         
         
     }

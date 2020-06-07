@@ -58,13 +58,13 @@ const Drawer = (props) => {
                         <Link to={'/directory/shopping'} >쇼핑</Link>
                     </div>
                     <div className="category_item">
-                        <Link to={'/directory/news'}>뉴스/정보</Link>
+                        <Link to={'/directory/news & info'}>뉴스/정보</Link>
                     </div>
                     <div className="category_item">
-                        <Link to={'/directory/air'} >공중파</Link>
+                        <Link to={'/directory/air & radio'} >공중파</Link>
                     </div>
                     <div className="category_item">
-                        <Link to={'/directory/sport'} >스포츠/운동</Link>
+                        <Link to={'/directory/sports & exercise'} >스포츠/운동</Link>
                     </div>
                     <div className="category_item">
                     <   Link to={'/directory/cooking'} >요리</Link>

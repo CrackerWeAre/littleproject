@@ -9,6 +9,7 @@ class Login extends Component {
     render() {
         
         const responseGoogle = (response) => {
+            console.log(response)
             this.props.signIn(response)
         }
 
