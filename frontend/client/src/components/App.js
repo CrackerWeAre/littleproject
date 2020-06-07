@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Router, Route, Switch } from "react-router-dom";
 import ReactGA from 'react-ga';
 import Header from "./Header"
@@ -17,16 +17,24 @@ import Main from './main/Main';
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
 
-const onUpdate = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
-};
 
+
+history.listen((location) => {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+)
 
 function App() {
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    
+  }, [])
+
   return (
     <Fragment>
-        <Router onUpdate={onUpdate} history={history} >
+        <Router history={history} >
           <Header></Header>
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
