@@ -14,7 +14,7 @@ import GlobalStyles from "./GlobalStyles";
 import '../style/Body.css'
 import Main from './main/Main';
 
-const trackingId = "G-W0RTPL737Z"
+const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
 
 const onUpdate = () => {
