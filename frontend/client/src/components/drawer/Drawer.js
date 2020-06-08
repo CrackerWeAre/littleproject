@@ -27,10 +27,7 @@ const Drawer = (props) => {
         return (
             props.myairs.map(data => {
             return (
-
-
                 <DrawerView data={data} key={data._id}></DrawerView>
-
             ) 
         })
         )

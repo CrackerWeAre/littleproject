@@ -4,7 +4,6 @@
     border-radius: 5px; /* 5px rounded corners */
     width: 356px;
     height: 307px;
-    background: #F5F5F5;
 }
   
   /* Add rounded corners to the top left and the top right corner of the image */
@@ -34,7 +33,7 @@ img {
 }
 
 .top-left {
-  font-size: 14px;
+  font-size: 13px;
   position: absolute;
   bottom: 8px;
   left: 8px;
@@ -70,7 +69,8 @@ img {
 }
 
 .title .text {
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 600;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -86,8 +86,11 @@ img {
 }
 
 .contents a {
+  font-size: 14px;
+  font-weight: 600;
   color: rgba(80,80,80,1);
   text-overflow:ellipsis;
+  
   -webkit-line-clamp: 2;
 }
 
