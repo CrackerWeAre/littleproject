@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import "../style/Header.css"
-import Logo from "../style/logo.png"
+import Logo from "../style/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 
 const Header = () => {
