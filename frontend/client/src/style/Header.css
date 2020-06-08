@@ -50,7 +50,6 @@ button {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    font-family: "Montserrat", sans-serif!important;
     font-weight: 500;
     font-size: 8px;
     color: white;
@@ -67,9 +66,8 @@ button:hover {
 }
 
 a {
-    font-family: "Montserrat", sans-serif!important;
     font-weight: 500;
     font-size: 8px;
-    color: blak;
+    color: rgba(80,80,80,1);
     text-decoration: none 
 }
