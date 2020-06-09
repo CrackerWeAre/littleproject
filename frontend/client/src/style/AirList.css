@@ -12,7 +12,7 @@
     grid-template-columns: repeat(auto-fit, 356px);
     gap: 30px 20px;
     
-    justify-content: space-evenly;
+    justify-content: start;
     
 }
 
