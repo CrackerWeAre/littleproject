@@ -7,7 +7,6 @@ import '../../style/AirList.css'
 class AirList extends React.Component{
 
     componentDidMount(){
-        
     
     }
 
