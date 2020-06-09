@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import "../../style/Drawer.css"
 
 const DrawerView = (props) => {
-    console.log(props)
     return (
         <div className="drawer_view">
             <div className="contents">

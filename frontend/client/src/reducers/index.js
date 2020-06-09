@@ -6,6 +6,7 @@ import streamerReducer from './streamerReducers'
 import authReducer from './authReducer';
 import follwingReducer from './follwingReducer'
 import cateReducer from './cateReducer'
+import searchReducer from './searchReducer'
 
 export default combineReducers ({
     auth: authReducer,
@@ -14,5 +15,6 @@ export default combineReducers ({
     myairs: myAirReducer,
     streamers: streamerReducer,
     followings: follwingReducer,
-    cateairs: cateReducer
+    cateairs: cateReducer,
+    searches: searchReducer,
 });

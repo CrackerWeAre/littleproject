@@ -1,4 +1,5 @@
 import airs from '../apis/airs'
+import history from '../history'
 
 import {        
     FETCH_AIRS,
@@ -8,7 +9,8 @@ import {
     FETCH_FOL_AIRS,
     UPDATE_BLO,
     DELETE_BLO,
-    FETCH_CATE_AIRS
+    FETCH_CATE_AIRS,
+    SEARCH_STREAMERS
 } from './types'
 
 
@@ -35,7 +37,7 @@ export const fetchFollowingAirs = (email) => async dispatch => {
 
 
 export const updateFollower = (data) => async dispatch => {
-    console.log(data)
+
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
     const response = await airs.post(`/following/updateUserInfo/${data.userEmail}`, params)
@@ -43,7 +45,7 @@ export const updateFollower = (data) => async dispatch => {
 }
 
 export const deleteFollower = (data) => async dispatch => {
-    console.log(data)
+
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
     const response = await airs.post(`/following/deleteUserInfo/${data.userEmail}`, params)
@@ -56,7 +58,7 @@ export const getFollower = (email) => async dispatch => {
 }
 
 export const updateBlock = (data) => async dispatch => {
-    console.log(data)
+
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
     const response = await airs.post(`/block/updateUserInfo/${data.userEmail}`, params)
@@ -64,7 +66,7 @@ export const updateBlock = (data) => async dispatch => {
 }
 
 export const deleteBlock = (data) => async dispatch => {
-    console.log(data)
+
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
     const response = await airs.post(`/block/deleteUserInfo/${data.userEmail}`, params)
@@ -72,3 +74,8 @@ export const deleteBlock = (data) => async dispatch => {
 }
 
 
+export const searchStreamer = (data) => async dispatch => {
+    const response = await airs.get(`/search/${data}`)
+    dispatch({ type:SEARCH_STREAMERS, payload: response.data})
+    history.push(`/search/${data}`)
+}

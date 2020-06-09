@@ -11,6 +11,7 @@ import AdminDelete from './admins/AdminDelete';
 import Login from './login/Login'
 import Navigation from './navigation/Navigation'
 import GlobalStyles from "./GlobalStyles";
+import SearchMain from './main/SearchMain'
 import '../style/Body.css'
 import Main from './main/Main';
 
@@ -39,7 +40,7 @@ function App() {
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
                   <Route path="/directory/:_id" component = {Main}></Route>
-                  <Route path="/detail/:_id" component = {Main}></Route>
+                  <Route path="/search/:_id" component = {SearchMain}></Route>
                   <Route path="/login" exact component={Login}></Route>
                   <Route path="/air/show/:_id" exact component={AirView}></Route>
                   <Route path="/admin" exact component={Admin}></Route>

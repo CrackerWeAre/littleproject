@@ -5,21 +5,13 @@ import AirView from './AirView'
 import '../../style/AirList.css'
 
 
-const AirCateList = (props) => {
-    
-    useEffect(() => {
-        if(props.data){
-            const data = props.data
-            props.fetchCateAirs(data.toUpperCase() )
-        }
-        
-    }, [props.data])
+const AirSearchList = (props) => {
     
     const AirShow = () => {
         return (
             <Fragment>
                 <div className="container_title">
-                     {props.data} 채널
+                     {props.id}에 대한 검색결과
                 </div>
                 <div className="airlist_container">
                     {AirList()}
@@ -29,21 +21,17 @@ const AirCateList = (props) => {
     }
 
     const AirList = () => {
-        console.log(props.cateairs.length)
-         if(props.cateairs.length!==0){
-            return props.cateairs.map(data => {
-                if(props.followings.includes(data._uniq)){
-                    return null;
-                } else {
+        console.log(props.searches.length)
+        if(props.searches.length!==0){
+            return props.searches.map(data => {
                     return (
                         <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
                         </div>
                     )
                 }
-                
-            })
-        } else return <div>현재 방송중인 채널이 없습니다.</div>
+            )
+        } else return <div>검색결과가 없습니다.</div>
         
         
     }
@@ -58,12 +46,9 @@ const AirCateList = (props) => {
 
 const mapStateToProps = state =>{
     return {
-        airs: Object.values(state.airs), 
-        myairs: Object.values(state.myairs),
-        cateairs: Object.values(state.cateairs),
-        followings: state.followings,
+        searches: Object.values(state.searches), 
         user: state.auth
     }
 }
 
-export default connect(mapStateToProps, { fetchCateAirs })(AirCateList);
+export default connect(mapStateToProps, {  })(AirSearchList);
