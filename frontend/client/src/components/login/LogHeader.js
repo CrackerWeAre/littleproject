@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { signOut } from '../../actions/user'
 import {Link} from "react-router-dom"
@@ -17,11 +17,10 @@ class LogHeader extends Component {
     renderAuthButton(){
         if (!this.props.isSignedIn){
             return (
-                <a className="cta" href="/login"><button>Login</button></a>
+                <a className="cta" href="/login"><button className="login_button">Login</button></a>
             )
         } else {
             return (
-                <div>
                     <ul className="nav__links">
                         <li>
                             <Link to="/" >Meerkat On Air</Link>
@@ -35,18 +34,15 @@ class LogHeader extends Component {
                         </button>
                         </li>
                     </ul>
-                    
-                    
-                </div>
             )
         }
     }
     
     render() {
         return (
-            <div>
+            <Fragment>
                 {this.renderAuthButton()}
-            </div>
+            </Fragment>
         )
     }
 }

@@ -12,7 +12,15 @@ const Header = () => {
                 <Link to="/">
                     <img className="logo1" src={Logo} alt="logo"></img>
                 </Link>
-                <nav>
+                <nav className="header_nav">
+                <form className="searchbar_header" >
+                    <input className="searchbox" placeholder="검색">
+                    </input>
+                    <button className="search_button">
+
+                    </button>
+                </form>
+                
                 <LogHeader></LogHeader>
                     
                 </nav>
