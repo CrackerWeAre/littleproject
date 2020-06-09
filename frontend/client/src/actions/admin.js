@@ -28,6 +28,7 @@ export const editStreamer = (_id, formValues, token) => async dispatch => {
     params.append('platform',formValues.platform);
     params.append('channel',formValues.channel);
     params.append('channelID',formValues.channelID);
+    params.append('category',formValues.channelID);
     const defaultOptions = {
         headers: {
             Authorization: token ? `Bearer ${token}` : '',
@@ -54,6 +55,7 @@ export const createStream = (formValues, token) => async (dispatch) => {
     params.append('platform',formValues.platform);
     params.append('channel',formValues.channel);
     params.append('channelID',formValues.channelID);
+    params.append('category',formValues.category);
 
     const defaultOptions = {
         headers: {
@@ -62,7 +64,7 @@ export const createStream = (formValues, token) => async (dispatch) => {
     };
     
     const response = await airs.post('/admin/createStreamer', params, { ...defaultOptions })
-    
+    console.log(response)
     dispatch({ type: CREATE_STREAMER, payload: response.data})
     history.push('/admin')
 }

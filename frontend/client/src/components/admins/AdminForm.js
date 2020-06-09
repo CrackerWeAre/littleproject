@@ -43,6 +43,28 @@ class StreamForm extends React.Component{
             
         )
     }
+
+    renderCateSelect = ({input, label, meta}) => {
+        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
+        return (
+            <div className={className}>
+                <label>{label}</label>
+                <select {...input} autoComplete="off">
+                    <option></option>
+                    <option value="GAME">GAME</option>
+                    <option value="MUSIC">MUSIC</option>
+                    <option value="CHATTING">CHATTING</option>
+                    <option value="NEWS & INFO">NEWS&INFO</option>
+                    <option value="SHOPPING">SHOPPING</option>
+                    <option value="AIR & RADIO">AIR & RADIO</option>
+                    <option value="SPORTS & EXERCISE">SPORTS & EXERCISE</option>
+                    <option value="COOKING">COOKING</option>
+                </select>
+                {this.renderError(meta)}
+            </div>
+            
+        )
+    }
     
     onSubmit = (formValues, token) => {
         this.props.onSubmit(formValues)
@@ -52,11 +74,11 @@ class StreamForm extends React.Component{
         return (
             <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             
-                <Field name="platform" component={this.renderSelect} label="Enter platform">
-                
-                </Field>
+                <Field name="platform" component={this.renderSelect} label="Enter platform"/>
                 <Field name="channel" component={this.renderInput} label="Enter Channel"/>
                 <Field name="channelID" component={this.renderInput} label="Enter channelID"/>
+                <Field name="category" component={this.renderCateSelect} label="Enter category"/>
+                
                 <button className="ui button primary">Submit</button>
             </form>
         )
@@ -74,6 +96,9 @@ const validate = (formValues) => {
     }
     if (!formValues.channelID){
         errors.channelID = "you must enter a channelID"
+    }
+    if (!formValues.category){
+        errors.category = "you must enter a category"
     }
     return errors
 }
