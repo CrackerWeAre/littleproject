@@ -2,13 +2,13 @@
     width: calc(100% - 250px);
     margin-left: auto;
     background: #FAFAFA;
-    padding-top:50px;
+    padding-top:60px;
     z-index: -1;
 }
 
 .mainBody_drawer_off {
     top: 50px!important;
-    padding-top: 50px;
+    padding-top: 60px;
     background: #FAFAFA;
     z-index: -1;
 }
