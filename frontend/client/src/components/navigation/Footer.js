@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { Fragment } from 'react';
+import {Link} from 'react-router-dom';
+import '../../style/Footer.css';
 
 function Footer() {
     return (
-        <div className="category_list">
-            Made by Team.Sparker<br></br>
-            All icons by icon8
-        </div>
+        <Fragment>
+            <a href="https://seoulbitz.sparker.kr/">
+                <button className="Linkto">SeoulBitz Project</button>
+            </a>
+            <div className="copyright">
+                <span>Made by Team@Sparker</span><br/>
+                <span>All icons by icon8</span><br/>
+            </div>
+        </Fragment>
     )
 }
 

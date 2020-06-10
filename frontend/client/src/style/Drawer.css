@@ -30,12 +30,10 @@
 }
 
 .drawer_view {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    margin-right: 5px;
     padding-left: 24px;
-    height: 45px;
+
+    margin-right: 5px;
+    height: 40px;
 }
 
 .drawer_view:hover {
@@ -50,7 +48,7 @@
 
 .drawer_view .title a{
     height: 17px;
-    font-size: 12px;
+    font-size: 11px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -75,28 +73,25 @@
   
 
 .drawer_view .contents .creatorlogo {
-    width: 30px;
-    height: 30px!important;
-    margin-top: 2.5px;
-    margin-right: 5px;
-    margin-left: 0px;
-    margin-bottom: 2.5px;
+    width: 24px;
+    height: 24px!important;
 }
 
 .drawer_view .contents .creatorlogo .creator_img{
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     margin: 0px;
     border-radius: 5px;
 }
 
 .category_item {
-    
+    display:flex;
     color: rgba(80,80,80,1);
-    padding: 10px;
     padding-left: 24px;
-    font-size: 18px;
+    padding-top: 2px;
+    font-size: 14px;
     font-weight: 450;
+    height:40px;
 }
 
 .category_item:hover {
@@ -110,7 +105,8 @@
 }
 
 .logo_game {
-    width:20px;
+    width:24px;
+    height:24px;
 }
 
 .category_name{
