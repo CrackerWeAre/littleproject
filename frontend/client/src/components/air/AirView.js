@@ -74,23 +74,23 @@ const AirView = (props) => {
 
     const showFavorite = () => {
         if(props.followings.indexOf(props.data._uniq)>=0){
-            return <div className="top-right" onClick={showAlert}><img src={butfunctrue(fol_btn)} alt="hearton"></img></div>
+            return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
         } else {
-            return <div className="top-right" onClick={showAlert}><img src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
+            return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
         }
     }
 
     const showPlatform = (platform) => {
         if(platform==="twitch"){
-            return <div className="platform"><img src={twitch} alt="twitch"></img></div>
+            return <div className="platform"><img  className="airview_img"  src={twitch} alt="twitch"></img></div>
         }else if(platform==="youtube"){
-            return  <div className="platform"><img src={youtube} alt="youtube"></img></div>
+            return  <div className="platform"><img  className="airview_img"  src={youtube} alt="youtube"></img></div>
         }else if(platform==="afreecatv"){
-            return <div className="platform"><img src={afreecatv} alt="afreecatv"></img></div>
+            return <div className="platform"><img  className="airview_img"  src={afreecatv} alt="afreecatv"></img></div>
         }else if(platform==="vlive"){
-            return <div className="platform"><img src={vlive} alt="vlive"></img></div>
+            return <div className="platform"><img  className="airview_img"  src={vlive} alt="vlive"></img></div>
         }else {
-            return <div className="platform"><img src="blank" alt="afreecatv"></img></div>
+            return <div className="platform"><img  className="airview_img"  src="blank" alt="afreecatv"></img></div>
         }
         
     }
@@ -101,20 +101,20 @@ const AirView = (props) => {
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
                 <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-                    <img src={props.data.imgDataSrc} alt="LiveImg"></img>
+                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg"></img>
                 </a>
             </div>
             <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer"><div className="text">{props.data.liveDataTitle}</div></a></div>
             <div className="contents">
                 <div className="creatorlogo">
                     <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
-                        <img src={props.data.creatorDataLogo} alt="CreatorImg"></img>
+                        <img className="airview_img"  src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
                 <div className="setting"  onClick={openSettingPopup}>
-                    <img src={setting} alt="setting"></img>
+                    <img className="airview_img"  src={setting} alt="setting"></img>
                 </div>
                 {blo_btn && <div className="popup_inner" >
                         <div className="popup_inner_item" onClick={sendBlock}>차단하기</div>

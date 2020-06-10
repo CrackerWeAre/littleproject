@@ -8,7 +8,7 @@ const DrawerView = (props) => {
             <div className="contents">
                 <div className="creatorlogo">
                     <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
-                        <img src={props.data.creatorDataLogo} alt="CreatorImg"></img>
+                        <img className="creator_img" src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
                 <div className="title">

@@ -13,6 +13,11 @@ import Logo_NEWS from '../../style/logo/news.png';
 import Logo_SHOPPING from '../../style/logo/shopping.png';
 import Logo_SPORTS from '../../style/logo/sports.png';
 import Logo_COOKING from '../../style/logo/cooking.png';
+import Logo_HOME from '../../style/logo/home.png';
+import Logo_THUMBSUP from '../../style/logo/thumbs-up.png';
+import Logo_FOLDER from '../../style/logo/folder.png';
+import Logo_CALENDAR from '../../style/logo/calendar.png';
+
 
 
 const Drawer = (props) => {
@@ -42,7 +47,28 @@ const Drawer = (props) => {
         })
         )
     }
-    
+    const mains = () => {
+        return (
+                <Fragment>
+                    <Link to={'/'} >
+                        <div className="category_item" >
+                           <img className="logo_game" src={Logo_HOME} alt="logo" /><span className="category_name">홈</span>
+                        </div>
+                    </Link>
+                    <Link to={'/following'} >
+                        <div className="category_item">
+                            <img className="logo_game" src={Logo_THUMBSUP} alt="logo" /><span className="category_name">팔로잉</span>
+                        </div>
+                    </Link>
+                    <Link to={'/'}>
+                        <div className="category_item">
+                            <img className="logo_game" src={Logo_CALENDAR} alt="logo" /><span className="category_name">편성표</span>
+                        </div>
+                    </Link>
+                    <div className="border_bottom">&nbsp;</div>
+                </Fragment>
+        )
+    }
 
     const categories = () => {
         return (
@@ -87,18 +113,20 @@ const Drawer = (props) => {
                             <img className="logo_game" src={Logo_COOKING} alt="logo" /><span className="category_name">요리</span>
                         </div>
                     </Link>
+                    <div className="border_bottom">&nbsp;</div>
                 </Fragment>
         )
     }
+
     return (
        
             <div className="drawer">
+                {mains()}
                 {following()}
                 <div className="category_list">
                     카테고리
                 </div>
                 {categories()}
-                <div className="border_bottom">&nbsp;</div>
                 <Footer></Footer>
             
             </div>
