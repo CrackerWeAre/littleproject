@@ -4,10 +4,13 @@ import { fetchAirs, getFollower, fetchFollowingAirs } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'
 import FlatList, {PlainList} from 'flatlist-react'
+import { set } from 'react-ga';
+import spinner from '../../style/spinner.png'
 
 const AirList = (props) => {
 
     const [airs, setAirs] = useState([])
+    const [loading, setloading] = useState(false)
     const [numAirs, setNumAirs] = useState(10)
     const [folList, setFolList] = useState([])
     const [isFetching, setIsFetching] = useState(false)
@@ -25,20 +28,31 @@ const AirList = (props) => {
 
     useEffect(()=>{
         if (!isFetching) return;
+        setloading(true)
         fetchMoreListItems();
+        
     },[isFetching])
 
     const fetchMoreListItems = () => {
-        setTimeout(()=>{
-            setAirs(prevState => ( [...prevState, ...Array.from(props.airs.slice(numAirs,numAirs+10))]));
-            setNumAirs(numAirs+10)
-            setIsFetching(false);
-        }, 1000)
+        if(props.airs.slice(numAirs,numAirs+10).length!==0){
+            setTimeout(()=>{
+                setAirs(prevState => ( [...prevState, ...Array.from(props.airs.slice(numAirs,numAirs+10))]));
+                setNumAirs(numAirs+10)
+                setIsFetching(false);
+                setloading(false)
+            }, 1500)
+        }else{
+            setIsFetching(true);
+            setloading(false)
+        }
+        
+        
     }
 
     const handleScroll = () => {
         if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         setIsFetching(true);
+        
     }
 
     const myAirShow = () => {
@@ -106,6 +120,7 @@ const AirList = (props) => {
         <Fragment>
             {myAirShow()}
             {AirShow()}
+            {loading&&<div className="div_spinner_air"><img className="spinner_air" src = {spinner} alt="spinner"></img></div>}
         </Fragment>
     )
 }

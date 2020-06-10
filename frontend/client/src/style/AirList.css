@@ -22,3 +22,16 @@
     height: 307px;
     
 }
+.div_spinner_air {
+    text-align: center;
+}
+.spinner_air {
+    animation: rotate_image 2s;
+}
+
+
+@keyframes rotate_image {
+    100%{
+        transform: rotate(360deg);
+    }
+}
