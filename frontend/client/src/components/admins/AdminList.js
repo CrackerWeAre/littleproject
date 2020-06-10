@@ -14,8 +14,8 @@ class StreamList extends React.Component{
 
             return (
                 <Fragment>
-                    <Link to={`/admin/edit/${streamer._id}`} className="ui button primary">EDIT</Link>
-                    <Link className="ui button negative" to={`/admin/delete/${streamer._id}`}>DELETE</Link>
+                    <td className="td"><Link to={`/admin/edit/${streamer._id}`} className="ui button primary">EDIT</Link></td>
+                    <td className="td"><Link className="ui button negative" to={`/admin/delete/${streamer._id}`}>DELETE</Link></td>
                 </Fragment>
             )
 
@@ -38,7 +38,7 @@ class StreamList extends React.Component{
                     <td className="td">{streamer.platform} </td>
                     <td className="td">{streamer.channel}   </td>
                     <td className="td">{streamer.channelID}</td>
-                    <td className="td">{this.renderAdmin(streamer)}</td>
+                    {this.renderAdmin(streamer)}
                 </tr>
             )
         })
@@ -54,7 +54,8 @@ class StreamList extends React.Component{
                             <th className="th">플랫폼</th>
                             <th className="th">채널명</th>
                             <th className="th">채널아이디</th>
-                            <th className="th">비고</th>
+                            <th className="th">수정</th>
+                            <th className="th">삭제</th>
                         </tr>
                     </thead>
                     <tbody className="tbody">
