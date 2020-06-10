@@ -33,7 +33,7 @@ const AirList = (props) => {
             setAirs(prevState => ( [...prevState, ...Array.from(props.airs.slice(numAirs,numAirs+10))]));
             setNumAirs(numAirs+10)
             setIsFetching(false);
-        }, 2000)
+        }, 1000)
     }
 
     const handleScroll = () => {

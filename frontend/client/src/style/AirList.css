@@ -5,14 +5,14 @@
 }
 
 .airlist_container {
-    width: 100%;
+    width: -webkit-fill-available;
     display: inline-grid;
     padding: 40px;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fit, 356px);
+
+    grid-template-columns: repeat(auto-fill, minmax(356px,auto));
     gap: 30px 20px;
     
-    justify-content: start;
+    justify-content: space-between;
     
 }
 
