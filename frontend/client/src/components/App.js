@@ -14,6 +14,7 @@ import GlobalStyles from "./GlobalStyles";
 import SearchMain from './main/SearchMain'
 import '../style/Body.css'
 import Main from './main/Main';
+import FollowingMain from './main/FollowingMain';
 
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
@@ -39,6 +40,7 @@ function App() {
           <Header></Header>
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
+                  <Route path="/following" exact component = {FollowingMain}></Route>
                   <Route path="/directory/:_id" component = {Main}></Route>
                   <Route path="/search/:_id" component = {SearchMain}></Route>
                   <Route path="/login" exact component={Login}></Route>
@@ -48,7 +50,6 @@ function App() {
                   <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
               </Switch>
-          <Navigation></Navigation>
       </Router>
       <GlobalStyles></GlobalStyles>
     </Fragment>

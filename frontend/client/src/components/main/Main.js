@@ -14,6 +14,7 @@ const Main = (props) => {
     const paramdata = props.match.params._id
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         onMain()
     }, [])
     

@@ -1,29 +1,29 @@
 .drawer {
     position: fixed;
-    width: 225px;
-    overflow-y: auto;
-    top: 70px;
+    width: 240px;
+    overflow-y: hidden;
+    top: 75px;
     bottom: 0px;
-    margin-left: 15px;
+}
 
+.drawer:hover {
+    overflow-y: scroll;
 }
 
 .drawer_followerlist {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
     font-size: 17px;
     font-weight: 600px;
+    margin-left: 24px;
     color: rgba(80,80,80,0.7);
 }
-::-webkit-scrollbar {
-    width: 0px;
-  }
+
 
 .category_list {
     padding-top: 10px;
-    padding-left: 10px;
     padding-bottom: 10px;
+    margin-left: 24px;
     font-size: 17px;
     font-weight: 600px;
     color: rgba(80,80,80,0.7);
@@ -32,8 +32,9 @@
 .drawer_view {
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 5px;
     padding-right: 5px;
+    margin-right: 5px;
+    padding-left: 24px;
     height: 45px;
 }
 
@@ -77,14 +78,23 @@
     width: 30px;
     height: 30px!important;
     margin-top: 2.5px;
-    margin-left: 5px;
     margin-right: 5px;
+    margin-left: 0px;
     margin-bottom: 2.5px;
 }
-  
+
+.drawer_view .contents .creatorlogo .creator_img{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
 .category_item {
+    
     color: rgba(80,80,80,1);
     padding: 10px;
+    padding-left: 24px;
     font-size: 18px;
     font-weight: 450;
 }
@@ -93,11 +103,6 @@
     background: #F5F5F5;
 }
 
-.drawer_view .contents .creatorlogo a img{
-    width: 30px;
-    height: 30px;
-  
-  }
 
 .border_bottom {
     border-bottom: 1px solid rgba(80,80,80,0.3);

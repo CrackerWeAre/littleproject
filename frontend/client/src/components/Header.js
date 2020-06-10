@@ -5,6 +5,7 @@ import Logo from "../style/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer} from '../actions/index'
+import searchImg from '../style/Search.png'
 
 const Header = (props) => {
 
@@ -31,7 +32,7 @@ const Header = (props) => {
                     <input className="searchbox" placeholder="검색" type='text' value={searchItem} onChange={handleChange}>
                     </input>
                     <button className="search_button">
-
+                        <img className="search_img" src={searchImg} alt="Search"></img>
                     </button>
                 </form>
                 
