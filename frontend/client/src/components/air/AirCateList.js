@@ -29,7 +29,6 @@ const AirCateList = (props) => {
     }
 
     const AirList = () => {
-        console.log(props.cateairs.length)
          if(props.cateairs.length!==0){
             return props.cateairs.map(data => {
                 if(props.followings.includes(data._uniq)){

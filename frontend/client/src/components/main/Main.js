@@ -11,11 +11,13 @@ import {isMobile} from 'react-device-detect';
 const Main = (props) => {
 
     const [cateOn, setcateOn] = useState(false)
-    const paramdata = props.match.params._id
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        onMain()
+        props.fetchAirs();
+        if(props.user.userEmail!==null){
+            props.fetchFollowingAirs(props.user.userEmail);
+        }
     }, [])
     
     
@@ -28,15 +30,8 @@ const Main = (props) => {
             return setcateOn(true)
         }
      
-    }, [paramdata])
-    
-    const onMain = () => {
-        props.fetchAirs();
-        if(props.user.userEmail!==null){
-            props.fetchFollowingAirs(props.user.userEmail);
-            
-        }
-    }
+    }, [props.match.params._id])
+
 
     const onWeb = () => {
         if(isMobile){

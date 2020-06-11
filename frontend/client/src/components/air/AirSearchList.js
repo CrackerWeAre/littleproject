@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { fetchCateAirs } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'
 
@@ -21,7 +20,6 @@ const AirSearchList = (props) => {
     }
 
     const AirList = () => {
-        console.log(props.searches.length)
         if(props.searches.length!==0){
             return props.searches.map(data => {
                     return (

@@ -1,7 +1,7 @@
 import { createStore , applyMiddleware, compose} from 'redux'
 import reducers from '../reducers';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage/session';
+import storage from 'redux-persist/lib/storage';
 import reduxThunk from 'redux-thunk';
 
 const persistConfig = {

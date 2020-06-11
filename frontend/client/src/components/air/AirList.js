@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs } from '../../actions'
 import AirView from './AirView'
 import '../../style/AirList.css'
-import FlatList, {PlainList} from 'flatlist-react'
-import { set } from 'react-ga';
 import spinner from '../../style/spinner.png'
 
 const AirList = (props) => {
@@ -12,12 +10,9 @@ const AirList = (props) => {
     const [airs, setAirs] = useState([])
     const [loading, setloading] = useState(false)
     const [numAirs, setNumAirs] = useState(10)
-    const [folList, setFolList] = useState([])
     const [isFetching, setIsFetching] = useState(false)
     useEffect(() => {
         setAirs(Array.from(props.airs.slice(0,10)))
-        console.log(airs)
-        setFolList(props.followings)
     }, [props.airs])
 
 
@@ -30,7 +25,6 @@ const AirList = (props) => {
         if (!isFetching) return;
         setloading(true)
         fetchMoreListItems();
-        
     },[isFetching])
 
     const fetchMoreListItems = () => {

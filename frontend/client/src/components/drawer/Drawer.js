@@ -15,7 +15,6 @@ import Logo_SPORTS from '../../style/logo/sports.png';
 import Logo_COOKING from '../../style/logo/cooking.png';
 import Logo_HOME from '../../style/logo/home.png';
 import Logo_THUMBSUP from '../../style/logo/thumbs-up.png';
-import Logo_FOLDER from '../../style/logo/folder.png';
 import Logo_CALENDAR from '../../style/logo/calendar.png';
 
 
