@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import "../../style/Drawer.css"
+import "../../style/css/Drawer.css"
 
 const DrawerView = (props) => {
     return (

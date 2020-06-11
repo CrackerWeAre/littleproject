@@ -16,35 +16,35 @@
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 100;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Thin.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Thin.otf)
 }
 
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 300;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Light.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Light.otf)
 }
 
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 400;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Regular.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Regular.otf)
 }
 
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 500;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Medium.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Medium.otf)
 }
 
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 700;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Bold.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Bold.otf)
 }
 
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 900;
-    src: url(./font/Noto_Sans_KR/NotoSansKR-Black.otf)
+    src: url(../font/Noto_Sans_KR/NotoSansKR-Black.otf)
 }

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import '../../style/Footer.css';
+import '../../style/css/Footer.css';
 
 function Footer() {
     return (

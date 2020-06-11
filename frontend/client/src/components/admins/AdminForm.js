@@ -1,14 +1,13 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-
 class StreamForm extends React.Component{
 
     renderError({touched, error}){
         if(touched && error){
             return (
-                <div className="ui error message">
-                    <div className="ui error meesage" style={{background : "white"}}>{error}
+                <div className="error message">
+                    <div className="error meesage" style={{background : "white"}}>{error}
                     </div>
                 </div>
             )
@@ -72,14 +71,14 @@ class StreamForm extends React.Component{
 
     render(){
         return (
-            <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <form className="form-create" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             
-                <Field name="platform" component={this.renderSelect} label="Enter platform"/>
-                <Field name="channel" component={this.renderInput} label="Enter Channel"/>
-                <Field name="channelID" component={this.renderInput} label="Enter channelID"/>
-                <Field name="category" component={this.renderCateSelect} label="Enter category"/>
+               <Field name="platform" component={this.renderSelect} label="Platform"/>
+                <Field name="channel" component={this.renderInput} label="Channel"/>
+               <Field name="channelID" component={this.renderInput} label="ChannelID"/>
+               <Field name="category" component={this.renderCateSelect} label="Category"/>
                 
-                <button className="ui button primary">Submit</button>
+                <button className="submit">Submit</button>
             </form>
         )
     }

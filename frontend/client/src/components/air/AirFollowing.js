@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs } from '../../actions'
 import AirView from './AirView'
-import '../../style/AirList.css'
+import '../../style/css/AirList.css'
 
 class AirFollowing extends React.Component{
 

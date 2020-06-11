@@ -11,7 +11,7 @@ import AdminDelete from './admins/AdminDelete';
 import Login from './login/Login'
 import GlobalStyles from "./GlobalStyles";
 import SearchMain from './main/SearchMain'
-import '../style/Body.css'
+import '../style/css/Body.css'
 import Main from './main/Main';
 import FollowingMain from './main/FollowingMain';
 

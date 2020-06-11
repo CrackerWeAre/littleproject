@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchCateAirs } from '../../actions'
 import AirView from './AirView'
-import '../../style/AirList.css'
+import '../../style/css/AirList.css'
 
 
 const AirCateList = (props) => {

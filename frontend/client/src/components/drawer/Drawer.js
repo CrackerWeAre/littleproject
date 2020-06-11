@@ -1,21 +1,21 @@
 import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
-import '../../style/Drawer.css';
+import '../../style/css/Drawer.css';
 import { connect } from 'react-redux';
 import Footer from '../navigation/Footer';
 import DrawerView from './DrawerView';
 
-import Logo_GAME from '../../style/logo/game.png';
-import Logo_MUSIC from '../../style/logo/music.png';
-import Logo_AIR from '../../style/logo/air.png';
-import Logo_CHATTING from '../../style/logo/chatting.png';
-import Logo_NEWS from '../../style/logo/news.png';
-import Logo_SHOPPING from '../../style/logo/shopping.png';
-import Logo_SPORTS from '../../style/logo/sports.png';
-import Logo_COOKING from '../../style/logo/cooking.png';
-import Logo_HOME from '../../style/logo/home.png';
-import Logo_THUMBSUP from '../../style/logo/thumbs-up.png';
-import Logo_CALENDAR from '../../style/logo/calendar.png';
+import Logo_GAME from '../../style/img/category/game.png';
+import Logo_MUSIC from '../../style/img/category/music.png';
+import Logo_AIR from '../../style/img/category/air.png';
+import Logo_CHATTING from '../../style/img/category/chatting.png';
+import Logo_NEWS from '../../style/img/category/news.png';
+import Logo_SHOPPING from '../../style/img/category/shopping.png';
+import Logo_SPORTS from '../../style/img/category/sports.png';
+import Logo_COOKING from '../../style/img/category/cooking.png';
+import Logo_HOME from '../../style/img/category/home.png';
+import Logo_THUMBSUP from '../../style/img/category/thumbs-up.png';
+import Logo_CALENDAR from '../../style/img/category/calendar.png';
 
 
 

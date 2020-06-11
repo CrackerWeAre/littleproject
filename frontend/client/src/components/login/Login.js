@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
 import { signIn } from '../../actions/user';
 import { connect } from 'react-redux'
-import '../../style/Login.css'
+import '../../style/css/Login.css'
 
 class Login extends Component {
     

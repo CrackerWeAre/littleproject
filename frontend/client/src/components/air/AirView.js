@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import '../../style/AirView.css'
+import '../../style/css/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
 
-import afreecatv from "../../style/afreeca.png"
-import twitch from "../../style/twitch.png"
-import youtube from "../../style/youtube.png"
-import vlive from "../../style/vlive.png"
-import setting from "../../style/setting.png"
-import heartoff from "../../style/Simple Heart-1.png"
-import hearton from "../../style/Simple Heart.png"
+import afreecatv from "../../style/img/platform/afreeca.png"
+import twitch from "../../style/img/platform/twitch.png"
+import youtube from "../../style/img/platform/youtube.png"
+import vlive from "../../style/img/platform/vlive.png"
+import setting from "../../style/img/setting.png"
+import heartoff from "../../style/img/Simple Heart-1.png"
+import hearton from "../../style/img/Simple Heart.png"
 
 const AirView = (props) => {
     const [fol_btn, setfol_btn] = useState(false);

@@ -2,8 +2,8 @@ import React, { Fragment ,useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs } from '../../actions'
 import AirView from './AirView'
-import '../../style/AirList.css'
-import spinner from '../../style/spinner.png'
+import '../../style/css/AirList.css'
+import spinner from '../../style/img/spinner.png'
 
 const AirList = (props) => {
 

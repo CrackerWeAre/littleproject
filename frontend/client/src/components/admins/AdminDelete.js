@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom'
 import history from '../../history'
 import { fetchStreamer, deleteStreamer } from '../../actions/admin'
 
-
-
-
 class StreamDelete extends React.Component {
     componentDidMount(){
         this.props.fetchStreamer(this.props.match.params._id)

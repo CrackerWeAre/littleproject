@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import AirSearchList from "../air/AirSearchList"
-import '../../style/Body.css'
+import '../../style/css/Body.css'
 import Drawer from '../drawer/Drawer';
 import {connect} from 'react-redux'
 import { fetchFollowingAirs , fetchAirs} from '../../actions'

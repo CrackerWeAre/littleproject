@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
-import "../style/Header.css"
-import Logo from "../style/logo.black.png"
+import "../style/css/Header.css"
+import Logo from "../style/img/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer} from '../actions/index'
-import searchImg from '../style/Search.png'
+import searchImg from '../style/img/Search.png'
 
 const Header = (props) => {
 
