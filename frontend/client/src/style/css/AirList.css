@@ -4,24 +4,13 @@
     font-weight: 500;
 }
 
-.airlist_container {
-    width: -webkit-fill-available;
-    display: inline-grid;
-    padding: 40px;
-
-    grid-template-columns: repeat(auto-fill, minmax(356px,auto));
-    gap: 30px 20px;
-    
-    justify-content: space-between;
-    
-}
-
 .item {
     display: flex;
     width: 356px;
     height: 307px;
     
 }
+
 .div_spinner_air {
     text-align: center;
 }
@@ -35,3 +24,151 @@
         transform: rotate(360deg);
     }
 }
+
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+##Device = 데스크탑
+##Screen = 1281px 이상 해상도 데스크탑
+*/
+
+@media (min-width: 1281px) {
+
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 40px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+
+}
+    
+/*
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+##Device = 랩탑, 데스크탑
+##Screen = 1025px에서 1280px 사이
+*/
+    
+@media (min-width: 1024px) and (max-width: 1280px) {
+
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 60px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+}
+
+/*
+##Device = Tablets, Ipads (portrait),
+##Screen = B/w 768px to 1024px
+##Device = 태블릿, 아이패드(세로),
+##Screen = 768px에서 1024px 사이
+*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 10px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+    
+}
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+##Device = 저해상도 태블릿, 모바일(가로)
+##Screen = 481px에서 767px 사이
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 10px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+
+}
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+##Device = 대부분의 스마트폰 모바일 기기(세로)
+##Screen = 320px에서 479px 사이
+*/
+
+@media (min-width: 376px) and (max-width: 480px) {
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 30px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 10px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+}
+
+/* 이미지 자체를 줄여야함 */
+@media (max-width: 320px) {
+    .airlist_container {
+        width: -webkit-fill-available;
+        display: inline-grid;
+        padding: 0px;
+    
+        grid-template-columns: repeat(auto-fill, minmax(356px,auto));
+        gap: 30px 20px;
+        
+        justify-content: space-between;
+        
+    }
+    
+}
+
