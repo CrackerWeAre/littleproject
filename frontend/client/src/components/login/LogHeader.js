@@ -34,6 +34,11 @@ class LogHeader extends Component {
                             </Link>
                         </div>
                         <div className="nav_items">
+                            <Link to="/mypage">
+                                <button className="cta">MyPage</button>
+                            </Link>
+                        </div>
+                        <div className="nav_items">
                         <button onClick = {this.onSignOutClick} className="cta">
                                 Logout
                         </button>

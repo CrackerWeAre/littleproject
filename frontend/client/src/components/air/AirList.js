@@ -96,19 +96,19 @@ const AirList = (props) => {
            return airs.map(data => {
                if(props.followings.includes(data._uniq)){
                    return null;
-               } else {
+               } else if(props.blocking.includes(data._uniq)){
+                   return null;
+               } else
                    return (
                        <div className='item' key={data._id}>
                            <AirView data={data}></AirView>
                        </div>
                    )
-               }
+               })
                
-           })
-       }
-       
-       
-   }
+           }
+        }
+    
 
     return (
         <Fragment>
@@ -125,6 +125,7 @@ const mapStateToProps = state =>{
         airs: Object.values(state.airs), 
         myairs: Object.values(state.myairs),
         followings: state.followings,
+        blocking: state.blockairs,
         user: state.auth
     }
 }

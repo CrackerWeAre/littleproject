@@ -14,6 +14,7 @@ import SearchMain from './main/SearchMain'
 import '../style/css/Body.css'
 import Main from './main/Main';
 import FollowingMain from './main/FollowingMain';
+import UserPage from './user/UserPage';
 
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
@@ -40,6 +41,7 @@ function App() {
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
                   <Route path="/following" exact component = {FollowingMain}></Route>
+                  <Route path="/mypage" exact component = {UserPage}></Route>
                   <Route path="/directory/:_id" component = {Main}></Route>
                   <Route path="/search/:_id" component = {SearchMain}></Route>
                   <Route path="/login" exact component={Login}></Route>

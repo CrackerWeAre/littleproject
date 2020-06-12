@@ -4,7 +4,7 @@ import AirCateList from "../air/AirCateList"
 import '../../style/css/Body.css'
 import Drawer from '../drawer/Drawer';
 import {connect} from 'react-redux'
-import { fetchFollowingAirs , fetchAirs} from '../../actions'
+import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs} from '../../actions'
 import {isMobile} from 'react-device-detect';
 
 
@@ -17,6 +17,9 @@ const Main = (props) => {
         props.fetchAirs();
         if(props.user.userEmail!==null){
             props.fetchFollowingAirs(props.user.userEmail);
+        }
+        if(props.user.userEmail!==null){
+            props.fetchBlockedAirs(props.user.userEmail);
         }
     }, [])
     
@@ -75,4 +78,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs })(Main);
+export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs })(Main);

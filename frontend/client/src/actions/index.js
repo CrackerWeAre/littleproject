@@ -10,7 +10,8 @@ import {
     UPDATE_BLO,
     DELETE_BLO,
     FETCH_CATE_AIRS,
-    SEARCH_STREAMERS
+    SEARCH_STREAMERS,
+    FETCH_BLO_AIRS
 } from './types'
 
 
@@ -33,6 +34,12 @@ export const fetchFollowingAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/following/${email}`)
     dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
+}
+
+export const fetchBlockedAirs = (email) => async dispatch => {
+
+    const response = await airs.get(`/getList/block/${email}`)
+    dispatch({ type: FETCH_BLO_AIRS, payload: response.data})
 }
 
 

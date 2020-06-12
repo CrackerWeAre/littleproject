@@ -10,6 +10,7 @@ export const UPDATE_BLO  = 'UPDATE_BLO'
 export const DELETE_BLO = 'DELETE_BLO'
 export const GET_FOL = 'GET_FOL'
 export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
+export const FETCH_BLO_AIRS = 'FETCH_BLO_AIRS'
 
 export const FETCH_STREAMERS = 'FETCH_STREAMERS'
 export const FETCH_STREAMER = 'FETCH_STREAMER'

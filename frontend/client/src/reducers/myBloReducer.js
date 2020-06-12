@@ -1,13 +1,13 @@
 
-import { UPDATE_FOL, DELETE_FOL, FETCH_FOL_AIRS } from '../actions/types'
+import {FETCH_BLO_AIRS, UPDATE_BLO, DELETE_BLO } from '../actions/types'
 
 export default (state = {}, action) => {
     switch(action.type) {
-        case FETCH_FOL_AIRS :
+        case FETCH_BLO_AIRS :
             return {...state, ...action.payload}
-        case UPDATE_FOL :
+        case UPDATE_BLO :
             return {...state};
-        case DELETE_FOL :
+        case DELETE_BLO  :
             return {...state};
         default :
             return state;
