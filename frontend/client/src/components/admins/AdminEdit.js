@@ -3,6 +3,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { fetchStreamer, editStreamer} from '../../actions/admin'
 import AdminForm from './AdminForm'
+import '../../style/css/AdminList.css'
+
 
 class StreamEdit extends React.Component{
 
@@ -20,8 +22,7 @@ class StreamEdit extends React.Component{
         } 
         return (
             <div>
-                <div>
-                    <h3>Edit A Stream</h3>
+                <div className="adminList">
                     <AdminForm 
                         initialValues={_.pick(this.props.streamer, 'platform', 'channel', 'channelID')}
                         onSubmit={this.onSubmit}></AdminForm>

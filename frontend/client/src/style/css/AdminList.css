@@ -36,14 +36,14 @@ button.create:hover {
     font-size: 15px;
     color: whitesmoke;
     background-color: grey!important;
-    padding:10px;
+    padding:20px;
 
 }
 
 .td {
     text-align: center;
     border: 2px solid #bcbcbc;
-    padding: 5px;
+    padding: 10px;
 }
 
 .tbody {
@@ -57,6 +57,7 @@ button.create:hover {
 
 .tr {
     border: 1px solid #bcbcbc;
+    font-size: 14px;
 }
 
 .td .button {
