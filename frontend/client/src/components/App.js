@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Router, Route, Switch } from "react-router-dom";
 import ReactGA from 'react-ga';
 import Header from "./Header"
@@ -15,6 +15,8 @@ import '../style/css/Body.css'
 import Main from './main/Main';
 import FollowingMain from './main/FollowingMain';
 import UserPage from './user/UserPage';
+import {isMobile} from 'react-device-detect';
+import Drawer from './drawer/Drawer'
 
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
@@ -29,8 +31,10 @@ history.listen((location) => {
 
 function App() {
 
+  const [className, setclassName] = useState('initialState')
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
+    isMobile ? setclassName('mainBody_drawer_off') : setclassName('mainBody_drawer_on')
     
   }, [])
 
@@ -38,6 +42,10 @@ function App() {
     <Fragment>
         <Router history={history} >
           <Header></Header>
+          {!isMobile&&<Drawer></Drawer>}
+          <div className={className}>
+              
+          
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
                   <Route path="/following" exact component = {FollowingMain}></Route>
@@ -51,6 +59,7 @@ function App() {
                   <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
               </Switch>
+              </div>
       </Router>
       <GlobalStyles></GlobalStyles>
     </Fragment>

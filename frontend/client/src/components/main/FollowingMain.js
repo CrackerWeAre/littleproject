@@ -15,34 +15,11 @@ const FollowingMain = (props) => {
         window.scrollTo(0, 0)
     }, [])
 
-    
-    const onWeb = () => {
-        if(isMobile){
-            return (
-                <Fragment>
-                    <div className="mainBody_drawer_off">
-                        <AirFollowing></AirFollowing>
-                    </div>
-                    
-                </Fragment>
-            )
-        } else {
-            return (
-                <Fragment>
-                    <Drawer></Drawer>
-                    <div className="mainBody_drawer_on">
-                        <AirFollowing></AirFollowing>
-                    </div>
-                </Fragment>
-            )
-        }
-        
-    }
 
     return(
         
         <Fragment>  
-            {onWeb()}
+            <AirFollowing></AirFollowing>
         </Fragment>
     )
 }

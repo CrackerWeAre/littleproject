@@ -73,12 +73,12 @@ class StreamForm extends React.Component{
         return (
             <form className="form-create" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             
-               <Field name="platform" component={this.renderSelect} label="Platform"/>
+                <Field name="platform" component={this.renderSelect} label="Platform"/>
                 <Field name="channel" component={this.renderInput} label="Channel"/>
-               <Field name="channelID" component={this.renderInput} label="ChannelID"/>
-               <Field name="category" component={this.renderCateSelect} label="Category"/>
-                
+                <Field name="channelID" component={this.renderInput} label="ChannelID"/>
+                <Field name="category" component={this.renderCateSelect} label="Category"/>
                 <button className="submit">Submit</button>
+                
             </form>
         )
     }
