@@ -6,7 +6,8 @@ import {
     FETCH_STREAMER, 
     EDIT_STREAMER,
     DELETE_STREAMER,
-    CREATE_STREAMER
+    CREATE_STREAMER,
+    CHECK_STREAMER
 } from './types'
 
 
@@ -70,3 +71,19 @@ export const createStream = (formValues, token) => async (dispatch) => {
 }
 
 
+export const checkStream = (formValues, token) => async (dispatch) => {
+    const params = new URLSearchParams();
+    params.append('platform',formValues.platform);
+    params.append('channelID',formValues.channelID);
+    console.log(params, token)
+
+    const defaultOptions = {
+        headers: {
+            Authorization: token ? `Bearer ${token}` : '',
+        },
+    };
+    
+    const response = await airs.get('/admin/existStreamer', params, { ...defaultOptions })
+    console.log(response)
+    dispatch({ type: CHECK_STREAMER, payload: response.data})
+}

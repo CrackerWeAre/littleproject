@@ -13,12 +13,13 @@ class StreamForm extends React.Component{
             )
         }
     }
-    renderInput = ({input, label, meta}) => {
+
+    renderInput = ({input, label, type, meta }) => {
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
             <div className={className}>
                 <label>{label}</label>
-                <input {...input} autoComplete="off"></input>
+                <input {...input} autoComplete="off" type={type}></input>
                 {this.renderError(meta)}
             </div>
             
@@ -33,7 +34,7 @@ class StreamForm extends React.Component{
                 <select {...input} autoComplete="off">
                     <option></option>
                     <option value="youtube">Youtube</option>
-                    <option value="twitch">Twitch</option>
+                    <option value="twitch" >Twitch</option>
                     <option value="afreecatv">Afreecatv</option>
                     <option value="vlive">Vlive</option>
                 </select>
@@ -69,20 +70,34 @@ class StreamForm extends React.Component{
         this.props.onSubmit(formValues)
     }
 
+    onCheck = (formValues, token) => {
+        this.props.onCheck(formValues)
+    }
+
     render(){
         return (
             <form className="form-create" onSubmit={this.props.handleSubmit(this.onSubmit)}>
             
                 <Field name="platform" component={this.renderSelect} label="Platform"/>
                 <Field name="channel" component={this.renderInput} label="Channel"/>
-                <Field name="channelID" component={this.renderInput} label="ChannelID"/>
+                <Field name="channelID" component={this.renderInput} type="text" label="ChannelID"/>
                 <Field name="category" component={this.renderCateSelect} label="Category"/>
-                <button className="submit">Submit</button>
                 
+                <button className="submit">Submit</button>
             </form>
         )
     }
 }
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const asyncValidate = (values, data /*, dispatch */) => {
+    if(values.platform&&values.channelID){
+        console.log(data)
+        return sleep(1000).then(console.log(values))
+    }else  
+        return sleep(1000)
+  }
 
 const validate = (formValues) => {
     
@@ -105,5 +120,7 @@ const validate = (formValues) => {
 
 export default reduxForm({
     form: 'streamerForm',
-    validate
+    validate,
+    asyncValidate,
+    asyncBlurFields: ['platform', 'channelID']
 })(StreamForm);

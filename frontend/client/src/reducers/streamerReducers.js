@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { FETCH_STREAMER, FETCH_STREAMERS, EDIT_STREAMER, DELETE_STREAMER, CREATE_STREAMER} from '../actions/types'
+import { FETCH_STREAMER, FETCH_STREAMERS, EDIT_STREAMER, DELETE_STREAMER, CREATE_STREAMER, CHECK_STREAMER} from '../actions/types'
 
 export default (state = {}, action) => {
     switch(action.type) {
@@ -13,6 +13,8 @@ export default (state = {}, action) => {
             return {...state}; 
         case DELETE_STREAMER : 
             return _.omit(state, action.payload)
+        case CHECK_STREAMER :
+            return {...state}
         default :
             return state;
 

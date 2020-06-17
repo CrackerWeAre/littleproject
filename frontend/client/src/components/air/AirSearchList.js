@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import AirView from './AirView'
+import AirSearchView from './AirSearchView'
 import '../../style/css/AirList.css'
 
 
@@ -24,7 +24,7 @@ const AirSearchList = (props) => {
             return props.searches.map(data => {
                     return (
                         <div className='item' key={data._id}>
-                            <AirView data={data}></AirView>
+                            <AirSearchView data={data}></AirSearchView>
                         </div>
                     )
                 }
