@@ -104,8 +104,7 @@ const AirView = (props) => {
                     <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg"></img>
                 </a>
             </div>
-            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-            <div className="text">{props.data.liveDataTitle}</div></a></div>
+            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer"><div className="text">{props.data.liveDataTitle}</div></a></div>
             <div className="contents">
                 <div className="creatorlogo">
                     <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">

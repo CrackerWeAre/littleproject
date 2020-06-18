@@ -4,6 +4,7 @@ import AirView from '../air/AirView'
 
 function UserPage(props) {
 
+
     const myBlockList = () => {
         if(props.mybloairs.length!==0){
             return props.mybloairs.map(data => {

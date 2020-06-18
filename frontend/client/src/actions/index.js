@@ -25,7 +25,6 @@ export const fetchAirs = () => async dispatch => {
 
 export const fetchCateAirs = (_id) => async dispatch => {
     const response = await airs.get(`/getList/live/${_id}`)
-    console.log(response)
     dispatch({ type: FETCH_CATE_AIRS, payload: response.data})
 }
  

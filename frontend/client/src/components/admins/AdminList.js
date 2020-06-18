@@ -71,7 +71,7 @@ const mapStateToProps = state =>{
 
     
     return {
-        streamers: Object.values(state.streamers)
+        streamers: Object.values(state.streamers.data)
     }
 }
 export default connect(mapStateToProps, { fetchStreamers })(StreamList);
