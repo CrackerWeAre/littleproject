@@ -17,6 +17,7 @@ import FollowingMain from './main/FollowingMain';
 import UserPage from './user/UserPage';
 import {isMobile} from 'react-device-detect';
 import Drawer from './drawer/Drawer'
+import {connect} from 'react-redux'
 
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
@@ -29,20 +30,20 @@ history.listen((location) => {
   }
 )
 
-function App() {
+function App(props) {
 
   const [className, setclassName] = useState('initialState')
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    isMobile ? setclassName('mainBody_drawer_off') : setclassName('mainBody_drawer_on')
+    !isMobile&&!props.drawerVal ? setclassName('mainBody_drawer_off') : setclassName('mainBody_drawer_on')
     
-  }, [])
+  }, [props.drawerVal])
 
   return (
     <Fragment>
         <Router history={history} >
           <Header></Header>
-          {!isMobile&&<Drawer></Drawer>}
+          {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           <div className={className}>
               
           
@@ -66,4 +67,9 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { drawerVal : state.maintheme }
+}
+
+export default connect(mapStateToProps)(App);
+

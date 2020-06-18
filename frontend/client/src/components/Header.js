@@ -4,11 +4,17 @@ import "../style/css/Header.css"
 import Logo from "../style/img/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
-import {searchStreamer} from '../actions/index'
+import {searchStreamer, drawerSet} from '../actions/index'
 import searchImg from '../style/img/Search.png'
 
 const Header = (props) => {
 
+    const drawerClick = (e) => {
+        e.preventDefault();
+        console.log(props.drawerVal)
+        props.drawerSet(props.drawerVal)
+        
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         props.searchStreamer(searchItem)        
@@ -25,7 +31,7 @@ const Header = (props) => {
         <Fragment>
             <header>
                 <Link to="/">
-                    <img className="logo1" src={Logo} alt="logo"></img>
+                    <img className="logo1" src={Logo} alt="logo" onClick={drawerClick}></img>
                 </Link>
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>
@@ -44,4 +50,8 @@ const Header = (props) => {
     )
 }
 
-export default connect(null, {searchStreamer})(Header);
+const mapStateToProps = (state) => {
+    return { drawerVal : state.maintheme }
+}
+
+export default connect(mapStateToProps, {searchStreamer,drawerSet})(Header);

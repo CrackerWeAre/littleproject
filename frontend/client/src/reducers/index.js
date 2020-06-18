@@ -9,6 +9,7 @@ import cateReducer from './cateReducer'
 import searchReducer from './searchReducer'
 import blockReducer from './blockReducer';
 import myBloReducer from './myBloReducer';
+import mainReducer from './mainReducer';
 
 export default combineReducers ({
     auth: authReducer,
@@ -21,4 +22,5 @@ export default combineReducers ({
     cateairs: cateReducer,
     searches: searchReducer,
     blockairs: blockReducer,
+    maintheme: mainReducer
 });

@@ -11,7 +11,8 @@ import {
     DELETE_BLO,
     FETCH_CATE_AIRS,
     SEARCH_STREAMERS,
-    FETCH_BLO_AIRS
+    FETCH_BLO_AIRS,
+    DRAWER_SET
 } from './types'
 
 
@@ -84,4 +85,8 @@ export const searchStreamer = (data) => async dispatch => {
     const response = await airs.get(`/search/${data}`)
     dispatch({ type:SEARCH_STREAMERS, payload: response.data})
     history.push(`/search/${data}`)
+}
+
+export const drawerSet = (data) => async dispatch => {
+    dispatch({type: DRAWER_SET, payload: !data })
 }
