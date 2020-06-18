@@ -22,5 +22,5 @@ export const CHECK_STREAMER = 'CHECK_STREAMER'
 
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
-
+export const RE_SIGN_IN = 'RE_SIGN_IN'
 //to reduce typo

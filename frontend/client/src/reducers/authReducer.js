@@ -1,5 +1,5 @@
 
-import {SIGN_IN, SIGN_OUT} from '../actions/types'
+import {SIGN_IN, SIGN_OUT, RE_SIGN_IN} from '../actions/types'
 
 const INITIAL_STATE = {
     isSignedIn: null,
@@ -11,9 +11,11 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SIGN_IN :
-            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.userEmail, userInfo: action.payload};
+            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.serEmail, userInfo: action.payload};
         case SIGN_OUT :
             return {...state, ...INITIAL_STATE};
+            case RE_SIGN_IN :
+            return {...state, token : action.payload.token};
         default :
             return state;
     }

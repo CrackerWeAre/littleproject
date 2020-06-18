@@ -8,7 +8,7 @@ import { fetchStreamer, deleteStreamer } from '../../actions/admin'
 
 class StreamDelete extends React.Component {
     componentDidMount(){
-        this.props.fetchStreamer(this.props.match.params._id)
+       
     }
 
     renderAction(){
@@ -46,8 +46,8 @@ class StreamDelete extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
-    return { streamer : state.streamers[ownProps.match.params._id],
+    
+    return { streamer : state.streamers.data[ownProps.match.params._id],
             token: state.auth.token}
 }
 

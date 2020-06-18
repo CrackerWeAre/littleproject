@@ -3,8 +3,8 @@ import AirList from "../air/AirList"
 import AirCateList from "../air/AirCateList"
 import '../../style/css/Body.css'
 import {connect} from 'react-redux'
-import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs} from '../../actions'
-
+import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions'
+import { resignIn } from '../../actions/user'
 const Main = (props) => {
 
     const [cateOn, setcateOn] = useState(false)
@@ -14,9 +14,8 @@ const Main = (props) => {
         props.fetchAirs();
         if(props.user.userEmail!==null){
             props.fetchFollowingAirs(props.user.userEmail);
-        }
-        if(props.user.userEmail!==null){
             props.fetchBlockedAirs(props.user.userEmail);
+            props.resignIn(props.user.userInfo)
         }
     }, [])
     
@@ -50,4 +49,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs })(Main);
+export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn })(Main);

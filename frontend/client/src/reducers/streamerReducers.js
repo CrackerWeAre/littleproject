@@ -12,7 +12,7 @@ export default (state = {data:{}, validation:{}}, action) => {
         case EDIT_STREAMER : 
             return {...state}; 
         case DELETE_STREAMER : 
-            return _.omit(state.data, action.payload)
+            return {...state}
         case CHECK_STREAMER :
             return {...state, validation: action.payload}
         default :
