@@ -12,11 +12,9 @@ import {
     FETCH_CATE_AIRS,
     SEARCH_STREAMERS,
     FETCH_BLO_AIRS,
-    DRAWER_SET
+    DRAWER_SET,
+    DARKMODE_SET
 } from './types'
-
-import ReactGA from "react-ga";
-
 
 
 export const fetchAirs = () => async dispatch => {
@@ -89,4 +87,8 @@ export const searchStreamer = (data) => async dispatch => {
 
 export const drawerSet = (data) => async dispatch => {
     dispatch({type: DRAWER_SET, payload: !data })
+}
+
+export const darkModeSet = (data) => async dispatch => {
+    dispatch({type: DARKMODE_SET, payload: !data })
 }

@@ -68,7 +68,7 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { drawerVal : state.maintheme }
+  return { drawerVal : state.maintheme.drawer }
 }
 
 export default connect(mapStateToProps)(App);
