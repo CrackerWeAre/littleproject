@@ -15,7 +15,7 @@ import {
     DRAWER_SET
 } from './types'
 
-
+import ReactGA from "react-ga";
 
 
 
