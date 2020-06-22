@@ -6,7 +6,7 @@
     display: flex!important;
 }
 
-header {
+.header {
     display: flex!important;
     height: 70px;
     justify-content: space-between;
@@ -15,6 +15,11 @@ header {
     position: fixed;
     background: white;
     z-index: 2020;
+}
+
+.dark {
+    background: #303030;
+    color: whitesmoke!important;
 }
 
 
@@ -83,7 +88,7 @@ header {
 a {
     font-weight: 500;
     font-size: 8px;
-    color: rgba(80,80,80,1);
+
     text-decoration: none 
 }
 

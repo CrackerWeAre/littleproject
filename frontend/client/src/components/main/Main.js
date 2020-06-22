@@ -5,9 +5,16 @@ import '../../style/css/Body.css'
 import {connect} from 'react-redux'
 import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions'
 import { resignIn } from '../../actions/user'
+import AirSearchList from '../air/AirSearchList'
+import AirFollowing from '../air/AirFollowing'
+
+
 const Main = (props) => {
 
     const [cateOn, setcateOn] = useState(false)
+    const [airOn, setairOn] = useState(false)
+    const [searchOn, setsearchOn] = useState(false)
+    const [followOn, setfollowOn] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -22,30 +29,52 @@ const Main = (props) => {
     
 
     useEffect(() => {
-
-        if(props.match.params._id===undefined){
-            return setcateOn(false)
-        } else {
-            return setcateOn(true)
+        console.log(props.match.path)
+        if(props.match.path==='/following'){
+            setcateOn(false)
+            setairOn(false)
+            setsearchOn(false)
+            setfollowOn(true)
+        }else if(props.match.path.includes('/directory/')){
+            setcateOn(true)
+            setairOn(false)
+            setsearchOn(false)
+            setfollowOn(false)
+        }else if(props.match.path==='/'){
+            setcateOn(false)
+            setairOn(true)
+            setsearchOn(false)
+            setfollowOn(true)
+        }else if(props.match.path.includes('/search/')){
+            setcateOn(false)
+            setairOn(false)
+            setsearchOn(true)
+            setfollowOn(false)
         }
+        
      
-    }, [props.match.params._id])
+    }, [props.match])
+
+    
 
     return(
         
         <Fragment>  
-            {!cateOn&&<AirList></AirList>}
+            {airOn&&<AirList></AirList>}
             {cateOn&&<AirCateList data={props.match.params._id} ></AirCateList>}
+            {searchOn&&<AirSearchList id={props.match.params._id}></AirSearchList>}
+            {followOn&&<AirFollowing></AirFollowing>}
         </Fragment>
     )
 }
 
 
 
-const mapStateToProps = state =>{
+const mapStateToProps = (state) => {
     return {
         myairs: Object.values(state.myairs),
-        user: state.auth
+        user: state.auth,
+        searches: Object.values(state.searches),
     }
 }
 

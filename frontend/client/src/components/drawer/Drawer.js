@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import '../../style/css/Drawer.css';
 import { connect } from 'react-redux';
@@ -20,6 +20,13 @@ import Logo_CALENDAR from '../../style/img/category/calendar.png';
 
 
 const Drawer = (props) => {
+
+    const [classModeName, setModeclassName] = useState('initialState')
+    
+    useEffect(() => {
+        props.darkmode ? setModeclassName("drawer dark") : setModeclassName("drawer")
+      
+    }, [props.darkmode])
 
     const following = () => {
         
@@ -142,7 +149,7 @@ const Drawer = (props) => {
 
     return (
        
-            <div className="drawer">
+            <div className={classModeName}>
                 {mains()}
                 {following()}
                 <div className="category_list">
@@ -161,7 +168,8 @@ const mapStateToProps = state =>{
         airs: Object.values(state.airs), 
         myairs: Object.values(state.myairs),
         followings: state.followings,
-        user: state.auth
+        user: state.auth,
+        darkmode: state.maintheme.darkmode
     }
 }
 

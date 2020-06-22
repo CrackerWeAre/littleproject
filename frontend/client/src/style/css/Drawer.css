@@ -2,8 +2,15 @@
     position: fixed;
     width: 240px;
     overflow-y: hidden;
-    top: 75px;
+    padding-top:5px;
+    top: 70px;
     bottom: 0px;
+}
+
+
+.dark {
+    background: #303030;
+    color: whitesmoke!important;
 }
 
 .drawer:hover {

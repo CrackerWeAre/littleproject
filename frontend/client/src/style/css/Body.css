@@ -13,6 +13,11 @@
     z-index: -1;
 }
 
+.darkbody {
+    background: #212121;
+    color: whitesmoke!important;
+}
+
 @font-face {
     font-family: "NotoSansKR";
     font-weight: 100;

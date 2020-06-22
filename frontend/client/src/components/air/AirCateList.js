@@ -33,6 +33,8 @@ const AirCateList = (props) => {
             return props.cateairs.map(data => {
                 if(props.followings.includes(data._uniq)){
                     return null;
+                } else if(props.blocking.includes(data._uniq)){
+                    return null;
                 } else {
                     return (
                         <div className='item' key={data._id}>

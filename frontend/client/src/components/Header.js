@@ -11,31 +11,44 @@ const Header = (props) => {
 
     const drawerClick = (e) => {
         e.preventDefault();
-        console.log(props.drawerVal)
         props.drawerSet(props.drawerVal)
     }
 
-    const [dark, setdarkmode] = useState(false)
-    const darkmodeClick = (e) => {
-       
-        console.log(props.darkmode)
+    const [classModeName, setModeclassName] = useState('initialState')
+    
+   
+    const [dark, setdarkmode] = useState(null)
+    const darkmodeClick = () => {
         props.darkModeSet(props.darkmode)
     }
 
     useEffect(() => {
-        setdarkmode(props.darkmode)
+        props.darkmode ? setModeclassName("header dark") : setModeclassName("header")
+      
+    }, [props.darkmode])
+
+    useEffect(() => {
+        setdarkmode(props.darkmod)
+        darkmodeButton()
     }, [])
 
 
     const darkmodeButton = () => {
-        if(dark===false){
+        if(props.darkmode){
             return (
-            <input type="checkbox"  onClick={darkmodeClick} >          
-            </input>
-        )}else {
+                <label className="switch" >
+                    <input type="checkbox" checked={true} onChange={darkmodeClick} >          
+                    </input>
+                    <span className="slider round" ></span>
+                </label>
+            )
+        }else {
             return (
-                <input type="checkbox" checked onClick={darkmodeClick} >          
-                </input>
+                <label className="switch" >
+                    <input type="checkbox" checked={false} onChange={darkmodeClick} >          
+                    </input>
+                    <span className="slider round" ></span>
+                </label>
             )
         }
 
@@ -54,17 +67,16 @@ const Header = (props) => {
 
     return (
         <Fragment>
-            <header>
+            <header className={classModeName}>
                 <Link to="/">
                     <img className="logo1" src={Logo} alt="logo" onClick={drawerClick}></img>
                 </Link>
                 <div>
                     <div>darkmode</div>
                     
-                    <label className="switch" >
-                    {darkmodeButton()}
-                    <span className="slider round" ></span>
-                    </label>
+                    
+                    {dark!==null&&darkmodeButton()}
+                    
                 </div>
                 
                 <nav className="header_nav">
