@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MeerKat On Air
 
-## Available Scripts
+## 로컬 실행 방법
 
-In the project directory, you can run:
+### Requirements
 
-### `yarn start`
+- nodejs
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Node.js](https://nodejs.org/ko/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- git
 
-### `yarn test`
+[Git - Git 설치](https://git-scm.com/book/ko/v2/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-Git-%EC%84%A4%EC%B9%98)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Git clone
 
-### `yarn build`
+```bash
+git clone https://github.com/CrackerWeAre/littleproject
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Build project
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```bash
+cd littleproject
+npm install --silent
+npm install react-scripts@3.4.1 -g --silent
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Start project
 
-### `yarn eject`
+```bash
+cd frontend/client/
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 수정사항 반영
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run-script build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+이후 SouceTree 혹은 Git으로 commit 해준 후
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+서버에서 git pull 하면 수정사항이 반영됨.
 
-## Learn More
+* * *
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Created: Jun 22, 2020 11:42 PM
+Created By: Hyun Jinwoo
+Last Edited By: Hyun Jinwoo
+Last Edited Time: Jun 22, 2020 11:51 PM
+Type: Docs
