@@ -24,4 +24,3 @@ const DrawerView = (props) => {
 
 
 export default connect(null)(DrawerView);
-
