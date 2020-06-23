@@ -2,7 +2,6 @@ import React, { Fragment ,useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../../actions'
 import AirView from './AirView'
-import AirSearchView from './AirSearchView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
 
@@ -19,54 +18,81 @@ const AirList = (props) => {
     const [searchOn, setsearchOn] = useState(false)
     const [followOn, setfollowOn] = useState(false)
 
-
-    useEffect(() => {
-        setAirs(Array.from(props.airs.slice(0,10)))
-    }, [props.airs])
-
-
     useEffect(()=>{
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
     },[])
 
-    useEffect(()=>{
-        if (!isFetching) return;
-        setloading(true)
-        fetchMoreListItems();
-    },[isFetching])
-
     useEffect(() => {
-        console.log(window.location.pathname)
+        
         if(window.location.pathname==='/following'){
             setcateOn(false)
             setairOn(false)
             setsearchOn(false)
             setfollowOn(true)
+            setAirs(Array.from(props.myairs.slice(0,10)))
+            setNumAirs(10)
+            setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
             setcateOn(true)
             setairOn(false)
             setsearchOn(false)
             setfollowOn(false)
+            setAirs(Array.from(props.cateairs.slice(0,10)))
+            setNumAirs(10)
+            setIsFetching(false)
         }else if(window.location.pathname==='/'){
+            if(props.user.isSignedIn){setfollowOn(true)}
             setcateOn(false)
             setairOn(true)
             setsearchOn(false)
-            setfollowOn(true)
+            setAirs(Array.from(props.airs.slice(0,10)))
+            setNumAirs(10)
+            setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
             setcateOn(false)
             setairOn(false)
             setsearchOn(true)
             setfollowOn(false)
+            setAirs(Array.from(props.searches.slice(0,10)))
+            setNumAirs(10)
+            setIsFetching(false)
         }
-        
-     
-    }, [window.location.pathname])
+    },[props.airs, window.location.pathname])
+
+    useEffect(()=>{
+        if (!isFetching) return;
+        setloading(true)
+
+        if(cateOn) {
+            fetchMoreListItems(props.cateairs);
+        } else if(airOn) {
+            fetchMoreListItems(props.airs);
+        } else if(searchOn) {
+            fetchMoreListItems(props.searches);
+        }
+    },[isFetching])
+
+    const fetchMoreListItems = (data) => {
+        if(data.slice(numAirs,numAirs+10).length!==0){
+            setTimeout(()=>{
+                setAirs(prevState => ( [...prevState, ...Array.from(data.slice(numAirs,numAirs+10))]));
+                setNumAirs(numAirs+10)
+                setIsFetching(false);
+                setloading(false)
+            }, 1500)
+        }else{
+            setIsFetching(true);
+            setloading(false)
+        }
+    }
+
+
 
     useEffect(() => {
         if(props.data){
             const data = props.data
-            props.fetchCateAirs(data.toUpperCase() )
+            props.fetchCateAirs(data.toUpperCase())
         }
     }, [props.data])
     
@@ -77,47 +103,13 @@ const AirList = (props) => {
                      {props.data} 채널
                 </div>
                 <div className="airlist_container">
-                    {CateAirList()}
+                    {AirList()}
                 </div>
             </Fragment>
         )
     }
 
-    const CateAirList = () => {
-         if(props.cateairs.length!==0){
-            return props.cateairs.map(data => {
-                if(props.followings.includes(data._uniq)){
-                    return null;
-                } else if(props.blocking.includes(data._uniq)){
-                    return null;
-                } else {
-                    return (
-                        <div className='item' key={data._id}>
-                            <AirView data={data}></AirView>
-                        </div>
-                    )
-                }
-                
-            })
-        } else return <div>현재 방송중인 채널이 없습니다.</div>
-    }
-
-    const fetchMoreListItems = () => {
-        if(props.airs.slice(numAirs,numAirs+10).length!==0){
-            setTimeout(()=>{
-                setAirs(prevState => ( [...prevState, ...Array.from(props.airs.slice(numAirs,numAirs+10))]));
-                setNumAirs(numAirs+10)
-                setIsFetching(false);
-                setloading(false)
-            }, 1500)
-        }else{
-            setIsFetching(true);
-            setloading(false)
-        }
-        
-        
-    }
-
+    
     const handleScroll = () => {
         if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         setIsFetching(true);
@@ -138,9 +130,7 @@ const AirList = (props) => {
             )
         }
     }
-
     const myAirList = () => {
-        
         return props.myairs.map(data => {
             return (
                     <div className='item' key={data._id}>
@@ -191,30 +181,16 @@ const AirList = (props) => {
                         {props.data}에 대한 검색결과
                 </div>
                 <div className="airlist_container">
-                    {SearchAirList()}
+                    {AirList()}
                 </div>
             </Fragment>
         )
     }
 
-    const SearchAirList = () => {
-        if(props.searches.length!==0){
-            return props.searches.map(data => {
-                    return (
-                        <div className='item' key={data._id}>
-                            <AirSearchView data={data}></AirSearchView>
-                        </div>
-                    )
-                }
-            )
-        } else return <div>검색결과가 없습니다.</div>
-        
-        
-    }
 
     return (
         <Fragment>
-            {followOn&&myAirShow()}
+            {props.user.isSignedIn&&followOn&&myAirShow()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
             {searchOn&&SearchAirShow()}

@@ -8,21 +8,19 @@ import { resignIn } from '../../actions/user'
 
 const Main = (props) => {
 
-    const [cateOn, setcateOn] = useState(false)
-    const [airOn, setairOn] = useState(false)
-    const [searchOn, setsearchOn] = useState(false)
-    const [followOn, setfollowOn] = useState(false)
-
     useEffect(() => {
-        window.scrollTo(0, 0)
         props.fetchAirs();
-        if(props.user.userEmail!==null){
-            props.fetchFollowingAirs(props.user.userEmail);
-            props.fetchBlockedAirs(props.user.userEmail);
+        if(props.user.userInfo!==null){
+            props.fetchFollowingAirs(props.user.userInfo.email);
+            props.fetchBlockedAirs(props.user.userInfo.email);
             props.resignIn(props.user.userInfo)
         }
     }, [])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        
+    }, [props.match])
 
     return(
         
