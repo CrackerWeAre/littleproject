@@ -39,7 +39,7 @@ const AirSearchView = (props) => {
     const sendBlock = (e) => {
         e.preventDefault();
         if(props.isSignedIn){
-            setblo_btn(!blo_btn)
+            if(!blo_btn)setblo_btn(!blo_btn)
             props.updatePostBlock(props)
             alert("차단하였습니다.")
         }else{
@@ -96,23 +96,24 @@ const AirSearchView = (props) => {
     }
     
     return (
-        <div className="card">
-            <div className="container">
-                {showFavorite()}
-                <div className="top-left">{props.data.liveAttdc}명 시청중</div>
-                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg"></img>
-                </a>
-            </div>
-            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer"><div className="text">{props.data.liveDataTitle}</div></a></div>
-            <div className="contents">
-                <div className="creatorlogo">
-                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
+        <div className="search__card">
+            <div className="card__image">
+            검색한 결과값에 대해서
+            1. 스트리머 이미지, 스트리머 이름, 플랫폼, 온오프라인
+                <div className="streamer__image">
+                <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
                         <img className="airview_img"  src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
+                <div className="streamer__name">
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
-                {showPlatform(props.data.platform)}
+                </div>
+                <div className="onandoff">{props.data.onAir&"onAir"}{props.data.onAir&&"offline"}</div>
+                <div className="platform">{showPlatform(props.data.platform)}</div>
+            </div>
+            <div className="card__function">
+                <div className="following"></div>
+                <div className="block"></div>
                 <div className="setting"  onClick={openSettingPopup}>
                     <img className="airview_img"  src={setting} alt="setting"></img>
                 </div>
@@ -120,7 +121,7 @@ const AirSearchView = (props) => {
                         <div className="popup_inner_item" onClick={sendBlock}>차단하기</div>
                     </div>}
             </div>
-
+            2. 차단 유무, 팔로잉 유무
         </div>
     )
     
@@ -131,7 +132,8 @@ const mapStateToProps = (state) =>{
         isSignedIn: state.auth.isSignedIn,
         userEmail: state.auth.userEmail,
         auth: state.auth,
-        followings: state.followings
+        followings: state.followings,
+        blocks: state.blockings
         };
 }
 

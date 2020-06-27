@@ -15,6 +15,7 @@ import Main from './main/Main';
 import UserPage from './user/UserPage';
 import {isMobile} from 'react-device-detect';
 import Drawer from './drawer/Drawer'
+import DrawerShort from './drawer/DrawerShort'
 import {connect} from 'react-redux'
 
 const trackingId = "UA-168638309-1"
@@ -54,6 +55,7 @@ function App(props) {
         <Router history={history} >
           <Header></Header>
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
+          {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
           <div className={classDrawerName+classModeName}>
               
           

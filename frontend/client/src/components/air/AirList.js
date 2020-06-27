@@ -2,6 +2,7 @@ import React, { Fragment ,useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../../actions'
 import AirView from './AirView'
+import AirSearchView from './AirSearchView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
 
@@ -166,7 +167,7 @@ const AirList = (props) => {
                } else
                    return (
                        <div className='item' key={data._id}>
-                           <AirView data={data}></AirView>
+                           <AirSearchView data={data}></AirSearchView>
                        </div>
                    )
                })
