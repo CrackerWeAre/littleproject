@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import {connect} from 'react-redux'
 import AirView from '../air/AirView'
+import SubList from './SubList'
 
 function UserPage(props) {
 
@@ -10,12 +11,26 @@ function UserPage(props) {
             return props.mybloairs.map(data => {
                     return (
                         <div className='item' key={data._id}>
-                            <AirView data={data}></AirView>
+                            <SubList data={data}></SubList>
                         </div>
                     )
                 
             })
-        } else return <div>현재 방송중인 채널이 없습니다.</div>
+        }
+        
+    }
+
+    const mySubList = () => {
+        if(props.myfollowings.length!==0){
+            return props.myfollowings.map(data => {
+                    return (
+                        <div className='item' key={data._id}>
+                            <SubList data={data}></SubList>
+                        </div>
+                    )
+                
+            })
+        }
         
     }
 
@@ -25,7 +40,7 @@ function UserPage(props) {
             return (
                 <Fragment>
                     <div className="container_title">
-                        블락중인 채널
+                        차단중인 채널
                     </div>
                     <div className="airlist_container">
                         {myBlockList()}
@@ -35,6 +50,39 @@ function UserPage(props) {
         }
         
     }
+    const subs = () => {
+        console.log(props.mybloairs)
+        if(props.myfollowings.length!==0){
+            return (
+                <Fragment>
+                    <div className="container_title">
+                        팔로우중인 채널
+                    </div>
+                    <div className="airlist_container">
+                        {mySubList()}
+                    </div>
+                </Fragment>
+            )
+        }
+        
+    }
+
+
+    const profile = () => {
+        return(
+            <Fragment>
+                <div className="container_profile">
+                    <div className="container_profile_title">
+                        프로필 설정
+                    </div>
+                    <div className="container_profile_data">
+                        <div>email</div>
+                    </div>
+                </div>
+            </Fragment>
+        )
+    }
+
     return (
         <div>
             {block()}
@@ -46,6 +94,7 @@ const mapStateToProps = state =>{
     console.log(state)
     return {
         mybloairs: Object.values(state.mybloairs),
+        myfollowings: Object.values(state.myairs),
         user: state.auth
     }
 }
