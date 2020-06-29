@@ -5,13 +5,15 @@ import SubList from './SubList'
 
 function UserPage(props) {
 
+    
 
     const myBlockList = () => {
         if(props.mybloairs.length!==0){
             return props.mybloairs.map(data => {
+                console.log(data)
                     return (
                         <div className='item' key={data._id}>
-                            <SubList data={data}></SubList>
+                            <SubList data={data} cate="blocks"></SubList>
                         </div>
                     )
                 
@@ -23,9 +25,10 @@ function UserPage(props) {
     const mySubList = () => {
         if(props.myfollowings.length!==0){
             return props.myfollowings.map(data => {
+                console.log(data)
                     return (
                         <div className='item' key={data._id}>
-                            <SubList data={data}></SubList>
+                            <SubList data={data} cate="subs"></SubList>
                         </div>
                     )
                 
@@ -84,9 +87,11 @@ function UserPage(props) {
     }
 
     return (
-        <div>
+        <Fragment>
+            {profile()}
+            {subs()}
             {block()}
-        </div>
+        </Fragment>
     )
 }
 

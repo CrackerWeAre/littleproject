@@ -19,6 +19,7 @@ const AirList = (props) => {
     const [airOn, setairOn] = useState(false)
     const [searchOn, setsearchOn] = useState(false)
     const [followOn, setfollowOn] = useState(false)
+    const [liveOn, setliveOn] = useState(false)
 
     useEffect(()=>{
         window.addEventListener('scroll', handleScroll);
@@ -26,9 +27,11 @@ const AirList = (props) => {
     },[])
 
     useEffect(() => {
-        
-        if(window.location.pathname==='/following'){
+        console.log(window.location.pathname)
+        if(window.location.pathname.includes('/following')){
+            
             setcateOn(false)
+            setliveOn(false)
             setairOn(false)
             setsearchOn(false)
             setfollowOn(true)
@@ -37,6 +40,7 @@ const AirList = (props) => {
             setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
             setcateOn(true)
+            setliveOn(false)
             setairOn(false)
             setsearchOn(false)
             setfollowOn(false)
@@ -44,7 +48,8 @@ const AirList = (props) => {
             setNumAirs(10)
             setIsFetching(false)
         }else if(window.location.pathname==='/'){
-            if(props.user.isSignedIn){setfollowOn(true)}
+            setfollowOn(false)
+            setliveOn(true)
             setcateOn(false)
             setairOn(true)
             setsearchOn(false)
@@ -52,6 +57,7 @@ const AirList = (props) => {
             setNumAirs(10)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
+            setliveOn(false)
             setcateOn(false)
             setairOn(false)
             setsearchOn(true)
@@ -60,7 +66,7 @@ const AirList = (props) => {
             setNumAirs(10)
             setIsFetching(false)
         }
-    },[props.airs, window.location.pathname])
+    },[window.location.pathname])
 
     useEffect(()=>{
         if (!isFetching) return;
@@ -118,7 +124,22 @@ const AirList = (props) => {
         
     }
 
-    const myAirShow = () => {
+    const myAirShow1 = () => {
+        if(props.myairs.length!==0){
+            return (
+                <Fragment>
+                    <div className="container_title">
+                        팔로우 중인 채널
+                    </div>
+                    <div className="airlist_container">
+                        {AirList()}
+                    </div>
+                </Fragment>
+            )
+        }
+    }
+
+    const myAirShow2 = () => {
         if(props.myairs.length!==0){
             return (
                 <Fragment>
@@ -132,6 +153,7 @@ const AirList = (props) => {
             )
         }
     }
+    
     const myAirList = () => {
         return props.myairs.map(data => {
             return (
@@ -192,8 +214,9 @@ const AirList = (props) => {
 
     return (
         <Fragment>
-            <AirFrame></AirFrame>
-            {props.user.isSignedIn&&followOn&&myAirShow()}
+            {liveOn&&<AirFrame/>}
+            {props.user.isSignedIn&&followOn&&myAirShow1()}
+            {props.user.isSignedIn&&!followOn&&myAirShow2()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
             {searchOn&&SearchAirShow()}
