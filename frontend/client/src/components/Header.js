@@ -9,17 +9,12 @@ import searchImg from '../style/img/Search.png'
 
 const Header = (props) => {
 
-    const drawerClick = (e) => {
-        e.preventDefault();
-        props.drawerSet(props.drawerVal)
-    }
 
     const [classModeName, setModeclassName] = useState('initialState')
     
-   
-    const [dark, setdarkmode] = useState(null)
-    const darkmodeClick = () => {
-        props.darkModeSet(props.darkmode)
+    const drawerClick = (e) => {
+        e.preventDefault();
+        props.drawerSet(props.drawerVal)
     }
 
     useEffect(() => {
@@ -27,32 +22,8 @@ const Header = (props) => {
       
     }, [props.darkmode])
 
-    useEffect(() => {
-        setdarkmode(props.darkmod)
-        darkmodeButton()
-    }, [])
 
 
-    const darkmodeButton = () => {
-        if(props.darkmode){
-            return (
-                <label className="switch" >
-                    <input type="checkbox" checked={true} onChange={darkmodeClick} >          
-                    </input>
-                    <span className="slider round" ></span>
-                </label>
-            )
-        }else {
-            return (
-                <label className="switch" >
-                    <input type="checkbox" checked={false} onChange={darkmodeClick} >          
-                    </input>
-                    <span className="slider round" ></span>
-                </label>
-            )
-        }
-
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
         props.searchStreamer(searchItem)        
@@ -71,13 +42,7 @@ const Header = (props) => {
                 <Link to="/">
                     <img className="logo1" src={Logo} alt="logo" onClick={drawerClick}></img>
                 </Link>
-                <div>
-                    <div>darkmode</div>
-                    
-                    
-                    {dark!==null&&darkmodeButton()}
-                    
-                </div>
+                
                 
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>

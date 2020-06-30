@@ -1,6 +1,7 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import AirView from '../air/AirView'
+import {darkModeSet} from '../../actions/index'
 import SubList from './SubList'
 
 function UserPage(props) {
@@ -8,6 +9,39 @@ function UserPage(props) {
     useEffect(() => {
         
     }, [])
+   
+
+    const [dark, setdarkmode] = useState(null)
+    const darkmodeClick = () => {
+        props.darkModeSet(props.darkmode)
+    }
+
+    useEffect(() => {
+        setdarkmode(props.darkmod)
+        darkmodeButton()
+    }, [])
+
+
+    const darkmodeButton = () => {
+        if(props.darkmode){
+            return (
+                <label className="switch" >
+                    <input type="checkbox" checked={true} onChange={darkmodeClick} >          
+                    </input>
+                    <span className="slider round" ></span>
+                </label>
+            )
+        }else {
+            return (
+                <label className="switch" >
+                    <input type="checkbox" checked={false} onChange={darkmodeClick} >          
+                    </input>
+                    <span className="slider round" ></span>
+                </label>
+            )
+        }
+
+    }
 
     const myBlockList = () => {
         if(props.mybloairs.length!==0){
@@ -89,6 +123,13 @@ function UserPage(props) {
     return (
         <Fragment>
             {profile()}
+            <div>
+                    <div>darkmode</div>
+                    
+                    
+                    {dark!==null&&darkmodeButton()}
+                    
+                </div>
             {subs()}
             {block()}
         </Fragment>
@@ -96,8 +137,8 @@ function UserPage(props) {
 }
 
 const mapStateToProps = state =>{
-    console.log(state)
     return {
+        darkmode : state.maintheme.darkmode,
         mybloairs: Object.values(state.mybloairs),
         myfollowings: Object.values(state.myairs),
         user: state.auth
@@ -107,6 +148,6 @@ const mapStateToProps = state =>{
 
 
 
-export default connect(mapStateToProps, { })(UserPage);
+export default connect(mapStateToProps, {darkModeSet })(UserPage);
 
 
