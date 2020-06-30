@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import {deleteBlock, deleteFollower } from '../../actions/index'
+import { deleteBlock, deleteFollower } from '../../actions/index'
 
 export const SubList = (props) => {
 
@@ -9,7 +9,7 @@ export const SubList = (props) => {
     const subOnClick = (e) => {
         e.preventDefault();
         if(props.isSignedIn){
-            deleteBlock(props)
+            props.deletePostFollower(props)
             alert("팔로잉을 해지하였습니다.")
         }else{
             alert("로그인후 사용해주세요.");
@@ -19,7 +19,7 @@ export const SubList = (props) => {
     const blocksOnClick = (e) => {
         e.preventDefault();
         if(props.isSignedIn){
-            deleteBlock(props)
+            props.deletePostBlock(props)
             alert("차단을 해지하였습니다.")
         }else{
             alert("로그인후 사용해주세요.");
@@ -28,13 +28,13 @@ export const SubList = (props) => {
     const btn_Subs = (cate) => {
         if(cate==="blocks"){
             return(
-                <div className="mylist_btn" onClick={subOnClick}>
+                <div className="mylist_btn" onClick={blocksOnClick}>
                     차단해지
                 </div>
             )
         }else if(cate==="subs"){
             return(
-                <div className="mylist_btn" onClick={blocksOnClick}>
+                <div className="mylist_btn" onClick={subOnClick}>
                     팔로우해지
                 </div>
             )
@@ -65,7 +65,12 @@ export const SubList = (props) => {
 
 const mapStateToProps = (state) => ({
     isSignedIn: state.auth.isSignedIn,
+    auth: state.auth,
 })
 
+const mapDispatchToProps = {
+    deletePostFollower: deleteFollower,
+    deletePostBlock: deleteBlock,
+}
 
-export default connect(mapStateToProps, {deleteBlock, deleteFollower})(SubList)
+export default connect(mapStateToProps, mapDispatchToProps)(SubList)

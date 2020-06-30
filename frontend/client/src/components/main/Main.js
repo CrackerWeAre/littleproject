@@ -7,7 +7,7 @@ import { resignIn } from '../../actions/user'
 
 
 const Main = (props) => {
-
+    
     useEffect(() => {
         props.fetchAirs();
         if(props.user.userInfo!==null){
@@ -19,14 +19,13 @@ const Main = (props) => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        
     }, [props.match])
 
     return(
         
         <Fragment>  
 
-            <AirList data={props.match.params._id} ></AirList>
+            <AirList data={props.match} ></AirList>
         
         </Fragment>
     )
@@ -36,9 +35,9 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        myairs: Object.values(state.myairs),
+      
         user: state.auth,
-        searches: Object.values(state.searches),
+       
     }
 }
 

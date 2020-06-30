@@ -15,5 +15,5 @@ const enhancedReducer = persistReducer(persistConfig, reducers)
 export default function configureStore(){
     const store = createStore(enhancedReducer,composeEnhancers(applyMiddleware(reduxThunk)));
     const persistor = persistStore(store);
-    return { store, persistor}
+    return { store, persistor }
 }

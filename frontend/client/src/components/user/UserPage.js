@@ -1,16 +1,17 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useEffect} from 'react'
 import {connect} from 'react-redux'
 import AirView from '../air/AirView'
 import SubList from './SubList'
 
 function UserPage(props) {
 
-    
+    useEffect(() => {
+        
+    }, [])
 
     const myBlockList = () => {
         if(props.mybloairs.length!==0){
             return props.mybloairs.map(data => {
-                console.log(data)
                     return (
                         <div className='item' key={data._id}>
                             <SubList data={data} cate="blocks"></SubList>
@@ -25,7 +26,6 @@ function UserPage(props) {
     const mySubList = () => {
         if(props.myfollowings.length!==0){
             return props.myfollowings.map(data => {
-                console.log(data)
                     return (
                         <div className='item' key={data._id}>
                             <SubList data={data} cate="subs"></SubList>
@@ -103,6 +103,9 @@ const mapStateToProps = state =>{
         user: state.auth
     }
 }
+
+
+
 
 export default connect(mapStateToProps, { })(UserPage);
 

@@ -27,9 +27,7 @@ const AirList = (props) => {
     },[])
 
     useEffect(() => {
-        console.log(window.location.pathname)
         if(window.location.pathname.includes('/following')){
-            
             setcateOn(false)
             setliveOn(false)
             setairOn(false)
@@ -47,15 +45,6 @@ const AirList = (props) => {
             setAirs(Array.from(props.cateairs.slice(0,10)))
             setNumAirs(10)
             setIsFetching(false)
-        }else if(window.location.pathname==='/'){
-            setfollowOn(false)
-            setliveOn(true)
-            setcateOn(false)
-            setairOn(true)
-            setsearchOn(false)
-            setAirs(Array.from(props.airs.slice(0,10)))
-            setNumAirs(10)
-            setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
             setliveOn(false)
             setcateOn(false)
@@ -65,8 +54,17 @@ const AirList = (props) => {
             setAirs(Array.from(props.searches.slice(0,10)))
             setNumAirs(10)
             setIsFetching(false)
+        }else {
+            setfollowOn(true)
+            setliveOn(true)
+            setcateOn(false)
+            setairOn(true)
+            setsearchOn(false)
+            setAirs(Array.from(props.airs.slice(0,10)))
+            setNumAirs(10)
+            setIsFetching(false)
         }
-    },[window.location.pathname])
+    },[props])
 
     useEffect(()=>{
         if (!isFetching) return;
@@ -98,8 +96,9 @@ const AirList = (props) => {
 
 
     useEffect(() => {
-        if(props.data){
-            const data = props.data
+        console.log(props.data.params._id)
+        if(props.data.params._id){
+            const data = props.data.params._id
             props.fetchCateAirs(data.toUpperCase())
         }
     }, [props.data])
@@ -108,7 +107,7 @@ const AirList = (props) => {
         return (
             <Fragment>
                 <div className="container_title">
-                     {props.data} 채널
+                     {props.data.params._id} 채널
                 </div>
                 <div className="airlist_container">
                     {AirList()}
@@ -124,7 +123,7 @@ const AirList = (props) => {
         
     }
 
-    const myAirShow1 = () => {
+    const myAirShow = () => {
         if(props.myairs.length!==0){
             return (
                 <Fragment>
@@ -132,38 +131,11 @@ const AirList = (props) => {
                         팔로우 중인 채널
                     </div>
                     <div className="airlist_container">
-                        {AirList()}
+                        {AirList(props.myairs)}
                     </div>
                 </Fragment>
             )
         }
-    }
-
-    const myAirShow2 = () => {
-        if(props.myairs.length!==0){
-            return (
-                <Fragment>
-                    <div className="container_title">
-                        팔로우 중인 채널
-                    </div>
-                    <div className="airlist_container">
-                        {myAirList()}
-                    </div>
-                </Fragment>
-            )
-        }
-    }
-    
-    const myAirList = () => {
-        return props.myairs.map(data => {
-            return (
-                    <div className='item' key={data._id}>
-                        <AirView data={data}></AirView>
-                    </div>
-
-            )
-        })
-        
     }
 
     const AirShow = () => {
@@ -180,23 +152,30 @@ const AirList = (props) => {
     }
 
 
-    const AirList = () => {
-        if(airs){
-           return airs.map(data => {
-               if(props.followings.includes(data._uniq)){
-                   return null;
-               } else if(props.blocking.includes(data._uniq)){
-                   return null;
-               } else
-                   return (
-                       <div className='item' key={data._id}>
-                           <AirView data={data}></AirView>
-                       </div>
-                   )
-               })
-               
-           }
+    const AirList = (item) => {
+        
+        if(item){
+            return item.map(data => {
+                return <div className='item' key={data._id}>
+                            <AirView data={data}></AirView>
+                </div>
+                }) 
+        } else if(airs){
+            return airs.map(data => {
+                if(props.followings.includes(data._uniq)){
+                    return null;
+                } else if(props.blocking.includes(data._uniq)){
+                    return null;
+                } else
+                    return (
+                        <div className='item' key={data._id}>
+                            <AirView data={data}></AirView>
+                        </div>
+                    )
+                }
+            )    
         }
+    }
     
     const SearchAirShow = () => {
         return (
@@ -215,8 +194,7 @@ const AirList = (props) => {
     return (
         <Fragment>
             {liveOn&&<AirFrame/>}
-            {props.user.isSignedIn&&followOn&&myAirShow1()}
-            {props.user.isSignedIn&&!followOn&&myAirShow2()}
+            {props.user.isSignedIn&&followOn&&myAirShow()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
             {searchOn&&SearchAirShow()}

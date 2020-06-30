@@ -7,7 +7,7 @@ export const AirFrame = (props) => {
     const [src, setsrc] = useState('initialState')
     useEffect(() => {
         if(props.liveItem){
-            console.log(props.liveItem)
+  
             if(props.liveItem.platform==="twitch"){
 
                 setsrc(props.liveItem.liveDataHref.split('/')[props.liveItem.liveDataHref.split('/').length-1])
@@ -20,7 +20,7 @@ export const AirFrame = (props) => {
     const twitchIframe = () => {
         const urlBase = "https://player.twitch.tv/?channel="
         const urlParams = "&parent=sparker.kr&autoplay=1?"
-        console.log(urlBase+src+urlParams)
+
         return (
             <iframe 
                 className="live_iframe"
@@ -38,7 +38,7 @@ export const AirFrame = (props) => {
     const youtubeIframe = () => {
         const urlBase = "https://www.youtube.com/embed/"
         const urlParams = "?autoplay=1"
-        console.log(urlBase+src+urlParams)
+     
         return (
             <iframe 
                 className="live_iframe"

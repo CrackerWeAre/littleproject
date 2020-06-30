@@ -42,18 +42,20 @@ export const fetchBlockedAirs = (email) => async dispatch => {
 
 
 export const updateFollower = (data) => async dispatch => {
-
+    console.log(data)
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
-    const response = await airs.post(`/following/updateUserInfo/${data.userEmail}`, params)
+    const response = await airs.post(`/following/updateUserInfo/${data.auth.userInfo.email}`, params)
+    console.log(response)
     dispatch({ type: UPDATE_FOL, payload: response.data})
 }
 
 export const deleteFollower = (data) => async dispatch => {
-
+    console.log(data)
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
-    const response = await airs.post(`/following/deleteUserInfo/${data.userEmail}`, params)
+    const response = await airs.post(`/following/deleteUserInfo/${data.auth.userInfo.email}`, params)
+    console.log(response)
     dispatch({ type: DELETE_FOL, payload: response.data})
 }
 
@@ -63,18 +65,20 @@ export const getFollower = (email) => async dispatch => {
 }
 
 export const updateBlock = (data) => async dispatch => {
-
+    console.log(data)
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
-    const response = await airs.post(`/block/updateUserInfo/${data.userEmail}`, params)
+    const response = await airs.post(`/block/updateUserInfo/${data.auth.userInfo.email}`, params)
+    console.log(response)
     dispatch({ type: UPDATE_BLO, payload: response.data})
 }
 
 export const deleteBlock = (data) => async dispatch => {
-
+    console.log(data)
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
-    const response = await airs.post(`/block/deleteUserInfo/${data.userEmail}`, params)
+    const response = await airs.post(`/block/deleteUserInfo/${data.auth.userInfo.email}`, params)
+    console.log(response)
     dispatch({ type: DELETE_BLO, payload: response.data})
 }
 
