@@ -1,15 +1,19 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import AirView from '../air/AirView'
-import {darkModeSet} from '../../actions/index'
+import {darkModeSet, fetchFollowingAirs , fetchBlockedAirs, fetchAirs} from '../../actions/index'
 import SubList from './SubList'
 
 function UserPage(props) {
 
     useEffect(() => {
-        
+        props.fetchAirs();
+        if(props.user.userInfo!==null){
+            props.fetchFollowingAirs(props.user.userInfo.email);
+            props.fetchBlockedAirs(props.user.userInfo.email);
+            props.resignIn(props.user.userInfo)
+        }
     }, [])
-   
 
     const [dark, setdarkmode] = useState(null)
     const darkmodeClick = () => {
@@ -124,12 +128,9 @@ function UserPage(props) {
         <Fragment>
             {profile()}
             <div>
-                    <div>darkmode</div>
-                    
-                    
-                    {dark!==null&&darkmodeButton()}
-                    
-                </div>
+                <div>darkmode</div>
+                {dark!==null&&darkmodeButton()}
+            </div>
             {subs()}
             {block()}
         </Fragment>
@@ -148,6 +149,6 @@ const mapStateToProps = state =>{
 
 
 
-export default connect(mapStateToProps, {darkModeSet })(UserPage);
+export default connect(mapStateToProps, {darkModeSet,  fetchAirs, fetchFollowingAirs, fetchBlockedAirs  })(UserPage);
 
 

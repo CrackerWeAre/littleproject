@@ -31,7 +31,9 @@ export const fetchCateAirs = (_id) => async dispatch => {
 export const fetchFollowingAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/following/${email}`)
+    console.log(response)
     dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
+    
 }
 
 export const fetchBlockedAirs = (email) => async dispatch => {
@@ -42,21 +44,25 @@ export const fetchBlockedAirs = (email) => async dispatch => {
 
 
 export const updateFollower = (data) => async dispatch => {
-    console.log(data)
+    var item = {};
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
     const response = await airs.post(`/following/updateUserInfo/${data.auth.userInfo.email}`, params)
-    console.log(response)
-    dispatch({ type: UPDATE_FOL, payload: response.data})
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: UPDATE_FOL, payload: item})
 }
 
 export const deleteFollower = (data) => async dispatch => {
-    console.log(data)
+    var item = {};
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
     const response = await airs.post(`/following/deleteUserInfo/${data.auth.userInfo.email}`, params)
-    console.log(response)
-    dispatch({ type: DELETE_FOL, payload: response.data})
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: DELETE_FOL, payload: item })
 }
 
 export const getFollower = (email) => async dispatch => {
@@ -65,21 +71,25 @@ export const getFollower = (email) => async dispatch => {
 }
 
 export const updateBlock = (data) => async dispatch => {
-    console.log(data)
+    var item = {};
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
     const response = await airs.post(`/block/updateUserInfo/${data.auth.userInfo.email}`, params)
-    console.log(response)
-    dispatch({ type: UPDATE_BLO, payload: response.data})
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: UPDATE_BLO, payload: item})
 }
 
 export const deleteBlock = (data) => async dispatch => {
-    console.log(data)
+    var item = {};
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
     const response = await airs.post(`/block/deleteUserInfo/${data.auth.userInfo.email}`, params)
-    console.log(response)
-    dispatch({ type: DELETE_BLO, payload: response.data})
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: DELETE_BLO, payload: item})
 }
 
 
