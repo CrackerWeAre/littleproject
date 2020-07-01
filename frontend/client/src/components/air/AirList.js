@@ -27,6 +27,7 @@ const AirList = (props) => {
     },[])
 
     useEffect(() => {
+        console.log(props)
         if(window.location.pathname.includes('/following')){
             setcateOn(false)
             setliveOn(false)
@@ -64,7 +65,7 @@ const AirList = (props) => {
             setNumAirs(10)
             setIsFetching(false)
         }
-    },[props])
+    },[props.data])
 
     useEffect(()=>{
         if (!isFetching) return;
@@ -86,7 +87,7 @@ const AirList = (props) => {
                 setNumAirs(numAirs+10)
                 setIsFetching(false);
                 setloading(false)
-            }, 1500)
+            }, 500)
         }else{
             setIsFetching(true);
             setloading(false)
@@ -96,7 +97,6 @@ const AirList = (props) => {
 
 
     useEffect(() => {
-        console.log(props.data.params._id)
         if(props.data.params._id){
             const data = props.data.params._id
             props.fetchCateAirs(data.toUpperCase())
