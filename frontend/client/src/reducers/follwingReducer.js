@@ -7,15 +7,15 @@ export default (state = [], action) => {
         case FETCH_FOL_AIRS :
             const hello = []
             Object.values(action.payload).map((innerdata) => {
-                return hello.push(innerdata['_uniq'])
+                return hello.push(innerdata['Uniq'])
             })
             return [...hello];
         case UPDATE_FOL :
 
-            return [...state, action.payload['_uniq']];
+            return [...state, action.payload['Uniq']];
         case DELETE_FOL :
 
-            return [...state.filter(item => item !== action.payload['_uniq']) ]
+            return [...state.filter(item => item !== action.payload['Uniq']) ]
         default :
             return state;
     }

@@ -17,7 +17,7 @@ const AirView = (props) => {
     const showAlert = (e) => {
 
         e.preventDefault();
-        if(props.followings.indexOf(props.data._uniq)>=0){
+        if(props.followings.indexOf(props.data.Uniq)>=0){
             if(props.isSignedIn){
                 setfol_btn(!fol_btn)
                 props.deletePostFollower(props)
@@ -79,7 +79,7 @@ const AirView = (props) => {
     }
 
     const showFavorite = () => {
-        if(props.followings.indexOf(props.data._uniq)>=0){
+        if(props.followings.indexOf(props.data.Uniq)>=0){
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
         } else {
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>

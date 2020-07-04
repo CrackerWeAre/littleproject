@@ -7,11 +7,10 @@ import AirSearchView from './AirSearchView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
 
-const AirList = (props) => {
-
+const AirList = (props) => {    
     const [airs, setAirs] = useState([])
     const [loading, setloading] = useState(false)
-    const [numAirs, setNumAirs] = useState(10)
+    const [numAirs, setNumAirs] = useState(12)
     const [isFetching, setIsFetching] = useState(false)
 
 
@@ -27,14 +26,13 @@ const AirList = (props) => {
     },[])
 
     useEffect(() => {
-        console.log(props)
         if(window.location.pathname.includes('/following')){
             setcateOn(false)
             setliveOn(false)
             setairOn(false)
             setsearchOn(false)
             setfollowOn(true)
-            setAirs(Array.from(props.myairs.slice(0,10)))
+            setAirs(Array.from(props.myairs.slice(0,12)))
             setNumAirs(10)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
@@ -43,7 +41,7 @@ const AirList = (props) => {
             setairOn(false)
             setsearchOn(false)
             setfollowOn(false)
-            setAirs(Array.from(props.cateairs.slice(0,10)))
+            setAirs(Array.from(props.cateairs.slice(0,12)))
             setNumAirs(10)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
@@ -52,7 +50,7 @@ const AirList = (props) => {
             setairOn(false)
             setsearchOn(true)
             setfollowOn(false)
-            setAirs(Array.from(props.searches.slice(0,10)))
+            setAirs(Array.from(props.searches.slice(0,12)))
             setNumAirs(10)
             setIsFetching(false)
         }else {
@@ -61,7 +59,7 @@ const AirList = (props) => {
             setcateOn(false)
             setairOn(true)
             setsearchOn(false)
-            setAirs(Array.from(props.airs.slice(0,10)))
+            setAirs(Array.from(props.airs.slice(0,12)))
             setNumAirs(10)
             setIsFetching(false)
         }
@@ -70,7 +68,7 @@ const AirList = (props) => {
     useEffect(()=>{
         if (!isFetching) return;
         setloading(true)
-
+    
         if(cateOn) {
             fetchMoreListItems(props.cateairs);
         } else if(airOn) {
@@ -81,10 +79,10 @@ const AirList = (props) => {
     },[isFetching])
 
     const fetchMoreListItems = (data) => {
-        if(data.slice(numAirs,numAirs+10).length!==0){
+        if(data.slice(numAirs,numAirs+12).length!==0){
             setTimeout(()=>{
-                setAirs(prevState => ( [...prevState, ...Array.from(data.slice(numAirs,numAirs+10))]));
-                setNumAirs(numAirs+10)
+                setAirs(prevState => ( [...prevState, ...Array.from(data.slice(numAirs,numAirs+12))]));
+                setNumAirs(numAirs+12)
                 setIsFetching(false);
                 setloading(false)
             }, 500)
@@ -101,6 +99,7 @@ const AirList = (props) => {
             const data = props.data.params._id
             props.fetchCateAirs(data.toUpperCase())
         }
+        
     }, [props.data])
     
     const CateAirShow = () => {
@@ -153,10 +152,9 @@ const AirList = (props) => {
 
 
     const AirList = (item) => {
-        
         if(item){
             return item.map(data => {
-                return <div className='item' key={data._id}>
+                return <div className='item' key={data.ID}>
                             <AirView data={data}></AirView>
                 </div>
                 }) 
@@ -206,9 +204,9 @@ const AirList = (props) => {
 
 const mapStateToProps = (state) =>{
     return {
-        airs: Object.values(state.airs), 
-        myairs: Object.values(state.myairs),
-        cateairs: Object.values(state.cateairs),
+        airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)), 
+        myairs: Object.values(state.myairs).filter(item =>  !state.followings.includes(item._uniq)),
+        cateairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)),
         followings: state.followings,
         blocking: state.blockairs,
         searches: Object.values(state.searches),
