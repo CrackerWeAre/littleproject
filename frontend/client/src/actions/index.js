@@ -31,7 +31,6 @@ export const fetchCateAirs = (_id) => async dispatch => {
 export const fetchFollowingAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/following/${email}`)
-    console.log(response)
     dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
     
 }

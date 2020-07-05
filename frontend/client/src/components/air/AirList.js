@@ -33,7 +33,7 @@ const AirList = (props) => {
             setsearchOn(false)
             setfollowOn(true)
             setAirs(Array.from(props.myairs.slice(0,12)))
-            setNumAirs(10)
+            setNumAirs(12)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
             setcateOn(true)
@@ -42,7 +42,7 @@ const AirList = (props) => {
             setsearchOn(false)
             setfollowOn(false)
             setAirs(Array.from(props.cateairs.slice(0,12)))
-            setNumAirs(10)
+            setNumAirs(12)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
             setliveOn(false)
@@ -51,7 +51,7 @@ const AirList = (props) => {
             setsearchOn(true)
             setfollowOn(false)
             setAirs(Array.from(props.searches.slice(0,12)))
-            setNumAirs(10)
+            setNumAirs(12)
             setIsFetching(false)
         }else {
             setfollowOn(true)
@@ -60,12 +60,13 @@ const AirList = (props) => {
             setairOn(true)
             setsearchOn(false)
             setAirs(Array.from(props.airs.slice(0,12)))
-            setNumAirs(10)
+            setNumAirs(12)
             setIsFetching(false)
         }
-    },[props.data])
+    },[props])
 
     useEffect(()=>{
+        console.log(airs)
         if (!isFetching) return;
         setloading(true)
     
@@ -154,17 +155,12 @@ const AirList = (props) => {
     const AirList = (item) => {
         if(item){
             return item.map(data => {
-                return <div className='item' key={data.ID}>
+                return <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
                 </div>
                 }) 
         } else if(airs){
             return airs.map(data => {
-                if(props.followings.includes(data._uniq)){
-                    return null;
-                } else if(props.blocking.includes(data._uniq)){
-                    return null;
-                } else
                     return (
                         <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
@@ -203,6 +199,7 @@ const AirList = (props) => {
 
 
 const mapStateToProps = (state) =>{
+    console.log(state)
     return {
         airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)), 
         myairs: Object.values(state.myairs).filter(item =>  !state.followings.includes(item._uniq)),
