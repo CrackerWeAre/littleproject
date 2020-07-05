@@ -19,7 +19,7 @@ export const AirFrame = (props) => {
 
     const twitchIframe = () => {
         const urlBase = "https://player.twitch.tv/?channel="
-        const urlParams = "&parent=sparker.kr&autoplay=1?"
+        const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
 
         return (
             <iframe 
