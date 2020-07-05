@@ -23,34 +23,32 @@ export const StreamerInfo = () => {
                     </div>
                 </div>
                 <div className="result_contents"> 
-                    채널정보
                     <div className="result_content">
-                        <div>
-                            채널 생성일
-                        </div>
-                        <div>
-                            채널 소개
-                        </div>
-                        <div>
-                            채널 페이지
-                        </div>
+                        채널 생성일
+                    </div>
+                    <div className="result_content">
+                        채널 소개
+                        <div className="channel_description"></div>
+                    </div>
+                    <div className="result_content">
+                        채널 페이지
                     </div>
                 </div>
                 <div className="result_contents">
-                    방송정보
-                    <div  className="result_content">
-                        <div>
-                            총 방송 시간
-                        </div>
-                        <div>
-                            가장 많이 방송한 정보
-                        </div>
-                        <div>
-                            일주일 간 방송일
-                        </div>
-                        <div>
-                            평소 방송 시작시간
-                        </div>
+                    <div className="result_content">
+                        총 방송 시간
+                    </div>
+                    <div className="result_content">
+                        가장 많이 방송한 정보
+                    </div>
+                    <div className="result_content">
+                        일주일 간 방송일
+                    </div>
+                    <div className="result_content">
+                        평소 방송 시작시간
+                    </div>
+                    <div className="result_content">
+                        채널 최고 시청자수
                     </div>
                 </div>
             </div>
