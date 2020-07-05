@@ -19,7 +19,7 @@
 .st_drawer_followerlist{
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 28px;
+    font-size: 13px;
     text-align: center;
 }
 
@@ -35,7 +35,7 @@
 .drawer_followerlist {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 600px;
     margin-left: 24px;
     color: rgba(80,80,80,0.7);
@@ -46,7 +46,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 24px;
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 600px;
     color: rgba(80,80,80,0.7);
 }
@@ -54,14 +54,15 @@
 .st_category_list {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 28px;
+    font-size: 13px;
     text-align: center;
 }
 
 .st_drawer_view {
     margin: auto;
-    width: 100%;
-    height: 60px;;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .drawer_view {
@@ -112,19 +113,20 @@
 }
 
 .st_drawer_view .st_contents {
-    height: 50px!important;
+    margin: auto;
+    display: inline-block;
 }
 
 
 .st_drawer_view .st_contents .st_creatorlogo {
-    width: 50px;
-    height: 50px!important;
+    width: 24px;
+    height: 24px!important;
     margin: auto;
 }
 
 .st_drawer_view .st_contents .st_creatorlogo .st_creator_img{
-    width: 50px;
-    height: 50px;
+    width: 24px;
+    height: 24px;
     margin: 0px;
     border-radius: 15px;
 }
@@ -150,7 +152,7 @@
 .st_category_item  {
     display:flex;
     color: rgba(80,80,80,1);
-    height: 50px;
+    height: 40px;
 }
 
 .st_category_item .st_contents {
@@ -169,8 +171,8 @@
 
 .st_logo_game {
     margin: auto;
-    width:40px;
-    height:40px;
+    width:24px;
+    height:24px;
 }
 
 .logo_game {

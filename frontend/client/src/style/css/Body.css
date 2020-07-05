@@ -2,14 +2,16 @@
     width: calc(100% - 240px);
     margin-left: auto;
     background: #FAFAFA;
-    padding-top:60px;
+    top: 70px!important;
+    padding-top: 70px;
+
     z-index: -1;
 }
 
 .mainBody_drawer_off {
-    top: 60px!important;
+    top: 70px!important;
     width: calc(100% - 60px);
-    padding-top: 50px;
+    padding-top: 70px;
     background: #FAFAFA;
     z-index: -1;
     margin-left: auto;
