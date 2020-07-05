@@ -26,6 +26,7 @@ const AirList = (props) => {
     },[])
 
     useEffect(() => {
+        
         if(window.location.pathname.includes('/following')){
             setcateOn(false)
             setliveOn(false)
@@ -65,8 +66,15 @@ const AirList = (props) => {
         }
     },[props])
 
+    useEffect(() => {
+        if(props.data.params._id){
+            const data = props.data.params._id
+            props.fetchCateAirs(data.toUpperCase())
+        }
+        
+    }, [cateOn])
+
     useEffect(()=>{
-        console.log(airs)
         if (!isFetching) return;
         setloading(true)
     
@@ -95,13 +103,6 @@ const AirList = (props) => {
 
 
 
-    useEffect(() => {
-        if(props.data.params._id){
-            const data = props.data.params._id
-            props.fetchCateAirs(data.toUpperCase())
-        }
-        
-    }, [props.data])
     
     const CateAirShow = () => {
         return (
@@ -172,10 +173,11 @@ const AirList = (props) => {
     }
     
     const SearchAirShow = () => {
+        console.log(props)
         return (
             <Fragment>
                 <div className="container_title">
-                        {props.data}에 대한 검색결과
+                        {props.data.params._id}에 대한 검색결과
                 </div>
                 <div className="airlist_container">
                     {AirList()}
@@ -199,7 +201,6 @@ const AirList = (props) => {
 
 
 const mapStateToProps = (state) =>{
-    console.log(state)
     return {
         airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)), 
         myairs: Object.values(state.myairs).filter(item =>  !state.followings.includes(item._uniq)),

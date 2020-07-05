@@ -1,7 +1,8 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import AirView from '../air/AirView'
-import {darkModeSet, fetchFollowingAirs , fetchBlockedAirs, fetchAirs} from '../../actions/index'
+import {darkModeSet, fetchFollowingAirs , fetchBlockedAirs, fetchAirs } from '../../actions/index'
+import { resignIn } from '../../actions/user'
 import SubList from './SubList'
 
 function UserPage(props) {
@@ -149,6 +150,6 @@ const mapStateToProps = state =>{
 
 
 
-export default connect(mapStateToProps, {darkModeSet,  fetchAirs, fetchFollowingAirs, fetchBlockedAirs  })(UserPage);
+export default connect(mapStateToProps, {darkModeSet,  fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn  })(UserPage);
 
 

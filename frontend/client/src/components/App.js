@@ -17,6 +17,7 @@ import {isMobile} from 'react-device-detect';
 import Drawer from './drawer/Drawer'
 import DrawerShort from './drawer/DrawerShort'
 import {connect} from 'react-redux'
+import ResultPage from './result/ResultPage'
 
 const trackingId = "UA-168638309-1"
 ReactGA.initialize(trackingId, { debug: true });
@@ -66,6 +67,7 @@ function App(props) {
                   <Route path="/directory/:_id" component = {Main}></Route>
                   <Route path="/search/:_id" component = {Main}></Route>
                   <Route path="/login" exact component={Login}></Route>
+                  <Route path="/result/:_id" exact component={ResultPage}></Route>
                   <Route path="/air/show/:_id" exact component={AirView}></Route>
                   <Route path="/admin" exact component={Admin}></Route>
                   <Route path="/admin/new" exact component={AdminCreate}></Route>
