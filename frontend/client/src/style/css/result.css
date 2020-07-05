@@ -1,0 +1,32 @@
+.result_container {
+    display: block;
+    margin: 30px 10px;
+}
+
+.result_container .result_contents{
+    display: flex;
+    margin: 30px 10px;
+}
+
+.result_container .result_contents .result_logo{
+    margin: 10px;
+}
+
+
+.result_container .result_contents .result_content {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.result_container .result_contents .result_content .result_item {
+    
+}
+
+.result_container .result_contents .result_content_sub {
+    display: inline-block;
+    margin: 10px 10px 10px 10px;
+}
