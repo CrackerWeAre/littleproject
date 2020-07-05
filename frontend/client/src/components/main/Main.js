@@ -10,7 +10,8 @@ const Main = (props) => {
     
     useEffect(() => {
         props.fetchAirs();
-        if(props.user.userInfo!==null){
+        console.log(props.user)
+        if(props.user.userInfo!==undefined){
             props.fetchFollowingAirs(props.user.userInfo.email);
             props.fetchBlockedAirs(props.user.userInfo.email);
             props.resignIn(props.user.userInfo)
