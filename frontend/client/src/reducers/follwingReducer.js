@@ -1,4 +1,4 @@
-import { GET_FOL, FETCH_FOL_AIRS } from '../actions/types'
+import { GET_FOL, FETCH_FOL_AIRS, UPDATE_FOL, DELETE_FOL} from '../actions/types'
 
 export default (state = [], action) => {
     switch(action.type) {
@@ -7,9 +7,15 @@ export default (state = [], action) => {
         case FETCH_FOL_AIRS :
             const hello = []
             Object.values(action.payload).map((innerdata) => {
-                return hello.push(innerdata['_uniq'])
+                return hello.push(innerdata['Uniq'])
             })
-            return [...hello]
+            return [...hello];
+        case UPDATE_FOL :
+
+            return [...state, action.payload['Uniq']];
+        case DELETE_FOL :
+
+            return [...state.filter(item => item !== action.payload['Uniq']) ]
         default :
             return state;
     }

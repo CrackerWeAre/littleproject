@@ -8,9 +8,16 @@
 
 .mainBody_drawer_off {
     top: 60px!important;
+    width: calc(100% - 60px);
     padding-top: 50px;
     background: #FAFAFA;
     z-index: -1;
+    margin-left: auto;
+}
+
+.darkbody {
+    background: #212121;
+    color: whitesmoke!important;
 }
 
 @font-face {

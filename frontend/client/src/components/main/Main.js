@@ -1,53 +1,44 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import AirList from "../air/AirList"
-import AirCateList from "../air/AirCateList"
 import '../../style/css/Body.css'
 import {connect} from 'react-redux'
-import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs} from '../../actions'
+import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions'
+import { resignIn } from '../../actions/user'
+
 
 const Main = (props) => {
-
-    const [cateOn, setcateOn] = useState(false)
+    
+    useEffect(() => {
+        props.fetchAirs();
+        if(props.user.userInfo!==null){
+            props.fetchFollowingAirs(props.user.userInfo.email);
+            props.fetchBlockedAirs(props.user.userInfo.email);
+            props.resignIn(props.user.userInfo)
+        }
+    }, [])
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        props.fetchAirs();
-        if(props.user.userEmail!==null){
-            props.fetchFollowingAirs(props.user.userEmail);
-        }
-        if(props.user.userEmail!==null){
-            props.fetchBlockedAirs(props.user.userEmail);
-        }
-    }, [])
-    
-    
-
-    useEffect(() => {
-
-        if(props.match.params._id===undefined){
-            return setcateOn(false)
-        } else {
-            return setcateOn(true)
-        }
-     
-    }, [props.match.params._id])
+    }, [props.match])
 
     return(
         
         <Fragment>  
-            {!cateOn&&<AirList></AirList>}
-            {cateOn&&<AirCateList data={props.match.params._id} ></AirCateList>}
+
+            <AirList data={props.match} ></AirList>
+        
         </Fragment>
     )
 }
 
 
 
-const mapStateToProps = state =>{
+const mapStateToProps = (state) => {
     return {
-        myairs: Object.values(state.myairs),
-        user: state.auth
+      
+        user: state.auth,
+       
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs })(Main);
+export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn })(Main);

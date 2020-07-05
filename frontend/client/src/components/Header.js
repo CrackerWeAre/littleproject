@@ -1,13 +1,28 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "../style/css/Header.css"
 import Logo from "../style/img/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
-import {searchStreamer} from '../actions/index'
+import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
 import searchImg from '../style/img/Search.png'
 
 const Header = (props) => {
+
+
+    const [classModeName, setModeclassName] = useState('initialState')
+    
+    const drawerClick = (e) => {
+        e.preventDefault();
+        props.drawerSet(props.drawerVal)
+    }
+
+    useEffect(() => {
+        props.darkmode ? setModeclassName("header dark") : setModeclassName("header")
+      
+    }, [props.darkmode])
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,10 +38,12 @@ const Header = (props) => {
 
     return (
         <Fragment>
-            <header>
+            <header className={classModeName}>
                 <Link to="/">
-                    <img className="logo1" src={Logo} alt="logo"></img>
+                    <img className="logo1" src={Logo} alt="logo" onClick={drawerClick}></img>
                 </Link>
+                
+                
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>
                     <input className="searchbox" placeholder="검색" type='text' value={searchItem} onChange={handleChange}>
@@ -44,4 +61,11 @@ const Header = (props) => {
     )
 }
 
-export default connect(null, {searchStreamer})(Header);
+const mapStateToProps = (state) => {
+    return { 
+        drawerVal : state.maintheme.drawer,
+        darkmode : state.maintheme.darkmode
+    }
+}
+
+export default connect(mapStateToProps, {searchStreamer,drawerSet, darkModeSet})(Header);

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../../style/css/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
-
+import ReactGA from'react-ga'
 import afreecatv from "../../style/img/platform/afreeca.png"
 import twitch from "../../style/img/platform/twitch.png"
 import youtube from "../../style/img/platform/youtube.png"
@@ -17,7 +17,7 @@ const AirView = (props) => {
     const showAlert = (e) => {
 
         e.preventDefault();
-        if(props.followings.indexOf(props.data._uniq)>=0){
+        if(props.followings.indexOf(props.data.Uniq)>=0){
             if(props.isSignedIn){
                 setfol_btn(!fol_btn)
                 props.deletePostFollower(props)
@@ -34,6 +34,12 @@ const AirView = (props) => {
             }
             
         }
+    }
+
+    const gaEvent = (action, label, e) => {
+        ReactGA.event({category: "live",
+        action: action,
+        label: label})
     }
 
     const sendBlock = (e) => {
@@ -73,7 +79,7 @@ const AirView = (props) => {
     }
 
     const showFavorite = () => {
-        if(props.followings.indexOf(props.data._uniq)>=0){
+        if(props.followings.indexOf(props.data.Uniq)>=0){
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
         } else {
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
@@ -100,18 +106,19 @@ const AirView = (props) => {
             <div className="container">
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
-                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
+                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer" onClick={(e)=>gaEvent("liveClick", props.data._uniq, e)}>
                     <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg"></img>
                 </a>
             </div>
-            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer"><div className="text">{props.data.liveDataTitle}</div></a></div>
+            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer" onClick={(e)=>gaEvent("liveClick", props.data._uniq, e)}>
+            <div className="text">{props.data.liveDataTitle}</div></a></div>
             <div className="contents">
                 <div className="creatorlogo">
-                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
+                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer" onClick={(e)=>gaEvent("creatorClick", props.data._uniq, e)}>
                         <img className="airview_img"  src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
-                <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
+                <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer" onClick={(e)=>gaEvent("creatorClick", props.data._uniq, e)}>{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
                 <div className="setting"  onClick={openSettingPopup}>
                     <img className="airview_img"  src={setting} alt="setting"></img>

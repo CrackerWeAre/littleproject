@@ -1,109 +1,126 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React, {useEffect, useState} from 'react'
+import {connect} from 'react-redux'
+import history from '../../history'
 
-class StreamForm extends React.Component{
+const StreamForm = (props) => {
 
-    renderError({touched, error}){
-        if(touched && error){
-            return (
-                <div className="error message">
-                    <div className="error meesage" style={{background : "white"}}>{error}
-                    </div>
-                </div>
-            )
+    const [formValues, setformValues] = useState({channelID:'',platform:'',channel:'',category:''})
+    const [validation, setvalidation] = useState(false)
+
+    useEffect(() => {
+        if(props.initialValues){
+            setformValues({...formValues, 
+                channelID: props.initialValues.channelID, 
+                platform: props.initialValues.platform,
+                channel: props.initialValues.channel,
+                category: props.initialValues.category
+            })
+        }
+    }, [])
+    
+    
+
+    const onSubmit = () => {
+        props.onSubmit(formValues)
+        history.push('/admin')
+    }
+
+    const onchanIdChange = (e) => {
+        setformValues({...formValues, channelID: `${e.target.value}`})
+    }
+
+    const onplatChange = (e) => {
+        setformValues({...formValues, platform: `${e.target.value}`})
+    }
+
+    const onchanChange = (e) => {
+        setformValues({...formValues, channel: `${e.target.value}`})
+    }
+
+    const oncateChange = (e) => {
+        setformValues({...formValues, category: `${e.target.value}`})
+    }
+
+
+    const onCheck = () => {
+        if(formValues.platform!==undefined&&formValues.channelID!==undefined){
+            props.onCheck(formValues)
         }
     }
-    renderInput = ({input, label, meta}) => {
-        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
-        return (
-            <div className={className}>
-                <label>{label}</label>
-                <input {...input} autoComplete="off"></input>
-                {this.renderError(meta)}
-            </div>
-            
-        )
+
+    useEffect(() => {
+        if(props.validation.data===true){
+            setvalidation(true)
+        }
+    }, [props.validation.data])
+
+    const checkVal = () => {
+        if(props.validation.data===true){
+            return <div>중복된 스트리머가 없습니다.</div>
+        } else if((props.validation.data===false)){
+            return <div>중복된 스트리머가 있습니다.</div>
+        } else {
+            return <div></div>
+        }
     }
 
-    renderSelect = ({input, label, meta}) => {
-        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
-        return (
-            <div className={className}>
-                <label>{label}</label>
-                <select {...input} autoComplete="off">
-                    <option></option>
-                    <option value="youtube">Youtube</option>
-                    <option value="twitch">Twitch</option>
-                    <option value="afreecatv">Afreecatv</option>
-                    <option value="vlive">Vlive</option>
-                </select>
-                {this.renderError(meta)}
-            </div>
-            
-        )
+    const buttonAlert = () => {
+        alert('중복된 스트리머가 있습니다.')
     }
 
-    renderCateSelect = ({input, label, meta}) => {
-        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
-        return (
-            <div className={className}>
-                <label>{label}</label>
-                <select {...input} autoComplete="off">
-                    <option></option>
-                    <option value="GAME">GAME</option>
-                    <option value="MUSIC">MUSIC</option>
-                    <option value="CHATTING">CHATTING</option>
-                    <option value="NEWS & INFO">NEWS&INFO</option>
-                    <option value="SHOPPING">SHOPPING</option>
-                    <option value="AIR & RADIO">AIR & RADIO</option>
-                    <option value="SPORTS & EXERCISE">SPORTS & EXERCISE</option>
-                    <option value="COOKING">COOKING</option>
-                </select>
-                {this.renderError(meta)}
-            </div>
-            
-        )
-    }
-    
-    onSubmit = (formValues, token) => {
-        this.props.onSubmit(formValues)
+    const trueButton = () => {
+        if(validation){
+            return <button className="submit">Submit</button>
+        }else{
+            return <button className="submit_disable" onClick={buttonAlert} disabled>Submit</button>
+        }
     }
 
-    render(){
         return (
-            <form className="form-create" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-            
-                <Field name="platform" component={this.renderSelect} label="Platform"/>
-                <Field name="channel" component={this.renderInput} label="Channel"/>
-                <Field name="channelID" component={this.renderInput} label="ChannelID"/>
-                <Field name="category" component={this.renderCateSelect} label="Category"/>
-                <button className="submit">Submit</button>
-                
+            <form className="form-create" onSubmit={onSubmit}>
+                <div>
+                    <label>platform</label>
+                    <select name="platform" label="platform" value={formValues.platform} autoComplete="off" required onBlur={onCheck} onChange={onplatChange}>
+                        <option></option>
+                        <option value="youtube">Youtube</option>
+                        <option value="twitch" >Twitch</option>
+                        <option value="afreecatv">Afreecatv</option>
+                        <option value="vlive">Vlive</option>
+                    </select>
+                </div>
+                <div>
+                    <label>channel</label>
+                    <input name="channel" autoComplete="off" value={formValues.channel} label="channel" required  onChange={onchanChange}></input>
+                </div>
+                <div>
+                    <label>channelID</label>
+                    <input name="channelID" autoComplete="off" value={formValues.channelID}  label="channelID" required onBlur={onCheck} onChange={onchanIdChange}></input>
+                </div>
+                {checkVal()}
+                <div>
+                    <label>Category</label>
+                    <select name="category" value={formValues.category} label="category" autoComplete="off" required  onChange={oncateChange}>
+                            <option></option>
+                            <option value="GAME">GAME</option>
+                            <option value="MUSIC">MUSIC</option>
+                            <option value="CHATTING">CHATTING</option>
+                            <option value="NEWS & INFO">NEWS&INFO</option>
+                            <option value="SHOPPING">SHOPPING</option>
+                            <option value="AIR & RADIO">AIR & RADIO</option>
+                            <option value="SPORTS & EXERCISE">SPORTS & EXERCISE</option>
+                            <option value="COOKING">COOKING</option>
+                    </select>
+                </div>
+                {trueButton()}
             </form>
         )
-    }
-}
-
-const validate = (formValues) => {
     
-    const errors = {};
-    if (!formValues.platform){
-        errors.platform = "you must enter a platform"
-    } 
-    if (!formValues.channel){
-        errors.channel = "you must enter a channel"
-    }
-    if (!formValues.channelID){
-        errors.channelID = "you must enter a channelID"
-    }
-    if (!formValues.category){
-        errors.category = "you must enter a category"
-    }
-    return errors
 }
 
+const mapStateToProps = (state) => {
+    return {
+        validation: state.streamers.validation
+    }
+}
 
-export default reduxForm({
-    form: 'streamerForm',
-    validate
-})(StreamForm);
+export default connect( mapStateToProps )(StreamForm)

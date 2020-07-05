@@ -11,11 +11,10 @@ import {
     DELETE_BLO,
     FETCH_CATE_AIRS,
     SEARCH_STREAMERS,
-    FETCH_BLO_AIRS
+    FETCH_BLO_AIRS,
+    DRAWER_SET,
+    DARKMODE_SET
 } from './types'
-
-
-
 
 
 export const fetchAirs = () => async dispatch => {
@@ -25,7 +24,6 @@ export const fetchAirs = () => async dispatch => {
 
 export const fetchCateAirs = (_id) => async dispatch => {
     const response = await airs.get(`/getList/live/${_id}`)
-    console.log(response)
     dispatch({ type: FETCH_CATE_AIRS, payload: response.data})
 }
  
@@ -34,6 +32,7 @@ export const fetchFollowingAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/following/${email}`)
     dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
+    
 }
 
 export const fetchBlockedAirs = (email) => async dispatch => {
@@ -44,19 +43,25 @@ export const fetchBlockedAirs = (email) => async dispatch => {
 
 
 export const updateFollower = (data) => async dispatch => {
-
+    var item = {};
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
-    const response = await airs.post(`/following/updateUserInfo/${data.userEmail}`, params)
-    dispatch({ type: UPDATE_FOL, payload: response.data})
+    const response = await airs.post(`/following/updateUserInfo/${data.auth.userInfo.email}`, params)
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: UPDATE_FOL, payload: item})
 }
 
 export const deleteFollower = (data) => async dispatch => {
-
+    var item = {};
     const params = new URLSearchParams();
     params.append('following',data.data._uniq);
-    const response = await airs.post(`/following/deleteUserInfo/${data.userEmail}`, params)
-    dispatch({ type: DELETE_FOL, payload: response.data})
+    const response = await airs.post(`/following/deleteUserInfo/${data.auth.userInfo.email}`, params)
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: DELETE_FOL, payload: item })
 }
 
 export const getFollower = (email) => async dispatch => {
@@ -65,19 +70,25 @@ export const getFollower = (email) => async dispatch => {
 }
 
 export const updateBlock = (data) => async dispatch => {
-
+    var item = {};
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
-    const response = await airs.post(`/block/updateUserInfo/${data.userEmail}`, params)
-    dispatch({ type: UPDATE_BLO, payload: response.data})
+    const response = await airs.post(`/block/updateUserInfo/${data.auth.userInfo.email}`, params)
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: UPDATE_BLO, payload: item})
 }
 
 export const deleteBlock = (data) => async dispatch => {
-
+    var item = {};
     const params = new URLSearchParams();
     params.append('block',data.data._uniq);
-    const response = await airs.post(`/block/deleteUserInfo/${data.userEmail}`, params)
-    dispatch({ type: DELETE_BLO, payload: response.data})
+    const response = await airs.post(`/block/deleteUserInfo/${data.auth.userInfo.email}`, params)
+    if(response.data==="Update!"){
+        item= data.data
+    }
+    dispatch({ type: DELETE_BLO, payload: item})
 }
 
 
@@ -85,4 +96,12 @@ export const searchStreamer = (data) => async dispatch => {
     const response = await airs.get(`/search/${data}`)
     dispatch({ type:SEARCH_STREAMERS, payload: response.data})
     history.push(`/search/${data}`)
+}
+
+export const drawerSet = (data) => async dispatch => {
+    dispatch({type: DRAWER_SET, payload: !data })
+}
+
+export const darkModeSet = (data) => async dispatch => {
+    dispatch({type: DARKMODE_SET, payload: !data })
 }

@@ -5,8 +5,8 @@ class Modal extends React.Component {
 
     render(){
         return ReactDOM.createPortal(
-            <div onClick = {()=>this.props.modalCheck=false} className="ui dimmer modals visible active">
-                <div onClick = {(e) => e.stopPropagation()} className="ui standard modal visible active "> 
+            <div onClick = {()=>this.props.modalCheck=false} className="modal_delte">
+                <div onClick = {(e) => e.stopPropagation()} className="modal_delte"> 
                     <div className="title">{this.props.title}</div>
                     <div className="content">{this.props.content}</div>
                     <div className="actions">

@@ -12,14 +12,18 @@ export const GET_FOL = 'GET_FOL'
 export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
 export const FETCH_BLO_AIRS = 'FETCH_BLO_AIRS'
 
+
+export const DRAWER_SET = 'DRAWER_SET'
+export const DARKMODE_SET = 'DARKMODE_SET'
 export const FETCH_STREAMERS = 'FETCH_STREAMERS'
 export const FETCH_STREAMER = 'FETCH_STREAMER'
 export const DELETE_STREAMER = 'DELETE_STREAMER'
 export const EDIT_STREAMER = 'EDIT_STREAMER'
 export const CREATE_STREAMER = 'CREATE_STREAMER'
 export const SEARCH_STREAMERS = 'SEARCH_STREAMERS'
+export const CHECK_STREAMER = 'CHECK_STREAMER'
 
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
-
+export const RE_SIGN_IN = 'RE_SIGN_IN'
 //to reduce typo

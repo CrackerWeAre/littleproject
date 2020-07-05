@@ -6,14 +6,14 @@ import {
     FETCH_STREAMER, 
     EDIT_STREAMER,
     DELETE_STREAMER,
-    CREATE_STREAMER
+    CREATE_STREAMER,
+    CHECK_STREAMER
 } from './types'
 
 
 
 export const fetchStreamers = () => async dispatch => {
     const response = await airs.get(`/admin/getStreamers`)
-    
     dispatch({ type: FETCH_STREAMERS, payload: response.data})
 }
 
@@ -64,9 +64,22 @@ export const createStream = (formValues, token) => async (dispatch) => {
     };
     
     const response = await airs.post('/admin/createStreamer', params, { ...defaultOptions })
-    console.log(response)
     dispatch({ type: CREATE_STREAMER, payload: response.data})
     history.push('/admin')
 }
 
 
+export const checkStream = (formValues, token) => async (dispatch) => {
+ 
+    const params = new URLSearchParams();
+    params.append('platform',formValues.platform);
+    params.append('channelID',formValues.channelID);
+    const defaultOptions = {
+        headers: {
+            Authorization: token ? `Bearer ${token}` : '',
+        },
+    };
+    
+    const response = await airs.post('/admin/existStreamer', params, { ...defaultOptions })
+    dispatch({ type: CHECK_STREAMER, payload: response})
+}

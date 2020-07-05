@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth'],
+    whitelist: ['auth', 'maintheme'],
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancedReducer = persistReducer(persistConfig, reducers)
@@ -15,5 +15,5 @@ const enhancedReducer = persistReducer(persistConfig, reducers)
 export default function configureStore(){
     const store = createStore(enhancedReducer,composeEnhancers(applyMiddleware(reduxThunk)));
     const persistor = persistStore(store);
-    return { store, persistor}
+    return { store, persistor }
 }
