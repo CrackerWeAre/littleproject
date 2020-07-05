@@ -34,7 +34,7 @@ const DrawerShort = (props) => {
             return (
             <Fragment>
                 <div className="st_drawer_followerlist">
-                    <i class="far fa-heart"></i>
+                    팔로잉
                 </div>
                 {followingList()}
                 <div className="border_bottom">&nbsp;</div>
@@ -124,7 +124,7 @@ const DrawerShort = (props) => {
             <div className={classModeName}>
                 {following()}
                 <div className="st_category_list">
-                    <i class="fas fa-clipboard-list"></i>
+                    카테고리
                 </div>
                 {categories()}
             

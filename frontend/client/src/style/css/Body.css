@@ -9,7 +9,7 @@
 .mainBody_drawer_off {
     top: 60px!important;
     width: calc(100% - 60px);
-    padding-top: 50px;
+    padding-top: 60px;
     background: #FAFAFA;
     z-index: -1;
     margin-left: auto;
