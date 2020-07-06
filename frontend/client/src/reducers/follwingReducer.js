@@ -6,9 +6,11 @@ export default (state = [], action) => {
             return {...state, ...action.payload };
         case FETCH_FOL_AIRS :
             const hello = []
-            Object.values(action.payload).map((innerdata) => {
-                return hello.push(innerdata['_uniq'])
-            })
+            if(action.payload!==null){
+                Object.values(action.payload).map((innerdata) => {
+                    return hello.push(innerdata['_uniq'])
+                })
+            }
             return [...hello];
         case UPDATE_FOL :
 

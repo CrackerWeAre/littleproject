@@ -4,10 +4,9 @@ import '../../style/css/Body.css'
 import {connect} from 'react-redux'
 import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions'
 import { resignIn } from '../../actions/user'
-import AirFrame from '../air/AirFrame'
 
 
-const Main = (props) => {
+const SearchMain = (props) => {
     
     useEffect(() => {
         props.fetchAirs();
@@ -22,19 +21,12 @@ const Main = (props) => {
         window.scrollTo(0, 0)
     }, [props.match])
 
-    const liveView = () => {
-        return <AirFrame/>
-    }
-
-    const liveList = () => {
-        return <AirList data={props.match} ></AirList>
-    }
-    
     return(
         
         <Fragment>  
-            {liveView()}
-            {liveList()}
+
+            <AirList data={props.match} ></AirList>
+        
         </Fragment>
     )
 }
@@ -43,9 +35,10 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+      
         user: state.auth,
        
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn })(Main);
+export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn })(SearchMain);

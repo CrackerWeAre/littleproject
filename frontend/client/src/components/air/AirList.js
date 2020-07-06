@@ -2,12 +2,11 @@ import React, { Fragment ,useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../../actions'
 import AirView from './AirView'
-import AirFrame from './AirFrame'
-import AirSearchView from './AirSearchView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
 
 const AirList = (props) => {    
+
     const [airs, setAirs] = useState([])
     const [loading, setloading] = useState(false)
     const [numAirs, setNumAirs] = useState(12)
@@ -21,12 +20,12 @@ const AirList = (props) => {
     const [liveOn, setliveOn] = useState(false)
 
     useEffect(()=>{
+        
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
     },[])
 
     useEffect(() => {
-        
         if(window.location.pathname.includes('/following')){
             setcateOn(false)
             setliveOn(false)
@@ -66,13 +65,6 @@ const AirList = (props) => {
         }
     },[props])
 
-    useEffect(() => {
-        if(props.data.params._id){
-            const data = props.data.params._id
-            props.fetchCateAirs(data.toUpperCase())
-        }
-        
-    }, [cateOn])
 
     useEffect(()=>{
         if (!isFetching) return;
@@ -84,6 +76,8 @@ const AirList = (props) => {
             fetchMoreListItems(props.airs);
         } else if(searchOn) {
             fetchMoreListItems(props.searches);
+        } else if(followOn) {
+            fetchMoreListItems(props.myairs);
         }
     },[isFetching])
 
@@ -156,12 +150,23 @@ const AirList = (props) => {
     const AirList = (item) => {
         if(item){
             return item.map(data => {
-                return <div className='item' key={data._id}>
+                if(props.blocking.includes(data._uniq)){
+                    return null;
+                } else
+                    return (
+                        <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
-                </div>
-                }) 
-        } else if(airs){
+                        </div>
+                    )
+                }
+            ) 
+        } else if(airs.length>0){
             return airs.map(data => {
+                if(props.followings.includes(data._uniq)){
+                    return null;
+                } else if(props.blocking.includes(data._uniq)){
+                    return null;
+                } else
                     return (
                         <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
@@ -169,11 +174,12 @@ const AirList = (props) => {
                     )
                 }
             )    
+        } else {
+            return <div>해당 검색 결과가 없습니다.</div>
         }
     }
     
     const SearchAirShow = () => {
-        console.log(props)
         return (
             <Fragment>
                 <div className="container_title">
@@ -189,7 +195,6 @@ const AirList = (props) => {
 
     return (
         <Fragment>
-            {liveOn&&<AirFrame/>}
             {props.user.isSignedIn&&followOn&&myAirShow()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
@@ -202,9 +207,9 @@ const AirList = (props) => {
 
 const mapStateToProps = (state) =>{
     return {
-        airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)), 
-        myairs: Object.values(state.myairs).filter(item =>  !state.followings.includes(item._uniq)),
-        cateairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)),
+        airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)), 
+        myairs: Object.values(state.myairs),
+        cateairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)),
         followings: state.followings,
         blocking: state.blockairs,
         searches: Object.values(state.searches),
