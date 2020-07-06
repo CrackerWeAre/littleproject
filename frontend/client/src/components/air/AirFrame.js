@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { isUndefined } from 'util';
 
 export const AirFrame = (props) => {
-
     const [src, setsrc] = useState('initialState')
     useEffect(() => {
         if(props.liveItem){

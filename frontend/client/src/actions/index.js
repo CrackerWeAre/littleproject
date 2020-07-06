@@ -31,7 +31,6 @@ export const fetchCateAirs = (_id) => async dispatch => {
 export const fetchFollowingAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/following/${email}`)
-    console.log(response, "fetchFollowingAirs")
     dispatch({ type: FETCH_FOL_AIRS, payload: response.data})
     
 }
@@ -39,7 +38,6 @@ export const fetchFollowingAirs = (email) => async dispatch => {
 export const fetchBlockedAirs = (email) => async dispatch => {
 
     const response = await airs.get(`/getList/block/${email}`)
-    console.log(response, "fetchBlockedAirs")
     dispatch({ type: FETCH_BLO_AIRS, payload: response.data})
 }
 
@@ -68,7 +66,7 @@ export const deleteFollower = (data) => async dispatch => {
 
 export const getFollower = (email) => async dispatch => {
     const response = await airs.get(`/following/getUserInfo/${email}`)
-    console.log(response)
+
     dispatch({ type: GET_FOL, payload: response.data})
 }
 
@@ -97,10 +95,8 @@ export const deleteBlock = (data) => async dispatch => {
 
 export const searchStreamer = (data) => async dispatch => {
     const item = data.replace("\?", "?")
-    console.log(item)
     const response = await airs.get(`/search/${item}`)
     dispatch({ type:SEARCH_STREAMERS, payload: response.data})
-    console.log("data", data, "res", response)
     history.push(`/search/${data}`)
 }
 

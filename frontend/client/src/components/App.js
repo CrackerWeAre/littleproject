@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Router, Route, Switch } from "react-router-dom";
-import ReactGA from 'react-ga';
 import Header from "./Header"
 import history from "../history"
 import AirView from './air/AirView';
@@ -18,24 +17,13 @@ import Drawer from './drawer/Drawer'
 import DrawerShort from './drawer/DrawerShort'
 import {connect} from 'react-redux'
 import ResultPage from './result/ResultPage'
-
-const trackingId = "UA-168638309-1"
-ReactGA.initialize(trackingId, { debug: true });
-
-
-
-history.listen((location) => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-)
+import FollowingMain from './main/FollowingMain';
+import CategoryMain from './main/CategoryMain';
+import SearchMain from './main/SearchMain';
 
 function App(props) {
 
 
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [])
 
   const [classDrawerName, setDrawerclassName] = useState('initialState')
   const [classModeName, setModeclassName] = useState('initialState')
@@ -58,14 +46,12 @@ function App(props) {
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
           <div className={classDrawerName+classModeName}>
-              
-          
               <Switch>
                   <Route path="/" exact component = {Main}></Route>
-                  <Route path="/following" exact component = {Main}></Route>
+                  <Route path="/following" exact component = {FollowingMain}></Route>
                   <Route path="/mypage" exact component = {UserPage}></Route>
-                  <Route path="/directory/:_id" component = {Main}></Route>
-                  <Route path="/search/:_id" component = {Main}></Route>
+                  <Route path="/directory/:_id" component = {CategoryMain}></Route>
+                  <Route path="/search/:_id" component = {SearchMain}></Route>
                   <Route path="/login" exact component={Login}></Route>
                   <Route path="/result/:_id" exact component={ResultPage}></Route>
                   <Route path="/air/show/:_id" exact component={AirView}></Route>
@@ -83,8 +69,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return { 
-    drawerVal : state.maintheme.drawer,
-    darkmode: state.maintheme.darkmode
+      drawerVal : state.maintheme.drawer,
+      darkmode: state.maintheme.darkmode
     }
 }
 

@@ -14,6 +14,7 @@ import {
 
 export const fetchStreamers = () => async dispatch => {
     const response = await airs.get(`/admin/getStreamers`)
+    console.log(response)
     dispatch({ type: FETCH_STREAMERS, payload: response.data})
 }
 

@@ -23,12 +23,17 @@ export const StreamerInfo = () => {
                     </div>
                 </div>
                 <div className="result_contents"> 
+                    
                     <div className="result_content">
-                        채널 생성일
-                    </div>
-                    <div className="result_content">
-                        채널 소개
-                        <div className="channel_description"></div>
+                        <div className="channel_header">
+                            채널 소개
+                        </div>
+                        <div className="channel_description">
+                            채널 내용
+                            <div className="result_content">
+                                채널 생성일
+                            </div>
+                        </div>
                     </div>
                     <div className="result_content">
                         채널 페이지

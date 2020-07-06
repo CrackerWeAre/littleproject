@@ -9,11 +9,10 @@
 .drawershort {
     position: fixed;
     width: 60px;
-    overflow: scroll;
+    overflow-y: hidden;
     padding-top:5px;
     top: 70px;
     bottom: 0px;
-    
 }
 
 .st_drawer_followerlist{
@@ -29,6 +28,10 @@
 }
 
 .drawer:hover {
+    overflow-y: scroll;
+}
+
+.drawershort:hover {
     overflow-y: scroll;
 }
 
