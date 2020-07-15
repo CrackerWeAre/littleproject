@@ -23,37 +23,55 @@ export const StreamerInfo = () => {
                     </div>
                 </div>
                 <div className="result_contents"> 
-                    
                     <div className="result_content">
                         <div className="channel_header">
                             채널 소개
                         </div>
                         <div className="channel_description">
                             채널 내용
-                            <div className="result_content">
-                                채널 생성일
-                            </div>
                         </div>
-                    </div>
-                    <div className="result_content">
-                        채널 페이지
+                        <div className="channel_description">
+                            채널 언어
+                        </div>
+                        <div className="result_content">
+                            채널 생성일
+                        </div>
                     </div>
                 </div>
                 <div className="result_contents">
                     <div className="result_content">
-                        총 방송 시간
+                        <div className="result_key">
+                            주 방송 시간
+                        </div>
+                        <div className="result_value">
+                            56시간
+                        </div>
+                        <div className="result_icon">
+                           >>>>>>
+                        </div>
                     </div>
                     <div className="result_content">
-                        가장 많이 방송한 정보
+                        
+                        <div className="result_key">
+                            주 평균 시청자 수
+                        </div>
+                        <div className="result_value">
+                            4200명
+                        </div>
+                        <div className="result_icon">
+                            >>>>>>
+                        </div>
                     </div>
                     <div className="result_content">
-                        일주일 간 방송일
-                    </div>
-                    <div className="result_content">
-                        평소 방송 시작시간
-                    </div>
-                    <div className="result_content">
-                        채널 최고 시청자수
+                        <div className="result_key">
+                            주 최고 시청자 수
+                        </div>
+                        <div className="result_value">
+                            29360명
+                        </div>
+                        <div className="result_icon">
+                            >>>>>>
+                        </div>
                     </div>
                 </div>
             </div>
