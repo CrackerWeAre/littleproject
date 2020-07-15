@@ -4,17 +4,21 @@ import { isUndefined } from 'util';
 
 export const AirFrame = (props) => {
     const [src, setsrc] = useState('initialState')
-    useEffect(() => {
-        if(props.liveItem){
-  
-            if(props.liveItem.platform==="twitch"){
+    const [first, setfirst] = useState(false)
+    const [platform, setplatform] = useState('initialState')
 
+    useEffect(() => {
+        
+        if(!first&&props.liveItem){ 
+            setplatform(props.liveItem.platform)
+            if(props.liveItem.platform==="twitch"){
                 setsrc(props.liveItem.liveDataHref.split('/')[props.liveItem.liveDataHref.split('/').length-1])
             } else if(props.liveItem.platform==="youtube"){
                 setsrc(props.liveItem.liveDataHref.split('=')[props.liveItem.liveDataHref.split('=').length-1])
             }
+            setfirst(true)
         }
-    }, [props.liveItem])
+    }, [props])
 
     const twitchIframe = () => {
         const urlBase = "https://player.twitch.tv/?channel="
@@ -46,7 +50,7 @@ export const AirFrame = (props) => {
                 height="378" 
                 src={urlBase+src+urlParams} 
                 frameBorder="0" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute;" 
                 allowFullScreen={true}
                 >
             </iframe>
@@ -54,14 +58,18 @@ export const AirFrame = (props) => {
     }
 
     const liveView = () => {
-        if(props.liveItem){
-            if(props.liveItem.platform==="twitch"){
+        if(platform){
+            if(platform==="twitch"){
                 return twitchIframe()
-            }else if(props.liveItem.platform==="youtube"){
+            }else if(platform==="youtube"){
                 return youtubeIframe()
             }
         }
     }
+    useEffect(()=>{
+        console.log(props.liveItem)
+    },[first, platform, src])
+    
     return (
         <Fragment>
             <div className="container_live">
@@ -72,19 +80,26 @@ export const AirFrame = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    let listnum = 5
+    let livelist = []
     const items =  Object.values(state.airs)
     let liveItemtemp = items[Math.floor(Math.random() * items.length)]
     if(liveItemtemp){
         if(liveItemtemp.platform){
-            while(true){
+            while(listnum!==0){
                 if(liveItemtemp.platform==="afreecatv"){
                     liveItemtemp = items[Math.floor(Math.random() * items.length)]
                 } else if(liveItemtemp.platform==="vlive"){
                     liveItemtemp = items[Math.floor(Math.random() * items.length)]
                 } else {
-                    return {
-                        liveItem : liveItemtemp
+                    if(!livelist.includes(liveItemtemp)){
+                        liveItemtemp = items[Math.floor(Math.random() * items.length)]
+                    }else {
+                        listnum--;
+                        livelist.push(liveItemtemp)
+                        liveItemtemp = items[Math.floor(Math.random() * items.length)]
                     }
+                    
                 }
             }
         }
@@ -92,6 +107,9 @@ const mapStateToProps = (state) => {
         return {}
     }
     
+    return {
+        liveItem : livelist,
+    }
 }
 
 const mapDispatchToProps = {

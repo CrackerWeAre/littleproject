@@ -22,9 +22,6 @@ const Main = (props) => {
         window.scrollTo(0, 0)
     }, [props.match])
 
-    const liveView = () => {
-        return <AirFrame/>
-    }
 
     const liveList = () => {
         return <AirList data={props.match} ></AirList>
@@ -33,7 +30,7 @@ const Main = (props) => {
     return(
         
         <Fragment>  
-            {liveView()}
+            <AirFrame/>
             {liveList()}
         </Fragment>
     )

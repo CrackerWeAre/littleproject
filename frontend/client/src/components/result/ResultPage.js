@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { StreamerInfo } from './StreamerInfo';
 import { DailyInfo } from './DailyInfo';
 import { TrackingInfo } from './TrackingInfo'
-import "../../style/css/result.css"
+import "../../style/css/Result.css"
 
 export const ResultPage = () => {
 
