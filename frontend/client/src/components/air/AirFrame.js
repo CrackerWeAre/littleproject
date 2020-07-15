@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { isUndefined } from 'util';
 
 export const AirFrame = (props) => {
     const [src, setsrc] = useState('initialState')
@@ -18,7 +17,7 @@ export const AirFrame = (props) => {
             }
             setfirst(true)
         }
-    }, [props])
+    }, [props.liveItem])
 
     const twitchIframe = () => {
         const urlBase = "https://player.twitch.tv/?channel="
@@ -80,6 +79,7 @@ export const AirFrame = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     let listnum = 5
     let livelist = []
     const items =  Object.values(state.airs)
@@ -93,6 +93,7 @@ const mapStateToProps = (state) => {
                     liveItemtemp = items[Math.floor(Math.random() * items.length)]
                 } else {
                     if(!livelist.includes(liveItemtemp)){
+                        listnum--;
                         liveItemtemp = items[Math.floor(Math.random() * items.length)]
                     }else {
                         listnum--;
