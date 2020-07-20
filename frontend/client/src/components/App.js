@@ -20,6 +20,7 @@ import ResultPage from './result/ResultPage'
 import FollowingMain from './main/FollowingMain';
 import CategoryMain from './main/CategoryMain';
 import SearchMain from './main/SearchMain';
+import SchedulePage from './schedule/SchedulePage';
 
 function App(props) {
 
@@ -59,6 +60,7 @@ function App(props) {
                   <Route path="/admin/new" exact component={AdminCreate}></Route>
                   <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
+                  <Route path="/schedule" exact component={SchedulePage}></Route>
               </Switch>
               </div>
       </Router>

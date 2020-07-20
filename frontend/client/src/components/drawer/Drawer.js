@@ -71,7 +71,7 @@ const Drawer = (props) => {
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/'}>
+                    <Link to={'/schedule'}>
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_CALENDAR} alt="logo" /><span className="category_name">편성표</span>
