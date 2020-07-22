@@ -9,7 +9,6 @@ const ScheduleList = () => {
                 <ul className="schedule_list">
                     {FakeData.map(data => (
                         <li key={data._id} className="schedule_item">
-                            
                             <Link to={data.url}>
                                 <img src={data.image} alt=""/>
                                 
@@ -18,6 +17,7 @@ const ScheduleList = () => {
                                     <p>{data.subtitle}</p>
                                     <span>{data.date}</span>
                                     {data.live === true ? (<strong>live</strong>) : ""}
+                                    {data.days.map(day => (<strong className="schedule_days" key={day}>{day}</strong>))}
                                 </div>
                             </Link>
                         </li>

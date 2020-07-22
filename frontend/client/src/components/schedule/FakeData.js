@@ -6,7 +6,8 @@ const FakeData = [
         "date": "2020.07.17 ~ 07.31",
         "image": "//img.29cm.co.kr/next-edition/2020/07/15/0c92f0b9acf743b89196c7e06ed6a044_20200715143826.jpg?width=800",
         "url": "https://post.29cm.co.kr/9553",
-        "live": true
+        "live": true,
+        "days": ["월", "수"]
     },
     {
         "_id": 1,
@@ -15,7 +16,8 @@ const FakeData = [
         "date": "2020.07.15 ~ 07.29",
         "image": "//img.29cm.co.kr/next-edition/2020/07/13/d614f28bfa004ca0920de6f5487516f2_20200713103151.jpg?width=800",
         "url": "https://post.29cm.co.kr/9513",
-        "live": true
+        "live": true,
+        "days": ["월", "수", "금"]
     },
     {
         "_id": 2,
@@ -24,7 +26,8 @@ const FakeData = [
         "date": "2020.07.13 ~ 07.27",
         "image": "//img.29cm.co.kr/next-edition/2020/07/09/81e957c0d16140aba25723d4daad0525_20200709115015.jpg?width=800",
         "url": "https://post.29cm.co.kr/9456",
-        "live": false
+        "live": false,
+        "days": ["토", "일"]
     },
     {
         "_id": 3,
@@ -33,7 +36,8 @@ const FakeData = [
         "date": "2020.07.09 ~ 07.24",
         "image": "//img.29cm.co.kr/next-edition/2020/07/07/74dcf93e35d6449e973c8011b4664b95_20200707134241.jpg?width=800",
         "url": "https://post.29cm.co.kr/9455",
-        "live": false
+        "live": false,
+        "days": ["월", "화"]
     },
     {
         "_id": 4,
@@ -42,7 +46,8 @@ const FakeData = [
         "date": "2020.07.07 ~ 07.21",
         "image": "//img.29cm.co.kr/next-edition/2020/07/06/e04d65fa9a954bf08153d4f4b4a0186c_20200706193005.jpg?width=800",
         "url": "https://post.29cm.co.kr/9441",
-        "live": false
+        "live": false,
+        "days": ["수", "목"]
     },
     {
         "_id": 5,
@@ -51,7 +56,8 @@ const FakeData = [
         "date": "2020.06.29 ~ 07.14",
         "image": "//img.29cm.co.kr/next-edition/2020/06/26/2b1c126aea14468598130782d6c3d141_20200626172741.jpg?width=800",
         "url": "https://post.29cm.co.kr/9346",
-        "live": false
+        "live": false,
+        "days": ["금", "토"]
     },
     {
         "_id": 6,
@@ -60,7 +66,8 @@ const FakeData = [
         "date": "2020.06.22 ~ 07.05",
         "image": "//img.29cm.co.kr/next-edition/2020/06/23/45300cc40bdc4353bc02b7504a8b7cf4_20200623181848.jpg?width=800",
         "url": "https://post.29cm.co.kr/9310",
-        "live": false
+        "live": false,
+        "days": ["화", "수", "목"]
     },
     {
         "_id": 7,
@@ -69,7 +76,8 @@ const FakeData = [
         "date": "2020.06.22 ~ 07.06",
         "image": "//img.29cm.co.kr/next-edition/2020/06/18/07b3440bc6bf4fbdabbfc29748b23e72_20200618101723.jpg?width=800",
         "url": "https://post.29cm.co.kr/9305",
-        "live": false
+        "live": false,
+        "days": ["월", "화", "수", "목", "금"]
     },
     {
         "_id": 8,
@@ -78,7 +86,8 @@ const FakeData = [
         "date": "2020.06.19 ~ 06.29",
         "image": "//img.29cm.co.kr/next-edition/2020/06/18/6d5f8d85b37243a68832043983c38507_20200618193510.jpg?width=800",
         "url": "https://post.29cm.co.kr/9258",
-        "live": false
+        "live": false,
+        "days": ["토", "일"]
     },
     {
         "_id": 9,
@@ -87,7 +96,8 @@ const FakeData = [
         "date": "2020.06.18 ~ 07.01",
         "image": "//img.29cm.co.kr/next-edition/2020/06/16/9ad8797251154ad18b35abf9972e4175_20200616103646.jpg?width=800",
         "url": "https://post.29cm.co.kr/9277",
-        "live": false
+        "live": false,
+        "days": ["화", "목"]
     },
     {
         "_id": 10,
@@ -96,7 +106,8 @@ const FakeData = [
         "date": "2020.06.11 ~ 06.28",
         "image": "//img.29cm.co.kr/next-edition/2020/06/12/6ef996269a254877ab9d32345e4a52e3_20200612112036.jpg?width=800",
         "url": "https://post.29cm.co.kr/9237",
-        "live": false
+        "live": false,
+        "days": ["금", "토", "일"]
     },
     {
         "_id": 11,
@@ -105,7 +116,8 @@ const FakeData = [
         "date": "2020.06.10 ~ 06.23",
         "image": "//img.29cm.co.kr/next-edition/2020/06/08/840df3b2ffb24a25b333ab1f59526fb6_20200608115850.jpg?width=800",
         "url": "https://post.29cm.co.kr/9186",
-        "live": false
+        "live": false,
+        "days": ["월", "수"]
     },
     {
         "_id": 12,
@@ -114,7 +126,8 @@ const FakeData = [
         "date": "2020.06.09 ~ 06.22",
         "image": "//img.29cm.co.kr/next-edition/2020/06/04/503bef5ea9d14ad2a57a04df3f484812_20200604100256.jpg?width=800",
         "url": "https://post.29cm.co.kr/9171",
-        "live": false
+        "live": false,
+        "days": ["화", "목"]
     },
     {
         "_id": 13,
@@ -123,7 +136,8 @@ const FakeData = [
         "date": "2020.06.08 ~ 06.21",
         "image": "//img.29cm.co.kr/next-edition/2020/06/04/94fc182c5e9846d696109e71c2ac3b9f_20200604104132.jpg?width=800",
         "url": "https://post.29cm.co.kr/9170",
-        "live": false
+        "live": false,
+        "days": ["화", "수", "목"]
     },
     {
         "_id": 14,
@@ -132,7 +146,8 @@ const FakeData = [
         "date": "2020.06.05 ~ 06.11",
         "image": "//img.29cm.co.kr/next-edition/2020/06/03/e3b02c94d2684375b60257782770329d_20200603143639.jpg?width=800",
         "url": "https://post.29cm.co.kr/9165",
-        "live": false
+        "live": false,
+        "days": ["금"]
     },
     {
         "_id": 15,
@@ -141,7 +156,8 @@ const FakeData = [
         "date": "2020.06.05 ~ 06.18",
         "image": "//img.29cm.co.kr/next-edition/2020/06/03/c09cfb825cf24328beff33368aace73f_20200603152814.jpg?width=800",
         "url": "https://post.29cm.co.kr/9167",
-        "live": false
+        "live": false,
+        "days": ["월", "화", "수", "목", "금"]
     },
     {
         "_id": 16,
@@ -150,7 +166,8 @@ const FakeData = [
         "date": "2020.06.03 ~ 06.16",
         "image": "//img.29cm.co.kr/next-edition/2020/06/01/e3f954620cb440cf8fab9139be40b261_20200601120636.jpg?width=800",
         "url": "https://post.29cm.co.kr/9074",
-        "live": false
+        "live": false,
+        "days": ["월", "수"]
     },
     {
         "_id": 17,
@@ -159,7 +176,8 @@ const FakeData = [
         "date": "2020.06.02 ~ 06.15",
         "image": "//img.29cm.co.kr/next-edition/2020/05/28/3e94c1367ae2418da0d0d0ca0436145a_20200528110224.jpg?width=800",
         "url": "https://post.29cm.co.kr/9113",
-        "live": false
+        "live": false,
+        "days": ["목", "금"]
     },
     {
         "_id": 18,
@@ -168,7 +186,8 @@ const FakeData = [
         "date": "2020.05.29 ~ 06.11",
         "image": "//img.29cm.co.kr/next-edition/2020/05/28/3a2cca4c9fb641a2a748758bdddf5e87_20200528094139.jpg?width=800",
         "url": "https://post.29cm.co.kr/9098",
-        "live": false
+        "live": false,
+        "days": ["토", "일"]
     },
     {
         "_id": 19,
@@ -177,7 +196,8 @@ const FakeData = [
         "date": "2020.05.27 ~ 06.09",
         "image": "//img.29cm.co.kr/next-edition/2020/05/25/408f6ccae2ba4f0fb82a291eecd60c69_20200525115129.jpg?width=800",
         "url": "https://post.29cm.co.kr/9080",
-        "live": false
+        "live": false,
+        "days": ["월", "화", "수", "목", "금"]
     }
 ];
 
