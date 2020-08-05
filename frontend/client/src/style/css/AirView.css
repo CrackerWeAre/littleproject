@@ -145,5 +145,23 @@
 }
 
 .container_live {
-  text-align: center;
+  display: flex;
+}
+
+.container_live .live_iframe {
+  margin: auto;
+}
+
+
+.container_live_small {
+  
+}
+
+.live_smallView {
+  margin: 10px;
+}
+
+.smallView_image {
+  height: 200px;
+  width: 300px;
 }
