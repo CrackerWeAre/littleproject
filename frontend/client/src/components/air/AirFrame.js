@@ -2,24 +2,18 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 export const AirFrame = (props) => {
-    const [src, setsrc] = useState('initialState')
     const [first, setfirst] = useState(false)
-    const [platform, setplatform] = useState('initialState')
+    const [items, setitems] = useState([])
+
 
     useEffect(() => {
-        
         if(!first&&props.liveItem){ 
-            setplatform(props.liveItem.platform)
-            if(props.liveItem.platform==="twitch"){
-                setsrc(props.liveItem.liveDataHref.split('/')[props.liveItem.liveDataHref.split('/').length-1])
-            } else if(props.liveItem.platform==="youtube"){
-                setsrc(props.liveItem.liveDataHref.split('=')[props.liveItem.liveDataHref.split('=').length-1])
-            }
+            setitems(props.liveItem)
             setfirst(true)
         }
     }, [props.liveItem])
 
-    const twitchIframe = () => {
+    const twitchIframe = (address) => {
         const urlBase = "https://player.twitch.tv/?channel="
         const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
 
@@ -27,7 +21,7 @@ export const AirFrame = (props) => {
             <iframe 
                 className="live_iframe"
                 title="live"
-                src={urlBase+src+urlParams}  
+                src={urlBase+address+urlParams}  
                 frameBorder="0" 
                 allowFullScreen={true} 
                 scrolling="no" 
@@ -37,7 +31,7 @@ export const AirFrame = (props) => {
         )
     }
 
-    const youtubeIframe = () => {
+    const youtubeIframe = (address) => {
         const urlBase = "https://www.youtube.com/embed/"
         const urlParams = "?autoplay=1"
      
@@ -47,7 +41,7 @@ export const AirFrame = (props) => {
                 title="live"
                 width="620" 
                 height="378" 
-                src={urlBase+src+urlParams} 
+                src={urlBase+address+urlParams} 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute;" 
                 allowFullScreen={true}
@@ -55,52 +49,88 @@ export const AirFrame = (props) => {
             </iframe>
         )
     }
+    
+    
+    const frameView = (item) => {
 
-    const liveView = () => {
-        if(platform){
-            if(platform==="twitch"){
-                return twitchIframe()
-            }else if(platform==="youtube"){
-                return youtubeIframe()
+        let first = item[0]
+        let second = item[1]
+        let third = item[2]
+
+        const changeDataEvent = (data) => {
+            if(data===second){
+                let temp = item
+                setitems([temp[1],temp[0],temp[2]])
+            }else{
+                let temp = item
+                setitems([temp[2],temp[1],temp[0]])
+            }
+
+        }
+    
+        const liveView = (data) => {
+            if(data){
+                
+                if(data.platform==="twitch"){
+                    return twitchIframe(data.liveDataHref.split('/')[data.liveDataHref.split('/').length-1])
+                }else if(data.platform==="youtube"){
+                    return youtubeIframe(data.liveDataHref.split('/')[data.liveDataHref.split('/').length-1])
+                }
             }
         }
+
+        const smallView = (data) => {
+            if(data){
+                return (
+                    <div className="live_smallView" data={data} onClick={()=>changeDataEvent(data)}>
+                        <img className="smallView_image" src={data.imgDataSrc} alt="streaming thumbnail"></img>
+                    </div>
+                )
+            }
+        }
+       
+        return (
+            <Fragment>
+                {liveView(first)}
+                <div className="container_live_small">
+                    {smallView(second)}{smallView(third)}
+                </div>
+            </Fragment>
+        )
     }
-    useEffect(()=>{
-        console.log(props.liveItem)
-    },[first, platform, src])
-    
+
     return (
         <Fragment>
             <div className="container_live">
-                {liveView()}
+                {items&&frameView(items)}
             </div>
         </Fragment>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
-    let listnum = 5
+    let listnum = 3
+    let limnum = 0
     let livelist = []
     const items =  Object.values(state.airs)
     let liveItemtemp = items[Math.floor(Math.random() * items.length)]
     if(liveItemtemp){
         if(liveItemtemp.platform){
-            while(listnum!==0){
+            while(listnum!==0&&limnum<1000){
                 if(liveItemtemp.platform==="afreecatv"){
                     liveItemtemp = items[Math.floor(Math.random() * items.length)]
                 } else if(liveItemtemp.platform==="vlive"){
                     liveItemtemp = items[Math.floor(Math.random() * items.length)]
                 } else {
-                    if(!livelist.includes(liveItemtemp)){
-                        listnum--;
+                    if(livelist.includes(liveItemtemp)){
+                        limnum++;
                         liveItemtemp = items[Math.floor(Math.random() * items.length)]
                     }else {
+                        limnum++;
                         listnum--;
                         livelist.push(liveItemtemp)
                         liveItemtemp = items[Math.floor(Math.random() * items.length)]
                     }
-                    
                 }
             }
         }

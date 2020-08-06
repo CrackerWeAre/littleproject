@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { signOut } from '../../actions/user'
 import {Link} from "react-router-dom"
+import Button from '../../common/Button';
 
 class LogHeader extends Component {
 
@@ -20,7 +21,7 @@ class LogHeader extends Component {
                 <div className="nav__links">
                     <div className="nav_items">
                         <Link to="/login">
-                            <button className="cta">Login</button>
+                            <Button>Login</Button>
                         </Link>
                     </div>
                 </div>
@@ -30,18 +31,16 @@ class LogHeader extends Component {
                     <div className="nav__links">
                         <div className="nav_items">
                             <Link to="/admin">
-                                <button className="cta">Admin</button>
+                                <Button>Admin</Button>
                             </Link>
                         </div>
                         <div className="nav_items">
-                            <Link to="/mypage">
+                            <Link to="/main/mypage">
                                 <button className="cta">MyPage</button>
                             </Link>
                         </div>
                         <div className="nav_items">
-                        <button onClick = {this.onSignOutClick} className="cta">
-                                Logout
-                        </button>
+                            <Button onClick = {this.onSignOutClick}>Logout</Button>
                         </div>
                     </div>
             )

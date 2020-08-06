@@ -12,6 +12,9 @@ export const GET_FOL = 'GET_FOL'
 export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
 export const FETCH_BLO_AIRS = 'FETCH_BLO_AIRS'
 
+export const POST_PLACE = 'POST_PLACE'
+export const POST_LIVE = 'POST_LIVE'
+export const POST_DATA = 'POST_DATA'
 
 export const DRAWER_SET = 'DRAWER_SET'
 export const DARKMODE_SET = 'DARKMODE_SET'
@@ -27,3 +30,5 @@ export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
 export const RE_SIGN_IN = 'RE_SIGN_IN'
 //to reduce typo
+
+export const FETCH_SCHEDULELIST = 'FETCH_SCHEDULELIST'

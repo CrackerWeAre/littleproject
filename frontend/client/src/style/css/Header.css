@@ -7,7 +7,7 @@
 }
 
 .header {
-    display: flex!important;
+    display: inline-flex!important;
     height: 70px;
     justify-content: space-between;
     align-items: center;
@@ -24,13 +24,21 @@
 
 
 
-.logo1 {
-    height: 60px;
-    width: 60px;
+.hamburger_logo {
+    height: 30px;
+    width: 30px;
     cursor: pointer;
-    margin-right: auto;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
     
+}
+
+.main_logo{
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: 15px;
 }
 
 .header_nav {
@@ -41,7 +49,7 @@
 }
 
 .nav__links {
-    width: 30%;
+  
     padding-right: 10px;
     justify-content: flex-end;
     display: flex!important;

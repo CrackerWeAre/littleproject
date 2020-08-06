@@ -99,10 +99,11 @@ const AirList = (props) => {
 
     
     const CateAirShow = () => {
+
         return (
             <Fragment>
                 <div className="container_title">
-                     {props.data.params._id} 채널
+                    {props.data.params._id} 채널
                 </div>
                 <div className="airlist_container">
                     {AirList()}
@@ -166,13 +167,14 @@ const AirList = (props) => {
                     return null;
                 } else if(props.blocking.includes(data._uniq)){
                     return null;
-                } else
+                } else {
                     return (
                         <div className='item' key={data._id}>
                             <AirView data={data}></AirView>
                         </div>
                     )
                 }
+            }
             )    
         } else {
             return <div>해당 검색 결과가 없습니다.</div>
@@ -207,7 +209,7 @@ const AirList = (props) => {
 
 const mapStateToProps = (state) =>{
     return {
-        airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)), 
+        airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)).filter(item => item.language==='ko'), 
         myairs: Object.values(state.myairs),
         cateairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)),
         followings: state.followings,
