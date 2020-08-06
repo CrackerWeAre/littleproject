@@ -35,13 +35,8 @@ class LogHeader extends Component {
                             </Link>
                         </div>
                         <div className="nav_items">
-<<<<<<< Updated upstream
                             <Link to="/main/mypage">
                                 <button className="cta">MyPage</button>
-=======
-                            <Link to="/mypage">
-                                <Button>MyPage</Button>
->>>>>>> Stashed changes
                             </Link>
                         </div>
                         <div className="nav_items">
