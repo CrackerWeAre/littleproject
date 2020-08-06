@@ -1,0 +1,19 @@
+.custom_btn {
+    width: 80px;
+    height: 40px;
+    background-color: #fff; 
+	color: rgba(50, 50, 50, 0.7);
+    border: 2px solid rgba(50, 50, 50, 0.7);
+    border-radius: 50rem;
+    text-align: center;
+    line-height: 8px;
+    outline: none;
+}
+
+.custom_btn:hover {
+    cursor: pointer;
+    background: #fbb30f; 
+    color: #fff;
+    border: 0;
+    transition: all 500ms ease;
+}

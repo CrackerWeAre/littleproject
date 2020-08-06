@@ -1,26 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import FakeData from './FakeData';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchScheduleList } from '../../actions/schedule';
+import ScheduleItem from './ScheduleItem';
 
-const ScheduleList = () => {
+const ScheduleList = (props) => {
+    useEffect(() => {
+        props.fetchScheduleList();
+    }, [props]);
+
     return (
         <>
             <div className="schedule_container">
                 <ul className="schedule_list">
-                    {FakeData.map(data => (
-                        <li key={data._id} className="schedule_item">
-                            <Link to={data.url}>
-                                <img src={data.image} alt=""/>
-                                
-                                <div className="schedule_content">
-                                    <h1>{data.title}</h1>
-                                    <p>{data.subtitle}</p>
-                                    <span>{data.date}</span>
-                                    {data.live === true ? (<strong>live</strong>) : ""}
-                                    {data.days.map(day => (<strong className="schedule_days" key={day}>{day}</strong>))}
-                                </div>
-                            </Link>
-                        </li>
+                    {props.schedules.map(schedule => (
+                        <ScheduleItem key={schedule._id} schedule={schedule} />
                     ))}
                 </ul>
             </div>
@@ -28,4 +21,10 @@ const ScheduleList = () => {
     );
 };
 
-export default ScheduleList;
+const mapStateToProps = state => {
+    return {
+        schedules: Object.values(state.schedules)
+    };
+}
+
+export default connect(mapStateToProps, { fetchScheduleList })(ScheduleList);

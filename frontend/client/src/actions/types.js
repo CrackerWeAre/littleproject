@@ -30,3 +30,5 @@ export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
 export const RE_SIGN_IN = 'RE_SIGN_IN'
 //to reduce typo
+
+export const FETCH_SCHEDULELIST = 'FETCH_SCHEDULELIST'
