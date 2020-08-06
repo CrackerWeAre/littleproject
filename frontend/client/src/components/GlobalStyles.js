@@ -20,7 +20,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: "inherit";
-	font-family: "NotoSansKR";
+	font-family: 'Roboto', sans-serif;
 	vertical-align: middle;
 }
 /* HTML5 display-role reset for older browsers */
