@@ -34,7 +34,7 @@ class LogHeader extends Component {
                             </Link>
                         </div>
                         <div className="nav_items">
-                            <Link to="/mypage">
+                            <Link to="/main/mypage">
                                 <button className="cta">MyPage</button>
                             </Link>
                         </div>

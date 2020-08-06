@@ -21,6 +21,7 @@ import FollowingMain from './main/FollowingMain';
 import CategoryMain from './main/CategoryMain';
 import SearchMain from './main/SearchMain';
 import SchedulePage from './schedule/SchedulePage';
+import MainRouter from '../components/router/MainRouter'
 
 function App(props) {
 
@@ -43,26 +44,15 @@ function App(props) {
   return (
     <Fragment>
         <Router history={history} >
-          <Header></Header>
-          {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
-          {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
-          <div className={classDrawerName+classModeName}>
               <Switch>
-                  <Route path="/" exact component = {Main}></Route>
-                  <Route path="/following" exact component = {FollowingMain}></Route>
-                  <Route path="/mypage" exact component = {UserPage}></Route>
-                  <Route path="/directory/:_id" component = {CategoryMain}></Route>
-                  <Route path="/search/:_id" component = {SearchMain}></Route>
-                  <Route path="/login" exact component={Login}></Route>
-                  <Route path="/result/:_id" exact component={ResultPage}></Route>
-                  <Route path="/air/show/:_id" exact component={AirView}></Route>
-                  <Route path="/admin" exact component={Admin}></Route>
+                  <Route path="/" exact component = {MainRouter}></Route>
+                  <Route path="/main" component = {MainRouter}></Route>
+                  <Route path="/admin"  component={Admin}></Route>
                   <Route path="/admin/new" exact component={AdminCreate}></Route>
                   <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
                   <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
-                  <Route path="/schedule" exact component={SchedulePage}></Route>
+                  
               </Switch>
-              </div>
       </Router>
       <GlobalStyles></GlobalStyles>
     </Fragment>

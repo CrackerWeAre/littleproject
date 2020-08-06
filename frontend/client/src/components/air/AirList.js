@@ -99,10 +99,11 @@ const AirList = (props) => {
 
     
     const CateAirShow = () => {
+
         return (
             <Fragment>
                 <div className="container_title">
-                     {props.match.params._id} 채널
+                    {props.data.params._id} 채널
                 </div>
                 <div className="airlist_container">
                     {AirList()}

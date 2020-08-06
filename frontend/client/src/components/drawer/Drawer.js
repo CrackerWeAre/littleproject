@@ -64,14 +64,14 @@ const Drawer = (props) => {
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/following'} >
+                    <Link to={'/main/following'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_THUMBSUP} alt="logo" /><span className="category_name">팔로잉</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/schedule'}>
+                    <Link to={'/main/schedule'}>
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_CALENDAR} alt="logo" /><span className="category_name">편성표</span>
@@ -86,56 +86,56 @@ const Drawer = (props) => {
     const categories = () => {
         return (
                 <Fragment>
-                    <Link to={'/directory/game'} >
+                    <Link to={'/main/directory/game'} >
                         <div className="category_item" >
                             <div className="contents">
                            <    img className="logo_game" src={Logo_GAME} alt="logo" /><span className="category_name">게임</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/music'} >
+                    <Link to={'/main/directory/music'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_MUSIC} alt="logo" /><span className="category_name">음악</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/chatting'}>
+                    <Link to={'/main/directory/chatting'}>
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_CHATTING} alt="logo" /><span className="category_name">소통</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/shopping'} >
+                    <Link to={'/main/directory/shopping'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_SHOPPING} alt="logo" /><span className="category_name">쇼핑</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/news & info'}>
+                    <Link to={'/main/directory/news & info'}>
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_NEWS} alt="logo" /><span className="category_name">뉴스/정보</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/air & radio'} >
+                    <Link to={'/main/directory/air & radio'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_AIR} alt="logo" /><span className="category_name">공중파</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/sports & exercise'} >
+                    <Link to={'/main/directory/sports & exercise'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_SPORTS} alt="logo" /><span className="category_name">스포츠/운동</span>
                             </div>
                         </div>
                     </Link>
-                    <Link to={'/directory/cooking'} >
+                    <Link to={'/main/directory/cooking'} >
                         <div className="category_item">
                             <div className="contents">
                                 <img className="logo_game" src={Logo_COOKING} alt="logo" /><span className="category_name">요리</span>
