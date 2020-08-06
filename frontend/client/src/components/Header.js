@@ -6,6 +6,7 @@ import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
 import searchImg from '../style/img/Search.png'
+import hamburgerLogo from "../style/img/Hamburger_icon.png"
 
 const Header = (props) => {
 
@@ -40,10 +41,11 @@ const Header = (props) => {
         <Fragment>
             <header className={classModeName}>
                 <Link to="/">
-                    <img className="logo1" src={Logo} alt="logo" onClick={drawerClick}></img>
+                    <img className="hamburger_logo" src={hamburgerLogo} alt="logo" onClick={drawerClick}></img>
                 </Link>
-                
-                
+                <Link to="/">
+                    <img className="main_logo" src={Logo} alt="logo"></img>
+                </Link>
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>
                     <input className="searchbox" placeholder="검색" type='text' value={searchItem} onChange={handleChange}>
@@ -52,9 +54,7 @@ const Header = (props) => {
                         <img className="search_img" src={searchImg} alt="Search"></img>
                     </button>
                 </form>
-                
                 <LogHeader></LogHeader>
-                    
                 </nav>
             </header>
         </Fragment>

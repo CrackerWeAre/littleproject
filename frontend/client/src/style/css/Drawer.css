@@ -69,8 +69,8 @@
 }
 
 .drawer_view {
-    padding-left: 24px;
-    margin-right: 5px;
+    padding-left: 15px;
+    margin-right: 15px;
     height: 40px;
 }
 
@@ -144,11 +144,11 @@
 .category_item {
     display:flex;
     color: rgba(80,80,80,1);
-    padding-left: 24px;
+    padding-left: 15px;
     padding-top: 2px;
     font-size: 14px;
     font-weight: 450;
-    height:40px;
+    height: 38px;
 }
 
 
@@ -184,5 +184,5 @@
 }
 
 .category_name{
-    padding-left: 40px;
+    padding-left: 20px;
 }

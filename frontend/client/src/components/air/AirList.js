@@ -102,7 +102,7 @@ const AirList = (props) => {
         return (
             <Fragment>
                 <div className="container_title">
-                     {props.data.params._id} 채널
+                     {props.match.params._id} 채널
                 </div>
                 <div className="airlist_container">
                     {AirList()}

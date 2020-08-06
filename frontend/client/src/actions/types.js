@@ -12,6 +12,9 @@ export const GET_FOL = 'GET_FOL'
 export const FETCH_FOL_AIRS = 'FETCH_FOL_AIRS'
 export const FETCH_BLO_AIRS = 'FETCH_BLO_AIRS'
 
+export const POST_PLACE = 'POST_PLACE'
+export const POST_LIVE = 'POST_LIVE'
+export const POST_DATA = 'POST_DATA'
 
 export const DRAWER_SET = 'DRAWER_SET'
 export const DARKMODE_SET = 'DARKMODE_SET'
