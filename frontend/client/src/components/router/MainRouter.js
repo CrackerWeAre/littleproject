@@ -21,6 +21,7 @@ import FollowingMain from '../main/FollowingMain';
 import CategoryMain from '../main/CategoryMain';
 import SearchMain from '../main/SearchMain';
 import SchedulePage from '../schedule/SchedulePage';
+import MainReview from '../reviews/MainReview'
 
 function MainRouter(props) {
 
@@ -45,6 +46,7 @@ function MainRouter(props) {
           <Header></Header>
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
+          <MainReview></MainReview>
           <div className={classDrawerName+classModeName}>
               <Switch>
                     <Route path="/" exact component = {Main}></Route>
