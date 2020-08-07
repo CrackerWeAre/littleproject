@@ -8,7 +8,7 @@ const DrawerShortView = (props) => {
             <div className="st_contents">
                 <div className="st_creatorlogo">
                     <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
-                        <img className="st_creator_img" src={props.data.creatorDataLogo} alt={props.data.liveDataTitle}></img>
+                        <img className="st_creator_img" src={props.data.creatorDataLogo} title={props.data.liveDataTitle} alt={props.data.liveDataTitle}></img>
                     </a>
                 </div>
             </div>

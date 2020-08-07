@@ -44,7 +44,7 @@ const Header = (props) => {
                     <img className="hamburger_logo" src={hamburgerLogo} alt="logo" onClick={drawerClick}></img>
                 </Link>
                 <Link to="/">
-                    <img className="main_logo" src={Logo} alt="logo"></img>
+                    <img className="main_logo" src={Logo} alt="logo" title="Meerkat On Air"></img>
                 </Link>
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>

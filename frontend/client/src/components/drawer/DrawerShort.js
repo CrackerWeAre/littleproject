@@ -61,56 +61,56 @@ const DrawerShort = (props) => {
                     <Link to={'/directory/game'} >
                         <div className="st_category_item" >
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_GAME} alt="logo" />
+                                <img className="st_logo_game" src={Logo_GAME} alt="game" title="game" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/music'} >
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_MUSIC} alt="logo" />
+                                <img className="st_logo_game" src={Logo_MUSIC} alt="music" title="music" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/chatting'}>
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_CHATTING} alt="logo" />
+                                <img className="st_logo_game" src={Logo_CHATTING} alt="chatting" title="chatting" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/shopping'} >
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_SHOPPING} alt="logo" />
+                                <img className="st_logo_game" src={Logo_SHOPPING} alt="shopping" title="shopping" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/news & info'}>
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_NEWS} alt="logo" />
+                                <img className="st_logo_game" src={Logo_NEWS} alt="news & info" title="news & info" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/air & radio'} >
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_AIR} alt="logo" />
+                                <img className="st_logo_game" src={Logo_AIR} alt="air & radio" title="air & radio" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/sports & exercise'} >
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_SPORTS} alt="logo" />
+                                <img className="st_logo_game" src={Logo_SPORTS} alt="sports & exercise" title="sports & exercise" />
                             </div>
                         </div>
                     </Link>
                     <Link to={'/directory/cooking'} >
                         <div className="st_category_item">
                             <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_COOKING} alt="logo" />
+                                <img className="st_logo_game" src={Logo_COOKING} alt="cooking" title="cooking" />
                             </div>
                         </div>
                     </Link>
