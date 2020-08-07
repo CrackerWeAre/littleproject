@@ -98,7 +98,7 @@ export const searchStreamer = (data) => async dispatch => {
     const item = data.replace("\?", "?")
     const response = await airs.get(`/search/${item}`)
     dispatch({ type:SEARCH_STREAMERS, payload: response.data})
-    history.push(`/search/${data}`)
+    history.push(`/main/search/${data}`)
 }
 
 export const drawerSet = (data) => async dispatch => {
@@ -114,6 +114,8 @@ export const sendReview = (data) => async dispatch => {
     params.append('title',data.title);
     params.append('email',data.email);
     params.append('message',data.message);
-    const response = await airs.post(``, params)
+    const response = await airs.post(`/feedback/send`, params)
+    console.log(response)
     dispatch({ type: SEND_REVIEW, payload: response})
+    history.push(`/`)
 }

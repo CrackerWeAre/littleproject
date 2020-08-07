@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import "../../style/css/Review.css"
-function MainReview() {
+import { sendReview } from '../../actions'
+import {connect} from 'react-redux'
+
+function MainReview(props) {
     const [formValues, setformValues] = useState({title:'',message:'',email:'',category:''})
     const [validation, setvalidation] = useState(false)
 
@@ -21,11 +24,11 @@ function MainReview() {
         setformValues({...formValues, email: `${e.target.value}`})
     }
 
-    const sendReview = () => {
-
+    const sendReviews = () => {
+        props.sendReview(formValues)
     }
+
     const popupValidation = () => {
-        console.log("works")
         setvalidation(!validation)
     }
 
@@ -50,7 +53,7 @@ function MainReview() {
                 <p>무엇을 도와드릴까요?</p>
                 <p>문의, 버그 제보, 건의 등 의견을 보내주세요.</p>
             </div>
-            <form className="review_form" onSubmit={sendReview}>
+            <form className="review_form" onSubmit={sendReviews}>
                 <div className="review_title">
                     <div className="input_data">
                         <input name="title" autoComplete="off" maxlength="250" placeholder="제목" value={formValues.title} label="channel" required  onChange={ontitleChange}></input>
@@ -80,4 +83,11 @@ function MainReview() {
     )
 }
 
-export default MainReview
+const mapStateToProps = (state) => {
+    return {
+        validation: state.streamers.validation
+    }
+}
+
+export default connect( mapStateToProps, {sendReview} )(MainReview)
+
