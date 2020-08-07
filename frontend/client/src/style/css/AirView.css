@@ -16,7 +16,7 @@
 }
 
 .airview_favor {
-  width : 28px;
+  width : 20px;
   background: transparent;
 }
 
@@ -33,19 +33,19 @@
 
 .top-right {
   position: absolute;
-  top: 8px;
+  bottom: 8px;
   right: 8px;
   background: transparent;
 }
 
 .top-left {
-  font-size: 13px;
+  font-size: 12px;
   position: absolute;
   bottom: 8px;
   left: 8px;
   text-align: center;
   margin: auto;
-  padding: 4px;
+  padding: 5px;
   color: white;
   border-radius: 5%;
   background: rgba(0,0,0,0.4)
@@ -76,7 +76,7 @@
 }
 
 .title .text {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -92,7 +92,7 @@
 }
 
 .contents a {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: rgba(80,80,80,1);
   text-overflow:ellipsis;
@@ -101,23 +101,21 @@
 }
 
 .contents .platform {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-left:auto;
   margin-right: 5px;
-  margin-top: 5px;
 }
 
 .contents .creatorlogo a img{
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin-top:5px;
 }
 
 .contents .setting {
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 5px;
 }
 .contents .setting:hover{
   cursor: pointer;
@@ -125,7 +123,8 @@
 
 
 .contents .setting img {
-  height: 20px;
+  height: 18px;
+  width: 5px;
   margin-top: 2px;
 }
 

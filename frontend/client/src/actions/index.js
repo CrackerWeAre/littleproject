@@ -13,7 +13,8 @@ import {
     SEARCH_STREAMERS,
     FETCH_BLO_AIRS,
     DRAWER_SET,
-    DARKMODE_SET
+    DARKMODE_SET,
+    SEND_REVIEW
 } from './types'
 
 
@@ -97,7 +98,7 @@ export const searchStreamer = (data) => async dispatch => {
     const item = data.replace("\?", "?")
     const response = await airs.get(`/search/${item}`)
     dispatch({ type:SEARCH_STREAMERS, payload: response.data})
-    history.push(`/search/${data}`)
+    history.push(`/main/search/${data}`)
 }
 
 export const drawerSet = (data) => async dispatch => {
@@ -106,4 +107,15 @@ export const drawerSet = (data) => async dispatch => {
 
 export const darkModeSet = (data) => async dispatch => {
     dispatch({type: DARKMODE_SET, payload: !data })
+}
+
+export const sendReview = (data) => async dispatch => {
+    const params = new URLSearchParams();
+    params.append('title',data.title);
+    params.append('email',data.email);
+    params.append('message',data.message);
+    const response = await airs.post(`/feedback/send`, params)
+    console.log(response)
+    dispatch({ type: SEND_REVIEW, payload: response})
+    history.push(`/`)
 }

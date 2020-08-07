@@ -1,0 +1,92 @@
+.review_container {
+    z-index: 10;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: #ffffff;
+    width: 30%;
+    height: 50%;
+    line-height: 1.5;
+    border-radius: 4px;
+}
+
+.review_popupbutton {
+    z-index: 10;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    width: 30px;
+    height: 30px;
+}
+
+.review_popdownbutton {
+    z-index: 10;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    width: 30px;
+    height: 30px;
+}
+
+.review_container .review_container_context {
+    text-align: center;
+}
+
+.review_container .review_form {
+    height: 100%;
+    padding: 10px;
+}
+.review_container .review_form .review_title {
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 7px;
+    background-clip: padding-box;
+}
+
+.review_container .review_form .review_title .input_data{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.review_container .review_form .review_title .input_data input{
+    height: 100%;
+    width: 100%
+}
+.review_container .review_form .review_email {
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 7px;
+    background-clip: padding-box;
+}
+
+.review_container .review_form .review_email .input_data{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.review_container .review_form .review_email .input_data input{
+    height: 100%;
+    width: 100%
+}
+.review_container .review_form .review_message {
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 7px;
+    background-clip: padding-box;
+    height: 170px;
+}
+
+.review_container .review_form .review_message .input_data{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.review_container .review_form .review_message .input_data input{
+    height: 100%;
+    width: 100%
+}

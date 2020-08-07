@@ -27,7 +27,7 @@ class Login extends Component {
                             clientId="845969621905-p9iupf8qgkmucm6d4978cls28lk6b84n.apps.googleusercontent.com"
                             render={renderProps => (
                                 <button id="google" className="login100-social-item" title="Google" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                    <img src="icon-google.png" alt="GOOGLE"></img>
+                                    <img src="/icon-google.png" alt="GOOGLE"></img>
                                 </button>
                             )}
                             buttonText="구글아이디로 로그인 하기"
@@ -39,7 +39,7 @@ class Login extends Component {
                     </div>
                     <div className="login">
                         <a href="#" id="facebook" className="login100-social-item">
-                            <img src="icon-facebook.png" alt="FACEBOOK"></img>
+                            <img src="/icon-facebook.png" alt="FACEBOOK"></img>
                         </a>
                     </div>
                 </div>

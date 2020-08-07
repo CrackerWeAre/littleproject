@@ -6,7 +6,7 @@ import ScheduleItem from './ScheduleItem';
 const ScheduleList = (props) => {
     useEffect(() => {
         props.fetchScheduleList();
-    }, [props]);
+    }, []);
 
     return (
         <>
