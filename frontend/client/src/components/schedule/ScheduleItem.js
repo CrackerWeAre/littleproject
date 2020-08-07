@@ -5,7 +5,7 @@ const ScheduleItem = ({ schedule }) => {
     return (
         <>
             <li key={schedule._id} className="schedule_item">
-                <Link to={schedule.url}>
+                <a href={schedule.url} target="_blank" rel="noopener noreferrer">
                     <img src={schedule.image} alt=""/>
                     
                     <div className="schedule_content">
@@ -15,7 +15,7 @@ const ScheduleItem = ({ schedule }) => {
                         {schedule.live === true ? (<strong>live</strong>) : ""}
                         {schedule.days.map(day => (<strong className="schedule_days" key={day}>{day}</strong>))}
                     </div>
-                </Link>
+                </a>
             </li>
         </>
     );

@@ -20,7 +20,7 @@ class LogHeader extends Component {
             return (
                 <div className="nav__links">
                     <div className="nav_items">
-                        <Link to="/login">
+                        <Link to="/main/login">
                             <Button>Login</Button>
                         </Link>
                     </div>
@@ -40,7 +40,7 @@ class LogHeader extends Component {
                             </Link>
                         </div>
                         <div className="nav_items">
-                            <Button onClick = {this.onSignOutClick}>Logout</Button>
+                            <Button onClick={this.onSignOutClick}>Logout</Button>
                         </div>
                     </div>
             )
@@ -60,7 +60,7 @@ const mapStateToProps = (state) =>{
     return {
         isSignedIn: state.auth.isSignedIn,
         user: state.user
-         };
+    };
 }
 
 

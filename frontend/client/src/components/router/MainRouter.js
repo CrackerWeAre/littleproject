@@ -55,7 +55,7 @@ function MainRouter(props) {
                     <Route path={`${props.match.path}/mypage`}  component = {UserPage}></Route>
                     <Route path={`${props.match.path}/directory/:_id`} component = {CategoryMain}></Route>
                     <Route path={`${props.match.path}/search/:_id`} component = {SearchMain}></Route>
-                    <Route path={`${props.match.path}/login"`}  component={Login}></Route>
+                    <Route path={`${props.match.path}/login`} component={Login}></Route>
                     <Route path={`${props.match.path}/result/:_id`} exact component={ResultPage}></Route>
                     <Route path={`${props.match.path}/air/show/:_id`} exact component={AirView}></Route>
                     <Route path={`${props.match.path}/schedule`}  component={SchedulePage}></Route>

@@ -1,12 +1,15 @@
 import React from 'react';
 import '../style/css/Button.css';
 
-const Button = ({ children }) => {
+const Button = (props) => {
+    console.log(props);
     return (
         <>
-            <button className="custom_btn">{children}</button>
+            <button 
+                className="custom_btn"
+                onClick={props.onClick}
+            >{props.children}</button>
         </>
-
     );
 }
 
