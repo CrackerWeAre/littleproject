@@ -115,7 +115,7 @@ const AirView = (props) => {
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
                 <div className="setting"  onClick={openSettingPopup}>
-                    <img className="airview_img"  src={setting} alt="setting"></img>
+                    <i class="fas fa-ellipsis-v airview_img" alt="setting"></i>
                 </div>
                 {blo_btn && <div className="popup_inner" >
                         <div className="popup_inner_item" onClick={sendBlock}>차단하기</div>

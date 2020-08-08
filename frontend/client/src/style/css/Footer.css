@@ -1,9 +1,9 @@
 .copyright {
     padding-left: 28px;
+    padding-top: 5px;
     font-size: 12px;
-    line-height: 20px;
-    height: 100px;
-    vertical-align: sub;
+    line-height: 10px;
+    color: #606060;
 }
 
 .Linkto {

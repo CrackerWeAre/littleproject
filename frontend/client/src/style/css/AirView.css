@@ -13,7 +13,8 @@
     max-height : 200px!important;
     background: transparent;
     object-fit: contain;
-}
+    font-size: 19px;
+    color: #606060;}
 
 .airview_favor {
   width : 20px;

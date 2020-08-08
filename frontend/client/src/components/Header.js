@@ -41,7 +41,7 @@ const Header = (props) => {
         <Fragment>
             <header className={classModeName}>
                 <Link to="/">
-                    <img className="hamburger_logo" src={hamburgerLogo} alt="logo" onClick={drawerClick}></img>
+                    <i class="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
                 </Link>
                 <Link to="/">
                     <img className="main_logo" src={Logo} alt="logo" title="Meerkat On Air"></img>
