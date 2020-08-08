@@ -74,7 +74,7 @@ const AirView = (props) => {
 
     const showFavorite = () => {
         if(props.followings.indexOf(props.data._uniq)>=0){
-            return <div classNameName="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
+            return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
         } else {
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
         }
