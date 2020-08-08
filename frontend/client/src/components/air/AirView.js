@@ -74,7 +74,7 @@ const AirView = (props) => {
 
     const showFavorite = () => {
         if(props.followings.indexOf(props.data._uniq)>=0){
-            return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
+            return <div classNameName="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfunctrue(fol_btn)} alt="hearton"></img></div>
         } else {
             return <div className="top-right" onClick={showAlert}><img  className="airview_favor"  src={butfuncfalse(fol_btn)} alt="heartoff"></img></div>
         }
@@ -115,7 +115,7 @@ const AirView = (props) => {
                 <div><a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a></div>
                 {showPlatform(props.data.platform)}
                 <div className="setting"  onClick={openSettingPopup}>
-                    <i class="fas fa-ellipsis-v airview_img" alt="setting"></i>
+                    <i className="fas fa-ellipsis-v airview_img" alt="setting"></i>
                 </div>
                 {blo_btn && <div className="popup_inner" >
                         <div className="popup_inner_item" onClick={sendBlock}>차단하기</div>
