@@ -196,10 +196,11 @@
     height:20px;
 }
 
-.logo_game {
+.logo {
     width:20px;
     height:20px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    color : #606060;
 }
 
 .category_name{
