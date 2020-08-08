@@ -1,17 +1,27 @@
+.nav__links .fas {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #606060;
+}
+
 .custom_btn {
     width: 80px;
-    height: 40px;
+    height: 35px;
+    font-size: 14px;
     background-color: #fff; 
-	color: rgba(50, 50, 50, 0.7);
-    border: 2px solid rgba(50, 50, 50, 0.7);
-    border-radius: 50rem;
-    text-align: center;
-    line-height: 8px;
-    outline: none;
+	color: #606060;
+    border: 1px solid #606060;
+    cursor: pointer;
+
+}
+
+.custom_btn .fas {
+    margin-top: 0px;
+    padding-right: 5px;
+    font-size: 16px;
 }
 
 .custom_btn:hover {
-    cursor: pointer;
     background: #fbb30f; 
     color: #fff;
     border: 0;

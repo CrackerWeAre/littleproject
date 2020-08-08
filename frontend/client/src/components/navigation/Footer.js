@@ -6,7 +6,7 @@ function Footer() {
     return (
         <Fragment>
             <a href="https://seoulbitz.sparker.kr/">
-                <button className="Linkto">SeoulBitz Project</button>
+                <button className="Linkto">SeoulBitz</button>
             </a>
             <div className="copyright">
                 <span>Made by Team@Sparker</span><br/>
