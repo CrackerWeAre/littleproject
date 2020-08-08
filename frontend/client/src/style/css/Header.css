@@ -94,6 +94,7 @@
 a {
     font-weight: 500;
     font-size: 8px;
+<<<<<<< Updated upstream
     text-decoration: none;
 }
 
@@ -105,9 +106,26 @@ a {
   border: 1px solid rgba(200,200,200,0.7);
   border-radius: 2px;
   display: flex!important;
+=======
+    text-decoration: none 
 }
 
+/* Search Bar */
+.searchbox {
+  display: block;
+  align-items: center;
+  margin: 13px;
+  margin-left: 30%;
+  height: 32px;
+>>>>>>> Stashed changes
+}
 
+.relative {
+  position: relative;
+  width: 200%;
+}
+
+<<<<<<< Updated upstream
 .searchbox {
   width: calc(100%);
   place-content: center;
@@ -133,11 +151,45 @@ a {
 .search_button:hover {
     background-color: rgba(200,200,200,0.9);
     transition:all .5s ease;
+=======
+.search_input {
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #f1f3f5;
+  color: inherit;
+  outline: none;
+  border: 1px solid #f1f3f5;
+  border-radius: 9999px;
+  line-height: 1.15;
 }
 
-.search_img {
-    width: 15px;
-    height: 15px;
+.search_input:focus,
+.search_input:focus::-webkit-input-placeholder {
+  background-color: #fbb30f;
+  border: none;
+  color: #fff;
+}
+
+.search_button {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.search_button svg {
+  width: 1.25rem!important;
+  color: #606060;
+>>>>>>> Stashed changes
+}
+
+.search_button svg:hover {
+  color: #fbb30f;
 }
 
 /* The switch - the box around the slider */

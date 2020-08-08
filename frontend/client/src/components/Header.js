@@ -5,7 +5,15 @@ import Logo from "../style/img/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
+<<<<<<< Updated upstream
 import searchImg from '../style/img/Search.png'
+=======
+
+import hamburgerLogo from "../style/img/Hamburger_icon.png"
+>>>>>>> Stashed changes
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Header = (props) => {
 
@@ -40,18 +48,20 @@ const Header = (props) => {
         <Fragment>
             <header className={classModeName}>
                 <Link to="/">
-                    <i class="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
+                    <i className="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
                 </Link>
                 <Link to="/">
                     <img className="main_logo" src={Logo} alt="logo" title="물지 않아요!"></img>
                 </Link>
                 <nav className="header_nav">
-                <form className="searchbar_header" onSubmit={handleSubmit}>
-                    <input className="searchbox" placeholder="검색" type='text' value={searchItem} onChange={handleChange}>
-                    </input>
-                    <button className="search_button">
-                        <img className="search_img" src={searchImg} alt="Search"></img>
-                    </button>
+
+                <form className="searchbox" onSubmit={handleSubmit}>
+                    <div className="relative">
+                        <input type="search" className="search_input" placeholder="검색" value={searchItem} onChange={handleChange} />
+                        <button type="submit" className="search_button">
+                            <FontAwesomeIcon icon={faSearch} />
+                        </button>
+                    </div>
                 </form>
                 <LogHeader></LogHeader>
                 </nav>
