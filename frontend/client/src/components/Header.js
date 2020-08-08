@@ -5,12 +5,8 @@ import Logo from "../style/img/logo.black.png"
 import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
-<<<<<<< Updated upstream
-import searchImg from '../style/img/Search.png'
-=======
 
 import hamburgerLogo from "../style/img/Hamburger_icon.png"
->>>>>>> Stashed changes
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';

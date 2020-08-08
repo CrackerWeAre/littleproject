@@ -60,7 +60,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i
-                class="far fa-thumbs-up logo"
+                className="far fa-thumbs-up logo"
                 alt="following"
                 title="팔로잉"
               ></i>
