@@ -7,25 +7,24 @@
 }
 
 .Linkto {
-    width: 130px;
+    width: 80px;
     height: 30px;
     padding: 5px 5px!important;
     margin-left: 28px;
     background-color: white;
-    border: 2px solid rgba(0,0,0,0.7);
+    border: 1px solid #606060;
     border-radius: 2px;
     cursor: pointer;
     font-weight: 300;
     font-size: 14px;
-    color: rgba(0,0,0,1);
+    color: #606060;
     text-decoration: none;
 }
 
 .Linkto:hover {
-    background-color: rgba(0,0,0,1);;
-    border: none;
     border-radius: 2px;
-    transition: all 0.3s ease 0s;
-    color: white;
-    transition:all .5s ease;
+    background: #fbb30f;
+    color: #fff;
+    border: 0;
+    transition: all 500ms ease;
 }

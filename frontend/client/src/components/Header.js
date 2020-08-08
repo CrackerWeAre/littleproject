@@ -6,7 +6,6 @@ import LogHeader from "../components/login/LogHeader"
 import {connect} from 'react-redux'
 import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
 import searchImg from '../style/img/Search.png'
-import hamburgerLogo from "../style/img/Hamburger_icon.png"
 
 const Header = (props) => {
 
@@ -44,7 +43,7 @@ const Header = (props) => {
                     <i class="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
                 </Link>
                 <Link to="/">
-                    <img className="main_logo" src={Logo} alt="logo" title="Meerkat On Air"></img>
+                    <img className="main_logo" src={Logo} alt="logo" title="물지 않아요!"></img>
                 </Link>
                 <nav className="header_nav">
                 <form className="searchbar_header" onSubmit={handleSubmit}>

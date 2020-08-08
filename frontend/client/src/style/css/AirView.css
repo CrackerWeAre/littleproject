@@ -1,9 +1,8 @@
 
 .card {
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    width: 356px;
-    height: 302px;
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 100%;
 }
   
   /* Add rounded corners to the top left and the top right corner of the image */
@@ -130,11 +129,15 @@
 }
 
 .popup_inner {
-  width: 100px;
-  height: 50px;
+  width: 70px;
+  height: 30px;
   position: absolute;
-  background-color: white;
-  margin-left: 240px;
+  font-size: 12px;
+  background-color: gainsboro;
+  color: black;
+  border-radius: 5px 5px 5px 5px;
+  margin-left:285px;
+  margin-top:-30px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -150,18 +153,27 @@
 
 .container_live .live_iframe {
   margin: auto;
+  width: 530px;
+  height: 300px;
+  border-radius: 5px 5px 5px 5px;
+
 }
 
 
 .container_live_small {
-  
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .live_smallView {
-  margin: 10px;
 }
 
 .smallView_image {
-  height: 200px;
-  width: 320px;
+  width: 265px;
+  height: 150px;
+  margin-top: 20px;
+  margin-right: 78px;
+  border-radius: 5px 5px 5px 5px;
 }

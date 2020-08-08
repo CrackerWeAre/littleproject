@@ -24,9 +24,7 @@ export const AirFrame = (props) => {
                 src={urlBase+address+urlParams}  
                 frameBorder="0" 
                 allowFullScreen={true} 
-                scrolling="no" 
-                height="378" 
-                width="620">
+                scrolling="no">
             </iframe>
         )
     }
@@ -39,8 +37,6 @@ export const AirFrame = (props) => {
             <iframe 
                 className="live_iframe"
                 title="live"
-                width="620" 
-                height="378" 
                 src={urlBase+address+urlParams} 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute;" 
