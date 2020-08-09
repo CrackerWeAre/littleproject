@@ -1,19 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
-import '../../style/css/Footer.css';
+import "../../style/css/Footer.css";
 
 function Footer() {
-    return (
-        <Fragment>
-            <a href="https://seoulbitz.sparker.kr/">
-                <button className="Linkto">SeoulBitz</button>
-            </a>
-            <div className="copyright">
-                <span>Made by Team@Sparker</span><br/>
-                <span>All icons by icon8</span><br/>
-            </div>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+        <div className="copyright">
+          <span>Made by Team@Sparker</span>
+        </div>
+    </Fragment>
+  );
 }
 
-export default Footer
+export default Footer;

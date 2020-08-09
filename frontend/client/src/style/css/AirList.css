@@ -27,10 +27,9 @@
     }
 }
 
-
 .airlist_container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px 30px;
-    padding: 10px 78px;
+    padding: 10px 30px;
 }

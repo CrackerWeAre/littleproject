@@ -1,6 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import AirView from '../air/AirView'
 import {darkModeSet, fetchFollowingAirs , fetchBlockedAirs, fetchAirs } from '../../actions/index'
 import { resignIn } from '../../actions/user'
 import SubList from './SubList'

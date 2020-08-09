@@ -7,25 +7,13 @@ import Admin from './admins/Admin'
 import AdminEdit from './admins/AdminEdit';
 import AdminCreate from './admins/AdminCreate';
 import AdminDelete from './admins/AdminDelete';
-import Login from './login/Login'
 import GlobalStyles from "./GlobalStyles";
 import '../style/css/Body.css'
-import Main from './main/Main';
-import UserPage from './user/UserPage';
 import {isMobile} from 'react-device-detect';
-import Drawer from './drawer/Drawer'
-import DrawerShort from './drawer/DrawerShort'
 import {connect} from 'react-redux'
-import ResultPage from './result/ResultPage'
-import FollowingMain from './main/FollowingMain';
-import CategoryMain from './main/CategoryMain';
-import SearchMain from './main/SearchMain';
-import SchedulePage from './schedule/SchedulePage';
 import MainRouter from '../components/router/MainRouter'
 
 function App(props) {
-
-
 
   const [classDrawerName, setDrawerclassName] = useState('initialState')
   const [classModeName, setModeclassName] = useState('initialState')
