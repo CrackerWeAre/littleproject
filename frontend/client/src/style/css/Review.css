@@ -3,12 +3,12 @@
     position: fixed;
     bottom: 50px;
     right: 50px;
-    background: #ffffff;
+    background: white;
     width: 40%;
     height: 45%;
     line-height: 1.5;
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 2px solid #606060;
 }
 
 .review_popupbutton {
@@ -25,13 +25,33 @@
     border-radius: 100px;
 }
 
+.review_popupbutton:hover .fas {
+    color: #fbb30f;
+}
+
 .review_popupbutton .button_content{
     margin: auto;
 }
 
 
 .review_container .review_container_context {
-    
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.review_container .review_container_context h2 {
+    margin: 10px;
+    font-size: 18px;
+    color: #606060;
+    font-weight: 600;
+}
+
+.review_container .review_container_context span {
+    margin: 10px;
+    font-size: 11px;
+    color: #606060;
+    font-weight: 700;
 }
 
 .review_container .review_form {
@@ -39,54 +59,104 @@
     padding: 10px;
 }
 .review_container .review_form .review_title {
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 1px solid gray;
-    border-radius: 7px;
-    background-clip: padding-box;
+    border: 1px solid #606060;
+    position: relative;
+    height: 30px;
+    background: white;
+    color: #606060;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .review_container .review_form .review_title .input_data{
-    padding-left:5px;
-    padding-right:5px;
+    height: 100%;
+    width: 100%
 }
 
 .review_container .review_form .review_title .input_data input{
     height: 100%;
     width: 100%
 }
+
+.review_container .review_form .review_title .input_data input::placeholder{
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.review_container .review_form .review_title .input_data input:focus{
+    outline: none;
+}
+
 .review_container .review_form .review_email {
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 1px solid gray;
-    border-radius: 7px;
-    background-clip: padding-box;
+    border: 1px solid #606060;
+    position: relative;
+    height: 30px;
+    background: white;
+    color: #606060;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .review_container .review_form .review_email .input_data{
-    padding-left:5px;
-    padding-right:5px;
-}
-
-.review_container .review_form .review_email .input_data input{
     height: 100%;
     width: 100%
 }
+
+.review_container .review_form .review_email .input_data input {
+    height: 100%;
+    width: 100%;
+}
+
+.review_container .review_form .review_email .input_data input::placeholder{
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.review_container .review_form .review_email .input_data input:focus{
+    outline: none;
+}
+
 .review_container .review_form .review_message {
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 1px solid gray;
-    border-radius: 7px;
-    background-clip: padding-box;
-    height: 170px;
+    border: 1px solid #606060;
+    position: relative;
+    height: 200px;
+    background: white;
+    color: #606060;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .review_container .review_form .review_message .input_data{
-    padding: 5px;
-    height: inherit;
+    height: 100%;
+    width: 100%;
 }
 
 .review_container .review_form .review_message .input_data input{
     height: 100%;
     width: 100%;
+}
+
+.review_container .review_form .review_message .input_data input::placeholder{
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.review_container .review_form .review_message .input_data input:focus{
+    outline: none;
+}
+
+.review_container .review_form .review_submit {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #606060;
+}
+
+.review_container .review_form .review_submit:hover {
+    background-color: #fbb30f;
+    border-color: white;
+    color: white;
 }

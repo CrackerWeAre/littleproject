@@ -54,8 +54,8 @@ function MainReview(props) {
         return(
         <div className="review_container">
             <div className="review_container_context">
-                <p>무엇을 도와드릴까요?</p>
-                <p>문의, 버그 제보, 건의 등 의견을 보내주세요.</p>
+                <h2>무엇을 도와드릴까요?</h2>
+                <span>문의, 버그 제보, 건의 등 의견을 보내주세요.</span>
             </div>
             <form className="review_form" onSubmit={sendReviews}>
                 <div className="review_title">

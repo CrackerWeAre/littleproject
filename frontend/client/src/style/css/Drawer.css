@@ -97,7 +97,7 @@
 .drawer_view .title {
     width: 170px;
     height: 40px;
-    padding-left: 10px;
+    padding: 5px 0px 0px 10px;
     margin-right: 20px;
   }
 
@@ -125,6 +125,14 @@
   
 .drawer_view .contents {
     height: 40px!important;
+}
+
+.drawer_view .contents:hover .text {
+    color: #fbb30f;
+}
+
+.drawer_view .contents:hover a {
+    color: #fbb30f;
 }
   
 
@@ -169,6 +177,14 @@
     height: 38px;
 }
 
+.category_item:hover {
+    background: #F5F5F5;
+    color: #fbb30f;
+}
+
+.category_item:hover .logo {
+    color : #fbb30f;
+}
 
 .st_category_item  {
     display:flex;
@@ -179,11 +195,6 @@
 .st_category_item .st_contents {
     margin: auto;
 }
-
-.category_item:hover {
-    background: #F5F5F5;
-}
-
 
 .border_bottom {
     border-bottom: 1px solid rgba(80,80,80,0.3);

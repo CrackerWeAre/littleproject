@@ -9,7 +9,6 @@
     width: 480px;
     margin: 0 auto;
     padding-top: 70px;
-
 }
 
 .account__form .logo {
@@ -48,13 +47,13 @@
     font-weight: 600;
     height: 44px;
     color: #fff;
-    background: -o-linear-gradient(315deg, #FDC830 1%, #F37335 100%);
-    background: linear-gradient(135deg, #FDC830 1%, #F37335 100%);
+    background: -o-linear-gradient(315deg, #FDC830 1%, #fbb30f 100%);
+    background: linear-gradient(135deg, #FDC830 1%, #fbb30f 100%);
 }
 
 .account__button button:hover {
-    background: -o-linear-gradient(315deg, #FDC830 50%, #F37335 100%);
-    background: linear-gradient(135deg, #FDC830 50%, #F37335 100%);
+    background: -o-linear-gradient(315deg, #FDC830 50%, #fbb30f 100%);
+    background: linear-gradient(135deg, #FDC830 50%, #fbb30f 100%);
 }
 
 .account__button button:focus {
@@ -82,15 +81,15 @@
 
 .account .link__button .btn:hover{
     border: 1px solid;
-    border-color: linear-gradient(135deg, #FDC830 50%, #F37335 100%);
-    color: #F37335;
+    border-color: #fbb30f;
+    color: #fbb30f;
     
 }
 
 .account .link__button .btn:focus {
     outline: none;
     color: white;
-    background-color: #F37335;
+    background-color: #fbb30f;
 }
 
 .account .link__button .btn .icon {
@@ -127,7 +126,7 @@
 }
 
 .form__input input:focus {
-    outline: 1px solid #F37335;
+    outline: 1px solid #fbb30f;
 }
 
 .icon-login-google {
