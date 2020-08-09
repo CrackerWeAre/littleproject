@@ -119,6 +119,7 @@ a {
   outline: none;
   border-radius: 9999px;
   line-height: 1.15;
+  border: 1px solid rgba(80,80,80,0.3);
 }
 
 .search_input:focus {
