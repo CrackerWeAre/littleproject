@@ -35,14 +35,14 @@ const DrawerShort = (props) => {
   const categories = () => {
     return (
       <Fragment>
-        <Link to={"/directory/game"}>
+        <Link to={"/main/directory/game"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i className="fas fa-gamepad logo" alt="game" title="게임"></i>
             </div>
           </div>
         </Link>
-        <Link to={"/directory/music"}>
+        <Link to={"/main/directory/music"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
@@ -53,7 +53,7 @@ const DrawerShort = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/directory/chatting"}>
+        <Link to={"/main/directory/chatting"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
@@ -64,7 +64,7 @@ const DrawerShort = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/directory/shopping"}>
+        <Link to={"/main/directory/shopping"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
@@ -75,7 +75,7 @@ const DrawerShort = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/directory/news & info"}>
+        <Link to={"/main/directory/news & info"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
@@ -86,14 +86,14 @@ const DrawerShort = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/directory/air & radio"}>
+        <Link to={"/main/directory/air & radio"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i className="fas fa-tv logo" alt="air" title="공중파"></i>
             </div>
           </div>
         </Link>
-        <Link to={"/directory/sports & exercise"}>
+        <Link to={"/main/directory/sports & exercise"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
@@ -104,7 +104,7 @@ const DrawerShort = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/directory/cooking"}>
+        <Link to={"/main/directory/cooking"}>
           <div className="st_category_item">
             <div className="st_contents">
               <i
