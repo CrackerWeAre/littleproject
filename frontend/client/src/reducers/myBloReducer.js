@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import {FETCH_BLO_AIRS, UPDATE_BLO, DELETE_BLO } from '../actions/types'
-
+import {FETCH_BLO_AIRS, UPDATE_BLO, DELETE_BLO, SIGN_OUT } from '../actions/types'
+const initialstate = {};
 export default (state = {}, action) => {
     switch(action.type) {
         case FETCH_BLO_AIRS :
@@ -14,6 +14,8 @@ export default (state = {}, action) => {
             return {...state, [action.payload.id]:action.payload };
         case DELETE_BLO  :
             return _.omit(state, action.payload._id)
+        case SIGN_OUT :
+            return {...initialstate}
         default :
             return state;
     }

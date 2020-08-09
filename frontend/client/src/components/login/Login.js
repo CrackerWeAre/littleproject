@@ -68,7 +68,7 @@ class Login extends Component {
                   class="btn btn__block btn__border--secondary btn--facebook"
                 >
                   <i class="icon icon-login-facebook"></i>
-                  <span>FaceBook으로 로그인</span>
+                  <span>Facebook으로 로그인</span>
                 </button>
               </div>
             </div>

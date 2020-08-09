@@ -4,6 +4,10 @@
     color: #606060;
 }
 
+.nav__links .fas:hover {
+    color: #fbb30f;
+}
+
 .custom_btn {
     width: 80px;
     height: 35px;
