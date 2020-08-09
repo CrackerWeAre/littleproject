@@ -59,7 +59,7 @@
     font-weight: 700;
     line-height: 24px;
     font-style: italic;
-    margin-top: 16px;
+    margin-top: 6px;
 }
 
 .schedule_content strong {
@@ -68,9 +68,9 @@
     border-radius: 4px;
     font-size: 11px;
     text-transform: uppercase;
-    padding: 1px 4px;
+    padding: 3px;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: sub;
 }
 
 .schedule_content .schedule_days {

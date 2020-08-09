@@ -11,8 +11,8 @@
     background-color: #fff; 
 	color: #606060;
     border: 1px solid #606060;
-    border-radius: 2px;
     cursor: pointer;
+    outline: none;
 }
 
 .custom_btn .fas {

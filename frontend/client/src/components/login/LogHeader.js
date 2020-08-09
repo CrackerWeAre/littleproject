@@ -31,12 +31,12 @@ class LogHeader extends Component {
                     <div className="nav__links">
                         <div className="nav_items">
                             <Link to="/admin">
-                                <i class="fas fa-users-cog" alt="admin" title="Admin"></i>
+                                <i className="fas fa-users-cog" alt="admin" title="Admin"></i>
                             </Link>
                         </div>
                         <div className="nav_items">
                             <Link to="/main/mypage">
-                                <i class="fas fa-user" alt="mypage" title="MyPage"></i>
+                                <i className="fas fa-user" alt="mypage" title="MyPage"></i>
                             </Link>
                         </div>
                         <div className="nav_items">

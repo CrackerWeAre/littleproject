@@ -51,7 +51,7 @@ const Drawer = (props) => {
         <Link to={"/"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-home logo" alt="home" title="홈"></i>
+              <i className="fas fa-home logo" alt="home" title="홈"></i>
               <span className="category_name">홈</span>
             </div>
           </div>
@@ -72,7 +72,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i
-                class="far fa-calendar-alt logo"
+                className="far fa-calendar-alt logo"
                 alt="calender"
                 title="편성표"
               ></i>
@@ -91,7 +91,7 @@ const Drawer = (props) => {
         <Link to={"/main/directory/game"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-gamepad logo" alt="game" title="게임"></i>
+              <i className="fas fa-gamepad logo" alt="game" title="게임"></i>
               <span className="category_name">게임</span>
             </div>
           </div>
@@ -100,7 +100,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i
-                class="fas fa-headphones-alt logo"
+                className="fas fa-headphones-alt logo"
                 alt="music"
                 title="음악"
               ></i>
@@ -111,7 +111,7 @@ const Drawer = (props) => {
         <Link to={"/main/directory/chatting"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-comments logo" alt="chatting" title="소통"></i>
+              <i className="fas fa-comments logo" alt="chatting" title="소통"></i>
               <span className="category_name">소통</span>
             </div>
           </div>
@@ -120,7 +120,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i
-                class="fas fa-shopping-cart logo"
+                className="fas fa-shopping-cart logo"
                 alt="shopping"
                 title="쇼핑"
               ></i>
@@ -131,7 +131,7 @@ const Drawer = (props) => {
         <Link to={"/main/directory/news & info"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-newspaper logo" alt="news" title="뉴스/정보"></i>
+              <i className="fas fa-newspaper logo" alt="news" title="뉴스/정보"></i>
               <span className="category_name">뉴스/정보</span>
             </div>
           </div>
@@ -139,7 +139,7 @@ const Drawer = (props) => {
         <Link to={"/main/directory/air & radio"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-tv logo" alt="air" title="공중파"></i>
+              <i className="fas fa-tv logo" alt="air" title="공중파"></i>
               <span className="category_name">공중파</span>
             </div>
           </div>
@@ -148,7 +148,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i
-                class="fas fa-running logo"
+                className="fas fa-running logo"
                 alt="sports"
                 title="스포츠/운동"
               ></i>
@@ -159,7 +159,7 @@ const Drawer = (props) => {
         <Link to={"/main/directory/cooking"}>
           <div className="category_item">
             <div className="contents">
-              <i class="fas fa-utensils logo" alt="cooking" title="요리"></i>
+              <i className="fas fa-utensils logo" alt="cooking" title="요리"></i>
               <span className="category_name">요리</span>
             </div>
           </div>
