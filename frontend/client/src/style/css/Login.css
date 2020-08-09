@@ -1,145 +1,150 @@
-
-.login {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-control {
-    font-size: 16px;
-    transition: all 0.4s;
-    box-shadow: none;
-}
-.form-control:focus {
-    border-color: #bd59d4;
-}
-.form-control, .btn {
-    border-radius: 50px;
-    outline: none !important;
-}
-.signin-form {
-    border-radius: 10px;
-    width: 360px;
+.account {
+    width: 480px;
     margin: 0 auto;
-    padding: 20% 0;
+    padding-top: 70px;
+    padding-bottom: 350px;
 }
-.signin-form form {
-    border-radius: 10px;
-    margin-bottom: 20px;
+
+.account__form {
+    width: 480px;
+    margin: 0 auto;
+    padding-top: 70px;
+
+}
+
+.account__form .logo {
+    margin-bottom: -1px;
+    padding: 11px 0 11px 20px;
+    text-align: left;
+}
+
+.account__form .box {
+    border-radius: 0 0 8px 8px;
+    padding-top: 30px;
+    padding: 40px 40px 32px;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
     background: white;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 40px;
-    height: 250px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.3);
+
 }
 
-.signin-form h2 {
-    text-align: center;
-    font-size: 34px;
-    margin: 10px 0 15px;
-}
-.signin-form .hint-text {
-    color: #999;
-    text-align: center;
+.account__head {
     margin-bottom: 20px;
 }
-.signin-form .form-group {
-    margin-bottom: 20px;
+
+.account__head h2 {
+    font-size: 24px;
+    font-weight: bolder;
 }
-.signin-form .btn {        
-    font-size: 18px;
-    line-height: 26px;        
-    font-weight: bold;
-    text-align: center;
+
+.account__field {
+    margin-bottom: 16px;
 }
-.signin-form .small {
-    font-size: 13px;
-}
-.signup-btn {
-    text-align: center;
-    border-color: #bd59d4;
-    background-color: #bd59d4;
-    transition: all 0.4s;
-}
-.signup-btn:hover {
-    background: #4b2354;
-    border-color: #4b2354;
-    opacity: 0.8;
-}
-.or-seperator {
-    margin: 50px 0 15px;
-    text-align: center;
-    border-top: 1px solid #e0e0e0;
-}
-.or-seperator b {
-    padding: 0 10px;
-    width: 40px;
-    height: 40px;
+
+.account__button button{
+    width: 100%;
     font-size: 16px;
-    text-align: center;
-    line-height: 40px;
-    background: #fff;
-    display: inline-block;
-    border: 1px solid #e0e0e0;
-    border-radius: 50%;
+    font-weight: 600;
+    height: 44px;
+    color: #fff;
+    background: -o-linear-gradient(315deg, #FDC830 1%, #F37335 100%);
+    background: linear-gradient(135deg, #FDC830 1%, #F37335 100%);
+}
+
+.account__button button:hover {
+    background: -o-linear-gradient(315deg, #FDC830 50%, #F37335 100%);
+    background: linear-gradient(135deg, #FDC830 50%, #F37335 100%);
+}
+
+.account__button button:focus {
+    outline: none;
+}
+
+.account .line {
     position: relative;
-    top: -22px;
-    z-index: 1;
+    margin: 24px 0;
+    border: none;
+    border-top: 1px solid #dadce0;
+    overflow: visible;
 }
 
-.login100-social-item {
-    font-size: 25px;
-    color: #3b5998;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-    margin: 5px;
-    box-shadow : 0 5px 20px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+.account .link__button .btn {
+    border: 1px solid #dadce0;
+    position: relative;
+    height: 46px;
+    background: white;
+    color: #454545;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-.login100-social-item:hover {
-    box-shadow : 0 5px 20px 0px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
+.account .link__button .btn:hover{
+    border: 1px solid;
+    border-color: linear-gradient(135deg, #FDC830 50%, #F37335 100%);
+    color: #F37335;
+    
 }
 
-.login100-social-item img {
-    width : 23px;
+.account .link__button .btn:focus {
+    outline: none;
+    color: white;
+    background-color: #F37335;
+}
+
+.account .link__button .btn .icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: inline-block;
+    font: 0/0 a;
     vertical-align: middle;
-    border-style: none;
+    background-repeat: no-repeat;
 }
 
-#facebook img {
-    width : 12px;
-    vertical-align: middle;
-    border-style: none;
+.account .link--in {
+    margin-top: 24px;
 }
 
-.social-btn {
-    text-align: center;
+.form__input {
+    margin-top: 8px;
 }
 
-.social-btn .btn {
-    display : flex;
-    justify-content: center;
-}	
+.form__input input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-.social-btn .btn:hover {
-    opacity: 0.8;
+.form__input input:focus {
+    outline: 1px solid #F37335;
 }
-.social-btn .btn-primary {
-    background: #507cc0;
+
+.icon-login-google {
+    background-image: url(/icon-google.png);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
 }
-.social-btn .btn-info {
-    background: #64ccf1;
+
+.icon-login-facebook {
+    background-image: url(/icon-facebook.png);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    margin-left: 3px;
 }
-.social-btn .btn-danger {
-    background: #df4930;
-}
-.social-btn .btn i {
-    font-size: 20px;
+
+a.btn__link, .btn__link {
+
 }

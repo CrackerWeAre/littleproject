@@ -1,146 +1,142 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
-import '../../style/css/Drawer.css';
-import { connect } from 'react-redux';
-import Footer from '../navigation/Footer';
-import DrawerShortView from './DrawerShortView';
-
-import Logo_GAME from '../../style/img/category/game.png';
-import Logo_MUSIC from '../../style/img/category/music.png';
-import Logo_AIR from '../../style/img/category/air.png';
-import Logo_CHATTING from '../../style/img/category/chatting.png';
-import Logo_NEWS from '../../style/img/category/news.png';
-import Logo_SHOPPING from '../../style/img/category/shopping.png';
-import Logo_SPORTS from '../../style/img/category/sports.png';
-import Logo_COOKING from '../../style/img/category/cooking.png';
-import Logo_HOME from '../../style/img/category/home.png';
-import Logo_THUMBSUP from '../../style/img/category/thumbs-up.png';
-import Logo_CALENDAR from '../../style/img/category/calendar.png';
-
-
+import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../../style/css/Drawer.css";
+import { connect } from "react-redux";
+import DrawerShortView from "./DrawerShortView";
 
 const DrawerShort = (props) => {
+  const [classModeName, setModeclassName] = useState("initialState");
 
-    const [classModeName, setModeclassName] = useState('initialState')
-    
-    useEffect(() => {
-        props.darkmode ? setModeclassName("drawershort dark") : setModeclassName("drawershort")
-      
-    }, [props.darkmode])
+  useEffect(() => {
+    props.darkmode
+      ? setModeclassName("drawershort dark")
+      : setModeclassName("drawershort");
+  }, [props.darkmode]);
 
-    const following = () => {
-        
-        if(props.myairs.length!==0){
-            return (
-            <Fragment>
-                <div className="st_drawer_followerlist">
-                    팔로잉
-                </div>
-                {followingList()}
-                <div className="border_bottom">&nbsp;</div>
-            </Fragment>)
-        }
-        return
+  const following = () => {
+    if (props.myairs.length !== 0) {
+      return (
+        <Fragment>
+          <div className="st_drawer_followerlist">팔로잉</div>
+          {followingList()}
+          <div className="border_bottom">&nbsp;</div>
+        </Fragment>
+      );
     }
+    return;
+  };
 
-    const followingList = () => {
-        
-        return (
-            props.myairs.map(data => {
-            return (
-                <DrawerShortView data={data} key={data._id}></DrawerShortView>
-            ) 
-        })
-        )
-    }
-    
+  const followingList = () => {
+    return props.myairs.map((data) => {
+      return <DrawerShortView data={data} key={data._id}></DrawerShortView>;
+    });
+  };
 
-    const categories = () => {
-        return (
-                <Fragment>
-                    <Link to={'/directory/game'} >
-                        <div className="st_category_item" >
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_GAME} alt="game" title="game" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/music'} >
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_MUSIC} alt="music" title="music" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/chatting'}>
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_CHATTING} alt="chatting" title="chatting" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/shopping'} >
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_SHOPPING} alt="shopping" title="shopping" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/news & info'}>
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_NEWS} alt="news & info" title="news & info" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/air & radio'} >
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_AIR} alt="air & radio" title="air & radio" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/sports & exercise'} >
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_SPORTS} alt="sports & exercise" title="sports & exercise" />
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to={'/directory/cooking'} >
-                        <div className="st_category_item">
-                            <div className="st_contents">
-                                <img className="st_logo_game" src={Logo_COOKING} alt="cooking" title="cooking" />
-                            </div>
-                        </div>
-                    </Link>
-                    <div className="border_bottom">&nbsp;</div>
-                </Fragment>
-        )
-    }
-
+  const categories = () => {
     return (
-       
-            <div className={classModeName}>
-                {following()}
-                <div className="st_category_list">
-                    카테고리
-                </div>
-                {categories()}
-            
+      <Fragment>
+        <Link to={"/directory/game"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i className="fas fa-gamepad logo" alt="game" title="게임"></i>
             </div>
- 
-    )
-}
+          </div>
+        </Link>
+        <Link to={"/directory/music"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-headphones-alt logo"
+                alt="music"
+                title="음악"
+              ></i>{" "}
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/chatting"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-comments logo"
+                alt="chatting"
+                title="소통"
+              ></i>
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/shopping"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-shopping-cart logo"
+                alt="shopping"
+                title="쇼핑"
+              ></i>{" "}
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/news & info"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-newspaper logo"
+                alt="news"
+                title="뉴스/정보"
+              ></i>
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/air & radio"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i className="fas fa-tv logo" alt="air" title="공중파"></i>
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/sports & exercise"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-running logo"
+                alt="sports"
+                title="스포츠/운동"
+              ></i>{" "}
+            </div>
+          </div>
+        </Link>
+        <Link to={"/directory/cooking"}>
+          <div className="st_category_item">
+            <div className="st_contents">
+              <i
+                className="fas fa-utensils logo"
+                alt="cooking"
+                title="요리"
+              ></i>
+            </div>
+          </div>
+        </Link>
+        <div className="border_bottom">&nbsp;</div>
+      </Fragment>
+    );
+  };
 
-const mapStateToProps = state =>{
-    return {
-        airs: Object.values(state.airs), 
-        myairs: Object.values(state.myairs),
-        followings: state.followings,
-        user: state.auth,
-        darkmode: state.maintheme.darkmode
-    }
-}
+  return (
+    <div className={classModeName}>
+      {following()}
+      <div className="st_category_list">카테고리</div>
+      {categories()}
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    airs: Object.values(state.airs),
+    myairs: Object.values(state.myairs),
+    followings: state.followings,
+    user: state.auth,
+    darkmode: state.maintheme.darkmode,
+  };
+};
 
 export default connect(mapStateToProps)(DrawerShort);

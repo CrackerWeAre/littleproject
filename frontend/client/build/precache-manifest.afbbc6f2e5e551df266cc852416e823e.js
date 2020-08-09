@@ -1,31 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5e719b82ebe34ff723a3d23bcbf7f7a",
+    "revision": "dfe440e0c4d351a42006939b6eaa64fd",
     "url": "/index.html"
   },
   {
-    "revision": "3fc147eb5ecf95236eca",
-    "url": "/static/css/main.c2f49ecb.chunk.css"
+    "revision": "44c40abfb803ea2b2d98",
+    "url": "/static/css/main.498e3eea.chunk.css"
   },
   {
-    "revision": "95ce75399e8de1daeea5",
-    "url": "/static/js/2.3e8577be.chunk.js"
+    "revision": "132d584aabf6935acecb",
+    "url": "/static/js/2.60145c8e.chunk.js"
   },
   {
     "revision": "0c3380804e3d32b3b313e82e80bde0ff",
-    "url": "/static/js/2.3e8577be.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.60145c8e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3fc147eb5ecf95236eca",
-    "url": "/static/js/main.70ac683b.chunk.js"
+    "revision": "44c40abfb803ea2b2d98",
+    "url": "/static/js/main.ac0abf05.chunk.js"
   },
   {
     "revision": "9b4e396c183e42c1fa5c",
     "url": "/static/js/runtime-main.09b85ec0.js"
-  },
-  {
-    "revision": "79b18a5d205cdebc264fc06817b73584",
-    "url": "/static/media/Hamburger_icon.79b18a5d.png"
   },
   {
     "revision": "25ab3626b77d039abe87a29ef5e78de9",

@@ -1,30 +1,7 @@
 .copyright {
-    padding-left: 28px;
+    display: flex;
+    color: rgba(80,80,80,1);
+    padding-left: 30px;
     padding-top: 5px;
-    font-size: 12px;
-    line-height: 10px;
-    color: #606060;
-}
-
-.Linkto {
-    width: 80px;
-    height: 30px;
-    padding: 5px 5px!important;
-    margin-left: 28px;
-    background-color: white;
-    border: 1px solid #606060;
-    border-radius: 2px;
-    cursor: pointer;
-    font-weight: 300;
-    font-size: 14px;
-    color: #606060;
-    text-decoration: none;
-}
-
-.Linkto:hover {
-    border-radius: 2px;
-    background: #fbb30f;
-    color: #fff;
-    border: 0;
-    transition: all 500ms ease;
+    font-size: 11px;
 }
