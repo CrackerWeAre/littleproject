@@ -35,14 +35,18 @@ function MainReview(props) {
     const popup = () => {
         return(
             <div className="review_popupbutton" onClick={popupValidation}>
-                pop
+                <div className="button_content">
+                    <i className="fas fa-envelope" alt="Review" title="리뷰"></i>
+                </div>    
             </div>
         )
     }
     const popdown = () => {
         return(
-            <div className="review_popdownbutton" onClick={popupValidation}>
-                x
+            <div className="review_popupbutton" onClick={popupValidation}>
+                <div className="button_content">
+                    <i className="fas fa-times" alt="Cancle" title="취소"></i>
+                </div>
             </div>
         )
     }
