@@ -11,6 +11,7 @@ import blockReducer from './blockReducer';
 import myBloReducer from './myBloReducer';
 import mainReducer from './mainReducer';
 import scheduleReducer from './scheduleReducer';
+import logReducer from './logReducer';
 
 export default combineReducers ({
     auth: authReducer,
@@ -25,4 +26,5 @@ export default combineReducers ({
     blockairs: blockReducer,
     maintheme: mainReducer,
     schedules: scheduleReducer,
+    logs: logReducer
 });
