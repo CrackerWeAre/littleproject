@@ -1,16 +1,17 @@
 .mainBody_drawer_on {
     width: calc(100% - 230px);
+    height: 100vh;
     margin-left: auto;
     background: #FAFAFA;
     top: 70px!important;
     padding-top: 70px;
-
     z-index: -1;
 }
 
 .mainBody_drawer_off {
     top: 70px!important;
     width: calc(100% - 80px);
+    height: 100vh;
     padding-top: 70px;
     background: #FAFAFA;
     z-index: -1;
