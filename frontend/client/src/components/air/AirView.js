@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../style/css/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
+import { postLiveLog } from '../../actions/log'
 import afreecatv from "../../style/img/platform/afreeca.png"
 import twitch from "../../style/img/platform/twitch.png"
 import youtube from "../../style/img/platform/youtube.png"
@@ -52,7 +53,11 @@ const AirView = (props) => {
         setblo_btn(!blo_btn)
     }
 
-
+    const sendLogs = (e) => {
+        e.preventDefault();
+        props.updatepostLiveLog(props.userEmail, props.data)
+        return true
+    }
 
 
     const butfuncfalse = (fol_btn) => {
@@ -100,14 +105,14 @@ const AirView = (props) => {
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
                 <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg"></img>
+                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg" onClick={sendLogs}></img>
                 </a>
             </div>
-            <div className="title"><a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
+            <div className="title" ><a href={props.data.liveDataHref}  target='_blank' rel="noopener noreferrer">
             <div className="text">{props.data.liveDataTitle}</div></a></div>
             <div className="contents">
                 <div className="creatorlogo">
-                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer">
+                    <a href={props.data.creatorDataHref} target='_blank' rel="noopener noreferrer" onClick={sendLogs}>
                         <img className="airview_img"  src={props.data.creatorDataLogo} alt="CreatorImg"></img>
                     </a>
                 </div>
@@ -141,7 +146,8 @@ const mapDispatchToProps = {
     deletePostFollower: deleteFollower,
     getPostFollower: getFollower,
     deletePostBlock: deleteBlock,
-    updatePostBlock: updateBlock
+    updatePostBlock: updateBlock,
+    updatepostLiveLog: postLiveLog
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AirView);

@@ -21,6 +21,7 @@ import FollowingMain from '../main/FollowingMain';
 import CategoryMain from '../main/CategoryMain';
 import SearchMain from '../main/SearchMain';
 import SchedulePage from '../schedule/SchedulePage';
+import {setPlaceLog, postPlaceLog} from "../../actions/log";
 
 
 function MainRouter(props) {
@@ -41,12 +42,29 @@ function MainRouter(props) {
   }, [props.darkmode])
 
 
+  const setLocationLog = () => {
+    if(props.logs.pathname!==document.location.pathname){
+      if(props.user.userEmail){
+        if(props.logs.residencetime!==0){
+          props.postPlaceLog(props.user.userEmail, props.logs.pathname, document.location.pathname, props.logs.residencetime)
+        }else {
+          props.setPlaceLog(props.user.userEmail, document.location.pathname)
+        }
+      }else {
+        if(props.logs.residencetime!==0){
+          props.postPlaceLog("none", props.logs.pathname, document.location.pathname, props.logs.residencetime)
+        }else {
+          props.setPlaceLog("none", document.location.pathname)
+        }
+      }
+    }
+  }
   return (
     <Fragment>
           <Header></Header>
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
-          
+          {setLocationLog()}
           <div className={classDrawerName+classModeName}>
               <Switch>
                     <Route path="/" exact component = {Main}></Route>
@@ -68,10 +86,12 @@ function MainRouter(props) {
 
 const mapStateToProps = (state) => {
   return { 
+      user: state.auth,
       drawerVal : state.maintheme.drawer,
-      darkmode: state.maintheme.darkmode
+      darkmode: state.maintheme.darkmode,
+      logs: state.logs
     }
 }
 
-export default connect(mapStateToProps)(MainRouter);
+export default connect(mapStateToProps,{setPlaceLog,postPlaceLog})(MainRouter);
 
