@@ -20,6 +20,7 @@ export const SET_PLACE = 'SET_PLACE'
 
 export const DRAWER_SET = 'DRAWER_SET'
 export const DARKMODE_SET = 'DARKMODE_SET'
+export const LIVEMODE_SET = 'LIVEMODE_SET'
 export const FETCH_STREAMERS = 'FETCH_STREAMERS'
 export const FETCH_STREAMER = 'FETCH_STREAMER'
 export const DELETE_STREAMER = 'DELETE_STREAMER'

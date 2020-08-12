@@ -1,10 +1,10 @@
 import React from 'react'
-import Modal from '../Modal'
+import Modal from '../../Modal'
 import { connect } from 'react-redux'
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import history from '../../history'
-import { fetchStreamer, deleteStreamer } from '../../actions/admin'
+import history from '../../../history'
+import { fetchStreamer, deleteStreamer } from '../../../actions/admin'
 
 class StreamDelete extends React.Component {
     componentDidMount(){

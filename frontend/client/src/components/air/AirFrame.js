@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 export const AirFrame = (props) => {
     const [first, setfirst] = useState(false)
     const [items, setitems] = useState([])
+    const [live, setlivemode] =useState(null)
 
+    useEffect(() => {
+        setlivemode(props.livemode)
+    }, [props.livemode])
 
     useEffect(() => {
         if(!first&&props.liveItem){ 
@@ -96,11 +100,16 @@ export const AirFrame = (props) => {
         )
     }
 
-    return (
-        <Fragment>
+    const show = () => {
+        return (
             <div className="container_live">
                 {items&&frameView(items)}
             </div>
+        )
+    }
+    return (
+        <Fragment>
+            {live&&show()}
         </Fragment>
     )
 }
@@ -136,6 +145,7 @@ const mapStateToProps = (state) => {
     }
     
     return {
+        livemode: state.maintheme.liveview,
         liveItem : livelist,
     }
 }

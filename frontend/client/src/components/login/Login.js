@@ -16,15 +16,15 @@ class Login extends Component {
 
     return (
       <div>
-        <div class="account">
-          <div class="account__form">
-            <div class="box">
-              <div class="account__head">
+        <div className="account">
+          <div className="account__form">
+            <div className="box">
+              <div className="account__head">
                 <h2>로그인</h2>
               </div>
-              <div class="account__field">
-                <label for="username" class="hidden"></label>
-                <div class="form__input">
+              <div className="account__field">
+                <label htmlFor="username" className="hidden"></label>
+                <div className="form__input">
                   <input
                     type="email"
                     id="username"
@@ -32,15 +32,15 @@ class Login extends Component {
                   />
                 </div>
               </div>
-              <div class="account__button">
+              <div className="account__button">
                 <button
                   type="button"
-                  class="btn btn__block btn__gradient--primary"
+                  className="btn btn__block btn__gradient--primary"
                 >
                   <strong>다음</strong>
                 </button>
               </div>
-              <hr data-text="or" class="line"></hr>
+              <hr data-text="or" className="line"></hr>
               <div className="link__button">
                 <GoogleLogin
                   clientId="845969621905-p9iupf8qgkmucm6d4978cls28lk6b84n.apps.googleusercontent.com"
@@ -52,7 +52,7 @@ class Login extends Component {
                       onClick={renderProps.onClick}
                       disabled={renderProps.disabled}
                     >
-                      <i class="icon icon-login-google"></i>
+                      <i className="icon icon-login-google"></i>
                       <span>Google로 로그인</span>
                     </button>
                   )}
@@ -62,12 +62,12 @@ class Login extends Component {
                 ></GoogleLogin>
               </div>
 
-              <div class="link__button">
+              <div className="link__button">
                 <button
                   type="button"
-                  class="btn btn__block btn__border--secondary btn--facebook"
+                  className="btn btn__block btn__border--secondary btn--facebook"
                 >
-                  <i class="icon icon-login-facebook"></i>
+                  <i className="icon icon-login-facebook"></i>
                   <span>Facebook으로 로그인</span>
                 </button>
               </div>

@@ -3,6 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Header from "../Header"
 import history from "../../history"
 import AirView from '../air/AirView';
+import Login from '../login/Login'
 import GlobalStyles from "../GlobalStyles";
 import '../../style/css/Body.css'
 import Main from '../main/Main';
@@ -19,7 +20,7 @@ import SchedulePage from '../schedule/SchedulePage';
 import {setPlaceLog, postPlaceLog} from "../../actions/log";
 
 
-function MainRouter(props) {
+function SignRouter(props) {
 
 
 
@@ -37,39 +38,16 @@ function MainRouter(props) {
   }, [props.darkmode])
 
 
-  const setLocationLog = () => {
-    if(props.logs.pathname!==document.location.pathname){
-      if(props.user.userEmail){
-        if(props.logs.residencetime!==0){
-          props.postPlaceLog(props.user.userEmail, props.logs.pathname, document.location.pathname, props.logs.residencetime)
-        }else {
-          props.setPlaceLog(props.user.userEmail, document.location.pathname)
-        }
-      }else {
-        if(props.logs.residencetime!==0){
-          props.postPlaceLog("none", props.logs.pathname, document.location.pathname, props.logs.residencetime)
-        }else {
-          props.setPlaceLog("none", document.location.pathname)
-        }
-      }
-    }
-  }
   return (
     <Fragment>
           <Header></Header>
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
-          {setLocationLog()}
           <div className={classDrawerName+classModeName}>
               <Switch>
-                    <Route path="/" exact component = {Main}></Route>
-                    <Route path="/main" exact component = {Main}></Route>
-                    <Route path={`${props.match.path}/following`}  component = {FollowingMain}></Route>
-                    <Route path={`${props.match.path}/directory/:_id`} component = {CategoryMain}></Route>
-                    <Route path={`${props.match.path}/search/:_id`} component = {SearchMain}></Route>
-                    <Route path={`${props.match.path}/result/:_id`} exact component={ResultPage}></Route>
-                    <Route path={`${props.match.path}/air/show/:_id`} exact component={AirView}></Route>
-                    <Route path={`${props.match.path}/schedule`}  component={SchedulePage}></Route>
+                    <Route path="/sign" exact component = {Main}></Route>
+                    <Route path={`${props.match.path}/login`}  component = {Login}></Route>
+                    <Route path={`${props.match.path}/signup`} component = {CategoryMain}></Route>
               </Switch>
               </div>
       <GlobalStyles></GlobalStyles>
@@ -86,5 +64,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{setPlaceLog,postPlaceLog})(MainRouter);
+export default connect(mapStateToProps,{setPlaceLog,postPlaceLog})(SignRouter);
 

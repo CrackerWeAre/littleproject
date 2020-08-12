@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import React from 'react'
 import {connect} from 'react-redux'
-import { fetchStreamer, editStreamer, checkStream} from '../../actions/admin'
+import { fetchStreamer, editStreamer, checkStream} from '../../../actions/admin'
 import AdminForm from './AdminForm'
-import '../../style/css/AdminList.css'
+import '../../../style/css/AdminList.css'
 
 
 class StreamEdit extends React.Component{

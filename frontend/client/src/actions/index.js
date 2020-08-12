@@ -14,7 +14,8 @@ import {
     FETCH_BLO_AIRS,
     DRAWER_SET,
     DARKMODE_SET,
-    SEND_REVIEW
+    SEND_REVIEW,
+    LIVEMODE_SET
 } from './types'
 
 
@@ -108,6 +109,11 @@ export const drawerSet = (data) => async dispatch => {
 export const darkModeSet = (data) => async dispatch => {
     dispatch({type: DARKMODE_SET, payload: !data })
 }
+
+export const liveModeSet = (data) => async dispatch => {
+    dispatch({type: LIVEMODE_SET, payload: !data })
+}
+
 
 export const sendReview = (data) => async dispatch => {
     const params = new URLSearchParams();

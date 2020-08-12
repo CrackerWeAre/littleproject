@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createStream, checkStream } from '../../actions/admin'
+import { createStream, checkStream } from '../../../actions/admin'
 import AdminForm from './AdminForm'
-import '../../style/css/AdminList.css'
+import '../../../style/css/AdminList.css'
 
 class AdminCreate extends React.Component{
 
