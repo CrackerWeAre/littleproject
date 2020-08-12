@@ -13,6 +13,7 @@ import BlockingMain from '../admins/Blocking/BlockingMain';
 import SettingMain from '../admins/Setting/SettingMain';
 import AdminDrawer from '../admins/Drawer/AdminDrawer';
 import '../../style/css/MyPage.css'
+import TagMain from '../admins/Tag/TagMain';
 
 function MypageRouter(props) {
 
@@ -44,6 +45,8 @@ function MypageRouter(props) {
                     <Route path={`${props.match.path}/following`}  component = {FollowingMain}></Route>
                     <Route path={`${props.match.path}/blocking`}  component = {BlockingMain}></Route>
                     <Route path={`${props.match.path}/settings`} component = {SettingMain}></Route>
+                    <Route path={`${props.match.path}/tags`} component = {TagMain}></Route>
+                    
                     
               </Switch>
               </div>

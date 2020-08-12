@@ -50,29 +50,55 @@ function AdminMain(props) {
 
     return (
         <div className="myPage_profile">
-            <form className="form-create" onSubmit={ProfileSubmit}>
-                <div>
-                    <label>내 이메일</label>
+         <div className="container_title">프로필 관리</div>
+         <form className="form-create" onSubmit={ProfileSubmit}>
+            <div className="user_item">
+              <div className="user_list_container">
+                  <div className="user_setting_title">
+                    내 이메일
+                  </div>
+                  <div className="user_setting_button">
                     <input name="channelID" autoComplete="off" value={formValues.channelID}  label="channelID" required onChange={onemailChange}></input>
+                  </div>
                 </div>
-                <div>
-                    <label>닉네임</label>
-                    <input name="channel" autoComplete="off" value={formValues.channel} label="channel" required  onChange={onnameChange}></input>
+            </div>
+            <div className="user_item">
+              <div className="user_list_container">
+                  <div className="user_setting_title">
+                  닉네임
+                  </div>
+                  <div className="user_setting_button">
+                  <input name="channel" autoComplete="off" value={formValues.channel} label="channel" required  onChange={onnameChange}></input>
+                  </div>
                 </div>
-                <div>
-                    <label>비밀번호</label>
-                    <input name="channel" autoComplete="off" value={formValues.channel} label="channel" required  onChange={onbirthdayChange}></input>
+            </div>
+            <div className="user_item">
+              <div className="user_list_container">
+                  <div className="user_setting_title">
+                  비밀번호
+                  </div>
+                  <div className="user_setting_button">
+                  <input name="channel" autoComplete="off" value={formValues.channel} label="channel" required  onChange={onbirthdayChange}></input>
+                  </div>
                 </div>
-                <div>
-                    <label>생년월일</label>
-                    <input name="channelID" autoComplete="off" value={formValues.channelID}  label="channelID" required onChange={onpasswordChange}></input>
+            </div>
+            <div className="user_item">
+              <div className="user_list_container">
+                  <div className="user_setting_title">
+                  생년월일
+                  </div>
+                  <div className="user_setting_button">
+                  <input name="channelID" autoComplete="off" value={formValues.channelID}  label="channelID" required onChange={onpasswordChange}></input>
+                  </div>
                 </div>
-                <div>
-                    <label>Category</label>
-            
-                </div>
+            </div>
+            <div className="user_item"></div>
                 {trueButton()}
             </form>
+            
+            
+             
+                
         </div>
     )
 }
