@@ -31,3 +31,15 @@
 .survey_container .survey_contents .survey_content .survey_item {
     margin: auto;
 }
+
+.survey_container  .survey_category_items {
+    display: flex;
+}
+
+.survey_container  .survey_live_items {
+    display: flex;
+}
+
+.survey_container .survey_category_item_off{
+    background: white;
+}
