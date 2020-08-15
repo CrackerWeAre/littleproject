@@ -70,6 +70,18 @@ function AdminDrawer(props) {
                     </div>
                 </div>
             </Link>
+            <Link to={"/survey"}>
+                <div className="category_item">
+                    <div className="contents">
+                    <i
+                        className="far fa-calendar-alt logo"
+                        alt="calender"
+                        title="편성표"
+                    ></i>
+                    <span className="category_name">메뉴얼 확인</span>
+                    </div>
+                </div>
+            </Link>
             
         
             <div className="category_item" onClick={props.signOut}>

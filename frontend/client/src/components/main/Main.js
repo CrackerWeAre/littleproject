@@ -6,6 +6,7 @@ import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions
 import { resignIn } from '../../actions/user'
 import AirFrame from '../air/AirFrame'
 import MainReview from '../reviews/MainReview'
+import { MainSurvey } from '../surveys/MainSurvey';
 
 const Main = (props) => {
     const nowUniTime = new Date().getTime()/1000

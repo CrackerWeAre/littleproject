@@ -11,6 +11,7 @@ import MainRouter from '../components/router/MainRouter'
 import AdminRouter from './router/AdminRouter';
 import MypageRouter from './router/MypageRouter';
 import SignRouter from './router/SignRouter';
+import SurveyRouter from './router/SurveyRouter';
 
 function App(props) {
 
@@ -37,6 +38,7 @@ function App(props) {
                   <Route path="/mypage"  component={MypageRouter}></Route>
                   <Route path="/admin" component = {AdminRouter}></Route>
                   <Route path="/sign" component = {SignRouter}></Route>
+                  <Route path="/survey" component = {SurveyRouter}></Route>
               </Switch>
       </Router>
       <GlobalStyles></GlobalStyles>
