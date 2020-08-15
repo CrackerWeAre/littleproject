@@ -54,9 +54,9 @@ const AirView = (props) => {
     }
 
     const sendLogs = (e) => {
-        e.preventDefault();
+    
         props.updatepostLiveLog(props.userEmail, props.data)
-        return true
+
     }
 
 
@@ -104,11 +104,11 @@ const AirView = (props) => {
             <div className="container">
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
-                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer">
-                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg" onClick={sendLogs}></img>
+                <a href={props.data.liveDataHref} target='_blank' rel="noopener noreferrer" onClick={sendLogs}>
+                    <img  className="airview_img" src={props.data.imgDataSrc} alt="LiveImg" ></img>
                 </a>
             </div>
-            <div className="title" ><a href={props.data.liveDataHref}  target='_blank' rel="noopener noreferrer">
+            <div className="title" ><a href={props.data.liveDataHref}  target='_blank' rel="noopener noreferrer" onClick={sendLogs}>
             <div className="text">{props.data.liveDataTitle}</div></a></div>
             <div className="contents">
                 <div className="creatorlogo">
