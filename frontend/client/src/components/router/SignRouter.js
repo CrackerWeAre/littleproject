@@ -4,6 +4,7 @@ import Header from "../Header"
 import history from "../../history"
 import AirView from '../air/AirView';
 import Login from '../login/Login'
+import SignUp from '../login/SignUp'
 import GlobalStyles from "../GlobalStyles";
 import '../../style/css/Body.css'
 import Main from '../main/Main';
@@ -47,7 +48,7 @@ function SignRouter(props) {
               <Switch>
                     <Route path="/sign" exact component = {Main}></Route>
                     <Route path={`${props.match.path}/login`}  component = {Login}></Route>
-                    <Route path={`${props.match.path}/signup`} component = {CategoryMain}></Route>
+                    <Route path={`${props.match.path}/signup`} component = {SignUp}></Route>
               </Switch>
               </div>
       <GlobalStyles></GlobalStyles>

@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
 import Tag from './Tag'
 
 export const SurveyLive = () => {
-    let cateitems = []
+    const [cateitems, setcateitems] = useState([])
 
     const addClick = (data) => {
-        cateitems.push(data)
+        setcateitems(...cateitems, data)
         console.log(cateitems)
     }
 
     const subClick = (data) => {
-        cateitems.pop(data)
+        setcateitems(cateitems.filter(item => item !== data))
         console.log(cateitems)
     }
 
     const submitClick = () => {
         console.log(cateitems)
     }
+    
     const items = (Data) => {
 
         return Data.map(item => {

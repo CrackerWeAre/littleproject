@@ -5,14 +5,14 @@ function Tag (data) {
     const [checkOnOff, setcheckOnOff] = useState(false);
     const addClick = (e) => {
         setcheckOnOff(!checkOnOff)
-        console.log(checkOnOff)
         data.addClick(data.data)
     }
 
+
     const subClcik = (e) => {
         setcheckOnOff(!checkOnOff)
-        console.log(checkOnOff);
         data.subClick(data.data)
+        
     }
     
     const onItem = () => {

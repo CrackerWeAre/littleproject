@@ -41,6 +41,20 @@
     margin-bottom: 16px;
 }
 
+.account__field .form__text {
+    display: flex;
+    text-align: center;
+    margin-top: 9px;
+    font-weight: 300;
+}
+
+.account__field .form__text .form__line{
+    height: 1px;
+    background: black;
+    margin: auto;
+    width :160px;
+}
+
 .account__button button{
     width: 100%;
     font-size: 16px;
@@ -112,6 +126,18 @@
 .form__input {
     margin-top: 8px;
 }
+.form__input select {
+    width: 28%;
+    height: 44px;
+    padding: 0 16px;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: auto;
+}
 
 .form__input input {
     width: 100%;
@@ -146,4 +172,15 @@
 
 a.btn__link, .btn__link {
 
+}
+
+
+.signup_container {
+    width: 1080px;
+    height: 1080px;
+}
+
+.signup_container .signup_content {
+    width: 50%;
+    height: 80px;
 }
