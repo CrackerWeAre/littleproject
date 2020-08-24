@@ -1,5 +1,5 @@
 
-import {SIGN_IN, SIGN_OUT, RE_SIGN_IN} from '../actions/types'
+import {SIGN_IN, SIGN_OUT, RE_SIGN_IN, ID_CHECK, SIGN_UP} from '../actions/types'
 
 const INITIAL_STATE = {
     isSignedIn: null,
@@ -15,6 +15,10 @@ export default (state = INITIAL_STATE, action) => {
             return {...INITIAL_STATE};
         case RE_SIGN_IN :
             return {...state, token : action.payload.token};
+        case SIGN_UP:
+            return state;
+        case ID_CHECK:
+            return state;
         default :
             return state;
     }

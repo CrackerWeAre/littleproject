@@ -10,32 +10,41 @@ import {
 } from './types'
 
 export const signUp = (response) => async dispatch => {
+    console.log(response)
     const params = new URLSearchParams();
-    const tags=response.profileObj.tags.join()
-    const ctags = response.profileObj.ctags.join()
-    const serialNo = response.profileObj.serialNo.toString()
-    params.append('birthday',response.profileObj.birthday);
-    params.append('nickname',response.profileObj.nickname);
-    params.append('id',response.profileObj.id);
-    params.append('password',response.profileObj.password);
+    const tags=response.tagitems.join()
+    const ctags = response.cateitems.join()
+    const serialNo = response.serialNo.toString()
+    params.append('birthday',response.birthday);
+    params.append('nickname',response.nickname);
+    params.append('id',response.id);
+    params.append('password',response.password);
     params.append('tags',tags);
     params.append('ctags',ctags);
     params.append('serialNo',serialNo);
             
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp", params)
-    dispatch({ type: SIGN_UP, payload: newResponse.data, userEmail: response.profileObj.email})
-    history.push('/')
+    console.log(newResponse)
+    dispatch({ type: SIGN_UP, payload: newResponse.data})
+    
 }
 
-export const idCheck = (response) => async dispatch => {
+export const idCheck = (id) => async dispatch => {
+    console.log(id)
     const params = new URLSearchParams();
-    params.append('id',response.profileObj.id);
-    const serialNo = response.profileObj.serialNo.toString()
-    params.append('serialNo',serialNo);
-            
+    var idcheck = false
+    params.append('userID',id);        
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
-    dispatch({ type: ID_CHECK, payload: newResponse.data, userEmail: response.profileObj.email})
-    history.push('/')
+    console.log(newResponse)
+    if(newResponse.data.Status){
+        if(newResponse.data.Status==="true"){
+            idcheck=true
+        }else {
+            idcheck=false
+        }
+    }
+    return idcheck
+    
 }
 
 export const signIn = (response) => async dispatch => {
