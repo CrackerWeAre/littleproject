@@ -30,20 +30,20 @@ export const signUp = (response) => async dispatch => {
 }
 
 export const idCheck = (id) => async dispatch => {
-    console.log(id)
     const params = new URLSearchParams();
     var idcheck = false
+    var serialNo = 0
     params.append('userID',id);        
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
-    console.log(newResponse)
     if(newResponse.data.Status){
         if(newResponse.data.Status==="true"){
             idcheck=true
+            serialNo=parseInt(newResponse.data.serialNo)
         }else {
             idcheck=false
         }
     }
-    return idcheck
+    dispatch({ type: ID_CHECK, payload: newResponse.data})
     
 }
 

@@ -61,16 +61,23 @@ function SignUpTag(props) {
                             <div className="account__field">
                                 <label htmlFor="username" className="hidden">태그 선택</label>
                             </div>
-                            <div className="account__field">
+                            <div className="account__tagfield">
+                                <div className="category__field">
+                                
                                 {items(["game","channel","공중파"])}
+                                </div>
+                                <div className="tags__field">
                                 {itemlist(props.cateitems)}
-                                <button
-                                type="submit"
-                                className="btn btn__block btn__gradient--primary"
-                                >
-                                <strong>가입하기</strong>
-                                </button>
+                                </div>
                             </div>
+                            <div className="account__button">
+                                    <button
+                                    type="submit"
+                                    className="btn btn__block btn__gradient--primary"
+                                    >
+                                    <strong>가입하기</strong>
+                                    </button>
+                                </div>
                         </div>
                     </form>
                 </div>

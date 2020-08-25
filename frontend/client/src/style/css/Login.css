@@ -41,6 +41,44 @@
     margin-bottom: 16px;
 }
 
+.account__tagfield .category__field {
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.account__tagfield .tags__field {
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.account__tagfield .category__field .survey_category_item_on {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}   
+
+.account__tagfield .category__field .survey_category_item_off {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}
+
+.account__tagfield .tags__field .survey_category_item_on {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}   
+
+.account__tagfield .tags__field .survey_category_item_off {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}
+
 .account__field .form__text {
     display: flex;
     text-align: center;
@@ -64,7 +102,9 @@
     background: -o-linear-gradient(315deg, #FDC830 1%, #fbb30f 100%);
     background: linear-gradient(135deg, #FDC830 1%, #fbb30f 100%);
 }
-
+.account__button button strong{
+    color: white;
+}
 .account__button button:hover {
     background: -o-linear-gradient(315deg, #FDC830 50%, #fbb30f 100%);
     background: linear-gradient(135deg, #FDC830 50%, #fbb30f 100%);

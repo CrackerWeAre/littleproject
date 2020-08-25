@@ -17,13 +17,13 @@ function Tag (data) {
     
     const onItem = () => {
         return <div className="survey_category_item_on" key={data.data+"on"} onClick={subClcik}>
-            {data.data}
+            <div className="no">{data.data}  x</div>
         </div>
     }
 
     const offItem = () => {
         return <div className="survey_category_item_off" key={data.data+"off"} onClick={addClick}>
-            {data.data}
+            <div className="yes">{data.data}  o</div>
         </div>
     }
 

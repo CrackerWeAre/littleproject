@@ -9,12 +9,13 @@
 
 .survey_container .survey_title {
     width: 80vw;
-    height: 50vh;
+    padding-top: 40px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .survey_container .survey_title .survey_title_item {
+
     text-align: center;
 }
 
@@ -30,6 +31,8 @@
 
 .survey_container .survey_contents .survey_content .survey_item {
     margin: auto;
+    text-align: center;
+    color: black;
 }
 
 .survey_container  .survey_category_items {

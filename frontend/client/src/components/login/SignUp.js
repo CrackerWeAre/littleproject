@@ -1,6 +1,7 @@
 import React, { Component, useState,useEffect } from 'react'
 import { connect } from 'react-redux'
 import Tag from '../surveys/Tag'
+import axios from 'axios'
 import history from '../../history'
 import {idCheck, signUp} from '../../actions/user'
 import "../../style/css/Login.css";
@@ -20,7 +21,7 @@ export const SignUp = (props) => {
     const [termError,setTermError] = useState(false);
     const [first,setfirst] = useState(true);
     const [second,setsecond] = useState(false);
-    const [third, setthrid] =useState(false)
+    const [third, setthrid] =useState(true)
     const [cateitems, setcateitems] = useState([])
     const [tagitems, settagitems] = useState([])
 
@@ -80,15 +81,22 @@ export const SignUp = (props) => {
         setday(e.target.value);
     };
 
-    const onfocusout = (e) => {
-        console.log(e.target.value)
-        const idcheck = props.setidCheck(e.target.value)
-        setTermError()
-        console.log(idcheck)
-        idcheck.then(function(resolvedData) {
-            console.log(resolvedData);
+    async function getData(id) {
+        const params = new URLSearchParams();
+        params.append('userID',id); 
+        const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
+        console.log(newResponse)
+        if(newResponse.data.Status){
+            if(newResponse.data.Status==="true"){
+                setTermError(true)
+            }else {
+                setTermError(false)
             }
-        )
+        }
+      };
+
+    const onfocusout = (e) => {
+        getData(id)
     }
   
 
