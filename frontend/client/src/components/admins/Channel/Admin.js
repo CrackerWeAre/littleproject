@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminList from './AdminList'
-import "../../style/css/AdminList.css"
+import "../../../style/css/AdminList.css"
 
 class Admin extends Component {
     render() {

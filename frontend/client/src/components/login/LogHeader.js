@@ -20,7 +20,7 @@ class LogHeader extends Component {
             return (
                 <div className="nav__links">
                     <div className="nav_items">
-                        <Link to="/main/login">
+                        <Link to="/sign/login">
                             <Button>Login</Button>
                         </Link>
                     </div>
@@ -35,7 +35,7 @@ class LogHeader extends Component {
                             </Link>
                         </div>
                         <div className="nav_items">
-                            <Link to="/main/mypage">
+                            <Link to="/mypage">
                                 <i className="fas fa-user" alt="mypage" title="MyPage"></i>
                             </Link>
                         </div>

@@ -211,7 +211,7 @@ const mapStateToProps = (state) =>{
     return {
         airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)).filter(item => item.language==='ko'), 
         myairs: Object.values(state.myairs),
-        cateairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)),
+        cateairs: Object.values(state.cateairs),
         followings: state.followings,
         blocking: state.blockairs,
         searches: Object.values(state.searches),

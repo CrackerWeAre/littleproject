@@ -125,9 +125,6 @@ a {
 .search_input::placeholder {
   font-size: 14px;
 }
-.search_input:hover {
-  border: 2px solid #fbb30f;
-}
 
 .search_input:focus {
   border: 2px solid #fbb30f;

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import { fetchStreamers } from '../../actions/admin'
-import '../../style/css/AdminList.css'
+import { fetchStreamers } from '../../../actions/admin'
+import '../../../style/css/AdminList.css'
 
 class StreamList extends React.Component{
     componentDidMount(){

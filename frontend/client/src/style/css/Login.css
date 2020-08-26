@@ -41,6 +41,58 @@
     margin-bottom: 16px;
 }
 
+.account__tagfield .category__field {
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.account__tagfield .tags__field {
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.account__tagfield .category__field .survey_category_item_on {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}   
+
+.account__tagfield .category__field .survey_category_item_off {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}
+
+.account__tagfield .tags__field .survey_category_item_on {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}   
+
+.account__tagfield .tags__field .survey_category_item_off {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    background: #fbb30f;
+}
+
+.account__field .form__text {
+    display: flex;
+    text-align: center;
+    margin-top: 9px;
+    font-weight: 300;
+}
+
+.account__field .form__text .form__line{
+    height: 1px;
+    background: black;
+    margin: auto;
+    width :160px;
+}
+
 .account__button button{
     width: 100%;
     font-size: 16px;
@@ -50,7 +102,9 @@
     background: -o-linear-gradient(315deg, #FDC830 1%, #fbb30f 100%);
     background: linear-gradient(135deg, #FDC830 1%, #fbb30f 100%);
 }
-
+.account__button button strong{
+    color: white;
+}
 .account__button button:hover {
     background: -o-linear-gradient(315deg, #FDC830 50%, #fbb30f 100%);
     background: linear-gradient(135deg, #FDC830 50%, #fbb30f 100%);
@@ -112,6 +166,18 @@
 .form__input {
     margin-top: 8px;
 }
+.form__input select {
+    width: 28%;
+    height: 44px;
+    padding: 0 16px;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: auto;
+}
 
 .form__input input {
     width: 100%;
@@ -146,4 +212,15 @@
 
 a.btn__link, .btn__link {
 
+}
+
+
+.signup_container {
+    width: 1080px;
+    height: 1080px;
+}
+
+.signup_container .signup_content {
+    width: 50%;
+    height: 80px;
 }

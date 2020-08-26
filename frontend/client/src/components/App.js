@@ -3,15 +3,15 @@ import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header"
 import history from "../history"
 import AirView from './air/AirView';
-import Admin from './admins/Admin'
-import AdminEdit from './admins/AdminEdit';
-import AdminCreate from './admins/AdminCreate';
-import AdminDelete from './admins/AdminDelete';
 import GlobalStyles from "./GlobalStyles";
 import '../style/css/Body.css'
 import {isMobile} from 'react-device-detect';
 import {connect} from 'react-redux'
 import MainRouter from '../components/router/MainRouter'
+import AdminRouter from './router/AdminRouter';
+import MypageRouter from './router/MypageRouter';
+import SignRouter from './router/SignRouter';
+import SurveyRouter from './router/SurveyRouter';
 
 function App(props) {
 
@@ -35,11 +35,10 @@ function App(props) {
               <Switch>
                   <Route path="/" exact component = {MainRouter}></Route>
                   <Route path="/main" component = {MainRouter}></Route>
-                  <Route path="/admin"  component={Admin}></Route>
-                  <Route path="/admin/new" exact component={AdminCreate}></Route>
-                  <Route path="/admin/edit/:_id" exact component={AdminEdit}></Route>
-                  <Route path="/admin/delete/:_id" exact component={AdminDelete}></Route>
-                  
+                  <Route path="/mypage"  component={MypageRouter}></Route>
+                  <Route path="/admin" component = {AdminRouter}></Route>
+                  <Route path="/sign" component = {SignRouter}></Route>
+                  <Route path="/survey" component = {SurveyRouter}></Route>
               </Switch>
       </Router>
       <GlobalStyles></GlobalStyles>
