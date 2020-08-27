@@ -11,13 +11,27 @@ const AirList = (props) => {
     const [loading, setloading] = useState(false)
     const [numAirs, setNumAirs] = useState(12)
     const [isFetching, setIsFetching] = useState(false)
-
+    const [liveModalOn, setLiveModalOn] =useState(true)
+    const [liveModalId, setLiveModalId] =useState('https://www.twitch.tv/unknownxarmy')
+    const [liveModalPlatform, setLiveModalPlatform] =useState('twitch')
 
     const [cateOn, setcateOn] = useState(false)
     const [airOn, setairOn] = useState(false)
     const [searchOn, setsearchOn] = useState(false)
     const [followOn, setfollowOn] = useState(false)
     const [liveOn, setliveOn] = useState(false)
+
+    const sendLive = (channelId, platform) => {
+        setLiveModalId(channelId)
+        setLiveModalPlatform(platform)
+        setLiveModalOn(true)
+    }
+
+    const closeLive = (channelId, platform) => {
+        setLiveModalId('')
+        setLiveModalPlatform('')
+        setLiveModalOn(false)
+    }
 
     useEffect(()=>{
         
@@ -96,6 +110,65 @@ const AirList = (props) => {
     }
 
 
+    const LiveModalShow = (liveModalId, liveModalPlatform) => {
+       
+        const twitchIframe = (address) => {
+            const urlBase = "https://player.twitch.tv/?channel="
+            const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
+    
+            return (
+                <div className="live_Modal">
+                    <iframe 
+                        className="live_iframe"
+                        title="live"
+                        src={urlBase+address+urlParams}  
+                        frameBorder="0" 
+                        allowFullScreen={true} 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            )
+        }
+    
+        const youtubeIframe = (address) => {
+            const urlBase = "https://www.youtube.com/embed/"
+            const urlParams = "?autoplay=1"
+         
+            return (
+                <div className="live_Modal">
+                    <iframe 
+                        className="live_iframe"
+                        title="live"
+                        src={urlBase+address+urlParams} 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute;" 
+                        allowFullScreen={true}
+                    >
+                    </iframe>
+                </div>
+                
+            )
+        }
+       
+        const liveView = (liveModalPlatform, liveModalId) => {
+            
+            if(liveModalId){
+                if(liveModalPlatform==="twitch"){
+                    return twitchIframe(liveModalId.split('/')[liveModalId.split('/').length-1])
+                }else if(liveModalPlatform==="youtube"){
+                    return youtubeIframe(liveModalId.split('=')[liveModalId.split('=').length-1])
+                }
+            }
+        }
+
+       
+       
+        return (
+            <Fragment>
+                {liveView(liveModalPlatform, liveModalId)}
+            </Fragment>
+        )
+    }
 
     
     const CateAirShow = () => {
@@ -156,7 +229,7 @@ const AirList = (props) => {
                 } else
                     return (
                         <div className='item' key={data._id}>
-                            <AirView data={data}></AirView>
+                            <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
                         </div>
                     )
                 }
@@ -170,7 +243,7 @@ const AirList = (props) => {
                 } else {
                     return (
                         <div className='item' key={data._id}>
-                            <AirView data={data}></AirView>
+                            <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
                         </div>
                     )
                 }
@@ -197,6 +270,7 @@ const AirList = (props) => {
 
     return (
         <Fragment>
+            {liveModalOn&&LiveModalShow(liveModalId,liveModalPlatform)}
             {props.user.isSignedIn&&followOn&&myAirShow()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
