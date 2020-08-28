@@ -54,7 +54,7 @@ const AirView = (props) => {
     }
 
     const sendLogs = (e) => {
-        props.sendLive(props.data.liveDataHref, props.data.platform)
+        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id)
         props.updatepostLiveLog(props.userEmail, props.data)
 
     }
@@ -100,7 +100,7 @@ const AirView = (props) => {
     }
     
     return (
-        <div className="card">
+        <div className="card" ref={props.focusId}>
             <div className="container">
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
