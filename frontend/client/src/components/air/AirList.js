@@ -1,4 +1,4 @@
-import React, { Fragment ,useState, useEffect} from 'react'
+import React, { Fragment ,useState, useEffect, useRef} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../../actions'
 import AirView from './AirView'
@@ -12,8 +12,9 @@ const AirList = (props) => {
     const [numAirs, setNumAirs] = useState(12)
     const [isFetching, setIsFetching] = useState(false)
     const [liveModalOn, setLiveModalOn] =useState(true)
-    const [liveModalId, setLiveModalId] =useState('https://www.twitch.tv/unknownxarmy')
-    const [liveModalPlatform, setLiveModalPlatform] =useState('twitch')
+    const [liveModalId, setLiveModalId] =useState('')
+    const [liveModalPlatform, setLiveModalPlatform] =useState('')
+    const [liveModalkey, setLiveModalKey] = useState('')
 
     const [cateOn, setcateOn] = useState(false)
     const [airOn, setairOn] = useState(false)
@@ -21,15 +22,17 @@ const AirList = (props) => {
     const [followOn, setfollowOn] = useState(false)
     const [liveOn, setliveOn] = useState(false)
 
-    const sendLive = (channelId, platform) => {
+    const sendLive = (channelId, platform, key) => {
         setLiveModalId(channelId)
         setLiveModalPlatform(platform)
         setLiveModalOn(true)
+        setLiveModalKey(key)
     }
 
     const closeLive = (channelId, platform) => {
         setLiveModalId('')
         setLiveModalPlatform('')
+        setLiveModalKey('')
         setLiveModalOn(false)
     }
 
@@ -240,7 +243,18 @@ const AirList = (props) => {
                     return null;
                 } else if(props.blocking.includes(data._uniq)){
                     return null;
-                } else {
+                } else if(liveModalkey===data._id){
+                    return (
+                        <>
+                            <div className='item' key={data._id}>
+                                <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
+                            </div>
+                            <div className='livemoal'>
+                                {liveModalOn&&LiveModalShow(liveModalId,liveModalPlatform)}
+                            </div>
+                        </>
+                    )
+                }else{
                     return (
                         <div className='item' key={data._id}>
                             <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
@@ -270,7 +284,7 @@ const AirList = (props) => {
 
     return (
         <Fragment>
-            {liveModalOn&&LiveModalShow(liveModalId,liveModalPlatform)}
+            
             {props.user.isSignedIn&&followOn&&myAirShow()}
             {airOn&&AirShow()}
             {cateOn&&CateAirShow()}
