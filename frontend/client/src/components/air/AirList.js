@@ -4,6 +4,7 @@ import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../..
 import AirView from './AirView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
+import { timeout } from 'q';
 
 const AirList = (props) => {    
 
@@ -21,15 +22,17 @@ const AirList = (props) => {
     const [searchOn, setsearchOn] = useState(false)
     const [followOn, setfollowOn] = useState(false)
     const [liveOn, setliveOn] = useState(false)
+    const [scrollTop, setScrollTop] = useState(0)
 
-    const sendLive = (channelId, platform, key) => {
+    const sendLive = (channelId, platform, key, scroll) => {
         setLiveModalId(channelId)
         setLiveModalPlatform(platform)
         setLiveModalOn(true)
         setLiveModalKey(key)
+        setScrollTop(scroll)
     }
 
-    const closeLive = (channelId, platform) => {
+    const closeLive = () => {
         setLiveModalId('')
         setLiveModalPlatform('')
         setLiveModalKey('')
@@ -40,7 +43,15 @@ const AirList = (props) => {
         
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
+
     },[])
+
+    useEffect(() => {
+        console.log({top:scrollTop, left:0, behavior:'auto'})
+        window.scrollTo({top:scrollTop, left:0, behavior:'smooth'})
+    }, [scrollTop])
+
+
 
     useEffect(() => {
         if(window.location.pathname.includes('/following')){
@@ -80,7 +91,7 @@ const AirList = (props) => {
             setNumAirs(12)
             setIsFetching(false)
         }
-    },[props])
+    },[window.location])
 
 
     useEffect(()=>{
@@ -112,15 +123,21 @@ const AirList = (props) => {
         }
     }
 
+    const onBlur = (e) => {
+        console.log(e)
+        closeLive()
+    }
 
+    
     const LiveModalShow = (liveModalId, liveModalPlatform) => {
        
+        
         const twitchIframe = (address) => {
             const urlBase = "https://player.twitch.tv/?channel="
             const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
     
             return (
-                <div className="live_Modal">
+                <div className="live_Modal" onClick={onBlur}>
                     <iframe 
                         className="live_iframe"
                         title="live"
@@ -138,7 +155,7 @@ const AirList = (props) => {
             const urlParams = "?autoplay=1"
          
             return (
-                <div className="live_Modal">
+                <div className="live_Modal" onClick={onBlur}>
                     <iframe 
                         className="live_iframe"
                         title="live"
@@ -249,7 +266,7 @@ const AirList = (props) => {
                             <div className='item' key={data._id}>
                                 <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
                             </div>
-                            <div className='livemoal'>
+                            <div className='livemodal' onClick={onBlur}>
                                 {liveModalOn&&LiveModalShow(liveModalId,liveModalPlatform)}
                             </div>
                         </>

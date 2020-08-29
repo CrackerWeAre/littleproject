@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import '../../style/css/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
@@ -11,6 +11,7 @@ import heartoff from "../../style/img/Simple Heart-1.png"
 import hearton from "../../style/img/Simple Heart.png"
 
 const AirView = (props) => {
+
     const [fol_btn, setfol_btn] = useState(false);
     const [blo_btn, setblo_btn] = useState(false);
     const showAlert = (e) => {
@@ -54,9 +55,13 @@ const AirView = (props) => {
     }
 
     const sendLogs = (e) => {
-        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id)
+        e.preventDefault()
+        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, document.documentElement.scrollTop)
         props.updatepostLiveLog(props.userEmail, props.data)
 
+        console.log()
+        //해야할 일
+        //여기서 liveRef로 scroll값을 구해서 렌더링 이후에 useEffect를 이용해 스크롤 위치로 이동시킬것
     }
 
 
@@ -100,8 +105,8 @@ const AirView = (props) => {
     }
     
     return (
-        <div className="card" ref={props.focusId}>
-            <div className="container">
+        <div className="card">
+            <div className="container" >
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>
                 <a target='_blank' rel="noopener noreferrer" onClick={sendLogs}>

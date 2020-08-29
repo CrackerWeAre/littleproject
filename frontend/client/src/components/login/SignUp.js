@@ -24,6 +24,8 @@ export const SignUp = (props) => {
     const [third, setthrid] =useState(true)
     const [cateitems, setcateitems] = useState([])
     const [tagitems, settagitems] = useState([])
+    
+
 
     const onSubmit = (e) => {
         e.preventDefault();
