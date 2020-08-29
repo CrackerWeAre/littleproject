@@ -10,7 +10,7 @@ import {
 
 export const setPlaceLog = (user, pathname) => async dispatch => {
     const time = new Date().getTime()/1000;
-    const data = {"username":user, "pathname":pathname, "residencetime":time};
+    const data = await {"username":user, "pathname":pathname, "residencetime":time};
     dispatch({ type: SET_PLACE, payload: data})
 }
 

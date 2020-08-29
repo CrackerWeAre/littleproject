@@ -29,7 +29,7 @@ const Main = (props) => {
         const setCookie = (name, value, exp) => {
             var date = new Date();
             date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
         };
         
         const getCookie = (name) => {
@@ -46,7 +46,7 @@ const Main = (props) => {
             var _id2 = parseInt(new Date().getTime() / 1000)
             return _id1 + '.' + _id2;
         };
-        
+
         // uid 체크 (Piclick User ID)
         var uid = getCookie('mkoaUID');
         if (uid === null || uid.length !== 21) uid = uidCreate();
