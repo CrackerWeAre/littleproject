@@ -27,10 +27,10 @@
     }
 }
 
-.livemoal {
+.livemodal {
     position: relative;
-    width: 80vw;
-    height: 60vw;
+    width: 100%;
+    height: 40vw;
 }
 
 .airlist_container {
@@ -42,8 +42,9 @@
 
 .live_Modal {
     position: relative;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    margin: auto;
 }
 
 .live_iframe {

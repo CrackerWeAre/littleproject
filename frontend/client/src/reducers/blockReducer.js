@@ -5,7 +5,7 @@ export default (state = [], action) => {
 
         case FETCH_BLO_AIRS :
             const hello = []
-            if(action.payload!==null){
+            if(action.payload!==[]){
                 Object.values(action.payload).map((innerdata) => {
                     return hello.push(innerdata['_uniq'])
                 })

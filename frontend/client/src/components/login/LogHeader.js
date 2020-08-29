@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { signOut } from '../../actions/user'
 import {Link} from "react-router-dom"
-import Button from '../../common/Button';
+import Button from '../common/Button';
 
 class LogHeader extends Component {
 
