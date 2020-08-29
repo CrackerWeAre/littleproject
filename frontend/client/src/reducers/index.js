@@ -12,6 +12,7 @@ import myBloReducer from './myBloReducer';
 import mainReducer from './mainReducer';
 import scheduleReducer from './scheduleReducer';
 import logReducer from './logReducer';
+import cateCountReducer from './cateCountReducer';
 
 export default combineReducers ({
     auth: authReducer,
@@ -26,5 +27,6 @@ export default combineReducers ({
     blockairs: blockReducer,
     maintheme: mainReducer,
     schedules: scheduleReducer,
-    logs: logReducer
+    logs: logReducer,
+    catecounts: cateCountReducer,
 });

@@ -73,6 +73,17 @@ const Drawer = (props) => {
     );
   };
 
+  const showOn = (count) => {
+    if(count>0){
+      return <div
+      className="show_on"
+      alt="on"
+      title="on"
+      
+       ></div>
+    }
+  }
+
   const categories = () => {
     return (
       <Fragment>
@@ -80,7 +91,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i className="fas fa-gamepad logo" alt="game" title="게임"></i>
-              <span className="category_name">게임</span>
+              <span className="category_name">게임</span><span className="category_point">{showOn(props.catecounts.GAME)}</span>
             </div>
           </div>
         </Link>
@@ -92,7 +103,7 @@ const Drawer = (props) => {
                 alt="music"
                 title="음악"
               ></i>
-              <span className="category_name">음악</span>
+              <span className="category_name">음악</span><span className="category_point">{showOn(props.catecounts.MUSIC)}</span>
             </div>
           </div>
         </Link>
@@ -100,7 +111,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i className="fas fa-comments logo" alt="chatting" title="소통"></i>
-              <span className="category_name">소통</span>
+              <span className="category_name">소통</span><span className="category_point">{showOn(props.catecounts.CHATTING)}</span>
             </div>
           </div>
         </Link>
@@ -112,7 +123,7 @@ const Drawer = (props) => {
                 alt="shopping"
                 title="쇼핑"
               ></i>
-              <span className="category_name">쇼핑</span>
+              <span className="category_name">쇼핑</span><span className="category_point">{showOn(props.catecounts.SHOPPING)}</span>
             </div>
           </div>
         </Link>
@@ -120,7 +131,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i className="fas fa-newspaper logo" alt="news" title="뉴스/정보"></i>
-              <span className="category_name">뉴스/정보</span>
+              <span className="category_name">뉴스/정보</span><span className="category_point">{showOn(props.catecounts.NEWS)}</span>
             </div>
           </div>
         </Link>
@@ -128,7 +139,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i className="fas fa-tv logo" alt="air" title="공중파"></i>
-              <span className="category_name">공중파</span>
+              <span className="category_name">공중파</span><span className="category_point">{showOn(props.catecounts.AIR)}</span>
             </div>
           </div>
         </Link>
@@ -140,7 +151,7 @@ const Drawer = (props) => {
                 alt="sports"
                 title="스포츠/운동"
               ></i>
-              <span className="category_name">스포츠/운동</span>
+              <span className="category_name">스포츠/운동</span><span className="category_point">{showOn(props.catecounts.SPORTS)}</span>
             </div>
           </div>
         </Link>
@@ -148,7 +159,7 @@ const Drawer = (props) => {
           <div className="category_item">
             <div className="contents">
               <i className="fas fa-utensils logo" alt="cooking" title="요리"></i>
-              <span className="category_name">요리</span>
+              <span className="category_name">요리</span><span className="category_point">{showOn(props.catecounts.COOKING)}</span>
             </div>
           </div>
         </Link>
@@ -175,6 +186,7 @@ const mapStateToProps = (state) => {
     followings: state.followings,
     user: state.auth,
     darkmode: state.maintheme.darkmode,
+    catecounts: state.catecounts
   };
 };
 

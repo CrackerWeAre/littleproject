@@ -1,6 +1,7 @@
 
 export const FETCH_AIRS = 'FETCH_AIRS'
 export const FETCH_AIR = 'FETCH_AIR'
+export const COUNT_CATE_AIRS = 'COUNT_CATE_AIRS'
 export const MAKE_FOL_LIST = 'MAKE_FOL_LIST'
 export const FETCH_CATE_AIRS = 'FETCH_CATE_AIRS'
 export const SEND_REVIEW = 'SEND_REVIEW'

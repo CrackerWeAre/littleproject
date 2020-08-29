@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import AirList from "../air/AirList"
 import '../../style/css/Body.css'
 import {connect} from 'react-redux'
-import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, } from '../../actions'
+import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, countCateAirs} from '../../actions'
 import { resignIn } from '../../actions/user'
 import AirFrame from '../air/AirFrame'
 import MainReview from '../reviews/MainReview'
@@ -14,7 +14,7 @@ const Main = (props) => {
     useEffect(() => {
         props.fetchAirs();
         cookieProcess()
-
+        props.countCateAirs();
         if(props.user.userInfo!==undefined){
             props.fetchFollowingAirs(props.user.userInfo.email);
             props.fetchBlockedAirs(props.user.userInfo.email);
@@ -86,4 +86,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn })(Main);
+export default connect(mapStateToProps, { fetchAirs, fetchFollowingAirs, fetchBlockedAirs, resignIn, countCateAirs })(Main);
