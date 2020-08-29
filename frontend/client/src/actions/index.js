@@ -15,7 +15,8 @@ import {
     DRAWER_SET,
     DARKMODE_SET,
     SEND_REVIEW,
-    LIVEMODE_SET
+    LIVEMODE_SET,
+    COUNT_CATE_AIRS
 } from './types'
 
 
@@ -29,6 +30,11 @@ export const fetchCateAirs = (_id) => async dispatch => {
     dispatch({ type: FETCH_CATE_AIRS, payload: response.data})
 }
  
+
+export const countCateAirs = () => async dispatch => {
+    const response = await airs.get('/getList/live/allCate')
+    dispatch({ type: COUNT_CATE_AIRS, payload: response.data})
+}
 
 export const fetchFollowingAirs = (email) => async dispatch => {
 
