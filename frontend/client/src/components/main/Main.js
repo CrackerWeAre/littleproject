@@ -7,11 +7,14 @@ import { resignIn } from '../../actions/user'
 import AirFrame from '../air/AirFrame'
 import MainReview from '../reviews/MainReview'
 import { MainSurvey } from '../surveys/MainSurvey';
+import airs from '../../apis/airs'
 
 const Main = (props) => {
     const nowUniTime = new Date().getTime()/1000
     useEffect(() => {
         props.fetchAirs();
+        airs.get(`/cookie/set`).then((e)=>{console.log(e)})
+
         if(props.user.userInfo!==undefined){
             props.fetchFollowingAirs(props.user.userInfo.email);
             props.fetchBlockedAirs(props.user.userInfo.email);
