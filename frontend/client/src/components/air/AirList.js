@@ -91,7 +91,7 @@ const AirList = (props) => {
             setNumAirs(12)
             setIsFetching(false)
         }
-    },[window.location])
+    },[props])
 
 
     useEffect(()=>{
