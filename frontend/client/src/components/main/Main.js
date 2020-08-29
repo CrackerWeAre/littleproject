@@ -13,7 +13,7 @@ const Main = (props) => {
     const nowUniTime = new Date().getTime()/1000
     useEffect(() => {
         props.fetchAirs();
-        airs.get(`/cookie/set`).then((e)=>{console.log(e)})
+        airs.get(`/cookie/set`)
 
         if(props.user.userInfo!==undefined){
             props.fetchFollowingAirs(props.user.userInfo.email);
