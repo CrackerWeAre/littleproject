@@ -5,6 +5,7 @@ import AirView from './AirView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
 import { timeout } from 'q';
+import LiveModalShow from './LiveModalShow'
 
 const AirList = (props) => {    
 
@@ -40,19 +41,13 @@ const AirList = (props) => {
     }
 
     useEffect(()=>{
-        
+        console.log('hello')
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
 
     },[])
 
-    useEffect(() => {
-        console.log({top:scrollTop, left:0, behavior:'auto'})
-        window.scrollTo({top:scrollTop, left:0, behavior:'smooth'})
-    }, [scrollTop])
-
-
-
+ 
     useEffect(() => {
         if(window.location.pathname.includes('/following')){
             setcateOn(false)
@@ -91,7 +86,7 @@ const AirList = (props) => {
             setNumAirs(12)
             setIsFetching(false)
         }
-    },[props])
+    },[props.cateairs, props.searches, props.airs, props.myairs])
 
 
     useEffect(()=>{
@@ -129,66 +124,7 @@ const AirList = (props) => {
     }
 
     
-    const LiveModalShow = (liveModalId, liveModalPlatform) => {
-       
-        
-        const twitchIframe = (address) => {
-            const urlBase = "https://player.twitch.tv/?channel="
-            const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
     
-            return (
-                <div className="live_Modal" onClick={onBlur}>
-                    <iframe 
-                        className="live_iframe"
-                        title="live"
-                        src={urlBase+address+urlParams}  
-                        frameBorder="0" 
-                        allowFullScreen={true} 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            )
-        }
-    
-        const youtubeIframe = (address) => {
-            const urlBase = "https://www.youtube.com/embed/"
-            const urlParams = "?autoplay=1"
-         
-            return (
-                <div className="live_Modal" onClick={onBlur}>
-                    <iframe 
-                        className="live_iframe"
-                        title="live"
-                        src={urlBase+address+urlParams} 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; mute;" 
-                        allowFullScreen={true}
-                    >
-                    </iframe>
-                </div>
-                
-            )
-        }
-       
-        const liveView = (liveModalPlatform, liveModalId) => {
-            
-            if(liveModalId){
-                if(liveModalPlatform==="twitch"){
-                    return twitchIframe(liveModalId.split('/')[liveModalId.split('/').length-1])
-                }else if(liveModalPlatform==="youtube"){
-                    return youtubeIframe(liveModalId.split('=')[liveModalId.split('=').length-1])
-                }
-            }
-        }
-
-       
-       
-        return (
-            <Fragment>
-                {liveView(liveModalPlatform, liveModalId)}
-            </Fragment>
-        )
-    }
 
     
     const CateAirShow = () => {
@@ -267,7 +203,7 @@ const AirList = (props) => {
                                 <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
                             </div>
                             <div className='livemodal' onClick={onBlur}>
-                                {liveModalOn&&LiveModalShow(liveModalId,liveModalPlatform)}
+                                {liveModalOn&&<LiveModalShow liveModalId ={liveModalId} liveModalPlatform={liveModalPlatform} scroll={scrollTop}></LiveModalShow>}
                             </div>
                         </>
                     )

@@ -4,13 +4,12 @@ import history from '../history'
 import {        
     POST_PLACE,
     POST_LIVE,
-    POST_DATA,
     SET_PLACE
 } from './types'
 
-export const setPlaceLog = (user, pathname) => async dispatch => {
+export const setPlaceLog = (user, pathname) => dispatch => {
     const time = new Date().getTime()/1000;
-    const data = await {"username":user, "pathname":pathname, "residencetime":time};
+    const data = {"username":user, "pathname":pathname, "residencetime":time};
     dispatch({ type: SET_PLACE, payload: data})
 }
 
@@ -22,8 +21,8 @@ export const postPlaceLog = (user, prevpathname, postpathname, residencetime) =>
     params.append('residencetime',time)
     params.append('username',user);
     params.append('pathname',prevpathname)
-    const data = {"username":user.username, "pathname":postpathname, "residencetime":nowtime};
     await airs.post(`/logs/userHistory`, params)
+    const data = {"username":user.username, "pathname":postpathname, "residencetime":nowtime};
     dispatch({ type: POST_PLACE, payload: data})
 }
 

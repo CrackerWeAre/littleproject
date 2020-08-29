@@ -1,6 +1,5 @@
 
 import {        
-    POST_PLACE,
     POST_LIVE,
     POST_DATA,
     SET_PLACE

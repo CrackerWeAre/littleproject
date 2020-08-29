@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/css/AirView.css'
 import { connect } from 'react-redux'
 import { updateFollower, deleteFollower, getFollower, deleteBlock, updateBlock } from '../../actions/index'
@@ -37,6 +37,7 @@ const AirView = (props) => {
     }
 
 
+
     const sendBlock = (e) => {
         e.preventDefault();
         if(props.isSignedIn){
@@ -55,13 +56,9 @@ const AirView = (props) => {
     }
 
     const sendLogs = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, document.documentElement.scrollTop)
-        props.updatepostLiveLog(props.userEmail, props.data)
-
-        console.log()
-        //해야할 일
-        //여기서 liveRef로 scroll값을 구해서 렌더링 이후에 useEffect를 이용해 스크롤 위치로 이동시킬것
+        //props.updatepostLiveLog(props.userEmail, props.data, document.documentElement.scrollTop)
     }
 
 
