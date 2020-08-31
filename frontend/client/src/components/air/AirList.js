@@ -1,6 +1,7 @@
 import React, { Fragment ,useState, useEffect, useRef} from 'react'
 import { connect } from 'react-redux'
 import { fetchAirs, getFollower, fetchFollowingAirs, fetchCateAirs } from '../../actions'
+import { postLiveLog } from '../../actions/log'
 import AirView from './AirView'
 import '../../style/css/AirList.css'
 import spinner from '../../style/img/spinner.png'
@@ -25,12 +26,13 @@ const AirList = (props) => {
     const [liveOn, setliveOn] = useState(false)
     const [scrollTop, setScrollTop] = useState(0)
 
-    const sendLive = (channelId, platform, key, scroll) => {
+    const sendLive = (channelId, platform, key, scroll, data) => {
         setLiveModalId(channelId)
         setLiveModalPlatform(platform)
         setLiveModalOn(true)
         setLiveModalKey(key)
         setScrollTop(scroll)
+        console.log(data)
     }
 
     const closeLive = () => {
@@ -41,7 +43,7 @@ const AirList = (props) => {
     }
 
     useEffect(()=>{
-        console.log('hello')
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll)
 
@@ -86,7 +88,7 @@ const AirList = (props) => {
             setNumAirs(12)
             setIsFetching(false)
         }
-    },[props.cateairs, props.searches, props.airs, props.myairs])
+    },[props])
 
 
     useEffect(()=>{
@@ -124,9 +126,6 @@ const AirList = (props) => {
     }
 
     
-    
-
-    
     const CateAirShow = () => {
 
         return (
@@ -145,7 +144,6 @@ const AirList = (props) => {
     const handleScroll = () => {
         if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         setIsFetching(true);
-        
     }
 
     const myAirShow = () => {
@@ -190,7 +188,7 @@ const AirList = (props) => {
                     )
                 }
             ) 
-        } else if(airs.length>0){
+        } else if(airs.length>1){
             return airs.map(data => {
                 if(props.followings.includes(data._uniq)){
                     return null;
@@ -256,8 +254,9 @@ const mapStateToProps = (state) =>{
         followings: state.followings,
         blocking: state.blockairs,
         searches: Object.values(state.searches),
-        user: state.auth
+        user: state.auth,
+        logs: state.logs
     }
 }
 
-export default connect(mapStateToProps, { fetchAirs, getFollower, fetchCateAirs, fetchFollowingAirs })(AirList);
+export default connect(mapStateToProps, { fetchAirs, getFollower, fetchCateAirs, fetchFollowingAirs, postLiveLog })(AirList);

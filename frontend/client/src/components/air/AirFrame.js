@@ -71,7 +71,6 @@ export const AirFrame = (props) => {
         const liveView = (data) => {
             
             if(data){
-                console.log(data.liveDataHref)
                 if(data.platform==="twitch"){
                     return twitchIframe(data.liveDataHref.split('/')[data.liveDataHref.split('/').length-1])
                 }else if(data.platform==="youtube"){

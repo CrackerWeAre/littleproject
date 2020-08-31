@@ -15,9 +15,10 @@ const Main = (props) => {
         props.fetchAirs();
         cookieProcess()
         props.countCateAirs();
-        if(props.user.userInfo!==undefined){
-            props.fetchFollowingAirs(props.user.userInfo.email);
-            props.fetchBlockedAirs(props.user.userInfo.email);
+        if(props.user.userEmail!==undefined&&props.user.userEmail!==null){
+            console.log(props.user)
+            props.fetchFollowingAirs(props.user.userEmail);
+            props.fetchBlockedAirs(props.user.userEmail);
             if(props.user.userInfo.token_exp-nowUniTime<86400){
                 console.log("resignIn");
                 props.resignIn(props.user.userInfo);

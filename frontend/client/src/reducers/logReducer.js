@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
         case SET_PLACE :
             return {...state, ...action.payload};
         case POST_LIVE :
-            return {...state, ...action.payload};
+            return {...state};
         case POST_DATA :
             return {...state};
         default :
