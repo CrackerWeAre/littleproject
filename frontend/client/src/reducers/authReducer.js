@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     isSignedIn: null,
     token: null,
     userEmail: null,
+    userInfo: null
 };
 
 export default (state = INITIAL_STATE, action) => {

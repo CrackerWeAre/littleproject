@@ -9,11 +9,33 @@ import youtube from "../../style/img/platform/youtube.png"
 import vlive from "../../style/img/platform/vlive.png"
 import heartoff from "../../style/img/Simple Heart-1.png"
 import hearton from "../../style/img/Simple Heart.png"
+import airs from "../../apis/airs"
 
 const AirView = (props) => {
 
     const [fol_btn, setfol_btn] = useState(false);
     const [blo_btn, setblo_btn] = useState(false);
+    
+
+    const postLiveLog = (user, data) => {
+        const getCookie = (name) => {
+            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value ? value[2] : null;
+        };
+        var uid = getCookie('mkoaUID');
+        const params = new URLSearchParams();
+        if(props.isSignedIn){
+            params.append('username',user);
+        }else {
+            params.append('username',uid);
+        }
+        params.append('platform',data.platform);
+        params.append('_uniq',data._uniq);
+        params.append('channelId',data.channelId);
+        airs.post(`/logs/viewHistory`, params)
+    }
+
+    
     const showAlert = (e) => {
 
         e.preventDefault();
@@ -57,7 +79,8 @@ const AirView = (props) => {
 
     const sendLogs = (e) => {
         e.preventDefault();
-        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, document.documentElement.scrollTop)
+        postLiveLog(props.userEmail, props.data)
+        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, document.documentElement.scrollTop, props.data)
         //props.updatepostLiveLog(props.userEmail, props.data, document.documentElement.scrollTop)
     }
 

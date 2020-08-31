@@ -1,11 +1,7 @@
 import React, {Fragment, useEffect} from 'react'
 
-const LiveModalShow = ({liveModalId, liveModalPlatform, onBlur, scroll}) => {
+const LiveModalShow = ({liveModalId, liveModalPlatform, onBlur}) => {
        
-    useEffect(() => {
-        console.log(scroll)
-        window.scrollTo({top:scroll, left:0, behavior:'smooth'})
-    }, [scroll])
 
     const twitchIframe = (address) => {
         const urlBase = "https://player.twitch.tv/?channel="
