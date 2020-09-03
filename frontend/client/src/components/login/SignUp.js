@@ -8,12 +8,14 @@ import "../../style/css/Login.css";
 import SignUpBasic from './SignUpBasic';
 import SignUpSelection from './SignUpSelection';
 import SignUpTag from './SignUpTag';
+import bcrypt from 'bcrypt';
 
 export const SignUp = (props) => {
     const [id,setId] = useState('');
     const [nick,setNick] = useState('');
     const [password,setPassword] = useState('');
     const [passwordCheck,setPasswordCheck] = useState('');
+    const [hashpassword, setHashPassword] = useState('')
     const [year,setyear] = useState('2000');
     const [month,setmonth] = useState('01');
     const [day, setday] = useState('01');
@@ -51,11 +53,18 @@ export const SignUp = (props) => {
         }
     };
 
+    async function getPw(password, serial){
+        await bcrypt.hash(password, serial, (err, hash)=>{
+           setHashPassword(hash)
+        })
+     }
+
     const setandsign = (password, year, month, day) => {
-        var encryptedPassword = password
+        
         var birthday = year+"-"+month+"-"+day
         var serialNo = Math.floor(Math.random()*10000)
-        props.setsignUp({"id":id, "nickname":nick, "password":encryptedPassword, birthday, cateitems, tagitems, serialNo})
+        getPw(password, serialNo)
+        props.setsignUp({"id":id, "nickname":nick, "password":hashpassword, birthday, cateitems, tagitems, serialNo})
     }
     const onChangeId = (e) => {
         setId(e.target.value);

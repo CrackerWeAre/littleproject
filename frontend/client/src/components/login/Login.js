@@ -3,11 +3,13 @@ import GoogleLogin from "react-google-login";
 import { signIn, idCheck } from "../../actions/user";
 import { connect } from "react-redux";
 import "../../style/css/Login.css";
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import bcrypt from 'bcrypt';
 
 const Login = (props) => { 
     const [id, setId] = useState('')
+    const [pw, setPw] = useState('')
     const [serial, setSerial] = useState(0)
     const [idcheck, setidCheck] =useState(false)
     const [first, setFirst] = useState(true);
@@ -25,7 +27,11 @@ const Login = (props) => {
       setId(e.target.value);
     };
 
-    async function getData(id) {
+    const onChangePassword = (e) => {
+      setPw(e.target.value);
+    }
+
+    async function getId(id) {
       const params = new URLSearchParams();
       var idcheck = false
       var serialNo = 0
@@ -45,12 +51,21 @@ const Login = (props) => {
       }
     };
 
+    async function getPw(password, serial){
+       await bcrypt.hash(password, serial, (err, hash)=>{
+          console.log(hash)
+       })
+    }
+
     const onSubmit = (e) => {
       e.preventDefault();
-      getData(id)
-      
-   
-      
+      if(first){
+        getId(id) 
+        return
+      }else if(second){
+        getPw(pw, serial)
+      }
+  
       return
     }
    
@@ -154,6 +169,7 @@ const Login = (props) => {
                     type="password"
                     id="password"
                     placeholder="비밀번호를 입력하세요"
+                    onChange={onChangePassword}
                   />
                 </div>
               </div>
