@@ -3,7 +3,7 @@ import ArrowButton from './ArrowButton';
 
 const Section5 = () => {
     return (
-        <section id="section-5">
+        <section id="section-5" className="section-5">
             <ArrowButton />
         </section>
     );
