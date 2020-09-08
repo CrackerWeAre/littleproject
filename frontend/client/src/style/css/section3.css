@@ -1,0 +1,88 @@
+
+#section-3 {
+    padding: 0 1%!important;
+}
+
+.nav__platform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-basis: 10rem;
+    height: 10vh;
+}
+
+.nav__search {
+    padding-bottom: 5px;
+    padding-right: 5%;
+    
+}
+
+.nav__platforms {
+    display: flex;
+    list-style: none;
+}
+
+.nav__platforms li {
+    padding: 5px 20px;
+    margin: 0px 5px;
+}
+
+.fab {
+    font-size: 3rem;
+}
+
+.fa-youtube {
+    color: red;
+}
+
+.fa-twitch {
+    color: #9147ff;
+}
+
+.container__byplatform {
+    display: flex;
+    margin: 20px 5px;
+
+}
+
+.container__streamer {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.container__streamer li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.streamer__logo {
+}
+
+.streamer__logo img {
+    position: relative;
+    width: 3rem;
+    border-radius: 100%;
+    border: 2px solid #fbb30f;
+
+    z-index: 2;
+}
+
+.streamer__title {
+    position: relative;
+    padding: 10px 20px;
+    border: 2px solid #fbb30f;
+    border-left: none;
+    border-radius: 0 25px 25px 0;
+    font-size: 0.7rem;
+    transform: translateX(-10px);
+    z-index: 1;
+}
+
+.streamer__title:hover {
+    background-color: #fbb30f;
+    color: white;
+}
