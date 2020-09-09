@@ -2,7 +2,8 @@ import axios from 'axios'
 import history from '../history'
 
 import {        
-    SIGN_IN, 
+    SIGN_IN_GOOGLE, 
+    SIGN_IN_NORMAL,
     SIGN_OUT,
     RE_SIGN_IN,
     ID_CHECK,
@@ -47,7 +48,7 @@ export const idCheck = (id) => async dispatch => {
     
 }
 
-export const signIn = (response) => async dispatch => {
+export const signInGoogle = (response) => async dispatch => {
     const params = new URLSearchParams();
     params.append('googleId',response.profileObj.googleId);
     params.append('imageUrl',response.profileObj.imageUrl);
@@ -55,11 +56,28 @@ export const signIn = (response) => async dispatch => {
     params.append('name',response.profileObj.name);
 
             
-    const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login", params)
-    dispatch({ type: SIGN_IN, payload: newResponse.data, userEmail: response.profileObj.email})
+    const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login/google", params)
+    console.log(newResponse)
+    dispatch({ type: SIGN_IN_GOOGLE, payload: newResponse.data, userEmail: response.profileObj.email})
     history.push('/')
 }
 
+export const signInNormal = (id, hashPw) => async dispatch => {
+    const params = new URLSearchParams();
+    params.append('userID',id);
+    params.append('passWD',hashPw);
+
+    await axios.post("https://mkoa.sparker.kr:1323/login/login", params)
+        .then(res => {
+            dispatch({ type: SIGN_IN_NORMAL, payload: res.data, userEmail: id});
+            history.push('/');
+            }
+        ).catch(res=> {
+            alert('비밀번호가 틀립니다. 다시 입력해주세요.')
+            })
+   
+
+}
 export const resignIn = (response) => async dispatch => {
     const params = new URLSearchParams();
     params.append('googleId',response.googleId);
@@ -68,7 +86,7 @@ export const resignIn = (response) => async dispatch => {
     params.append('name',response.name);
 
             
-    const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login", params)
+    const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login/google", params)
     dispatch({ type: RE_SIGN_IN, payload: newResponse.data})
 }
 

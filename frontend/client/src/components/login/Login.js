@@ -1,22 +1,31 @@
 import React, { Component, useState } from "react";
 import GoogleLogin from "react-google-login";
-import { signIn, idCheck } from "../../actions/user";
+import { signIn, idCheck, signInGoogle, signInNormal } from "../../actions/user";
 import { connect } from "react-redux";
 import "../../style/css/Login.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+import history from '../../history'
 
 const Login = (props) => { 
     const [id, setId] = useState('')
     const [pw, setPw] = useState('')
-    const [serial, setSerial] = useState(0)
+    const [hashpassword, setHashPassword] = useState('')
+    const [serial, setSerial] = useState('')
     const [idcheck, setidCheck] =useState(false)
     const [first, setFirst] = useState(true);
-    const [data, setData] = useState({})
     const [second, setSecond] = useState(false)
+
+
+    const responseNormal = (id, hashPw) => {
+      props.signInNormal(id, hashPw)
+    }
+
+
     const responseGoogle = (response) => {
-      props.setsignIp(response);
+      console.log(response)
+      props.signInGoogle(response);
     };
 
     const failure = (response) => {
@@ -33,15 +42,14 @@ const Login = (props) => {
 
     async function getId(id) {
       const params = new URLSearchParams();
-      var idcheck = false
-      var serialNo = 0
       params.append('userID',id); 
       const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
-      console.log(newResponse)
+
       if(newResponse.data.Status){
           if(newResponse.data.Status==="true"){
+
             setidCheck(true)
-            setSerial(parseInt(newResponse.data.serialNo))
+            setSerial((newResponse.data.SerialNo))
             setFirst(false)
             setSecond(true)
           }else {
@@ -51,22 +59,26 @@ const Login = (props) => {
       }
     };
 
-    async function getPw(password, serial){
-       await bcrypt.hash(password, serial, (err, hash)=>{
-          console.log(hash)
-       })
+    
+    async function hashPw(password, serial){
+      await bcrypt.hash(password, serial, (err, hash) => {
+          setHashPassword(hash)
+          console.log(id, hash)
+          responseNormal(id, hash)
+      });
     }
+    
 
     const onSubmit = (e) => {
       e.preventDefault();
+
       if(first){
         getId(id) 
-        return
       }else if(second){
-        getPw(pw, serial)
+        hashPw(pw, serial)
+      }else {
+        return
       }
-  
-      return
     }
    
     
@@ -81,25 +93,25 @@ const Login = (props) => {
                 <h2>로그인</h2>
               </div>
               <form onSubmit={onSubmit}> 
-              <div className="account__field">
-                <label htmlFor="username" className="hidden"></label>
-                <div className="form__input">
-                  <input
-                    type="email"
-                    id="username"
-                    placeholder="이메일을 입력해주세요"
-                    onChange={onChangeId}
-                  />
+                <div className="account__field">
+                  <label htmlFor="username" className="hidden"></label>
+                  <div className="form__input">
+                    <input
+                      type="email"
+                      id="username"
+                      placeholder="이메일을 입력해주세요"
+                      onChange={onChangeId}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="account__button">
-                <button
-                  type="submit"
-                  className="btn btn__block btn__gradient--primary"
-                >
-                  <strong>다음</strong>
-                </button>
-              </div>
+                <div className="account__button">
+                  <button
+                    type="submit"
+                    className="btn btn__block btn__gradient--primary"
+                  >
+                    <strong>다음</strong>
+                  </button>
+                </div>
               </form>
               <hr data-text="or" className="line"></hr>
               <div className="account__button">
@@ -162,25 +174,25 @@ const Login = (props) => {
                 <h2>비밀번호 입력</h2>
               </div>
               <form onSubmit={onSubmit}> 
-              <div className="account__field">
-                <label htmlFor="username" className="hidden"></label>
-                <div className="form__input">
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="비밀번호를 입력하세요"
-                    onChange={onChangePassword}
-                  />
+                <div className="account__field">
+                  <label htmlFor="username" className="hidden"></label>
+                  <div className="form__input">
+                    <input
+                      type="password"
+                      id="password"
+                      placeholder="비밀번호를 입력하세요"
+                      onChange={onChangePassword}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="account__button">
-                <button
-                  type="submit"
-                  className="btn btn__block btn__gradient--primary"
-                >
-                  <strong>로그인하기</strong>
-                </button>
-              </div>
+                <div className="account__button">
+                  <button
+                    type="submit"
+                    className="btn btn__block btn__gradient--primary"
+                  >
+                    <strong>로그인하기</strong>
+                  </button>
+                </div>
               </form>
               <hr data-text="or" className="line"></hr>
             </div>
@@ -194,6 +206,7 @@ const Login = (props) => {
     <>
     {first&&loginFirst()}
     {second&&loginSecond()}
+
     </>
   );
 }
@@ -206,7 +219,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   setidCheck: idCheck,
-  setsignIp: signIn
+  signInGoogle: signInGoogle,
+  signInNormal: signInNormal,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

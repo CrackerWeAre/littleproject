@@ -1,5 +1,5 @@
 
-import {SIGN_IN, SIGN_OUT, RE_SIGN_IN, ID_CHECK, SIGN_UP} from '../actions/types'
+import {SIGN_IN_NORMAL, SIGN_IN_GOOGLE, SIGN_OUT, RE_SIGN_IN, ID_CHECK, SIGN_UP} from '../actions/types'
 
 const INITIAL_STATE = {
     isSignedIn: null,
@@ -10,7 +10,9 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SIGN_IN :
+        case SIGN_IN_GOOGLE :
+            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.serEmail, userInfo: action.payload};
+        case SIGN_IN_NORMAL :
             return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.serEmail, userInfo: action.payload};
         case SIGN_OUT :
             return {...INITIAL_STATE};
