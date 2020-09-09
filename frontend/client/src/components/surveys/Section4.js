@@ -13,7 +13,7 @@ import { faRunning } from '@fortawesome/free-solid-svg-icons';
 
 const Section4 = () => {
     return (
-        <section id="section-4">
+        <section id="section-4" className="section-4">
             <h1>관심 카테고리 선택</h1>
 
             <div className="categories">
