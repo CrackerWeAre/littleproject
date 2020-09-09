@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -14,7 +14,7 @@ const Header = styled.header`
     padding: 10px 0;
 
     a {
-      color: #fff;
+      color: ${props => props.isScroll ? '#fff' : '#000'};
       font-size: 1.75rem;
     }
   }
@@ -23,17 +23,14 @@ const Header = styled.header`
     display: flex;
     position: relative;
     float: right;
-    /* right: -11px; */
-    /* padding: 10px 0; */
 
     li a {
-      /* display: inline-block; */
-      background: #fff;
-      color: #000;
-      border: 1px solid #fff;
+      background: ${props => props.isScroll ? '#fff' : '#000'};
+      color: ${props => props.isScroll ? '#000' : '#fff'};
+      /* border: 1px solid ${props => props.isScroll ? '#fff' : '#000'}; */
       letter-spacing: -0.3px;
-      padding: 5px 18px 6px;
-      border-radius: 40px;
+      padding: 6px 18px 6px;
+      border-radius: 50px;
       font-size: 0.8125rem;
       font-weight: 700;
       text-align: center;
@@ -44,22 +41,41 @@ const Header = styled.header`
 `;
 
 const SurveyHeader = () => {
-  const getPageYOffset = () => window.pageYOffset;
-  console.log(window.pageYOffset);
+    const [isScroll, setIsScroll] = useState(false);
 
-  return (
-    <Header>
-      <h1>
-        <a href="/">MeerkatOnAir</a>
-      </h1>
+    const handleScroll = useCallback(() => {
+        if (window.pageYOffset === 0 && window.pageYOffset < window.innerHeight) {
+            setIsScroll(true);
+        }
+        if (window.pageYOffset >= window.innerHeight) {
+            setIsScroll(false);
+        }
+    }, []);
 
-      <ul>
-        <li>
-          <a href="/sign/login">Login</a>
-        </li>
-      </ul>
-    </Header>
-  );
+    useEffect(() => {
+        if (window.scrollY === 0) setIsScroll(true);
+        window.addEventListener('mousewheel', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('mousewheel', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [handleScroll]);
+
+    return (
+        <Header isScroll={isScroll}>
+            <h1>
+                <a href="/">MeerkatOnAir</a>
+            </h1>
+
+            <ul>
+              <li>
+                  <a href="/sign/login">Login</a>
+              </li>
+            </ul>
+        </Header>
+    );
 }
 
 export default SurveyHeader;

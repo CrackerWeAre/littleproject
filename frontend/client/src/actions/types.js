@@ -35,6 +35,9 @@ export const ID_CHECK = 'ID_CHECK'
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
 export const RE_SIGN_IN = 'RE_SIGN_IN'
+export const SIGN_IN_GOOGLE = 'SIGN_IN_GOOGLE'
+export const SIGN_IN_NORMAL = 'SIGN_IN_NORMAL'
+
 //to reduce typo
 
 export const FETCH_SCHEDULELIST = 'FETCH_SCHEDULELIST'

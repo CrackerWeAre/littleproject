@@ -8,12 +8,15 @@ import "../../style/css/Login.css";
 import SignUpBasic from './SignUpBasic';
 import SignUpSelection from './SignUpSelection';
 import SignUpTag from './SignUpTag';
+import bcrypt from 'bcryptjs';
 
 export const SignUp = (props) => {
     const [id,setId] = useState('');
     const [nick,setNick] = useState('');
     const [password,setPassword] = useState('');
     const [passwordCheck,setPasswordCheck] = useState('');
+    const [hashpassword, setHashPassword] = useState('')
+    const [serialNo, setSerailNo] = useState('')
     const [year,setyear] = useState('2000');
     const [month,setmonth] = useState('01');
     const [day, setday] = useState('01');
@@ -43,19 +46,47 @@ export const SignUp = (props) => {
         if(first){
             setfirst(false)
             setsecond(true)
+            const serial = Math.floor(Math.random()*10);
+            setSerailNo(serial)
+            getPw(password, serial)
         }else if(second){
             setsecond(false)
             setthrid(true)
         }else if(third){
-            setandsign(password, year, month, day);
+            setandsign(year, month, day);
         }
     };
 
-    const setandsign = (password, year, month, day) => {
-        var encryptedPassword = password
+    async function getData(id) {
+        const params = new URLSearchParams();
+        params.append('userID',id); 
+        const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
+        console.log(newResponse)
+        if(newResponse.data.Status){
+            if(newResponse.data.Status==="true"){
+                setTermError(true)
+            }else {
+                setTermError(false)
+            }
+        }
+    };
+    
+    async function getPw(password, serial){
+
+        await bcrypt.genSalt(serial, (err, salt) => {
+            bcrypt.hash(password, salt, (err, hash) => {
+                setSerailNo(salt)
+                setHashPassword(hash)
+                // Now we can store the password hash in db.
+            });
+        });
+    }
+
+    const setandsign = (year, month, day) => {
+        
         var birthday = year+"-"+month+"-"+day
-        var serialNo = Math.floor(Math.random()*10000)
-        props.setsignUp({"id":id, "nickname":nick, "password":encryptedPassword, birthday, cateitems, tagitems, serialNo})
+        
+        props.setsignUp({"id":id, "nickname":nick, "password":hashpassword, birthday, cateitems, tagitems, serialNo})
     }
     const onChangeId = (e) => {
         setId(e.target.value);
@@ -83,19 +114,7 @@ export const SignUp = (props) => {
         setday(e.target.value);
     };
 
-    async function getData(id) {
-        const params = new URLSearchParams();
-        params.append('userID',id); 
-        const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp/checkID", params)
-        console.log(newResponse)
-        if(newResponse.data.Status){
-            if(newResponse.data.Status==="true"){
-                setTermError(true)
-            }else {
-                setTermError(false)
-            }
-        }
-      };
+    
 
     const onfocusout = (e) => {
         getData(id)
