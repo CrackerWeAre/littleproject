@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import '../../style/css/MainSurvey.css';
 
@@ -11,8 +11,11 @@ import Section5 from './Section5';
 import Section6 from './Section6';
 import DotNavigation from './DotNavigation';
 
-
 export const MainSurvey = () => {
+    const currentRef = useRef();
+
+    const [current, setCurrent] = useState(0);
+    
     return (
         <>
             <SurveyHeader />
@@ -23,8 +26,9 @@ export const MainSurvey = () => {
             <Section4 />
             <Section5 />
             <Section6 />
+            
+            <DotNavigation current={current} ref={currentRef} />
 
-            <DotNavigation />
         </> 
     );
 }

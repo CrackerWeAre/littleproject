@@ -19,20 +19,19 @@ const Dot = styled.span`
   margin-bottom: 8px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: ${props =>  props.active ? 'rgba(80, 80, 80, 0.3)' : '#fbb30f'};
+  background-color: ${props =>  props.active ? '#fbb30f' : 'rgba(80, 80, 80, 0.3)'};
 `;
 
-
-const DotNavigation = ({ currentIndex }) => {
+const DotNavigation = React.forwardRef((props, ref) => {
   const sections = Array.from(document.querySelectorAll('section'));
   
   return (
     <Dots>
       {sections.map((section, index) => (
-        <Dot key={index} active={index} />   
+        <Dot key={index} active={props.current === index} />   
       ))}
     </Dots>
   );
-}
+});
 
 export default DotNavigation;
