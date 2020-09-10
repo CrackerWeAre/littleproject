@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Dots = styled.div`
@@ -23,12 +23,19 @@ const Dot = styled.span`
 `;
 
 const DotNavigation = React.forwardRef((props, ref) => {
-  const sections = Array.from(document.querySelectorAll('section'));
-  
+  const TOTAL_SECTIONS = props.sections.length;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const onClick = () => {
+    if (activeIndex === 0) {
+      window.scrollTo({ top: activeIndex, behavior: 'smooth' });
+    }
+  }
+
   return (
-    <Dots>
-      {sections.map((section, index) => (
-        <Dot key={index} active={props.current === index} />   
+    <Dots ref={ref}>
+      {props.sections.map((section, index) => (
+        <Dot key={index} active={activeIndex === index} onClick={onClick} />   
       ))}
     </Dots>
   );
