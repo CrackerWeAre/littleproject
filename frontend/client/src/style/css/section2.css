@@ -22,7 +22,7 @@ html {
   }
   
   #section-2 {
-    background : url('../../style/img/b2.png');
+    /* background : url('../../style/img/b2.png'); */
     background-size: cover;
     color: var(--tile-title-color);
     margin: 0;
