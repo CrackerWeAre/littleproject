@@ -100,6 +100,7 @@ function App(props) {
       setCookie(location);
     }else {
       console.log(place, calcCookie());
+      console.log(getCookie('mkoaUID'))
       setCookie(location)
     }
 
