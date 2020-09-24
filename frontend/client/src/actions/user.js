@@ -27,7 +27,7 @@ export const signUp = (response) => async dispatch => {
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp", params)
     console.log(newResponse)
     dispatch({ type: SIGN_UP, payload: newResponse.data})
-    
+    history.push('/');
 }
 
 export const idCheck = (id) => async dispatch => {
@@ -71,10 +71,9 @@ export const signInNormal = (id, hashPw) => async dispatch => {
         .then(res => {
             dispatch({ type: SIGN_IN_NORMAL, payload: res.data, userEmail: id});
             history.push('/');
-            }
-        ).catch(res=> {
+        }).catch(res=> {
             alert('비밀번호가 틀립니다. 다시 입력해주세요.')
-            })
+        })
    
 
 }
