@@ -12,7 +12,7 @@ import AdminRouter from './router/AdminRouter';
 import MypageRouter from './router/MypageRouter';
 import SignRouter from './router/SignRouter';
 import SurveyRouter from './router/SurveyRouter';
-import { placeholder } from '@babel/types';
+import airs from '../apis/airs'
 
 function App(props) {
 
@@ -96,12 +96,22 @@ function App(props) {
 
     //주소 체크
     var place = getCookie('path');
+    var id = getCookie('mkoaUID')
     if( place === null || place === undefined) {
       console.log(location)
       setCookie(location);
     }else {
-      console.log(place, calcCookie());
-      console.log(getCookie('mkoaUID'))
+      const params = new URLSearchParams();
+      if(props.user !== null ) {
+        params.append('username',props.user.userEmail);
+        console.log( props.user.userEmail ,place, calcCookie());
+      }else {
+        params.append('username',id);
+        console.log( id, place, calcCookie());
+      }
+      params.append('residencetime',calcCookie())
+      params.append('pathname',place)
+      airs.post(`/logs/userHistory`, params)
       setCookie(location)
     }
 
@@ -128,7 +138,8 @@ const mapStateToProps = (state) => {
   return { 
       drawerVal : state.maintheme.drawer,
       darkmode: state.maintheme.darkmode,
-      path: history.location
+      path: history.location,
+      user : state.auth.userInfo
     }
 }
 
