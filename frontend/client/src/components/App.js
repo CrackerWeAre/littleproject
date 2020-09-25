@@ -103,12 +103,13 @@ function App(props) {
     }else {
       const params = new URLSearchParams();
       if(props.user !== null ) {
-        params.append('username',props.user.userEmail);
+        params.append('username',props.user.email);
         console.log( props.user.userEmail ,place, calcCookie());
       }else {
         params.append('username',id);
         console.log( id, place, calcCookie());
       }
+      console.log()
       params.append('residencetime',calcCookie())
       params.append('pathname',place)
       airs.post(`/logs/userHistory`, params)
