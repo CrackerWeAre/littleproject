@@ -81,7 +81,7 @@ function App(props) {
     //주소 등록 시간 불러오기
     const getCookie = (name) => {
       var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-      console.log(value)
+      return value ? value[2] : null;
     }
 
     //주소가 다를시 시간 계산해서 보내주기
@@ -89,6 +89,7 @@ function App(props) {
       var date = new Date()
       var nowTime = date.getTime();
       var registerTime = document.cookie.math('(^|;) ?' + "registerTime" + '=([^;]*)(;|$)');
+      registerTime = registerTime ? registerTime[2] : null;
       var calcTime = nowTime-registerTime
       return calcTime;
     }
