@@ -88,7 +88,7 @@ function App(props) {
     const calcCookie = () => {
       var date = new Date()
       var nowTime = date.getTime();
-      var registerTime = document.cookie.math('(^|;) ?' + "registerTime" + '=([^;]*)(;|$)');
+      var registerTime = document.cookie.match('(^|;) ?' + "registerTime" + '=([^;]*)(;|$)');
       registerTime = registerTime ? registerTime[2] : null;
       var calcTime = nowTime-registerTime
       return calcTime;
