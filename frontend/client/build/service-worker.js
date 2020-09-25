@@ -37,4 +37,3 @@ workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/i
   
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });
-
