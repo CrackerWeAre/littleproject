@@ -105,11 +105,11 @@ function App(props) {
       const params = new URLSearchParams();
       if(props.user !== undefined || props.user !== null ) {
         params.append('username',props.user.email);
-        params.append('loginType','cookie');
+        params.append('loginType','user');
         console.log( props.user.email ,place, calcCookie());
       }else {
-        params.append('loginType','user');
         params.append('username',id);
+        params.append('loginType','cookie');
         console.log( id, place, calcCookie());
       }
       console.log()
