@@ -10,10 +10,10 @@ const CategoryMain = (props) => {
     
     useEffect(() => {
         props.fetchAirs();
-        if(props.user.userInfo!==undefined){
-            props.fetchFollowingAirs(props.user.userInfo.email);
-            props.fetchBlockedAirs(props.user.userInfo.email);
-            props.resignIn(props.user.userInfo)
+        if(props.user.userInfo !== undefined || props.user.userInfo !== null){
+            // props.fetchFollowingAirs(props.user.userInfo.email);
+            // props.fetchBlockedAirs(props.user.userInfo.email);
+            // props.resignIn(props.user.userInfo)
             
         }
         if(props.match.params._id){

@@ -13,6 +13,7 @@ import MypageRouter from './router/MypageRouter';
 import SignRouter from './router/SignRouter';
 import SurveyRouter from './router/SurveyRouter';
 import airs from '../apis/airs'
+import { prependToMemberExpression } from '@babel/types';
 
 function App(props) {
 
@@ -102,14 +103,17 @@ function App(props) {
       setCookie(location);
     }else {
       const params = new URLSearchParams();
-      if(props.user !== null ) {
+      if(props.user !== undefined || props.user !== null ) {
         params.append('username',props.user.email);
-        console.log( props.user.userEmail ,place, calcCookie());
+        params.append('loginType','cookie');
+        console.log( props.user.email ,place, calcCookie());
       }else {
+        params.append('loginType','user');
         params.append('username',id);
         console.log( id, place, calcCookie());
       }
       console.log()
+      
       params.append('residencetime',calcCookie())
       params.append('pathname',place)
       airs.post(`/logs/userHistory`, params)

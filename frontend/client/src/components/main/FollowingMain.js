@@ -10,11 +10,12 @@ const FollowingMain = (props) => {
     
     useEffect(() => {
         props.fetchAirs();
-        console.log(props.user)
-        if(props.user.userInfo!==undefined){
-            props.fetchFollowingAirs(props.user.userInfo.email);
-            props.fetchBlockedAirs(props.user.userInfo.email);
-            props.resignIn(props.user.userInfo)
+        
+        if(props.user.userInfo !== undefined || props.user.userInfo !== null ){
+            console.log(props.user.userInfo !== null)
+            // props.fetchFollowingAirs(props.user.userInfo.email);
+            // props.fetchBlockedAirs(props.user.userInfo.email);
+            // props.resignIn(props.user.userInfo)
         }
     }, [])
 
