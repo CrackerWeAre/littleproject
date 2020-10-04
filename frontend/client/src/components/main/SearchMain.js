@@ -10,7 +10,7 @@ const SearchMain = (props) => {
     
     useEffect(() => {
         props.fetchAirs();
-        if(props.user.userInfo!==undefined){
+        if(props.user.isSignedIn){
             props.fetchFollowingAirs(props.user.userInfo.email);
             props.fetchBlockedAirs(props.user.userInfo.email);
             props.resignIn(props.user.userInfo)

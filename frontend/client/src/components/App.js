@@ -103,12 +103,12 @@ function App(props) {
       setCookie(location);
     }else {
       const params = new URLSearchParams();
-      if(!props.sign) {
+      if(props.sign) {
         console.log(props.user)
         params.append('username',props.user.userEmail);
         params.append('loginType','user');
         console.log( props.user.userEmail ,place, calcCookie());
-      }else if(props.sign) {
+      }else if(!props.sign) {
         params.append('username',id);
         params.append('loginType','cookie');
         console.log( id, place, calcCookie());
