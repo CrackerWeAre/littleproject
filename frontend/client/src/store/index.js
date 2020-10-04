@@ -15,7 +15,7 @@ const enhancedReducer = persistReducer(persistConfig, reducers)
 const logger = createLogger();
 
 export default function configureStore(){
-    const store = createStore(enhancedReducer,composeEnhancers(applyMiddleware(logger, reduxThunk)));
+    const store = createStore(enhancedReducer,composeEnhancers(applyMiddleware(reduxThunk, logger)));
     const persistor = persistStore(store);
     return { store, persistor }
 }
