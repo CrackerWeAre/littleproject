@@ -103,12 +103,12 @@ function App(props) {
       setCookie(location);
     }else {
       const params = new URLSearchParams();
-      if(!props.user.isSignedIn) {
+      if(!props.sign) {
         console.log(props.user)
         params.append('username',props.user.userEmail);
         params.append('loginType','user');
         console.log( props.user.userEmail ,place, calcCookie());
-      }else if(props.user.isSignedIn) {
+      }else if(props.sign) {
         params.append('username',id);
         params.append('loginType','cookie');
         console.log( id, place, calcCookie());
@@ -146,7 +146,8 @@ const mapStateToProps = (state) => {
       drawerVal : state.maintheme.drawer,
       darkmode: state.maintheme.darkmode,
       path: history.location,
-      user : state.user
+      user : state.user,
+      sign : state.user.isSignedIn
     }
 }
 
