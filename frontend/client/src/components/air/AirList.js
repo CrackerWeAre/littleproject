@@ -127,11 +127,12 @@ const AirList = (props) => {
 
     
     const CateAirShow = () => {
-
+        var channelName = ''
+        channelName = props.data.params._id
         return (
             <Fragment>
                 <div className="container_title">
-                    {props.data.params._id} 채널
+                    {channelName.toUpperCase()} 채널
                 </div>
                 <div className="airlist_container">
                     {AirList()}
@@ -214,6 +215,8 @@ const AirList = (props) => {
                 }
             }
             )    
+        } else if(cateOn) {
+            return <div>현재 라이브 중인 방송이 없습니다</div>
         } else {
             return <div>해당 검색 결과가 없습니다.</div>
         }
