@@ -26,8 +26,10 @@ const AirView = (props) => {
         const params = new URLSearchParams();
         if(props.isSignedIn){
             params.append('username',user);
+            params.append('loginType','user');
         }else {
             params.append('username',uid);
+            params.append('loginType','cookie');
         }
         params.append('platform',data.platform);
         params.append('_uniq',data._uniq);

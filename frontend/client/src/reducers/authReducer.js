@@ -11,9 +11,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SIGN_IN_GOOGLE :
-            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.serEmail, userInfo: action.payload};
+            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.email, userInfo: action.payload};
         case SIGN_IN_NORMAL :
-            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.serEmail, userInfo: action.payload};
+            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.email, userInfo: action.payload};
         case SIGN_OUT :
             return {...INITIAL_STATE};
         case RE_SIGN_IN :

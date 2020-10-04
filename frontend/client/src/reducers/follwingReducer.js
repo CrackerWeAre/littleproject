@@ -6,7 +6,10 @@ export default (state = [], action) => {
             return {...state, ...action.payload };
         case FETCH_FOL_AIRS :
             const hello = []
-            if(action.payload!==[]){
+            
+            console.log(action.payload !== null)
+            if(action.payload!==[] || action.payload !== null ||action.payload !== undefined){
+                
                 Object.values(action.payload).map((innerdata) => {
                     return hello.push(innerdata['_uniq'])
                 })

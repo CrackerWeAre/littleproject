@@ -90,7 +90,7 @@ export const resignIn = (response) => async dispatch => {
 }
 
 export const signOut = () => {
-    history.push('/')
+    history.go('/')
     window.location.reload(false)
     return {
         type: SIGN_OUT

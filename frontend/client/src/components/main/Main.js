@@ -13,8 +13,8 @@ const Main = (props) => {
     const nowUniTime = new Date().getTime()/1000
     useEffect(() => {
         props.fetchAirs();
-        
         props.countCateAirs();
+        
         if(props.user.userEmail!==undefined&&props.user.userEmail!==null){
             props.fetchFollowingAirs(props.user.userEmail);
             props.fetchBlockedAirs(props.user.userEmail);
