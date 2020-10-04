@@ -141,11 +141,16 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
+  var user = null
+  if(state.auth.userInfo) {
+    user=state.auth.userInfo
+  }
+
   return { 
       drawerVal : state.maintheme.drawer,
       darkmode: state.maintheme.darkmode,
       path: history.location,
-      user : state.auth.userInfo
+      user : user
     }
 }
 
