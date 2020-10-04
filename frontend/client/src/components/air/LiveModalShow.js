@@ -1,14 +1,13 @@
 import React, {Fragment, useEffect} from 'react'
 
-const LiveModalShow = ({liveModalId, liveModalPlatform, onBlur}) => {
-       
-
+const LiveModalShow = ({liveModalId, liveModalPlatform}) => {
+    
     const twitchIframe = (address) => {
         const urlBase = "https://player.twitch.tv/?channel="
         const urlParams = "&parent=mkoa.sparker.kr&autoplay=1?"
 
         return (
-            <div className="live_Modal" onClick={onBlur}>
+            <div className="live_Modal">
                 <iframe 
                     className="live_iframe"
                     title="live"
@@ -26,7 +25,7 @@ const LiveModalShow = ({liveModalId, liveModalPlatform, onBlur}) => {
         const urlParams = "?autoplay=1"
      
         return (
-            <div className="live_Modal" onClick={onBlur}>
+            <div className="live_Modal">
                 <iframe 
                     className="live_iframe"
                     title="live"

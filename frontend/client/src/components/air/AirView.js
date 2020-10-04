@@ -82,7 +82,8 @@ const AirView = (props) => {
     const sendLogs = (e) => {
         e.preventDefault();
         postLiveLog(props.userEmail, props.data)
-        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, document.documentElement.scrollTop, props.data)
+        var location = document.getElementById(props.data._uniq)
+        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, location.offsetTop+location.offsetHeight, props.data)
         //props.updatepostLiveLog(props.userEmail, props.data, document.documentElement.scrollTop)
     }
 
@@ -127,7 +128,7 @@ const AirView = (props) => {
     }
     
     return (
-        <div className="card">
+        <div className="card" id={props.data._uniq}>
             <div className="container" >
                 {showFavorite()}
                 <div className="top-left">{props.data.liveAttdc}명 시청중</div>

@@ -31,8 +31,7 @@ const AirList = (props) => {
         setLiveModalPlatform(platform)
         setLiveModalOn(true)
         setLiveModalKey(key)
-        setScrollTop(scroll)
-        console.log(data)
+        setScrollTop(scroll-100)
     }
 
     const closeLive = () => {
@@ -41,6 +40,13 @@ const AirList = (props) => {
         setLiveModalKey('')
         setLiveModalOn(false)
     }
+
+    useEffect(()=>{
+        var location = document.querySelector('.livemodal')
+        if(location!==null){
+            window.scroll({top: location.offsetTop-100, left: 0, behavior: "smooth"})
+        }
+    },[liveModalId])
 
     useEffect(()=>{
 
