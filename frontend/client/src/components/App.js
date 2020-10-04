@@ -146,8 +146,8 @@ const mapStateToProps = (state) => {
       drawerVal : state.maintheme.drawer,
       darkmode: state.maintheme.darkmode,
       path: history.location,
-      user : state.user,
-      sign : state.user.isSignedIn
+      user : state.auth,
+      sign : state.auth.isSignedIn
     }
 }
 
