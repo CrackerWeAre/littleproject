@@ -2,7 +2,7 @@
 import {SIGN_IN_NORMAL, SIGN_IN_GOOGLE, SIGN_OUT, RE_SIGN_IN, ID_CHECK, SIGN_UP} from '../actions/types'
 
 const INITIAL_STATE = {
-    isSignedIn: null,
+    isSignedIn: false,
     token: null,
     userEmail: null,
     userInfo: null
