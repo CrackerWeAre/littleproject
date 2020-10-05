@@ -5,7 +5,6 @@ import afreecatv from "../../style/img/platform/afreeca.png";
 import twitch from "../../style/img/platform/twitch.png";
 import youtube from "../../style/img/platform/youtube.png";
 import vlive from "../../style/img/platform/vlive.png";
-import b2 from "../../style/img/b2.png";
 
 const Section2 = () => {
   return (
@@ -25,7 +24,7 @@ const Section2 = () => {
                 title="YouTube"
               />
               <div className="md-tile-inner">
-                <img className="md-icon" title="" alt="" src={ youtube } />
+                <img className="md-icon" title="YouTube" alt="YouTube" src={ youtube } />
                 <div className="md-title">
                   <span>YouTube</span>
                 </div>
@@ -43,7 +42,7 @@ const Section2 = () => {
                 title="Twitch"
               />
               <div className="md-tile-inner">
-                <img className="md-icon" title="" alt="" src={ twitch } />
+                <img className="md-icon" title="Twitch" alt="Twitch" src={ twitch } />
                 <div className="md-title">
                   <span>Twitch</span>
                 </div>
@@ -61,7 +60,7 @@ const Section2 = () => {
                 title="Afreeca"
               />
               <div className="md-tile-inner">
-                <img className="md-icon" title="" alt="" src={ afreecatv } />
+                <img className="md-icon" title="Afreeca" alt="Afreeca" src={ afreecatv } />
                 <div className="md-title">
                   <span>Afreeca</span>
                 </div>
@@ -79,7 +78,7 @@ const Section2 = () => {
                 title="Vlive"
               />
               <div className="md-tile-inner">
-                <img className="md-icon" title="" alt="" src={ vlive } />
+                <img className="md-icon" title="Vlive" alt="Vlive" src={ vlive } />
                 <div className="md-title">
                   <span>Vlive</span>
                 </div>
@@ -97,11 +96,10 @@ const Section2 = () => {
                 title="Naver Selective"
               />
               <div className="md-tile-inner">
-                <img
+                <div
                   className="md-icon"
-                  title=""
-                  alt=""
-                  src=""
+                  title="Naver Selective"
+                  alt="Naver Selective"
                 />
                 <div className="md-title">
                   <span>N Selective</span>
@@ -120,11 +118,10 @@ const Section2 = () => {
                 title="Naver Now"
               />
               <div className="md-tile-inner">
-                <img
+                <div
                   className="md-icon"
-                  title=""
-                  alt=""
-                  src=""
+                  title="Naver Now"
+                  alt="Naver Now"
                 />
                 <div className="md-title">
                   <span>N Now</span>
@@ -143,37 +140,13 @@ const Section2 = () => {
                 title="Kakao TV"
               />
               <div className="md-tile-inner">
-                <img
+                <div
                   className="md-icon"
-                  title=""
-                  alt=""
-                  src=""
+                  title="Kakao TV"
+                  alt="Kakao TV"
                 />
                 <div className="md-title">
                   <span>KaKao TV</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="8" add="false" index="7">
-            <div className="grid-tile">
-              <input
-                type="checkbox"
-                className="md-tile"
-                data-rid="8"
-                data-pos="7"
-                href="http://media.tmon.co.kr/schedule"
-                title="TV ON"
-              />
-              <div className="md-tile-inner">
-                <img
-                  className="md-icon"
-                  title=""
-                  alt=""
-                  src=""
-                />
-                <div className="md-title">
-                  <span>TV ON</span>
                 </div>
               </div>
             </div>

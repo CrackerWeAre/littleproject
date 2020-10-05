@@ -22,8 +22,6 @@ html {
   }
   
   #section-2 {
-    background : url('../../style/img/b2.png');
-    background-size: cover;
     color: var(--tile-title-color);
     margin: 0;
     overflow: hidden;
@@ -149,7 +147,7 @@ html {
   }
   
   .grid-tile input[type=checkbox]:checked + .md-tile-inner > img {
-    border: 1px solid #EB0056;
+    border: 1px solid #fbb30f;
   }
   
   .grid-tile input[type=checkbox]:focus {
@@ -158,11 +156,12 @@ html {
   
   #most-visited h1 {
     font-size : 2.8rem;
-    color : #EB0056;
+    color : #fbb30f;
   }
   
   #most-visited h6 {
-    color : #EB0056;
+    color: #666666;
+    font-size : 0.8rem;
     line-height: 2rem;
     opacity: 0.8;
   }
@@ -228,12 +227,44 @@ html {
   .grid-tile-container[index="4"] {
     transform: translate(-56px, 128px);
   }
+
+  .grid-tile-container[index="4"] .md-icon {
+    background-image: linear-gradient(transparent, transparent),url(https://im.pstatic.net/selective/img/sprite/sp_shopping_live15.svg);
+    background-position: -385px 0px;
+    border-radius: 0;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 523px 391px;
+    width: 45px;
+    height: 40px;
+  }
   .grid-tile-container[index="5"] {
+    transform: translate(56px, 128px);
+  }
+
+  .grid-tile-container[index="5"] .md-icon {
+    display: block;
+    content: "";
+    background-position: -110px 5px;
+    border-radius: 0;
+    width: 85px;
+    height: 40px;
+    background-image: linear-gradient(transparent,transparent),url(https://now.naver.com/img/sp_now.7654aa02.svg);
+    background-size: 380px 353px;
+  }
+
+  .grid-tile-container[index="6"] {
     transform: translate(168px, 128px);
   }
-  .grid-tile-container[index="6"] {
-    transform: translate(280px, 128px);
-  }
-  .grid-tile-container[index="7"] {
-    transform: translate(56px, 128px);
+
+  .grid-tile-container[index="6"] .md-icon {
+    display: inline-block;
+    border-radius: 0;
+    width: 104px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 22px;
+    background: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.png) 0 -115px no-repeat;
+    background-image: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.svg),none;
+    vertical-align: top;
   }

@@ -1,21 +1,24 @@
 
 #section-3 {
-    padding: 0 1%!important;
+
+    
+}
+
+hr {
+    border: 1px solid #fbb30f;
 }
 
 .nav__platform {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-end;
     flex-basis: 10rem;
     height: 10vh;
 }
 
 .nav__search {
-    padding-bottom: 5px;
-    padding-right: 5%;
-    
+    position: relative;
 }
 
 .nav__platforms {
@@ -42,21 +45,31 @@
 
 .container__byplatform {
     display: flex;
+    justify-content: center;
     margin: 20px 5px;
 
 }
 
 .container__streamer {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     list-style: none;
+    margin: 1%;
 }
 
 .container__streamer li {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
+    border-left: 2px solid #fbb30f;
+}
+
+.container__streamer li:first-child {
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #fbb30f;
 }
 
 .streamer__logo {
