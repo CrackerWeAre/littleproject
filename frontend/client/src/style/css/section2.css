@@ -153,17 +153,21 @@ html {
   .grid-tile input[type=checkbox]:focus {
     outline: none;
   }
-  
+
   #most-visited h1 {
-    font-size : 2.8rem;
-    color : #fbb30f;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    margin-bottom: 2vw;
   }
   
-  #most-visited h6 {
-    color: #666666;
-    font-size : 0.8rem;
-    line-height: 2rem;
-    opacity: 0.8;
+  #most-visited h1 span {
+    font-size : 2rem;
+    color : #EB0056;
+  }
+  
+  #most-visited p {
+    margin-bottom: 1rem;
   }
   
   .tab-tile-container {

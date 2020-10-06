@@ -10,8 +10,8 @@ const Section2 = () => {
   return (
     <section id="section-2">
       <div id="most-visited">
-        <h1>MeerkatOnAir</h1>
-        <h6>관심 플랫폼을 선택해주세요!</h6>
+        <h1><span>관심 플랫폼</span> 선택</h1>
+        <p>관심 플랫폼을 선택해주세요!</p>
         <div id="mv-tiles">
           <div className="grid-tile-container" rid="1" add="false" index="0">
             <div className="grid-tile">
