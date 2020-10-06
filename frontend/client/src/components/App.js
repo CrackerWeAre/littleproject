@@ -91,7 +91,7 @@ function App(props) {
       var nowTime = date.getTime();
       var registerTime = document.cookie.match('(^|;) ?' + "registerTime" + '=([^;]*)(;|$)');
       registerTime = registerTime ? registerTime[2] : null;
-      var calcTime = nowTime-registerTime
+      var calcTime = (nowTime-registerTime)/1000
       return calcTime;
     }
 
