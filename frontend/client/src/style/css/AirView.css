@@ -9,7 +9,7 @@
 .airview_img {
     border-radius: 5px 5px 5px 5px;
     width : 100%;
-    max-height : 200px!important;
+
     background: transparent;
     object-fit: contain;
     font-size: 19px;
