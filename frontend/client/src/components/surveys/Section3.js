@@ -218,11 +218,6 @@ const Section3 = () => {
 
         
       </div>
-
-      <button type="submit" className="submit-btn">제출하기</button>
-
-      
-
       <ArrowButton />
     </section>
   );

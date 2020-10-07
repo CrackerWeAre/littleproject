@@ -1,274 +1,117 @@
-html {
-    /* Material Design constants */
-    --md-edit-menu-size: 20px;
-    --md-fallback-letter-size: 16px;
-    --md-favicon-size: 32px;
-    --md-icon-margin-bottom: 16px;
-    --md-icon-size: 48px;
-    --md-max-tiles-row: 5;
-    --md-menu-margin-side: 2px;
-    --md-menu-margin-top: 4px;
-    --md-menu-size: 12px;
-    --md-tile-margin: 16px;
-    --md-tile-padding-top: 16px;
-    --md-tile-size: 112px;
-    --md-title-font-size: 12px;
-    --md-title-height: 24px;
-    --md-title-max-height: 28px;
-  
-    /* May be overridden by themes (on the body element). */
-    --icon-background-color: rgb(var(--GG100-rgb));
-    --tile-title-color: rgb(var(--GG800-rgb));
-  }
-  
+
   #section-2 {
-    color: var(--tile-title-color);
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    user-select: none;
-  }
-  
-  #section-2 a {
-    display: block;
-  }
-  
-  #section-2 a,
-  #section-2 a:active,
-  #section-2 a:hover,
-  #section-2 a:visited {
-    text-decoration: none;
-  }
-  
-  #most-visited {
-    margin-top: 100px;
-    text-align: -webkit-center;
-    user-select: none;
-    width: 100%;
-  }
-  
-  #mv-tiles {
-    font-size: 0;
-    opacity: 0;
-    position: relative;
-    transition: opacity 300ms;
-    user-select: none;
-    width: 336px; 
-    opacity: 1;
-    margin-top: 60px;
-  }
-
-  
-  .grid-tile-container {
-    position: absolute;
-    transition: transform 300ms ease-in-out;
-  }
-  
-  .grid-tile {
-    position: relative;
-    transition: transform 300ms ease-in-out;
-  }
-  
-  .md-tile {
-    border-radius: 0px;
-    box-sizing: border-box;
-    color: rgb(var(--tile-title-color));
-    cursor: pointer;
-    height: var(--md-tile-size);
-    margin-bottom: var(--md-tile-margin);
-    opacity: 1;
-    padding-top: var(--md-tile-padding-top);
-    position: relative;
-    transition-property:
-      background, background-color, border-color, box-shadow, opacity, filter;
-    width: var(--md-tile-size);
-  }
-  
-  .md-empty-tile {
-    display: none;
-  }
-  
-  .md-tile-inner {
-    align-items: center;
     display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    z-index: -1;
-  }
-  
-  .md-icon {
-    align-items: center;
-    background-color: var(--icon-background-color);
-    border-radius: 50%;
-    padding: 5px;
-    display: flex;
-    height: var(--md-icon-size);
+    flex-direction: column;
     justify-content: center;
-    width: var(--md-icon-size);
+    align-items: center;
   }
   
-  .md-title {
-    font-size: var(--md-title-font-size);
-    font-weight: 500;
-    max-height: var(--md-title-max-height);
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 88px;
-  }
-  
-  .md-title span {
-    line-height: var(--md-title-height);
-  }
-  
-  .md-menu {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    height: var(--md-menu-size);
-    margin: var(--md-menu-margin-top) var(--md-menu-margin-side);
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: var(--md-menu-size);
-  }
-   
-  .grid-tile input[type=checkbox], .grid-tile input[type=radio] {
-    padding: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    -webkit-appearance: none;
-  }
-  
-  .grid-tile input[type=checkbox]:checked + .md-tile-inner > img {
-    border: 1px solid #fbb30f;
-  }
-  
-  .grid-tile input[type=checkbox]:focus {
-    outline: none;
-  }
-
-  #most-visited h1 {
+  #section-2 h1 {
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: -0.4px;
     margin-bottom: 2vw;
   }
   
-  #most-visited h1 span {
-    font-size : 2rem;
-    color : #EB0056;
+  #section-2 h1 span {
+    color: #EB0056;
+    display: inline-block;
   }
   
-  #most-visited p {
+  #section-2 p {
     margin-bottom: 1rem;
   }
   
-  .tab-tile-container {
-    display: flex;
-    margin-top : 100px;
-  }
-  
-  .content-container {
-    display:flex;
-    flex-wrap: wrap;
-  }
-  
-  #section-2 .streamer {
+  #section-2 ul {
     position: relative;
-    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30rem;
+    background: #fcfcfc;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
   }
   
-  #section-2 .profile {
-    display: block;
+  #section-2 ul li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+  }
+  
+  #section-2 ul li label {
+    position: relative;
+    cursor: pointer;
+    width: 100px;
+    height: 70px;
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  #section-2 ul li label input[type="checkbox"] {
     position: absolute;
-    left: 10px;
-    top: 50%;
-    margin-top: -25px;
-    width: 46px;
-    height: 46px;
-    border: 2px solid #222;
-    border-radius: 50%;
-    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
   }
   
-  .icon_profile {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  #section-2 ul li label svg {
+    font-size: 22px;
+    margin-bottom: 10px;
   }
   
-  #section-2 .name {
-    position: absolute;
-    top: 15px;
-    margin-bottom: 4px;
-    line-height: 20px;
-    font-size: 15px;
-    font-weight: 700;
+  #section-2 ul li label span {
+    font-size: 12px;
+    text-align: center;
   }
 
-  .grid-tile-container[index="0"] {
-    transform: translate(-56px, 0px);
-  }
-  .grid-tile-container[index="1"] {
-    transform: translate(56px, 0px);
-  }
-  .grid-tile-container[index="2"] {
-    transform: translate(168px, 0px);
-  }
-  .grid-tile-container[index="3"] {
-    transform: translate(280px, 0px);
-  }
-  .grid-tile-container[index="4"] {
-    transform: translate(-56px, 128px);
+  .md-icon {
+    width: 33px;
   }
 
-  .grid-tile-container[index="4"] .md-icon {
+  .md-icon[title="Naver Selective"] {
     background-image: linear-gradient(transparent, transparent),url(https://im.pstatic.net/selective/img/sprite/sp_shopping_live15.svg);
     background-position: -385px 0px;
     border-radius: 0;
     display: inline-block;
     background-repeat: no-repeat;
     background-size: 523px 391px;
-    width: 45px;
-    height: 40px;
-  }
-  .grid-tile-container[index="5"] {
-    transform: translate(56px, 128px);
+    width: 44px;
+    height: 38px;
+    transform: scale(0.8);
+
   }
 
-  .grid-tile-container[index="5"] .md-icon {
+.md-icon[title="Naver Now"] {
     display: block;
     content: "";
-    background-position: -110px 5px;
+    background-position: -110px 0px;
     border-radius: 0;
-    width: 85px;
-    height: 40px;
+    width: 88px;
+    height: 36px;
     background-image: linear-gradient(transparent,transparent),url(https://now.naver.com/img/sp_now.7654aa02.svg);
     background-size: 380px 353px;
+    transform: scale(0.8);
+
   }
 
-  .grid-tile-container[index="6"] {
-    transform: translate(168px, 128px);
-  }
 
-  .grid-tile-container[index="6"] .md-icon {
+ .md-icon[title="Kakao TV"] {
     display: inline-block;
     border-radius: 0;
-    width: 104px;
-    height: 40px;
+    width: 101px;
+    height: 44px;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 44px;
     background: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.png) 0 -115px no-repeat;
     background-image: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.svg),none;
+    transform: scale(0.7);
     vertical-align: top;
   }
