@@ -15,7 +15,9 @@ const DrawerView = (props) => {
                     <a href={props.data.liveDataHref} title={props.data.liveDataTitle} target='_blank' rel="noopener noreferrer">
                         <div className="text">{props.data.liveDataTitle}</div>
                     </a>
-                    <a href={props.data.creatorDataHref} title={props.data.creatorDataName} target='_blank' rel="noopener noreferrer">{props.data.creatorDataName}</a>
+                    <a href={props.data.creatorDataHref} title={props.data.creatorDataName} target='_blank' rel="noopener noreferrer">
+                        <div className="text">{props.data.creatorDataName}</div>
+                    </a>
                 </div>  
             </div>
         </div>
