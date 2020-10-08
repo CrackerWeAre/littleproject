@@ -187,6 +187,17 @@ const AirList = (props) => {
             return item.map(data => {
                 if(props.blocking.includes(data._uniq)){
                     return null;
+                } else if(liveModalkey===data._id){
+                    return (
+                        <>
+                            <div className='item' key={data._id}>
+                                <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
+                            </div>
+                            <div className='livemodal' onClick={onBlur}>
+                                {liveModalOn&&<LiveModalShow liveModalId ={liveModalId} liveModalPlatform={liveModalPlatform} scroll={scrollTop}></LiveModalShow>}
+                            </div>
+                        </>
+                    )
                 } else
                     return (
                         <div className='item' key={data._id}>
