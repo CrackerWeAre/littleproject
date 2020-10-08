@@ -12,21 +12,78 @@ import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faRunning } from '@fortawesome/free-solid-svg-icons';
 
 const Section4 = () => {
-    const [isChecked, setIsChecked] = useState(false);
+    const [categories, setCategories] = useState([
+        {
+            id: 'game',
+            text: '게임',
+            checked: false,
+            icon: faGamepad
+        },
+        {
+            id: 'music',
+            text: '음악',
+            checked: false,
+            icon: faHeadphones
+        },
+        {
+            id: 'communication',
+            text: '소통',
+            checked: false,
+            icon: faComments
+        },
+        {
+            id: 'news',
+            text: '뉴스',
+            checked: false,
+            icon: faNewspaper
+        },
+        {
+            id: 'shopping',
+            text: '쇼핑',
+            checked: false,
+            icon: faShoppingCart
+        },
+        {
+            id: 'airwave',
+            text: '공중파',
+            checked: false,
+            icon: faTv
+        },
+        {
+            id: 'sports',
+            text: '스포츠/운동',
+            checked: false,
+            icon: faRunning
+        },
+        {
+            id: 'cooking',
+            text: '요리',
+            checked: false,
+            icon: faUtensils
+        }
+    ]);
 
     const onChange = useCallback((e) => {
-        if (e.target.checked === true) {
-            setIsChecked(e.target.checked);
+        const { checked, name } = e.target;
+
+        setCategories(categories.map(category => 
+            category.id === name ? { ...category, checked: !category.checked } : category
+        ));
+        
+        if (checked) {
             e.target.parentElement.style.boxShadow = 'inset -3px -3px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1)';
             e.target.parentElement.style.transfrom = 'scale(0.95)';
             e.target.nextElementSibling.style.color = '#fbb30f';
         } else {
-            setIsChecked(!isChecked);
             e.target.parentElement.style.boxShadow = '';
             e.target.parentElement.style.transfrom = '';
             e.target.nextElementSibling.style.color = '';
         }
-    }, [isChecked]);
+    }, [categories]);
+
+    const onSubmit = e => {
+        e.preventDefault();
+    }
 
     return (
         <section id="section-4" className="section-4">
@@ -34,113 +91,24 @@ const Section4 = () => {
             <p>관심있는 카테고리를 선택해주세요!</p>
 
             <ul>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="game" 
-                            id="game"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faGamepad} />
-                        <span className="checkmark">게임</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="music" 
-                            id="music"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faHeadphones} />
-                        <span className="checkmark">음악</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="communication" 
-                            id="communication"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faComments} />
-                        <span className="checkmark">소통</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="news"
-                            id="news"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faNewspaper} />
-                        <span className="checkmark">뉴스</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="shopping"
-                            id="shopping"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                        <span className="checkmark">쇼핑</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="airwave" 
-                            id="airwave"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faTv} />
-                        <span className="checkmark">공중파</span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="sports" 
-                            id="sports"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faRunning} />
-                        <span className="checkmark">스포츠/운동</span>
-                    </label>
-                </li>
-                <li>
-                    <label htmlFor="cooking">
-                        <input 
-                            type="checkbox" 
-                            name="cooking" 
-                            id="cooking"
-                            checked={isChecked}
-                            onChange={onChange}
-                        />
-                        <FontAwesomeIcon icon={faUtensils} />
-                        <span>요리</span>
-                    </label>
-                </li>
+                {categories.map(category => (
+                    <li key={category.id}>
+                        <label>
+                            <input 
+                                type="checkbox" 
+                                name={category.id}
+                                id={category.id}
+                                checked={category.checked}
+                                onChange={onChange}
+                            />
+                            <FontAwesomeIcon icon={category.icon} />
+                            <span className="checkmark">{category.text}</span>
+                        </label>
+                    </li>
+                ))}
             </ul>
             
-            <button type="submit" className="submit-btn">제출하기</button>
+            <button type="submit" className="submit-btn" onSubmit={onSubmit}>제출하기</button>
             
             <ArrowButton />
         </section>
