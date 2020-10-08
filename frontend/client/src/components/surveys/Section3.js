@@ -13,11 +13,13 @@ const Section3 = () => {
   return (
     <section id="section-3">
       <div id="title">
-      <h1><span>관심 스트리머</span> 선택</h1>
+        <h1>
+          <span>관심 스트리머</span> 선택
+        </h1>
         <p>관심 스트리머를 선택해주세요!</p>
       </div>
 
-      <nav className="nav__platform">
+      {/* <nav className="nav__platform">
         <div className="nav__search">
           <form className="nav__searchbox">
             <input type="search" className="search_input" placeholder="검색" />
@@ -26,23 +28,37 @@ const Section3 = () => {
             </button>
           </form>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="container__byplatform">
         <ul className="container__streamer youtube">
-          <li>
-            <label>
-              <input type="checkbox" name="youtube" id="youtube" />
-              <img
-                className="md-icon"
-                title="YouTube"
-                alt="YouTube"
-                src={youtube}
-              />
-              <span className="checkmark">YouTube</span>
-            </label>
-          </li>
           <div>
+            <li>
+              <label>
+                <input type="checkbox" name="youtube" id="youtube" />
+                <img
+                  className="md-icon"
+                  title="YouTube"
+                  alt="YouTube"
+                  src={youtube}
+                />
+                <span className="checkmark">YouTube</span>
+              </label>
+            </li>
+            <li>
+              <label id="mini-search">
+                <form className="nav__searchbox">
+                  <input
+                    type="search"
+                    className="search_input"
+                    placeholder="검색"
+                  />
+                  <button type="submit" className="search_button">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </button>
+                </form>{" "}
+              </label>
+            </li>
             <li>
               <div className="streamer__logo">
                 <img
@@ -115,29 +131,55 @@ const Section3 = () => {
               </div>
               <div className="streamer__title">우왁굳</div>
             </li>
+            <li>
+              <div className="streamer__logo">
+                <img
+                  src="https://static-cdn.jtvnw.net/jtv_user_pictures/9433d62c-2c38-44fe-9e8f-6875a23aaac4-profile_image-300x300.png"
+                  alt=""
+                />
+              </div>
+              <div className="streamer__title">따효니</div>
+            </li>
+            <li>
+              <div className="streamer__logo">
+                <img
+                  src="https://static-cdn.jtvnw.net/jtv_user_pictures/ebc60c08-721b-4572-8f51-8be7136a0c96-profile_image-300x300.png"
+                  alt=""
+                />
+              </div>
+              <div className="streamer__title">우왁굳</div>
+            </li>
           </div>
-          <li>
-            <label>
-              <span className="checkmark">NEXT PAGE</span>
-            </label>
-          </li>
         </ul>
 
         <ul className="container__streamer twitch">
-          <li>
-            <label>
-              <input type="checkbox" name="youtube" id="youtube" />
-              <img
-                className="md-icon"
-                title="Twitch"
-                alt="Twitch"
-                src={twitch}
-              />
-              <span className="checkmark">Twitch</span>
-            </label>
-          </li>
-
           <div>
+            <li>
+              <label>
+                <input type="checkbox" name="twitch" id="twitch" />
+                <img
+                  className="md-icon"
+                  title="Twitch"
+                  alt="Twitch"
+                  src={twitch}
+                />
+                <span className="checkmark">Twitch</span>
+              </label>
+            </li>
+            <li>
+              <label id="mini-search">
+                <form className="nav__searchbox">
+                  <input
+                    type="search"
+                    className="search_input"
+                    placeholder="검색"
+                  />
+                  <button type="submit" className="search_button">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </button>
+                </form>
+              </label>
+            </li>
             <li>
               <div className="streamer__logo">
                 <img
@@ -160,23 +202,33 @@ const Section3 = () => {
         </ul>
 
         <ul className="container__streamer afreeca">
-          <li>
-            <label>
-              <input type="checkbox" name="youtube" id="youtube" />
-              <img
-                className="md-icon"
-                title="Afreeca"
-                alt="Afreeca"
-                src={afreecatv}
-              />{" "}
-              <span className="checkmark">
-                {" "}
-                <span>Afreeca</span>
-              </span>
-            </label>
-          </li>
-
           <div>
+          <li>
+              <label>
+                <input type="checkbox" name="twitch" id="twitch" />
+                <img
+                  className="md-icon"
+                  title="Afreeca"
+                  alt="Afreeca"
+                  src={afreecatv}
+                />
+                <span className="checkmark">Afreeca</span>
+              </label>
+            </li>
+            <li>
+              <label id="mini-search">
+                <form className="nav__searchbox">
+                  <input
+                    type="search"
+                    className="search_input"
+                    placeholder="검색"
+                  />
+                  <button type="submit" className="search_button">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </button>
+                </form>
+              </label>
+            </li>
             <li>
               <div className="streamer__logo">
                 <img
@@ -215,9 +267,9 @@ const Section3 = () => {
             </li>
           </div>
         </ul>
-
-        
       </div>
+      <button type="submit" className="submit-btn">전체보기</button>
+
       <ArrowButton />
     </section>
   );

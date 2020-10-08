@@ -51,10 +51,16 @@ margin-bottom: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: 10% 0;
 }
+
+#section-3 #mini-search {
+    height:0;
+}
+
+#section-3 #mini-search .search_button{
+    right: 2rem;
+}
+
 
 #section-3 ul > div {
     position: relative;
@@ -62,11 +68,13 @@ margin-bottom: 1rem;
     width: 200px;
     background: #fcfcfc;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    padding: 1rem;
 }
 
 #section-3 ul li label input[type="checkbox"] {
@@ -131,34 +139,35 @@ margin-bottom: 1rem;
 
 .container__streamer li {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px;
-}
-
-.container__streamer li:first-child {
-    justify-content: center;
+    padding: 1rem;
 }
 
 .streamer__logo {
+    padding: 0.5rem 0;
 }
 
 .streamer__logo img {
     position: relative;
-    width: 1.8rem;
+    width: 4rem;
     border-radius: 100%;
     z-index: 2;
 }
 
 .streamer__title {
     position: relative;
-    padding: 10px 20px;
     border-left: none;
     border-radius: 0 25px 25px 0;
-    font-size: 0.7rem;
-    transform: translateX(-10px);
+    font-size: 1rem;
+    transform: translateY(5px);
     z-index: 1;
 }
 
 .streamer__title:hover {
 }
+
+#section-3 .md-icon {
+    width: 5rem;
+  }
