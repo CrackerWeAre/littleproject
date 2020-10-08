@@ -45,7 +45,7 @@
 }
 
 .drawer:hover {
-    overflow-y: scroll;
+    overflow: overlay;
 }
 
 .drawershort:hover {
