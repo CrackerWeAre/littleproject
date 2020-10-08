@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import ArrowButton from "./ArrowButton";
 import "../../style/css/section2.css";
 import afreecatv from "../../style/img/platform/afreeca.png";
@@ -6,154 +6,160 @@ import twitch from "../../style/img/platform/twitch.png";
 import youtube from "../../style/img/platform/youtube.png";
 import vlive from "../../style/img/platform/vlive.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faTv } from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-solid-svg-icons";
+import { faRunning } from "@fortawesome/free-solid-svg-icons";
+
 const Section2 = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const onChange = useCallback(
+    (e) => {
+      if (e.target.checked === true) {
+        setIsChecked(e.target.checked);
+        e.target.parentElement.style.boxShadow =
+          "inset -3px -3px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1)";
+        e.target.parentElement.style.transfrom = "scale(0.95)";
+        e.target.nextElementSibling.style.color = "#fbb30f";
+      } else {
+        setIsChecked(!isChecked);
+        e.target.parentElement.style.boxShadow = "";
+        e.target.parentElement.style.transfrom = "";
+        e.target.nextElementSibling.style.color = "";
+      }
+    },
+    [isChecked]
+  );
+
   return (
     <section id="section-2">
-      <div id="most-visited">
-        <h1><span>관심 플랫폼</span> 선택</h1>
+
+<h1>
+          <span>관심 플랫폼</span> 선택
+        </h1>
         <p>관심 플랫폼을 선택해주세요!</p>
-        <div id="mv-tiles">
-          <div className="grid-tile-container" rid="1" add="false" index="0">
-            <div className="grid-tile">
+
+        <ul>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="1"
-                data-pos="0"
-                href="https://www.youtube.com/"
-                title="YouTube"
+                name="youtube"
+                id="youtube"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
-                <img className="md-icon" title="YouTube" alt="YouTube" src={ youtube } />
-                <div className="md-title">
-                  <span>YouTube</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="2" add="false" index="1">
-            <div className="grid-tile">
+                <img
+                  className="md-icon"
+                  title="YouTube"
+                  alt="YouTube"
+                  src={youtube}
+                />              <span className="checkmark">Youtube</span>
+            </label>
+          </li>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="2"
-                data-pos="1"
-                href="https://www.twitch.tv/"
-                title="Twitch"
+                name="twitch"
+                id="twitch"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
-                <img className="md-icon" title="Twitch" alt="Twitch" src={ twitch } />
-                <div className="md-title">
-                  <span>Twitch</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="3" add="false" index="2">
-            <div className="grid-tile">
+                <img
+                  className="md-icon"
+                  title="Twitch"
+                  alt="Twitch"
+                  src={twitch}
+                />              <span className="checkmark">Twitch</span>
+            </label>
+          </li>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="3"
-                data-pos="2"
-                href="https://www.afreecatv.com/"
-                title="Afreeca"
+                name="afreeca"
+                id="afreeca"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
-                <img className="md-icon" title="Afreeca" alt="Afreeca" src={ afreecatv } />
-                <div className="md-title">
-                  <span>Afreeca</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="4" add="false" index="3">
-            <div className="grid-tile">
+                <img
+                  className="md-icon"
+                  title="Afreeca"
+                  alt="Afreeca"
+                  src={afreecatv}
+                />              <span className="checkmark">Afreeca TV</span>
+            </label>
+          </li>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="4"
-                data-pos="3"
-                href="https://vlive.com"
-                title="Vlive"
+                name="vlive"
+                id="vlive"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
-                <img className="md-icon" title="Vlive" alt="Vlive" src={ vlive } />
-                <div className="md-title">
-                  <span>Vlive</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="5" add="false" index="4">
-            <div className="grid-tile">
+                <img
+                  className="md-icon"
+                  title="Vlive"
+                  alt="Vlive"
+                  src={vlive}
+                />              
+                <span className="checkmark">Vlive</span>
+            </label>
+          </li>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="5"
-                data-pos="4"
-                href="https://shoppinglive.naver.com"
-                title="Naver Selective"
+                name="naver selective"
+                id="naver selective"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
                 <div
                   className="md-icon"
                   title="Naver Selective"
                   alt="Naver Selective"
-                />
-                <div className="md-title">
-                  <span>N Selective</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="6" add="false" index="5">
-            <div className="grid-tile">
+                />               <span className="checkmark">Naver Selective</span>
+            </label>
+          </li>
+          <li>
+            <label>
               <input
                 type="checkbox"
-                className="md-tile"
-                data-rid="6"
-                data-pos="5"
-                href="https://now.naver.com"
-                title="Naver Now"
+                name="naver now"
+                id="naver now"
+                checked={isChecked}
+                onChange={onChange}
               />
-              <div className="md-tile-inner">
-                <div
-                  className="md-icon"
-                  title="Naver Now"
-                  alt="Naver Now"
-                />
-                <div className="md-title">
-                  <span>N Now</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid-tile-container" rid="7" add="false" index="6">
-            <div className="grid-tile">
-              <input
-                type="checkbox"
-                className="md-tile"
-                data-rid="7"
-                data-pos="6"
-                href="https://tv.kakao.com/"
-                title="Kakao TV"
-              />
-              <div className="md-tile-inner">
-                <div
-                  className="md-icon"
-                  title="Kakao TV"
-                  alt="Kakao TV"
-                />
-                <div className="md-title">
-                  <span>KaKao TV</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+             
+                                <div className="md-icon" title="Naver Now" alt="Naver Now" />
 
+                <span className="checkmark">Naver Now</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input
+                type="checkbox"
+                name="kakao tv"
+                id="kakao tv"
+                checked={isChecked}
+                onChange={onChange}
+              />
+                <div className="md-icon" title="Kakao TV" alt="Kakao TV" />
+              <span className="checkmark">Kakao TV</span>
+            </label>
+          </li>
+        </ul>
       <ArrowButton />
     </section>
   );

@@ -39,7 +39,7 @@ const Section3 = () => {
                 alt="YouTube"
                 src={youtube}
               />
-              <span class="checkmark">YouTube</span>
+              <span className="checkmark">YouTube</span>
             </label>
           </li>
           <div>
@@ -118,7 +118,7 @@ const Section3 = () => {
           </div>
           <li>
             <label>
-              <span class="checkmark">NEXT PAGE</span>
+              <span className="checkmark">NEXT PAGE</span>
             </label>
           </li>
         </ul>
@@ -133,7 +133,7 @@ const Section3 = () => {
                 alt="Twitch"
                 src={twitch}
               />
-              <span class="checkmark">Twitch</span>
+              <span className="checkmark">Twitch</span>
             </label>
           </li>
 
@@ -169,7 +169,7 @@ const Section3 = () => {
                 alt="Afreeca"
                 src={afreecatv}
               />{" "}
-              <span class="checkmark">
+              <span className="checkmark">
                 {" "}
                 <span>Afreeca</span>
               </span>
@@ -218,11 +218,6 @@ const Section3 = () => {
 
         
       </div>
-
-      <button type="submit" class="submit-btn">제출하기</button>
-
-      
-
       <ArrowButton />
     </section>
   );
