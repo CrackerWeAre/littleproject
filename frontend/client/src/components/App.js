@@ -19,7 +19,7 @@ function App(props) {
 
   const [classDrawerName, setDrawerclassName] = useState('initialState')
   const [classModeName, setModeclassName] = useState('initialState')
-  
+  const [firstVisit, setFirstVisit] = useState(false)
   useEffect(() => {
     !isMobile&&!props.drawerVal ? setDrawerclassName('mainBody_drawer_off') : setDrawerclassName('mainBody_drawer_on')
     
@@ -59,7 +59,7 @@ function App(props) {
 
     // uid 체크 (Piclick User ID)
     var uid = getCookie('mkoaUID');
-    if (uid === null || uid.length !== 21) uid = uidCreate();
+    if (uid === null || uid.length !== 21) {uid = uidCreate(); setFirstVisit(true)};
     
     var todayCheckCookie = getCookie('todayCookie');
     if (todayCheckCookie == null) todayCheckCookie = 'None';
@@ -127,7 +127,7 @@ function App(props) {
     <Fragment>
         <Router history={history} >
               <Switch>
-                  <Route path="/" exact component = {MainRouter}></Route>
+                  <Route path="/" exact component = {!firstVisit ? MainRouter : SurveyRouter}></Route>
                   <Route path="/main" component = {MainRouter}></Route>
                   <Route path="/mypage"  component={MypageRouter}></Route>
                   <Route path="/admin" component = {AdminRouter}></Route>
