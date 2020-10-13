@@ -73,7 +73,7 @@
   }
 
   #section-2 .md-icon {
-    width: 33px;
+    width: 38px;
   }
 
   .md-icon[title="Naver Selective"] {
@@ -83,18 +83,18 @@
     display: inline-block;
     background-repeat: no-repeat;
     background-size: 523px 391px;
-    width: 44px;
+    width: 44px!important;
     height: 38px;
-    transform: scale(0.8);
+    transform: scale(0.9);
 
   }
 
-.md-icon[title="Naver Now"] {
+  .md-icon[title="Naver Now"] {
     display: block;
     content: "";
     background-position: -110px 0px;
     border-radius: 0;
-    width: 88px;
+    width: 88px!important;
     height: 36px;
     background-image: linear-gradient(transparent,transparent),url(https://now.naver.com/img/sp_now.7654aa02.svg);
     background-size: 380px 353px;
@@ -106,7 +106,7 @@
  .md-icon[title="Kakao TV"] {
     display: inline-block;
     border-radius: 0;
-    width: 101px;
+    width: 101px!important;
     height: 44px;
     font-size: 18px;
     line-height: 44px;

@@ -19,17 +19,6 @@ const Section3 = () => {
         <p>관심 스트리머를 선택해주세요!</p>
       </div>
 
-      {/* <nav className="nav__platform">
-        <div className="nav__search">
-          <form className="nav__searchbox">
-            <input type="search" className="search_input" placeholder="검색" />
-            <button type="submit" className="search_button">
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-          </form>
-        </div>
-      </nav> */}
-
       <div className="container__byplatform">
         <ul className="container__streamer youtube">
           <div>
