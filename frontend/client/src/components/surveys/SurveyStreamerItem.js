@@ -1,5 +1,13 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import afreecatv from "../../style/img/platform/afreeca.png";
+import twitch from "../../style/img/platform/twitch.png";
+import youtube from "../../style/img/platform/youtube.png";
+import vlive from "../../style/img/platform/vlive.png";
+
+
 const StreamerItem = ({ streamer }) => {
     return (
         <>

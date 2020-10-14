@@ -9,8 +9,11 @@ import twitch from "../../style/img/platform/twitch.png";
 import youtube from "../../style/img/platform/youtube.png";
 import vlive from "../../style/img/platform/vlive.png";
 
+import SurveyStreamerList from './SurveyStreamer';
+
 const Section3 = () => {
   return (
+
     <section id="section-3">
       <div id="title">
         <h1>
@@ -18,8 +21,9 @@ const Section3 = () => {
         </h1>
         <p>관심 스트리머를 선택해주세요!</p>
       </div>
+      <SurveyStreamerList></SurveyStreamerList>
 
-      <div className="container__byplatform">
+      {/* <div className="container__byplatform">
         <ul className="container__streamer youtube">
           <div>
             <li>
@@ -256,7 +260,7 @@ const Section3 = () => {
             </li>
           </div>
         </ul>
-      </div>
+      </div> */}
       <button type="submit" className="submit-btn">전체보기</button>
 
       <ArrowButton />

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetch_streamer_platform, fetch_streamer_platform } from '../../actions/streamers';
+import { fetch_streamer_platform } from '../../actions/streamers';
 import SurveyStreamerItem from './SurveyStreamerItem';
 
 const SurveyStreamerList = (props) => {
@@ -11,7 +11,7 @@ const SurveyStreamerList = (props) => {
     return (
         <>
             <div className="container__byplatform">
-                <ul className="container__streamer {}">
+                <ul className="container__streamer youtube">
                     <div>
                         {props.streamers.map(streamer => (
                             <SurveyStreamerItem key={streamer._id} streamer={streamer} />
