@@ -11,6 +11,7 @@ import blockReducer from './blockReducer';
 import myBloReducer from './myBloReducer';
 import mainReducer from './mainReducer';
 import scheduleReducer from './scheduleReducer';
+import surveyReducer from './surveyReducer';
 import logReducer from './logReducer';
 import cateCountReducer from './cateCountReducer';
 
@@ -27,6 +28,7 @@ export default combineReducers ({
     blockairs: blockReducer,
     maintheme: mainReducer,
     schedules: scheduleReducer,
+    survey: surveyReducer,
     logs: logReducer,
     catecounts: cateCountReducer,
 });

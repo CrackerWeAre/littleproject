@@ -1,21 +1,34 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetch_streamer_platform } from '../../actions/streamers';
+import { fetch_streamerlist } from '../../actions/streamers';
 import SurveyStreamerItem from './SurveyStreamerItem';
 
 const SurveyStreamerList = (props) => {
     useEffect(() => {
-        props.fetch_streamer_platform();
+        props.fetch_streamerlist();
     }, []);
 
     return (
         <>
             <div className="container__byplatform">
-                <ul className="container__streamer youtube">
+                <ul className={`container__streamer youtube`}>
                     <div>
-                        {props.streamers.map(streamer => (
-                            <SurveyStreamerItem key={streamer._id} streamer={streamer} />
-                        ))}
+                        {<SurveyStreamerItem platform='youtube' streamers={props.streamers_youtube}></SurveyStreamerItem>}
+                    </div>
+                </ul>
+                <ul className={`container__streamer twitch`}>
+                    <div>
+                        {<SurveyStreamerItem platform='twitch' streamers={props.streamers_twitch}></SurveyStreamerItem>}
+                    </div>
+                </ul>
+                <ul className={`container__streamer afreecatv`}>
+                    <div>
+                        {<SurveyStreamerItem platform='afreecatv' streamers={props.streamers_afreecatv}></SurveyStreamerItem>}
+                    </div>
+                </ul>
+                <ul className={`container__streamer vlive`}>
+                    <div>
+                        {<SurveyStreamerItem platform='vlive' streamers={props.streamers_vlive}></SurveyStreamerItem>}
                     </div>
                 </ul>
             </div>
@@ -25,8 +38,11 @@ const SurveyStreamerList = (props) => {
 
 const mapStateToProps = state => {
     return {
-        streamers: Object.values(state.streamers)
+        streamers_youtube: Object.values(state.survey).filter(item => item.platform === 'youtube').slice(0,10),
+        streamers_twitch: Object.values(state.survey).filter(item => item.platform === 'twitch').slice(0,10),
+        streamers_afreecatv: Object.values(state.survey).filter(item => item.platform === 'afreecatv').slice(0,10),
+        streamers_vlive: Object.values(state.survey).filter(item => item.platform === 'vlive').slice(0,10)
     };
 }
 
-export default connect(mapStateToProps, { fetch_streamer_platform })(SurveyStreamerList);
+export default connect(mapStateToProps, { fetch_streamerlist })(SurveyStreamerList);
