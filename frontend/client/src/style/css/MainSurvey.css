@@ -11,6 +11,293 @@
     padding: 0 5%;
 }
 
+/* Section-2 */
+#section-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#section-2 h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    margin-bottom: 2vw;
+}
+
+#section-2 h1 span {
+    color: #EB0056;
+    display: inline-block;
+}
+
+#section-2 p {
+    margin-bottom: 1rem;
+}
+
+#section-2 ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30rem;
+    background: #fcfcfc;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#section-2 ul li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+}
+
+#section-2 ul li label {
+    position: relative;
+    cursor: pointer;
+    width: 100px;
+    height: 70px;
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#section-2 ul li label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#section-2 ul li label svg {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#section-2 ul li label span {
+    font-size: 12px;
+    text-align: center;
+}
+
+#section-2 .md-icon {
+    width: 38px;
+}
+
+.md-icon[title="Naver Selective"] {
+    background-image: linear-gradient(transparent, transparent),url(https://im.pstatic.net/selective/img/sprite/sp_shopping_live15.svg);
+    background-position: -385px 0px;
+    border-radius: 0;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 523px 391px;
+    width: 44px!important;
+    height: 38px;
+    transform: scale(0.9);
+}
+
+.md-icon[title="Naver Now"] {
+    display: block;
+    content: "";
+    background-position: -110px 0px;
+    border-radius: 0;
+    width: 88px!important;
+    height: 36px;
+    background-image: linear-gradient(transparent,transparent),url(https://now.naver.com/img/sp_now.7654aa02.svg);
+    background-size: 380px 353px;
+    transform: scale(0.8);
+}
+
+.md-icon[title="Kakao TV"] {
+    display: inline-block;
+    border-radius: 0;
+    width: 101px!important;
+    height: 44px;
+    font-size: 18px;
+    line-height: 44px;
+    background: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.png) 0 -115px no-repeat;
+    background-image: url(//img1.daumcdn.net/kakaotv/2016/pw/kakaotv_logo_200821.svg),none;
+    transform: scale(0.7);
+    vertical-align: top;
+}
+
+/* Section-3 */
+#section-3 {
+    text-align: center;
+}
+
+#section-3 #title {
+    margin-top: 50px;
+    text-align: -webkit-center;
+    user-select: none;
+    width: 100%;
+}
+
+#section-3 h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    margin-bottom: 2vw;
+}
+  
+#section-3 h1 span {
+    font-size : 2rem;
+    color : #EB0056;
+}
+
+#section-3 p {
+    margin-bottom: 1rem;
+}
+
+#section-3 .submit-btn {
+    margin-top: 3vw;
+    background: #000;
+    color: #fff;
+    font-size: 0.87777vw;
+    letter-spacing: -0.0625vw;
+    line-height: 2.5vw;
+    width: auto;
+    min-width: 4.125vw;
+    height: 2.5vw;
+    padding: 0 1.5625vw;
+    border-radius: 2.083333333333333vw;
+    cursor: pointer;
+}
+
+#section-3 ul li label {
+    position: relative;
+    cursor: pointer;
+    width: 200px;
+    height: 70px;
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#section-3 #mini-search {
+    height: 0;
+}
+
+#section-3 #mini-search .search_button{
+    right: 2rem;
+}
+
+#section-3 ul > div {
+    position: relative;
+    cursor: pointer;
+    width: 200px;
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+#section-3 ul li label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#section-3 ul li label span {
+    font-size: 12px;
+    text-align: center;
+}
+
+.nav__platform {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-basis: 10rem;
+}
+
+.nav__search {
+    position: relative;
+}
+
+.nav__platforms {
+    display: flex;
+    list-style: none;
+}
+
+.nav__platforms li {
+    padding: 5px 20px;
+    margin: 0px 5px;
+}
+
+.fab {
+    font-size: 3rem;
+}
+
+.fa-youtube {
+    color: red;
+}
+
+.fa-twitch {
+    color: #9147ff;
+}
+
+.container__byplatform {
+    display: flex;
+    justify-content: center;
+    margin: 20px 5px;
+}
+
+.container__streamer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1%;
+}
+
+.container__streamer li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.streamer__logo {
+    padding: 0.5rem 0;
+}
+
+.streamer__logo img {
+    position: relative;
+    width: 4rem;
+    border-radius: 100%;
+    z-index: 2;
+}
+
+.streamer__title {
+    position: relative;
+    border-left: none;
+    border-radius: 0 25px 25px 0;
+    font-size: 1rem;
+    transform: translateY(5px);
+    z-index: 1;
+}
+
+/* .streamer__title:hover {
+} */
+
+#section-3 .md-icon {
+    width: 44px;
+}
+
 /* Section-4 */
 #section-4 {
     display: flex;

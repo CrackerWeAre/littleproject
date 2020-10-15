@@ -6,7 +6,6 @@ import { fetchFollowingAirs , fetchBlockedAirs, fetchAirs, countCateAirs} from '
 import { resignIn } from '../../actions/user'
 import AirFrame from '../air/AirFrame'
 import MainReview from '../reviews/MainReview'
-import { MainSurvey } from '../surveys/MainSurvey';
 import airs from '../../apis/airs'
 
 const Main = (props) => {

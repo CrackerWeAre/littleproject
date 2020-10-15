@@ -31,7 +31,7 @@ const StreamerItem = ({ platform, streamers }) => {
         </label>
       </li>
 
-      <li>
+      {/* <li>
         <label id="mini-search">
           <form className="nav__searchbox">
             <input type="search" className="search_input" placeholder="검색" />
@@ -40,7 +40,7 @@ const StreamerItem = ({ platform, streamers }) => {
             </button>
           </form>{" "}
         </label>
-      </li>
+      </li> */}
       {streamers.map((streamer) => (
         <li key={streamer._id}>
           <div className="streamer__logo">
