@@ -7,7 +7,7 @@ import twitch from "../../style/img/platform/twitch.png";
 import youtube from "../../style/img/platform/youtube.png";
 import vlive from "../../style/img/platform/vlive.png";
 
-const StreamerItem = ({ platform, streamers }) => {
+const StreamerItem = ({ platform, streamers, onChange }) => {
 
   const platform_logo = {
     'afreecatv': afreecatv,
@@ -41,12 +41,13 @@ const StreamerItem = ({ platform, streamers }) => {
           </form>{" "}
         </label>
       </li> */}
+
       {streamers.map((streamer) => (
         <li key={streamer._id}>
-          <div className="streamer__logo">
+          <div className="streamer__logo" title="streamer" name={streamer._id} checked={true} onClick={onChange}>
             <img src={streamer.creatorDataLogo} alt="" />
+            <div className="streamer__title">{streamer.creatorDataName}</div>
           </div>
-          <div className="streamer__title">{streamer.creatorDataName}</div>
         </li>
       ))}
     </>

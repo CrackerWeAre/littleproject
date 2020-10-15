@@ -13,22 +13,22 @@ const SurveyStreamerList = (props) => {
             <div className="container__byplatform">
                 <ul className={`container__streamer youtube`}>
                     <div>
-                        {<SurveyStreamerItem platform='youtube' streamers={props.streamers_youtube}></SurveyStreamerItem>}
+                        {<SurveyStreamerItem platform='youtube' onChange={props.onChange} streamers={props.streamers_youtube}></SurveyStreamerItem>}
                     </div>
                 </ul>
                 <ul className={`container__streamer twitch`}>
                     <div>
-                        {<SurveyStreamerItem platform='twitch' streamers={props.streamers_twitch}></SurveyStreamerItem>}
+                        {<SurveyStreamerItem platform='twitch' onChange={props.onChange} streamers={props.streamers_twitch}></SurveyStreamerItem>}
                     </div>
                 </ul>
                 <ul className={`container__streamer afreecatv`}>
                     <div>
-                        {<SurveyStreamerItem platform='afreecatv' streamers={props.streamers_afreecatv}></SurveyStreamerItem>}
+                        {<SurveyStreamerItem platform='afreecatv' onChange={props.onChange} streamers={props.streamers_afreecatv}></SurveyStreamerItem>}
                     </div>
                 </ul>
                 <ul className={`container__streamer vlive`}>
                     <div>
-                        {<SurveyStreamerItem platform='vlive' streamers={props.streamers_vlive}></SurveyStreamerItem>}
+                        {<SurveyStreamerItem platform='vlive' onChange={props.onChange} streamers={props.streamers_vlive}></SurveyStreamerItem>}
                     </div>
                 </ul>
             </div>

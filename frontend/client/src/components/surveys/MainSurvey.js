@@ -88,10 +88,15 @@ export const MainSurvey = () => {
     const [platforms, setPlatforms] = useState(PLATFORMS);
     const [categories, setCategories] = useState(CATEGORIES);
 
+    const [checkedData, setCheckedData] = useState({});
+    const [platform, setPlatform] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [streamer, setStreamer] = useState([]);
+
     const onChange = useCallback(
     (e) => {
-        const { checked, name } = e.target;
-
+        const { checked, name, title } = e.target;
+        console.log('e.target: ', e.target);
         setPlatforms(platforms.map(platform => 
             platform.id === name ? { ...platform, checked: !platform.checked } : platform
         ));
@@ -100,12 +105,34 @@ export const MainSurvey = () => {
             category.id === name ? { ...category, checked: !category.checked } : category
         ));
 
-        if (checked) {
+        if (streamer.includes(name)) {
+            console.log(1);
+            setStreamer(streamer.filter(item => item !== name));
+        } else if (checked) {
+            console.log(2);
+            if (title === 'platform') {
+                setPlatform([...platform, name]);
+            } else if (title === 'category') {
+                setCategory([...category, name]);
+            } else {
+                setStreamer([...streamer, name]);
+            }
+            console.log(platform, category, streamer);
+            
             e.target.parentElement.style.boxShadow =
                 "inset -3px -3px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1)";
             e.target.parentElement.style.transfrom = "scale(0.95)";
             e.target.nextElementSibling.style.color = "#fbb30f";
         } else {
+            console.log(3);
+            if (title === 'platform') {
+                setPlatform(platform.filter(item => item !== name));
+            } else if (title === 'category') {
+                setCategory(category.filter(item => item !== name));
+            } else {
+                setStreamer(streamer.filter(item => item !== name));
+            }
+            console.log(platform, category, streamer);
             e.target.parentElement.style.boxShadow = "";
             e.target.parentElement.style.transfrom = "";
             e.target.nextElementSibling.style.color = "";
@@ -114,6 +141,7 @@ export const MainSurvey = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        console.log("onSubmit: ", platform, category, streamer);
     }
 
     return (
@@ -141,6 +169,7 @@ export const MainSurvey = () => {
                                 <label>
                                 <input
                                     type="checkbox"
+                                    title="platform"
                                     name={platform.id}
                                     id={platform.id}
                                     checked={platform.checked}
@@ -174,7 +203,7 @@ export const MainSurvey = () => {
                         <p>관심 스트리머를 선택해주세요!</p>
                     </div>
                     
-                    <SurveyStreamerList></SurveyStreamerList>
+                    <SurveyStreamerList onChange={onChange}></SurveyStreamerList>
 
                     <button type="submit" className="submit-btn">전체보기</button>
 
@@ -191,7 +220,8 @@ export const MainSurvey = () => {
                             <li key={category.id}>
                                 <label>
                                     <input 
-                                        type="checkbox" 
+                                        type="checkbox"
+                                        title="category"
                                         name={category.id}
                                         id={category.id}
                                         checked={category.checked}
@@ -223,7 +253,7 @@ export const MainSurvey = () => {
             </section>
             
             <DotNavigation sections={sections} ref={currentRef} />
-        </> 
+        </>
     );
 }
 
