@@ -6,6 +6,7 @@ import afreecatv from "../../style/img/platform/afreeca.png";
 import twitch from "../../style/img/platform/twitch.png";
 import youtube from "../../style/img/platform/youtube.png";
 import vlive from "../../style/img/platform/vlive.png";
+import { directive } from "@babel/types";
 
 const StreamerItem = ({ platform, streamers, onChange }) => {
 
@@ -44,10 +45,13 @@ const StreamerItem = ({ platform, streamers, onChange }) => {
 
       {streamers.map((streamer) => (
         <li key={streamer._id}>
-          <div className="streamer__logo" title="streamer" name={streamer._id} checked={true} onClick={onChange}>
-            <img src={streamer.creatorDataLogo} alt="" />
-            <div className="streamer__title">{streamer.creatorDataName}</div>
-          </div>
+        <label>
+          <input  type="checkbox" title="streamer" name={streamer._uniq} checked={false} onClick={onChange}/>
+            <div className="streamer__logo" >
+              <img src={streamer.creatorDataLogo} alt="" />
+              <div className="streamer__title">{streamer.creatorDataName}</div>
+            </div>
+          </label>
         </li>
       ))}
     </>

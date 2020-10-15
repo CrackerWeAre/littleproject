@@ -105,26 +105,20 @@ export const MainSurvey = () => {
             category.id === name ? { ...category, checked: !category.checked } : category
         ));
 
-        if (streamer.includes(name)) {
-            console.log(1);
-            setStreamer(streamer.filter(item => item !== name));
-        } else if (checked) {
-            console.log(2);
+        if (checked) {
+
             if (title === 'platform') {
                 setPlatform([...platform, name]);
             } else if (title === 'category') {
                 setCategory([...category, name]);
-            } else {
-                setStreamer([...streamer, name]);
             }
             console.log(platform, category, streamer);
-            
             e.target.parentElement.style.boxShadow =
                 "inset -3px -3px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1)";
             e.target.parentElement.style.transfrom = "scale(0.95)";
             e.target.nextElementSibling.style.color = "#fbb30f";
         } else {
-            console.log(3);
+
             if (title === 'platform') {
                 setPlatform(platform.filter(item => item !== name));
             } else if (title === 'category') {
@@ -138,6 +132,17 @@ export const MainSurvey = () => {
             e.target.nextElementSibling.style.color = "";
         }
     }, [platforms, categories]);
+
+    const streamerOnChange = e => {
+        const { checked, name, title } = e.target;
+        console.log(checked, name, title)
+        if(streamer.includes(name)){
+            setStreamer(platform.filter(item => item !== name))
+        } else if (checked) {
+            setStreamer([...streamer, name]);
+            console.log(platform, category, streamer);
+        } 
+    }
 
     const onSubmit = e => {
         e.preventDefault();
@@ -203,7 +208,7 @@ export const MainSurvey = () => {
                         <p>관심 스트리머를 선택해주세요!</p>
                     </div>
                     
-                    <SurveyStreamerList onChange={onChange}></SurveyStreamerList>
+                    <SurveyStreamerList onChange={streamerOnChange}></SurveyStreamerList>
 
                     <button type="submit" className="submit-btn">전체보기</button>
 
