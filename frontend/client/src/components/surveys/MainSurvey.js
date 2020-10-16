@@ -160,7 +160,6 @@ export const MainSurvey = () => {
                 <ArrowButton />
             </MainSection>
 
-            <form onSubmit={onSubmit}>
                 {/* Section2 */}
                 <section id="section-2">
                     <h1>
@@ -239,11 +238,10 @@ export const MainSurvey = () => {
                         ))}
                     </ul>
                     
-                    <button type="submit" className="submit-btn">제출하기</button>
+                    <button type="submit" className="submit-btn" onClick={onSubmit}>제출하기</button>
                     
                     <ArrowButton />
                 </section>
-            </form>
 
             {/* Section5 */}
             <section id="section-5" className="section-5">
