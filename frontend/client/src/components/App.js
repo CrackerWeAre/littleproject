@@ -35,6 +35,11 @@ function App(props) {
     residenceCookieProcess(history.location.pathname)
   },[props.path])
 
+  useEffect(() => {
+    console.log("works")
+    cookieProcess()
+  },[])
+
   const cookieProcess = () => {
     const setCookie = (name, value, exp) => {
         var date = new Date();
@@ -59,7 +64,10 @@ function App(props) {
 
     // uid 체크 (Piclick User ID)
     var uid = getCookie('mkoaUID');
-    if (uid === null || uid.length !== 21) {uid = uidCreate(); setFirstVisit(true)};
+    if (uid === null || uid.length !== 21) {
+      uid = uidCreate(); 
+      setFirstVisit(true)
+    };
     
     var todayCheckCookie = getCookie('todayCookie');
     if (todayCheckCookie == null) todayCheckCookie = 'None';
@@ -99,7 +107,6 @@ function App(props) {
     var place = getCookie('path');
     var id = getCookie('mkoaUID')
     if( place === null || place === undefined) {
-      console.log(location)
       setCookie(location);
     }else {
       const params = new URLSearchParams();
@@ -113,7 +120,6 @@ function App(props) {
         params.append('loginType','cookie');
         console.log( id, place, calcCookie());
       }
-      console.log()
       
       params.append('residencetime',calcCookie())
       params.append('pathname',place)
@@ -127,7 +133,7 @@ function App(props) {
     <Fragment>
         <Router history={history} >
               <Switch>
-                  <Route path="/" exact component = {!firstVisit ? MainRouter : SurveyRouter}></Route>
+                  <Route path="/" exact component = {firstVisit ? SurveyRouter : MainRouter}></Route>
                   <Route path="/main" component = {MainRouter}></Route>
                   <Route path="/mypage"  component={MypageRouter}></Route>
                   <Route path="/admin" component = {AdminRouter}></Route>

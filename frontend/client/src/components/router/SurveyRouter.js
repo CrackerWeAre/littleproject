@@ -32,6 +32,7 @@ function SignRouter(props) {
         
          
               <Switch>
+                    <Route path="/" exact component = {MainSurvey}></Route>
                     <Route path="/survey" exact component = {MainSurvey}></Route>
                     <Route path={`${props.match.path}/category`}  component = {SurveyCategory}></Route>
                     <Route path={`${props.match.path}/live`} component = {SurveyLive}></Route>
