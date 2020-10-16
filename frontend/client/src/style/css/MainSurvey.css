@@ -172,7 +172,6 @@
 #section-3 ul li label {
     position: relative;
     cursor: pointer;
-    width: 200px;
     height: 70px;
     background: #fcfcfc;
     display: flex;
@@ -193,6 +192,7 @@
     position: relative;
     cursor: pointer;
     width: 200px;
+    min-height: 650px;
     background: #fcfcfc;
     display: flex;
     flex-direction: row;
@@ -263,7 +263,8 @@
     margin: 1%;
 }
 
-.container__streamer li {
+.container__streamer li:first-child {
+    width:100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -271,8 +272,18 @@
     padding: 1rem;
 }
 
+.container__streamer li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width:50%;
+}
+
 .streamer__logo {
     padding: 0.5rem 0;
+    width: 100%;
 }
 
 .streamer__logo img {

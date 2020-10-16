@@ -19,12 +19,11 @@ const StreamerItem = ({ platform, streamers, onChange }) => {
   
   return (
     <>
-      <li>
+      <li title={platform}>
         <label>
           <input type="checkbox" name={platform} id={platform} />
           <img
             className="md-icon"
-            title={platform}
             alt={platform}
             src={platform_logo[platform]}
           />
@@ -44,7 +43,7 @@ const StreamerItem = ({ platform, streamers, onChange }) => {
       </li> */}
 
       {streamers.map((streamer) => (
-        <li key={streamer._id}>
+        <li key={streamer._id} title={streamer.creatorDataName}>
         <label>
           <input  type="checkbox" title="streamer" name={streamer._uniq} checked={false} onClick={onChange}/>
             <div className="streamer__logo" >
