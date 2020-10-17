@@ -31,19 +31,23 @@ function App(props) {
   }, [props.darkmode])
 
   useEffect(() => {
-    cookieProcess()
-    residenceCookieProcess(history.location.pathname)
+
+    if(window.performance.navigation.type===0){
+      cookieProcess()
+    }else if(window.performance.navigation.type===1){
+      residenceCookieProcess(history.location.pathname)
+    }else {
+
+    }
   },[props.path])
 
-  useEffect(() => {
-    console.log("works")
-    cookieProcess()
-  },[])
 
   const cookieProcess = () => {
     const setCookie = (name, value, exp) => {
         var date = new Date();
         date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+        // document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;';
+        // remove it before build 
         document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
     };
     
@@ -83,6 +87,10 @@ function App(props) {
       var date = new Date();
       var registerTime = date.getTime()
       date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
+      //test in local
+      // document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;';
+      // document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;';
+      // remove it before build 
       document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
       document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
     }
@@ -107,11 +115,12 @@ function App(props) {
     var place = getCookie('path');
     var id = getCookie('mkoaUID')
     if( place === null || place === undefined) {
+      //주소 등록 안될시 등록
       setCookie(location);
-    }else {
+    }else if(place !== props.path.pathname){
+      //주소 비교를 통한 로그 송신
       const params = new URLSearchParams();
       if(props.sign) {
-        console.log(props.user)
         params.append('username',props.user.userEmail);
         params.append('loginType','user');
         console.log( props.user.userEmail ,place, calcCookie());
@@ -125,6 +134,12 @@ function App(props) {
       params.append('pathname',place)
       airs.post(`/logs/userHistory`, params)
       setCookie(location)
+    }
+
+    if( window.performance.navigation.type ===1) {
+      setCookie(location);
+    }else if( window.performance.navigation.type ===2) {
+
     }
 
   }
