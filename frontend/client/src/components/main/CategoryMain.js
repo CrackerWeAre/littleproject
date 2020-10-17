@@ -8,28 +8,16 @@ import { resignIn } from '../../actions/user'
 
 const CategoryMain = (props) => {
     
-    useEffect(() => {
-        props.fetchAirs();
-        if(props.user.userInfo !== undefined || props.user.userInfo !== null){
-            // props.fetchFollowingAirs(props.user.userInfo.email);
-            // props.fetchBlockedAirs(props.user.userInfo.email);
-            // props.resignIn(props.user.userInfo)
-            
-        }
-        if(props.match.params._id){
-            const data = props.match.params._id
-            props.fetchCateAirs(data.toUpperCase())
-        }
-    }, [])
 
 
     useEffect(() => {
         window.scrollTo(0, 0)
+
         if(props.match.params._id){
             const data = props.match.params._id
             props.fetchCateAirs(data.toUpperCase())
         }
-    }, [props.match])
+    }, [props.match.params._id])
 
     return(
         
