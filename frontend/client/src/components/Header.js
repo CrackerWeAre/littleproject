@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 import {searchStreamer, drawerSet, darkModeSet} from '../actions/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import history from '../history'
 
 const Header = (props) => {
 
@@ -24,6 +25,11 @@ const Header = (props) => {
     }, [props.darkmode])
 
 
+    const reload = (e) => {
+        e.preventDefault();
+        window.location.pathname='/'
+
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,7 +50,7 @@ const Header = (props) => {
                     <i className="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
                 </Link>
                 <Link to="/">
-                    <img className="main_logo" src={Logo} alt="logo" title="물지 않아요!"></img>
+                    <img className="main_logo" src={Logo} alt="logo" title="물지 않아요!" onClick={reload}></img>
                 </Link>
                 <nav className="header_nav">
 
