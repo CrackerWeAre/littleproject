@@ -46,9 +46,12 @@ function App(props) {
     const setCookie = (name, value, exp) => {
         var date = new Date();
         date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-        // document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;';
-        // remove it before build 
-        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
+        if(window.location.href.includes('localhost')){
+          document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;';
+        }else {
+          document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
+        }
+        
     };
     
     const getCookie = (name) => {
@@ -88,11 +91,15 @@ function App(props) {
       var registerTime = date.getTime()
       date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
       //test in local
-      // document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;';
-      // document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;';
-      // remove it before build 
-      document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
-      document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
+      if(window.location.href.includes('localhost')){
+        document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;';
+        document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;';
+      }else {
+        document.cookie =  'path = ' + path + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
+        document.cookie =  'registerTime = ' + registerTime + ';expries' + date.toUTCString() + ';path=/;SameSite=none;Secure=mkoa.sparker.kr';
+      }
+      
+      
     }
 
     //주소 등록 시간 불러오기
@@ -134,12 +141,6 @@ function App(props) {
       params.append('pathname',place)
       airs.post(`/logs/userHistory`, params)
       setCookie(location)
-    }
-
-    if( window.performance.navigation.type ===1) {
-      setCookie(location);
-    }else if( window.performance.navigation.type ===2) {
-
     }
 
   }
