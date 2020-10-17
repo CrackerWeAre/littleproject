@@ -16,6 +16,7 @@ import FollowingMain from '../main/FollowingMain';
 import CategoryMain from '../main/CategoryMain';
 import SearchMain from '../main/SearchMain';
 import SchedulePage from '../schedule/SchedulePage';
+import RecommendMain from '../main/RecommendMain'
 import {setPlaceLog, postPlaceLog} from "../../actions/log";
 
 
@@ -46,6 +47,7 @@ function MainRouter(props) {
               <Switch>
                     <Route path="/" exact component = {Main}></Route>
                     <Route path="/main" exact component = {Main}></Route>
+                    <Route path={`${props.match.path}/recommend`} component = {RecommendMain}></Route>
                     <Route path={`${props.match.path}/following`}  component = {FollowingMain}></Route>
                     <Route path={`${props.match.path}/directory/:_id`} component = {CategoryMain}></Route>
                     <Route path={`${props.match.path}/search/:_id`} component = {SearchMain}></Route>

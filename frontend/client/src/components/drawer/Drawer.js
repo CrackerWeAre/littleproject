@@ -16,6 +16,11 @@ const Drawer = (props) => {
   const shopping = props.catecounts['SHOPPING']
   const sports = props.catecounts['SPORTS & EXERCISE']
 
+
+  useEffect(() => {
+    console.log(props.user.isSignedIn)
+  }, [])
+
   useEffect(() => {
     props.darkmode
       ? setModeclassName("drawer dark")
@@ -52,7 +57,7 @@ const Drawer = (props) => {
             </div>
           </div>
         </Link>
-        <Link to={"/main/following"}>
+        {props.user.isSignedIn&&<Link to={"/main/following"}>
           <div className="category_item">
             <div className="contents">
               <i
@@ -63,7 +68,19 @@ const Drawer = (props) => {
               <span className="category_name">팔로잉</span>
             </div>
           </div>
-        </Link>
+        </Link>}
+        {!props.user.isSignedIn&&<Link to={"/main/recommend"}>
+          <div className="category_item">
+            <div className="contents">
+              <i
+                className="far fa-thumbs-up logo"
+                alt="following"
+                title="추천"
+              ></i>
+              <span className="category_name">추천</span>
+            </div>
+          </div>
+        </Link>}
         <Link to={"/main/schedule"}>
           <div className="category_item">
             <div className="contents">
