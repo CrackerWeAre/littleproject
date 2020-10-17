@@ -10,6 +10,7 @@ import vlive from "../../style/img/platform/vlive.png"
 import heartoff from "../../style/img/Simple Heart-1.png"
 import hearton from "../../style/img/Simple Heart.png"
 import airs from "../../apis/airs"
+import { exportNamespaceSpecifier } from '@babel/types';
 
 const AirView = (props) => {
 
@@ -83,7 +84,12 @@ const AirView = (props) => {
         e.preventDefault();
         postLiveLog(props.userEmail, props.data)
         var location = document.getElementById(props.data._uniq)
-        props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, location.offsetTop+location.offsetHeight, props.data)
+        if(props.data.platform==='afreecatv'||props.data.platform==='vlive'){
+            window.open(props.data.creatorDataHref)
+        }else{
+            props.sendLive(props.data.liveDataHref, props.data.platform, props.data._id, location.offsetTop+location.offsetHeight, props.data)
+        }
+        
         //props.updatepostLiveLog(props.userEmail, props.data, document.documentElement.scrollTop)
     }
 

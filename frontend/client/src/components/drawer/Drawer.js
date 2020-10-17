@@ -18,10 +18,6 @@ const Drawer = (props) => {
 
 
   useEffect(() => {
-    console.log(props.user.isSignedIn)
-  }, [])
-
-  useEffect(() => {
     props.darkmode
       ? setModeclassName("drawer dark")
       : setModeclassName("drawer");
