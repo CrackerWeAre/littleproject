@@ -10,7 +10,8 @@ import LiveModalShow from './LiveModalShow'
 
 const AirList = (props) => {    
 
-    const [airs, setAirs] = useState([])
+
+    const [airs, setAirs] = useState()
     const [loading, setloading] = useState(false)
     const [numAirs, setNumAirs] = useState(12)
     const [isFetching, setIsFetching] = useState(false)
@@ -183,6 +184,7 @@ const AirList = (props) => {
 
 
     const AirList = (item) => {
+
         if(item){
             return item.map(data => {
                 if(props.blocking.includes(data._uniq)){
@@ -206,7 +208,7 @@ const AirList = (props) => {
                     )
                 }
             ) 
-        } else if(airs.length>1){
+        } else if(airs.length>=1){
             return airs.map(data => {
                 if(props.followings.includes(data._uniq)){
                     return null;
@@ -225,7 +227,7 @@ const AirList = (props) => {
                     )
                 }else{
                     return (
-                        <div className='item' key={data._id}>
+                        <div className='item' key={data._id ? data._id : 0}>
                             <AirView data={data} sendLive={sendLive} closeLive = {closeLive}></AirView>
                         </div>
                     )
@@ -267,6 +269,7 @@ const AirList = (props) => {
 
 
 const mapStateToProps = (state) =>{
+    
     return {
         airs: Object.values(state.airs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)).filter(item => item.language==='ko'), 
         myairs: Object.values(state.myairs),

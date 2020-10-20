@@ -32,6 +32,7 @@ const CategoryMain = (props) => {
 
 
 const mapStateToProps = (state) => {
+
     return {
         categoryairs: Object.values(state.cateairs).filter(item =>  !state.followings.includes(item._uniq)).filter(item =>  !state.blockairs.includes(item._uniq)),
         user: state.auth,
