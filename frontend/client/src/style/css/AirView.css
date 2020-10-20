@@ -9,11 +9,12 @@
 .airview_img {
     border-radius: 5px 5px 5px 5px;
     width : 100%;
-
+    cursor: pointer;
     background: transparent;
     object-fit: contain;
     font-size: 19px;
-    color: #606060;}
+    color: #606060;
+}
 
 .airview_favor {
   width : 20px;

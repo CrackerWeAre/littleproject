@@ -191,8 +191,7 @@
 #section-3 ul > div {
     position: relative;
     cursor: pointer;
-    width: 200px;
-    min-height: 650px;
+    width: 20vw;
     background: #fcfcfc;
     display: flex;
     flex-direction: row;
@@ -213,6 +212,7 @@
 #section-3 ul li label span {
     font-size: 12px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .nav__platform {
@@ -278,7 +278,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    width:50%;
+    width:33.3%;
 }
 
 .streamer__logo {
@@ -288,7 +288,8 @@
 
 .streamer__logo img {
     position: relative;
-    width: 4rem;
+    width: 44px;
+    height: 44px;
     border-radius: 100%;
     z-index: 2;
 }
@@ -297,7 +298,8 @@
     position: relative;
     border-left: none;
     border-radius: 0 25px 25px 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
     transform: translateY(5px);
     z-index: 1;
 }
@@ -306,7 +308,7 @@
 } */
 
 #section-3 .md-icon {
-    width: 44px;
+    width: 55px;
 }
 
 /* Section-4 */

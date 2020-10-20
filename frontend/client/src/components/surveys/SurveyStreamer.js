@@ -38,10 +38,10 @@ const SurveyStreamerList = (props) => {
 
 const mapStateToProps = state => {
     return {
-        streamers_youtube: Object.values(state.survey).filter(item => item.platform === 'youtube').slice(0,10),
-        streamers_twitch: Object.values(state.survey).filter(item => item.platform === 'twitch').slice(0,10),
-        streamers_afreecatv: Object.values(state.survey).filter(item => item.platform === 'afreecatv').slice(0,10),
-        streamers_vlive: Object.values(state.survey).filter(item => item.platform === 'vlive').slice(0,10)
+        streamers_youtube: Object.values(state.survey).filter(item => item.platform === 'youtube').slice(0,12),
+        streamers_twitch: Object.values(state.survey).filter(item => item.platform === 'twitch').slice(0,12),
+        streamers_afreecatv: Object.values(state.survey).filter(item => item.platform === 'afreecatv').slice(0,12),
+        streamers_vlive: Object.values(state.survey).filter(item => item.platform === 'vlive').slice(0,12)
     };
 }
 
