@@ -6,13 +6,15 @@ export default (state = {}, action) => {
     switch(action.type) {
         case FETCH_FOL_AIRS :
             var hello = []
-           
-            if(action.payload!==null){
+            if(typeof(action.payload)==="Array"){
+                if(action.payload!==null||action.payload){
               
-                action.payload.map((innerdata) => {
-                    hello[innerdata._id]=innerdata
-                })
+                    action.payload.map((innerdata) => {
+                        hello[innerdata._id]=innerdata
+                    })
+                }
             }
+            
             return {...state, ...hello}
         case UPDATE_FOL :
             return {...state, [action.payload._id]:action.payload };

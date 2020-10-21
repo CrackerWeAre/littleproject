@@ -7,6 +7,7 @@ import DotNavigation from './DotNavigation';
 import ArrowButton from './ArrowButton';
 import SurveyStreamerList from './SurveyStreamer';
 import '../../style/css/MainSurvey.css';
+import airs from '../../apis/airs'
 
 import { images, PLATFORMS, CATEGORIES } from './_surveydata';
 
@@ -82,7 +83,7 @@ const MainSection = styled.section`
     }
 `;
 
-export const MainSurvey = () => {
+export const MainSurvey = (props) => {
     const sections = Array.from(document.querySelectorAll('section'));
     const currentRef = useRef();
     const [platforms, setPlatforms] = useState(PLATFORMS);
@@ -146,7 +147,23 @@ export const MainSurvey = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log("onSubmit: ", platform, category, streamer);
+        var jsonData = {
+            "platform": platform,
+            "category": category,
+            "streamers": streamer
+        };
+
+        const getCookie = (name) => {
+            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value ? value[2] : null;
+        };
+        var uid = getCookie('mkoaUID');
+        if(props.user){
+            Object.assign(jsonData, {"userInfo":props.user})
+        } else {
+            Object.assign(jsonData, {"userInfo":uid})
+        }
+        airs.post(`/survey/save`, jsonData, {headers: {'content-type': 'application/json'}}).then(window.location.pathname='/')
     }
 
     return (
@@ -209,7 +226,7 @@ export const MainSurvey = () => {
                     
                     <SurveyStreamerList onChange={streamerOnChange}></SurveyStreamerList>
 
-                    {/* <button type="submit" className="submit-btn">전체보기</button> */}
+                    <button type="submit" className="submit-btn">전체보기</button>
 
                     <ArrowButton />
                 </section>
@@ -260,4 +277,13 @@ export const MainSurvey = () => {
     );
 }
 
-export default MainSurvey;
+const mapStateToProps = (state) => {
+    return {
+        
+        user: state.auth.userEmail,
+       
+    }
+}
+
+
+export default  connect(mapStateToProps)(MainSurvey);
