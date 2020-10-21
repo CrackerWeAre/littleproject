@@ -11,23 +11,17 @@ import {
 } from './types'
 
 export const signUp = (response) => async dispatch => {
-    console.log(response)
     const params = new URLSearchParams();
-    const tags=response.tagitems.join()
-    const ctags = response.cateitems.join()
     const serialNo = response.serialNo.toString()
     params.append('birthday',response.birthday);
     params.append('nickname',response.nickname);
     params.append('id',response.id);
     params.append('password',response.password);
-    params.append('tags',tags);
-    params.append('ctags',ctags);
     params.append('serialNo',serialNo);
-            
+    params.append('gender',response.gender)
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/signUp", params)
-    console.log(newResponse)
     dispatch({ type: SIGN_UP, payload: newResponse.data})
-    history.push('/');
+    history.push('/survey');
 }
 
 export const idCheck = (id) => async dispatch => {
@@ -57,7 +51,6 @@ export const signInGoogle = (response) => async dispatch => {
 
             
     const newResponse = await axios.post("https://mkoa.sparker.kr:1323/login/google", params)
-    console.log(newResponse)
     dispatch({ type: SIGN_IN_GOOGLE, payload: newResponse.data, userEmail: response.profileObj.email})
     history.push('/')
 }

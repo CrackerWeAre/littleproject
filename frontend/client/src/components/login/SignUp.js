@@ -1,13 +1,9 @@
-import React, { Component, useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import Tag from '../surveys/Tag'
 import axios from 'axios'
-import history from '../../history'
 import {idCheck, signUp} from '../../actions/user'
 import "../../style/css/Login.css";
 import SignUpBasic from './SignUpBasic';
-import SignUpSelection from './SignUpSelection';
-import SignUpTag from './SignUpTag';
 import bcrypt from 'bcryptjs';
 
 export const SignUp = (props) => {
@@ -23,10 +19,7 @@ export const SignUp = (props) => {
     const [passwordError,setPasswordError] = useState(false);
     const [termError,setTermError] = useState(false);
     const [first,setfirst] = useState(true);
-    const [second,setsecond] = useState(false);
-    const [third, setthrid] =useState(true)
-    const [cateitems, setcateitems] = useState([])
-    const [tagitems, settagitems] = useState([])
+    const [gender, setgender] = useState('men')
     
 
 
@@ -35,26 +28,18 @@ export const SignUp = (props) => {
         if(passwordError){
             alert("비밀번호가 서로 다릅니다.");
             setPasswordCheck('')
+            setPasswordError(false)
             return 
         }
         if(termError){
             alert("중복된 아이디가 있습니다.");
             setId('')
+            setTermError(false)
             return
         }
+        setandsign(year, month, day)
+        
 
-        if(first){
-            setfirst(false)
-            setsecond(true)
-            const serial = Math.floor(Math.random()*10);
-            setSerailNo(serial)
-            getPw(password, serial)
-        }else if(second){
-            setsecond(false)
-            setthrid(true)
-        }else if(third){
-            setandsign(year, month, day);
-        }
     };
 
     async function getData(id) {
@@ -86,7 +71,7 @@ export const SignUp = (props) => {
         
         var birthday = year+"-"+month+"-"+day
         
-        props.setsignUp({"id":id, "nickname":nick, "password":hashpassword, birthday, cateitems, tagitems, serialNo})
+        props.setsignUp({"id":id, "nickname":nick, "password":hashpassword, birthday, serialNo, gender})
     }
     const onChangeId = (e) => {
         setId(e.target.value);
@@ -98,6 +83,14 @@ export const SignUp = (props) => {
         setPassword(e.target.value);
     };
     const onChangePasswordChk = (e) => {
+        if(e.target.value === password){
+            setPasswordError(e.target.value === password);
+            const serial = Math.floor(Math.random()*10);
+            setSerailNo(serial)
+            getPw(password, serial)
+        }else{
+            setPasswordError(e.target.value !== password);
+        }
         setPasswordError(e.target.value !== password);
         setPasswordCheck(e.target.value);
     };
@@ -114,7 +107,9 @@ export const SignUp = (props) => {
         setday(e.target.value);
     };
 
-    
+    const onChangeGender = (e) => {
+        setgender(e.target.value)
+    }
 
     const onfocusout = (e) => {
         getData(id)
@@ -138,20 +133,11 @@ export const SignUp = (props) => {
                     onChangePasswordChk={onChangePasswordChk}
                     passwordError={passwordError}
                     onfocusout={onfocusout}
-                ></SignUpBasic>}
-            {second&&<SignUpSelection
-                    onSubmit={onSubmit}
                     onChangeYear={onChangeYear}
                     onChangeMonth={onChangeMonth}
                     onChangeDay={onChangeDay}
-                ></SignUpSelection>}
-            {third&&<SignUpTag
-                    onSubmit={onSubmit}
-                    setcateitems={setcateitems}
-                    cateitems={cateitems}
-                    tagitems={tagitems}
-                    settagitems={settagitems}
-                ></SignUpTag>}
+                    onChangeGender={onChangeGender}
+                ></SignUpBasic>}
         </>
             
     );

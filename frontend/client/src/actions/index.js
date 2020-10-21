@@ -74,7 +74,6 @@ export const deleteFollower = (data) => async dispatch => {
 
 export const getFollower = (email) => async dispatch => {
     const response = await airs.get(`/following/getUserInfo/${email}`)
-
     dispatch({ type: GET_FOL, payload: response.data})
 }
 

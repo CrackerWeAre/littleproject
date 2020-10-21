@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
         case RE_SIGN_IN :
             return {...state, token : action.payload.token};
         case SIGN_UP:
-            return state;
+            return {...state, isSignedIn: true, token : action.payload.token, userEmail : action.payload.id, userInfo: action.payload};
         case ID_CHECK:
             return state;
         default :
