@@ -172,7 +172,7 @@
 #section-3 ul li label {
     position: relative;
     cursor: pointer;
-    height: 70px;
+    height: 7vh;
     background: #fcfcfc;
     display: flex;
     flex-direction: column;
@@ -191,7 +191,7 @@
 #section-3 ul > div {
     position: relative;
     cursor: pointer;
-    width: 20vw;
+    width: 17vw;
     background: #fcfcfc;
     display: flex;
     flex-direction: row;
@@ -210,7 +210,8 @@
 }
 
 #section-3 ul li label span {
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: 600;
     text-align: center;
     text-transform: capitalize;
 }
@@ -288,8 +289,8 @@
 
 .streamer__logo img {
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 2vw;
+    height: 2vw;
     border-radius: 100%;
     z-index: 2;
 }
@@ -297,18 +298,20 @@
 .streamer__title {
     position: relative;
     border-left: none;
-    border-radius: 0 25px 25px 0;
-    font-size: 0.8rem;
-    line-height: 0.9rem;
+    font-size: 0.7rem;
+    line-height: 0.8rem;
     transform: translateY(5px);
     z-index: 1;
+    height: 4vh;
+    max-height: 24px;
+    overflow: hidden;
 }
 
 /* .streamer__title:hover {
 } */
 
 #section-3 .md-icon {
-    width: 55px;
+    width: 44px;
 }
 
 /* Section-4 */

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetch_streamerlist } from '../../actions/streamers';
 import SurveyStreamerItem from './SurveyStreamerItem';
 
+var shuffle = require('shuffle-array');
+
 const SurveyStreamerList = (props) => {
     useEffect(() => {
         props.fetch_streamerlist();
@@ -38,7 +40,7 @@ const SurveyStreamerList = (props) => {
 
 const mapStateToProps = state => {
     return {
-        streamers_youtube: Object.values(state.survey).filter(item => item.platform === 'youtube').slice(0,12),
+        streamers_youtube: shuffle(Object.values(state.survey).filter(item => item.platform === 'youtube')).slice(0,12),
         streamers_twitch: Object.values(state.survey).filter(item => item.platform === 'twitch').slice(0,12),
         streamers_afreecatv: Object.values(state.survey).filter(item => item.platform === 'afreecatv').slice(0,12),
         streamers_vlive: Object.values(state.survey).filter(item => item.platform === 'vlive').slice(0,12)

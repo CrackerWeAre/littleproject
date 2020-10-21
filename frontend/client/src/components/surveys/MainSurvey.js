@@ -226,7 +226,7 @@ export const MainSurvey = (props) => {
                     
                     <SurveyStreamerList onChange={streamerOnChange}></SurveyStreamerList>
 
-                    <button type="submit" className="submit-btn">전체보기</button>
+                    {/* <button type="submit" className="submit-btn">전체보기</button> */}
 
                     <ArrowButton />
                 </section>

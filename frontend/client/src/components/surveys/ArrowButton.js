@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 const ButtonWrapper = styled.div`
     position: absolute;
-    bottom: 1.5vw;
+    bottom: 1vw;
     left: 50%;
     z-index: 9999;
     transform: translate(-50%, 0);
