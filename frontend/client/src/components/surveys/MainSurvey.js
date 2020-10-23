@@ -166,6 +166,19 @@ export const MainSurvey = (props) => {
         airs.post(`/survey/save`, jsonData, {headers: {'content-type': 'application/json'}}).then(window.location.pathname='/')
     }
 
+    const onScroll = e => {
+        // console.log(e.target);
+        
+        if (e.wheelDelta > 0 || e.detail < 0) {
+            // scroll up
+            // console.log('스크롤 위로');
+        } else {
+            // scroll down
+            window.scrollTo({ top: e.target.offsetTop + window.innerHeight, behavior: 'smooth' });
+        }
+    }
+    window.addEventListener('wheel', onScroll);
+
     return (
         <>
             <SurveyHeader />
@@ -177,88 +190,88 @@ export const MainSurvey = (props) => {
                 <ArrowButton />
             </MainSection>
 
-                {/* Section2 */}
-                <section id="section-2">
-                    <h1>
-                    <span>관심 플랫폼</span> 선택
-                    </h1>
-                    <p>관심 플랫폼을 선택해주세요!</p>
+            {/* Section2 */}
+            <section id="section-2">
+                <h1>
+                <span>관심 플랫폼</span> 선택
+                </h1>
+                <p>관심 플랫폼을 선택해주세요!</p>
 
-                    <ul>
-                        {platforms.map(platform => (
-                            <li key={platform.id}>
-                                <label>
-                                <input
+                <ul>
+                    {platforms.map(platform => (
+                        <li key={platform.id}>
+                            <label>
+                            <input
+                                type="checkbox"
+                                title="platform"
+                                name={platform.id}
+                                id={platform.id}
+                                checked={platform.checked}
+                                onChange={onChange}
+                            />
+                            {platform.src ? (
+                                <img
+                                    className="md-icon"
+                                    title={platform.text}
+                                    alt={platform.text}
+                                    src={platform.src}
+                                />
+                            ) : (
+                                <div className="md-icon" title={platform.text} alt={platform.text} />
+                            )}
+                            
+                            <span className="checkmark">{platform.text}</span>
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+                <ArrowButton />
+            </section>
+
+            {/* Section3 */}
+            <section id="section-3">
+                <div id="title">
+                    <h1>
+                    <span>관심 스트리머</span> 선택
+                    </h1>
+                    <p>관심 스트리머를 선택해주세요!</p>
+                </div>
+                
+                <SurveyStreamerList onChange={streamerOnChange}></SurveyStreamerList>
+
+                {/* <button type="submit" className="submit-btn">전체보기</button> */}
+
+                <ArrowButton />
+            </section>
+
+            {/* Section4 */}
+            <section id="section-4" className="section-4">
+                <h1><span>관심 카테고리</span> 선택</h1>
+                <p>관심있는 카테고리를 선택해주세요!</p>
+
+                <ul>
+                    {categories.map(category => (
+                        <li key={category.id}>
+                            <label>
+                                <input 
                                     type="checkbox"
-                                    title="platform"
-                                    name={platform.id}
-                                    id={platform.id}
-                                    checked={platform.checked}
+                                    title="category"
+                                    name={category.id}
+                                    id={category.id}
+                                    checked={category.checked}
                                     onChange={onChange}
                                 />
-                                {platform.src ? (
-                                    <img
-                                        className="md-icon"
-                                        title={platform.text}
-                                        alt={platform.text}
-                                        src={platform.src}
-                                    />
-                                ) : (
-                                    <div className="md-icon" title={platform.text} alt={platform.text} />
-                                )}
-                                
-                                <span className="checkmark">{platform.text}</span>
-                                </label>
-                            </li>
-                        ))}
-                    </ul>
-                    <ArrowButton />
-                </section>
-
-                {/* Section3 */}
-                <section id="section-3">
-                    <div id="title">
-                        <h1>
-                        <span>관심 스트리머</span> 선택
-                        </h1>
-                        <p>관심 스트리머를 선택해주세요!</p>
-                    </div>
-                    
-                    <SurveyStreamerList onChange={streamerOnChange}></SurveyStreamerList>
-
-                    {/* <button type="submit" className="submit-btn">전체보기</button> */}
-
-                    <ArrowButton />
-                </section>
-
-                {/* Section4 */}
-                <section id="section-4" className="section-4">
-                    <h1><span>관심 카테고리</span> 선택</h1>
-                    <p>관심있는 카테고리를 선택해주세요!</p>
-
-                    <ul>
-                        {categories.map(category => (
-                            <li key={category.id}>
-                                <label>
-                                    <input 
-                                        type="checkbox"
-                                        title="category"
-                                        name={category.id}
-                                        id={category.id}
-                                        checked={category.checked}
-                                        onChange={onChange}
-                                    />
-                                    <FontAwesomeIcon icon={category.icon} />
-                                    <span className="checkmark">{category.text}</span>
-                                </label>
-                            </li>
-                        ))}
-                    </ul>
-                    
-                    <button type="submit" className="submit-btn" onClick={onSubmit}>제출하기</button>
-                    
-                    <ArrowButton />
-                </section>
+                                <FontAwesomeIcon icon={category.icon} />
+                                <span className="checkmark">{category.text}</span>
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+                
+                <button type="submit" className="submit-btn" onClick={onSubmit}>제출하기</button>
+                
+                <ArrowButton />
+            </section>
 
             {/* Section5 */}
             <section id="section-5" className="section-5">
@@ -271,8 +284,6 @@ export const MainSurvey = (props) => {
                 
                 <ArrowButton lastSection />
             </section>
-            
-            <DotNavigation sections={sections} ref={currentRef} />
         </>
     );
 }
