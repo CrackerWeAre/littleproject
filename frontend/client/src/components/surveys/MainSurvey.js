@@ -136,13 +136,22 @@ export const MainSurvey = (props) => {
 
     const streamerOnChange = e => {
         const { checked, name, title } = e.target;
+
         console.log(checked, name, title)
         if(streamer.includes(name)){
             setStreamer(platform.filter(item => item !== name))
         } else if (checked) {
             setStreamer([...streamer, name]);
             console.log(platform, category, streamer);
-        } 
+        }
+        if(checked){
+            e.target.parentElement.parentElement.style.boxShadow =
+            "inset 3px 3px 5px rgba(255, 255, 255, 1), inset -3px -3px 5px rgba(0, 0, 0, 0.1)";
+            e.target.nextElementSibling.style.color = "#fbb30f";
+        }else {
+            e.target.parentElement.parentElement.style.boxShadow = "";
+            e.target.nextElementSibling.style.color = "";
+        }
     }
 
     const onSubmit = e => {
