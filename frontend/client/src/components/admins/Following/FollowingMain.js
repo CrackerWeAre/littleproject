@@ -23,6 +23,12 @@ function FollowingMain(props) {
                 <div className="user_airlist_contanier">{mySubList()}</div>
             </Fragment>
             );
+        }else {
+          return (
+            <Fragment>
+                <div className="container_title">팔로우중인 채널이 없습니다.</div>
+            </Fragment>
+          );
         }
     };
     return (

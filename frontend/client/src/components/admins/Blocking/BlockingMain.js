@@ -24,6 +24,12 @@ function BlockingMain(props) {
               <div className="user_airlist_contanier">{myBlockList()}</div>
             </Fragment>
           );
+        } else {
+          return (
+            <Fragment>
+              <div className="container_title">차단중인 채널이 없습니다.</div>
+            </Fragment>
+          )
         }
       };
 
