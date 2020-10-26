@@ -37,7 +37,7 @@ const Main = (props) => {
     return(
         
         <Fragment>  
-            <MainReview></MainReview>
+            {window.innerWidth>=767&&<MainReview/>}
             <AirFrame/>
             {liveList()}
         </Fragment>

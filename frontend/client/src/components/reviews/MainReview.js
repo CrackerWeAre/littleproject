@@ -68,11 +68,9 @@ function MainReview(props) {
                         <input name="email" type="email" placeholder="이메일"  autoComplete="off" value={formValues.email} label="channel" required  onChange={onemailChange}></input>
                     </div>
                 </div>
-                <div className="review_message">
-                    <div className="input_data">
-                        <input name="message" autoComplete="off" maxlength="524288" placeholder="무엇을 도와드릴까요?"  value={formValues.message} label="channel" required  onChange={onmessageChange}></input>
-                    </div>
-                </div>
+
+                    <textarea className="review_message" laname="message" autoComplete="off" maxlength="524288" placeholder="무엇을 도와드릴까요?"  value={formValues.message} label="channel" required  onChange={onmessageChange}></textarea>
+
                 <button className="review_submit">Submit</button>
             </form>
         </div>

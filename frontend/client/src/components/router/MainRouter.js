@@ -43,7 +43,7 @@ function MainRouter(props) {
           <Header></Header>
           {!isMobile&&props.drawerVal&&<Drawer></Drawer>}
           {!isMobile&&!props.drawerVal&&<DrawerShort></DrawerShort>}
-          <div className={classDrawerName+classModeName}>
+          <div className={!isMobile ? classDrawerName+classModeName : "mainBody__mobile"}>
               <Switch>
                     <Route path="/" exact component = {Main}></Route>
                     <Route path="/main" exact component = {Main}></Route>

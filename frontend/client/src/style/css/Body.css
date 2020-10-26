@@ -15,6 +15,13 @@
     z-index: -1;
     margin-left: auto;
 }
+.mainBody__mobile{
+    top: 70px!important;
+    width: 100%;
+    padding-top: 70px;
+    background: #FAFAFA;
+    z-index: -1;
+}
 
 .darkbody {
     background: #212121;

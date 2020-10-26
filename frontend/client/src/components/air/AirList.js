@@ -166,7 +166,6 @@ const AirList = (props) => {
 
     
     const handleScroll = () => {
-        console.log(window.innerHeight, document.documentElement.scrollTop, document.documentElement.offsetHeight)
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight || window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight-1 ||window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight-2){
             setIsFetching(true);
         }

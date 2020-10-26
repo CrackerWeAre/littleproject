@@ -1,8 +1,8 @@
 .review_container {
     z-index: 10;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 70px;
+    right: 70px;
     background: white;
     width: 40%;
     height: 45%;
@@ -14,11 +14,11 @@
 .review_popupbutton {
     z-index: 10;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background: #f1f3f5;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@
 }
 
 .review_container .review_form {
-    height: calc(100% - 45px);
+    height: calc(100% - 81px);
     padding: 10px;
 }
 .review_container .review_form .review_title {
@@ -119,9 +119,9 @@
 }
 
 .review_container .review_form .review_message {
-    border: 1px solid #606060;
+    box-sizing: border-box;
     position: relative;
-    height: 200px;
+    height: calc(100% - 140px);
     background: white;
     color: #606060;
     width: 100%;
