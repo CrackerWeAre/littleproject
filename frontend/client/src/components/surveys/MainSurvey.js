@@ -175,19 +175,6 @@ export const MainSurvey = (props) => {
         airs.post(`/survey/save`, jsonData, {headers: {'content-type': 'application/json'}}).then(window.location.pathname='/')
     }
 
-    const onScroll = e => {
-        // console.log(e.target);
-        
-        if (e.wheelDelta > 0 || e.detail < 0) {
-            // scroll up
-            // console.log('스크롤 위로');
-        } else {
-            // scroll down
-            window.scrollTo({ top: e.target.offsetTop + window.innerHeight, behavior: 'smooth' });
-        }
-    }
-    window.addEventListener('wheel', onScroll);
-
     return (
         <>
             <SurveyHeader />
