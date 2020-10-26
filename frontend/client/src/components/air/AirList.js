@@ -19,6 +19,7 @@ const AirList = (props) => {
     const [liveModalId, setLiveModalId] =useState('')
     const [liveModalPlatform, setLiveModalPlatform] =useState('')
     const [liveModalkey, setLiveModalKey] = useState('')
+    const [itemByWidth, setItemByWidth] = useState(0)
 
     const [cateOn, setcateOn] = useState(false)
     const [airOn, setairOn] = useState(false)
@@ -50,10 +51,25 @@ const AirList = (props) => {
     },[liveModalId])
 
     useEffect(()=>{
-
+        console.log(window.innerWidth)
         window.addEventListener('scroll', handleScroll);
+        if(window.innerWidth>1821){
+            //1줄에 5개씩
+            setItemByWidth(15)
+        }else if(window.innerWidth>1440&&window.innerWidth<1821){
+            //1줄에 4개씩
+            setItemByWidth(12)
+        }else if(window.innerWidth>1024&&window.innerWidth<=1440){
+            //1줄에 3개씩
+            setItemByWidth(9)
+        }else if(window.innerWidth<=1024){
+            //1줄에 2개씩
+            setItemByWidth(8)
+        }
         return () => window.removeEventListener('scroll', handleScroll)
+        
 
+        
     },[])
 
  
@@ -64,7 +80,7 @@ const AirList = (props) => {
             setairOn(false)
             setsearchOn(false)
             setfollowOn(true)
-            setAirs(Array.from(props.myairs.slice(0,12)))
+            setAirs(Array.from(props.myairs.slice(0,itemByWidth)))
             setNumAirs(12)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
@@ -73,7 +89,7 @@ const AirList = (props) => {
             setairOn(false)
             setsearchOn(false)
             setfollowOn(false)
-            setAirs(Array.from(props.cateairs.slice(0,12)))
+            setAirs(Array.from(props.cateairs.slice(0,itemByWidth)))
             setNumAirs(12)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
@@ -82,7 +98,7 @@ const AirList = (props) => {
             setairOn(false)
             setsearchOn(true)
             setfollowOn(false)
-            setAirs(Array.from(props.searches.slice(0,12)))
+            setAirs(Array.from(props.searches.slice(0,itemByWidth)))
             setNumAirs(12)
             setIsFetching(false)
         }else {
@@ -91,7 +107,7 @@ const AirList = (props) => {
             setcateOn(false)
             setairOn(true)
             setsearchOn(false)
-            setAirs(Array.from(props.airs.slice(0,12)))
+            setAirs(Array.from(props.airs.slice(0,itemByWidth)))
             setNumAirs(12)
             setIsFetching(false)
         }
@@ -150,8 +166,12 @@ const AirList = (props) => {
 
     
     const handleScroll = () => {
-        if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-        setIsFetching(true);
+        console.log(window.innerHeight, document.documentElement.scrollTop, document.documentElement.offsetHeight)
+        if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight || window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight-1 ||window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight-2){
+            setIsFetching(true);
+        }
+        return;
+        
     }
 
     const myAirShow = () => {
