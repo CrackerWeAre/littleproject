@@ -6,9 +6,14 @@ export default (state = {}, action) => {
     switch(action.type) {
         case FETCH_BLO_AIRS :
             var hello = []
-            action.payload.map((innerdata) => {
-                hello[innerdata._id]=innerdata
-            })
+           
+            if(typeof(action.payload)==="Array"){
+                if(action.payload!==null||action.payload){
+                    action.payload.map((innerdata) => {
+                        hello[innerdata._id]=innerdata
+                    })
+                }
+            }
             return {...state, ...hello}
         case UPDATE_BLO :
             return {...state, [action.payload.id]:action.payload };
