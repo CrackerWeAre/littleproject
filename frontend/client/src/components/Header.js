@@ -46,23 +46,26 @@ const Header = (props) => {
     return (
         <Fragment>
             <header className={classModeName}>
-                <Link to="/">
-                    <i className="fas fa-bars hamburger_logo" alt="list" onClick={drawerClick}></i>
-                </Link>
-                <Link to="/">
-                    <img className="main_logo" src={Logo} alt="logo" title="물지 않아요!" onClick={reload}></img>
-                </Link>
-                <nav className="header_nav">
-
-                <form className="searchbox" onSubmit={handleSubmit}>
-                    <div className="relative">
-                        <input type="search" className="search_input" placeholder="검색" value={searchItem} onChange={handleChange} />
-                        <button type="submit" className="search_button">
-                            <FontAwesomeIcon icon={faSearch} />
-                        </button>
-                    </div>
-                </form>
-                <LogHeader></LogHeader>
+                <nav className="haeder__logo">
+                    <Link to="/">
+                        <i className="fas fa-bars hamburger__logo" alt="list" onClick={drawerClick}></i>
+                    </Link>
+                    <Link to="/">
+                        <img className="main__logo" src={Logo} alt="logo" title="물지 않아요!" onClick={reload}></img>
+                    </Link>
+                </nav>
+                <nav className="header__nav">
+                    <form className="searchbox" onSubmit={handleSubmit}>
+                        <div className="relative">
+                            <input type="search" className="search__input" placeholder="검색" value={searchItem} onChange={handleChange} />
+                            <button type="submit" className="search__button">
+                                <FontAwesomeIcon icon={faSearch} />
+                            </button>
+                        </div>
+                    </form>
+                </nav>
+                <nav className="header__mypage">
+                    <LogHeader></LogHeader> 
                 </nav>
             </header>
         </Fragment>

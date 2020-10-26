@@ -9,7 +9,6 @@
 .header {
     display: inline-flex!important;
     height: 70px;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     position: fixed;
@@ -22,41 +21,49 @@
     color: whitesmoke!important;
 }
 
-
-.hamburger_logo {
+.haeder__logo {
+  width: 20vw;
+  display: inline-flex!important;
+}
+.header__nav {
+  width: 80vw;
+  
+}
+.header__mypage {
+  width: 20vw;
+  display: flex!important;
+  justify-content: inherit;
+}
+.hamburger__logo {
   cursor: pointer;
   color: #606060;
   font-size: 18px;
   margin-right: 15px;
-  margin-left: 32px;
-    
+  margin-left: min(5vw, 32px);
+  margin-top: 20px;
 }
 
-.main_logo{
+.main__logo{
   height: 60px;
   width: 60px;
   cursor: pointer;
   margin-right: auto;
-  margin-left: 15px;
+  margin-left: min(1vw, 15px);
 }
 
-.header_nav {
-    width: inherit;
-    display: flex!important;
-    justify-content: inherit;
-    
-}
 
 .nav__links {
+    margin-left: auto;
     padding-right: 10px;
     justify-content: flex-end;
     display: flex!important;
 }
 
 
-.nav_items {
+.nav__items {
     display: inline;
     padding: 10px!important;
+    margin: auto;
 }
 
 
@@ -100,17 +107,17 @@ a {
 /* Search Bar */
 .searchbox {
   display: block;
-  align-items: center;
-  margin: 13px;
-  margin-left: 30%;
+  margin: auto;margin-left: auto;
+  width: 80%;
 }
 
 .relative {
   position: relative;
-  width: 200%;
+  width: 80%;
+  margin: auto;
 }
 
-.search_input {
+.search__input {
   width: 100%;
   margin: 0;
   padding: 0.6rem 1.5rem;
@@ -122,11 +129,11 @@ a {
   border: 1px solid rgba(80,80,80,0.3);
 }
 
-.search_input::placeholder {
+.search__input::placeholder {
   font-size: 14px;
 }
 
-.search_input:focus {
+.search__input:focus {
   border: 2px solid #fbb30f;
 }
 
@@ -145,7 +152,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.search_button {
+.search__button {
   position: absolute;
   display: block;
   top: 50%;
@@ -156,12 +163,12 @@ input[type="search"]::-webkit-search-results-decoration {
   outline: none;
 }
 
-.search_button svg {
+.search__button svg {
   width: 1.25rem!important;
   color: #606060;
 }
 
-.search_button svg:hover {
+.search__button svg:hover {
   color: #fbb30f;
 }
 
