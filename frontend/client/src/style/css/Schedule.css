@@ -28,7 +28,13 @@
 .schedule_item a img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 32vw;
+    object-fit: cover;
+}
+
+.schedule_item:first-child a img,
+.schedule_item:nth-child(2) a img{
+    height: 50vw;
 }
 
 .schedule_content {
