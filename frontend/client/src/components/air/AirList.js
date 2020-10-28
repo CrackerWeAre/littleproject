@@ -81,7 +81,7 @@ const AirList = (props) => {
             setsearchOn(false)
             setfollowOn(true)
             setAirs(Array.from(props.myairs.slice(0,itemByWidth)))
-            setNumAirs(12)
+            setNumAirs(itemByWidth)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/directory/')){
             setcateOn(true)
@@ -90,7 +90,7 @@ const AirList = (props) => {
             setsearchOn(false)
             setfollowOn(false)
             setAirs(Array.from(props.cateairs.slice(0,itemByWidth)))
-            setNumAirs(12)
+            setNumAirs(itemByWidth)
             setIsFetching(false)
         }else if(window.location.pathname.includes('/search/')){
             setliveOn(false)
@@ -99,7 +99,7 @@ const AirList = (props) => {
             setsearchOn(true)
             setfollowOn(false)
             setAirs(Array.from(props.searches.slice(0,itemByWidth)))
-            setNumAirs(12)
+            setNumAirs(itemByWidth)
             setIsFetching(false)
         }else {
             setfollowOn(true)
@@ -108,7 +108,7 @@ const AirList = (props) => {
             setairOn(true)
             setsearchOn(false)
             setAirs(Array.from(props.airs.slice(0,itemByWidth)))
-            setNumAirs(12)
+            setNumAirs(itemByWidth)
             setIsFetching(false)
         }
     },[props])
@@ -130,10 +130,10 @@ const AirList = (props) => {
     },[isFetching])
 
     const fetchMoreListItems = (data) => {
-        if(data.slice(numAirs,numAirs+12).length!==0){
+        if(data.slice(numAirs,numAirs+itemByWidth).length!==0){
             setTimeout(()=>{
-                setAirs(prevState => ( [...prevState, ...Array.from(data.slice(numAirs,numAirs+12))]));
-                setNumAirs(numAirs+12)
+                setAirs(prevState => ( [...prevState, ...Array.from(data.slice(numAirs,numAirs+itemByWidth))]));
+                setNumAirs(numAirs+itemByWidth)
                 setIsFetching(false);
                 setloading(false)
             }, 500)
